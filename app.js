@@ -22,6 +22,6 @@ fs.readdirSync('./controllers').forEach(function (file) {
   }
 });
 
-app.listen(3000, function (){
+app.listen(process.env.PORT, function (){
   console.log('This app listening on port 3000!');
 });
