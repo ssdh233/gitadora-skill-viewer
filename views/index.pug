@@ -17,23 +17,26 @@ html
       a こちら
     p スキル(Guitarfreaks/Drummania)
     div(id="skill_data")
-      p HOT
-      table
-        each item in skill_data.guitar_hot
-          tr
-            td= item.name
-            td= item.part
-            td= item.diff
-            td= item.skill_value
-            td= item.achive_value
-            td= item.diff_value
-      p OTHER
-      table
-        each item in skill_data.guitar_other
-          tr
-            td= item.name
-            td= item.part
-            td= item.diff
-            td= item.skill_value
-            td= item.achive_value
-            td= item.diff_value
+      if skill_data
+        p HOT
+        table
+          each item in skill_data.guitar_hot
+            tr
+              td= item.name
+              td= item.part
+              td= item.diff
+              td= item.skill_value
+              td= item.achive_value
+              td= item.diff_value
+        p OTHER
+        table
+          each item in skill_data.guitar_other
+            tr
+              td= item.name
+              td= item.part
+              td= item.diff
+              td= item.skill_value
+              td= item.achive_value
+              td= item.diff_value
+      else
+        p NO DATA

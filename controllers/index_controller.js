@@ -13,11 +13,14 @@ module.exports.controller = function (app) {
           console.error(err);
           res.send("Error" + err);
         } else {
-          //console.log(JSON.parse(result.rows[0]));
-          res.render("index", { 
-            user_id : result.rows[0].user_id,
-            skill_data : JSON.parse(result.rows[0].skill_json)
-          });
+          if (!result.rows[0]) {
+            res.render("index");
+          } else {
+            res.render("index", { 
+              user_id : result.rows[0].user_id,
+              skill_data : JSON.parse(result.rows[0].skill_json)
+            });
+          }
         }      
       });
     });
