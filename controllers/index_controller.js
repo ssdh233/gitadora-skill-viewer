@@ -14,7 +14,7 @@ module.exports.controller = function (app) {
           res.send("Error" + err);
         } else {
           if (!result.rows[0]) {
-            console.log("nodata");
+            res.render("index");
           } else {
             res.render("index", { 
               user_id : result.rows[0].user_id,
