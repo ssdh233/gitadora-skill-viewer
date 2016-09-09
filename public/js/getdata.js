@@ -38,10 +38,10 @@ function extract_data(url, label) {
       for (var i=0;i<25;i++) {
         var current_line = lines.eq(i);
         var name = current_line.find("a.text_link").eq(0).text();
-        // part: guitar, bass, drum
-        var part = current_line.find("div.music_seq_box > div").eq(0).attr('class').substring(14);
-        // diff: ext, mstr
-        var diff = current_line.find("div.music_seq_box > div").eq(1).attr('class').substring(14);
+        // part: G, B, D
+        var part = current_line.find("div.music_seq_box > div").eq(0).attr('class').substring(14,15);
+        // diff: BAS, ADV, EXT, MAS
+        var diff = current_line.find("div.music_seq_box > div").eq(1).attr('class').substring(14,17);
 
         var skill_value = current_line.find("td.skill_cell").text();
         skill_value = skill_value.substring(0, skill_value.length - 8).trim();
@@ -64,9 +64,17 @@ function extract_data(url, label) {
       if (count === 4) {
         $.ajax({
           url: "https://gitadora-skill-viewer.herokuapp.com/upload",
+          //url: "http://127.0.0.1:3000/upload",
           method: "POST",
           data: {
-            skill_data: skill_data
+            guitar: {
+              hot: skill_data["guitar_hot"],
+              other: skill_data["guitar_other"]
+            },
+            drum: {
+              hot: skill_data["drum_hot"],
+              other: skill_data["drum_other"]
+            }
           },
           success: function(data){
             console.log(data);

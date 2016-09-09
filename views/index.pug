@@ -14,29 +14,4 @@ html
       pre javascript:void(!function(d){var s =d.createElement("script");s.type="text/javascript";s.src="http://127.0.0.1:3000/js/getdata.js";d.head.appendChild(s);}(document));
     p 3.コナミのサイトでブックマークをクリックしてデータをGET(イメージ)
     p 4.完成。シェア用URLは
-      a こちら
-    p スキル(Guitarfreaks/Drummania)
-    div(id="skill_data")
-      if skill_data
-        p HOT
-        table
-          each item in skill_data.guitar_hot
-            tr
-              td= item.name
-              td= item.part
-              td= item.diff
-              td= item.skill_value
-              td= item.achive_value
-              td= item.diff_value
-        p OTHER
-        table
-          each item in skill_data.guitar_other
-            tr
-              td= item.name
-              td= item.part
-              td= item.diff
-              td= item.skill_value
-              td= item.achive_value
-              td= item.diff_value
-      else
-        p NO DATA
+      a(href="/guitar") こちら

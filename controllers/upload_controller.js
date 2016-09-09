@@ -3,11 +3,12 @@ var pg = require('pg');
 
 module.exports.controller = function (app) {
   app.post('/upload', function (req, res) {
-    pg.defaults.ssl = true;
+    //pg.defaults.ssl = true;
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
       //TODO check whether user id has already existed or not
-      var skill_data_str = JSON.stringify(req.body.skill_data);
-      var sql = 'insert into skill values (1, $$' + skill_data_str + '$$);';
+      var guitar_data_str = JSON.stringify(req.body.guitar);
+      var drum_data_str = JSON.stringify(req.body.drum);
+      var sql = 'insert into skill values (1, $$' + guitar_data_str +  '$$,' + '$$' + drum_data_str + '$$);';
       client.query(sql, function(err, result) {
         done();
 
