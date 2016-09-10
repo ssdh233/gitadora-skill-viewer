@@ -17,8 +17,29 @@ var label = [
   "drum_hot" 
 ];
 
+var profile_data = {};
 var skill_data = {};
+
+// ajax count
 var count = 0;
+
+// get profile data
+var url = "http://p.eagate.573.jp/game/gfdm/gitadora_tb/p/eam/playdata/profile.html";
+$.ajax({
+  url: url,
+  async: false,
+  success: function(html) {
+    var doc = document.implementation.createHTMLDocument("html");
+    doc.documentElement.innerHTML = html;
+
+    var player_name = $(doc).find(".profile_name_frame").text();
+    var card_number = $(doc).find(".common_frame_date").text().substring(10,26);
+
+    profile_data["player_name"] = player_name;
+    profile_data["card_number"] = card_number;
+  }
+});
+
 for (var i=0;i<4;i++) {
   extract_data(urls[i], label[i]);
 }
@@ -67,6 +88,8 @@ function extract_data(url, label) {
           //url: "http://127.0.0.1:3000/upload",
           method: "POST",
           data: {
+            card_number: profile_data["card_number"],
+            player_name: profile_data["player_name"],
             guitar: {
               hot: skill_data["guitar_hot"],
               other: skill_data["guitar_other"]
