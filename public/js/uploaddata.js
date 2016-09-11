@@ -56,6 +56,7 @@ function extract_data(url, label) {
       var lines = skill_table.children().eq(1).children();
 
       var skill_data_per_page = [];
+      var skill_point = 0;
       for (var i=0;i<25;i++) {
         var current_line = lines.eq(i);
         var name = current_line.find("a.text_link").eq(0).text();
@@ -77,9 +78,13 @@ function extract_data(url, label) {
           achive_value: achive_value,
           diff_value: diff_value
         });
+        skill_point += parseFloat(skill_value);
       }
       count++;
-      skill_data[label] = skill_data_per_page;
+      skill_data[label] = {
+        point: skill_point.toFixed(2),
+        data: skill_data_per_page
+      }
     },
     complete: function() {
       if (count === 4) {

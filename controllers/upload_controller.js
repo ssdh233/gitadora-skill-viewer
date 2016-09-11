@@ -6,7 +6,7 @@ module.exports.controller = function (app) {
     //pg.defaults.ssl = true;
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
       var card_number = req.body.card_number;
-      var player_name = JSON.stringify(req.body.player_name);
+      var player_name = req.body.player_name;
       var guitar_data_str = JSON.stringify(req.body.guitar);
       var drum_data_str = JSON.stringify(req.body.drum);
       

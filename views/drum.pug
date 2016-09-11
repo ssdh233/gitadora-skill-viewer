@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    link(rel="stylesheet" type="text/css" href="/css/guitar.css")
+    link(rel="stylesheet" type="text/css" href="/css/skill.css")
     title test
   body
     a(href="guitar") Guitarfreaks
@@ -11,6 +11,19 @@ html
       table
         tr
           td
+            table(class="profile_table")
+              tr
+                td NAME
+                td SKILL
+                td HOT
+                td OTHER
+              tr(class="lv"+skill_lv)
+                td= player_name
+                td= skill_point
+                td= skill_data.hot.point
+                td= skill_data.other.point
+        tr
+          td
             table(class="skill_table")
               caption HOT
               tr
@@ -18,7 +31,7 @@ html
                 th(class="diff") レベル
                 th(class="achieve") 達成率
                 th(class="skill") スキル
-              each item in skill_data.hot
+              each item in skill_data.hot.data
                 tr(class=item.diff)
                   td(class="name")= item.name
                   td(class="diff")= item.diff_value + " " + item.diff
@@ -33,7 +46,7 @@ html
                 th(class="diff") レベル
                 th(class="achive") 達成率
                 th(class="skill") スキル
-              each item in skill_data.other
+              each item in skill_data.other.data
                 tr(class=item.diff)
                   td(class="name")= item.name
                   td(class="diff")= item.diff_value + " " + item.diff
