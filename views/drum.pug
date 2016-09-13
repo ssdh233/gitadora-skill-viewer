@@ -37,12 +37,13 @@ html
                 th(class="diff") レベル
                 th(class="achieve") 達成率
                 th(class="skill") スキル
-              each item in skill_data.hot.data
-                tr(class=item.diff)
-                  td(class="name")= item.name
-                  td(class="diff")= item.diff_value + " " + item.diff
-                  td(class="achieve")= item.achive_value
-                  td(class="skill")= item.skill_value
+              if skill_data.hot.data
+                each item in skill_data.hot.data
+                  tr(class=item.diff)
+                    td(class="name")= item.name
+                    td(class="diff")= item.diff_value + " " + item.diff
+                    td(class="achieve")= item.achive_value
+                    td(class="skill")= item.skill_value
         tr  
           td
             table(class="skill_table")
@@ -52,11 +53,12 @@ html
                 th(class="diff") レベル
                 th(class="achive") 達成率
                 th(class="skill") スキル
-              each item in skill_data.other.data
-                tr(class=item.diff)
-                  td(class="name")= item.name
-                  td(class="diff")= item.diff_value + " " + item.diff
-                  td(class="achieve")= item.achive_value
-                  td(class="skill")= item.skill_value
+              if skill_data.other.data
+                each item in skill_data.other.data
+                  tr(class=item.diff)
+                    td(class="name")= item.name
+                    td(class="diff")= item.diff_value + " " + item.diff
+                    td(class="achieve")= item.achive_value
+                    td(class="skill")= item.skill_value
     else
       p NO DATA

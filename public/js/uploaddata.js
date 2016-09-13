@@ -59,27 +59,32 @@ if (window.location.hostname == "p.eagate.573.jp") {
         var skill_data_per_page = [];
         var skill_point = 0;
         for (var i=0;i<25;i++) {
-          var current_line = lines.eq(i);
-          var name = current_line.find("a.text_link").eq(0).text();
-          // part: G, B, D
-          var part = current_line.find("div.music_seq_box > div").eq(0).attr('class').substring(14,15);
-          // diff: BAS, ADV, EXT, MAS
-          var diff = current_line.find("div.music_seq_box > div").eq(1).attr('class').substring(14,17);
+          try {
+            var current_line = lines.eq(i);
+            var name = current_line.find("a.text_link").eq(0).text();
+            // part: G, B, D
+            var part = current_line.find("div.music_seq_box > div").eq(0).attr('class').substring(14,15);
+            // diff: BAS, ADV, EXT, MAS
+            var diff = current_line.find("div.music_seq_box > div").eq(1).attr('class').substring(14,17);
 
-          var skill_value = current_line.find("td.skill_cell").text();
-          skill_value = skill_value.substring(0, skill_value.length - 8).trim();
-          var achive_value = current_line.find("td.achive_cell").text().trim();
-          var diff_value = current_line.find("td.diff_cell").text().trim();
+            var skill_value = current_line.find("td.skill_cell").text();
+            skill_value = skill_value.substring(0, skill_value.length - 8).trim();
+            var achive_value = current_line.find("td.achive_cell").text().trim();
+            var diff_value = current_line.find("td.diff_cell").text().trim();
 
-          skill_data_per_page.push({
-            name: name,
-            part: part,
-            diff: diff,
-            skill_value: skill_value,
-            achive_value: achive_value,
-            diff_value: diff_value
-          });
-          skill_point += parseFloat(skill_value);
+            skill_data_per_page.push({
+              name: name,
+              part: part,
+              diff: diff,
+              skill_value: skill_value,
+              achive_value: achive_value,
+              diff_value: diff_value
+            });
+            skill_point += parseFloat(skill_value);
+          } catch (TypeError) {
+            // when the form is not fully filled, ignore error
+            break;
+          }
         }
         count++;
         skill_data[label] = {
@@ -107,10 +112,11 @@ if (window.location.hostname == "p.eagate.573.jp") {
               update_date: getDate()
             },
             success: function(data){
-              console.log(data);
               if (data.status === 0) {
                 location = "https://gitadora-skill-viewer.herokuapp.com/" + data.message + "/guitar";
                 //location = "http://127.0.0.1:3000/" + data.message + "/guitar";
+              } else {
+                alert(data.message);
               }
             }
           });
