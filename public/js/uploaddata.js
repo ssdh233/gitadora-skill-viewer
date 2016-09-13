@@ -106,6 +106,9 @@ function extract_data(url, label) {
           },
           success: function(data){
             console.log(data);
+            if (data.status === 0) {
+              location = "https://gitadora-skill-viewer.herokuapp.com/" + data.message + "/guitar";
+            }
           }
         });
       }

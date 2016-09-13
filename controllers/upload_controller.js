@@ -16,18 +16,28 @@ module.exports.controller = function (app) {
 
         if (err) {
           console.error(err);
-          res.send("Error" + err);
+          res.send({ 
+            status: 1, 
+            message: "Error" + err 
+          });
         } else {
           if (result.rows[0]) {
-            var sql = 'update skill set player_name = $$' + player_name + '$$, guitar_skill = $$' + guitar_data_str + '$$, drum_skill = $$' + drum_data_str + '$$ where id = ' + result.rows[0].id  +';';
+            var id = result.rows[0].id;
+            var sql = 'update skill set player_name = $$' + player_name + '$$, guitar_skill = $$' + guitar_data_str + '$$, drum_skill = $$' + drum_data_str + '$$ where id = ' + id  +';';
             client.query(sql, function(err, result) {
               done();
 
               if (err) {
                 console.error(err);
-                res.send("Error" + err);
+                res.send({
+                  status: 1,
+                  message: "Error" + err
+                });
               } else {
-                res.send("Successfully uploaded.");
+                res.send({
+                  status: 0,
+                  message: id
+                });
               }
             });
           } else {
@@ -37,7 +47,10 @@ module.exports.controller = function (app) {
 
               if (err) {
                 console.error(err);
-                res.send("Error" + err);
+                res.send({
+                  status: 1,
+                  message: "Error" + err
+                });
               } else {
                 var id = (result.rows[0].maxid || 0) + 1;
                 var sql =  'insert into skill values (' + id + ',$$' + card_number + '$$,$$' + player_name + '$$, $$' + guitar_data_str +  '$$,' + '$$' + drum_data_str + '$$);';
@@ -46,9 +59,15 @@ module.exports.controller = function (app) {
 
                   if (err) {
                     console.error(err);
-                    res.send("Error" + err);
+                    res.send({
+                      status: 1,
+                      message: "Error" + err
+                    });
                   } else {
-                    res.send("Successfully uploaded");
+                    res.send({
+                      status: 0,
+                      message: id
+                    });
                   }
                 });
               }

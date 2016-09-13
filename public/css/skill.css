@@ -1,8 +1,11 @@
+body {
+  font-family: verdana;
+  font-size: 90%;
+}
+
 .profile_table {
   background-color: #000000;
   border: 0 none;
-  font-family: verdana;
-  font-size: 90%;
 }
 
 .profile_table tr:first-child td {
@@ -95,8 +98,6 @@
 .skill_table {
   background-color: #FFFFFF;
   border: 0 none;
-  font-family: verdana;
-  font-size: 90%;
 }
 
 .skill_table th {
