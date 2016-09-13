@@ -9,6 +9,7 @@ module.exports.controller = function (app) {
       var player_name = req.body.player_name;
       var guitar_data_str = JSON.stringify(req.body.guitar);
       var drum_data_str = JSON.stringify(req.body.drum);
+      var update_date = req.body.update_date;
       
       var sql = 'select * from skill where card_number = $$' + card_number + '$$;';
       client.query(sql, function(err, result) {
@@ -23,7 +24,7 @@ module.exports.controller = function (app) {
         } else {
           if (result.rows[0]) {
             var id = result.rows[0].id;
-            var sql = 'update skill set player_name = $$' + player_name + '$$, guitar_skill = $$' + guitar_data_str + '$$, drum_skill = $$' + drum_data_str + '$$ where id = ' + id  +';';
+            var sql = 'update skill set player_name = $$' + player_name + '$$, guitar_skill = $$' + guitar_data_str + '$$, drum_skill = $$' + drum_data_str + '$$, update_date = $$' + update_date + '$$ where id = ' + id  +';';
             client.query(sql, function(err, result) {
               done();
 
@@ -53,7 +54,7 @@ module.exports.controller = function (app) {
                 });
               } else {
                 var id = (result.rows[0].maxid || 0) + 1;
-                var sql =  'insert into skill values (' + id + ',$$' + card_number + '$$,$$' + player_name + '$$, $$' + guitar_data_str +  '$$,' + '$$' + drum_data_str + '$$);';
+                var sql =  'insert into skill values (' + id + ',$$' + card_number + '$$,$$' + player_name + '$$,$$' + guitar_data_str +  '$$,$$' + drum_data_str + '$$,$$' + update_date + '$$);';
                 client.query(sql, function(err, result) {
                   done();
 

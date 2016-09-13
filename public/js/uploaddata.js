@@ -103,12 +103,14 @@ if (window.location.hostname == "p.eagate.573.jp") {
               drum: {
                 hot: skill_data["drum_hot"],
                 other: skill_data["drum_other"]
-              }
+              },
+              update_date: getDate()
             },
             success: function(data){
               console.log(data);
               if (data.status === 0) {
                 location = "https://gitadora-skill-viewer.herokuapp.com/" + data.message + "/guitar";
+                //location = "http://127.0.0.1:3000/" + data.message + "/guitar";
               }
             }
           });
@@ -118,4 +120,31 @@ if (window.location.hostname == "p.eagate.573.jp") {
   }
 } else {
   alert("コナミ様のサイトhttp://p.eagate.573.jp/で行ってください。");
+}
+
+function getDate() {
+  var date = new Date();
+  var mm = date.getMinutes();
+  var hh = date.getHours();
+  var DD = date.getDate();
+  var MM = date.getMonth()+1;
+  var YYYY = date.getFullYear();
+
+  if (mm < 10) {
+    mm = '0' + mm;
+  }
+
+  if (hh < 10) {
+    hh = '0' + hh;
+  }
+
+  if (DD < 10) {
+    DD = '0' + DD;
+  } 
+
+  if (MM < 10) {
+    MM = '0' + MM;
+  } 
+
+  return YYYY + '/' + MM + '/' + DD + ' ' + hh + ':' + mm;
 }

@@ -21,7 +21,8 @@ module.exports.controller = function (app) {
               player_name : result.rows[0].player_name.replace(/^"(.*)"$/, '$1'),
               skill_data : skill_data,
               skill_point : skill_point,
-              skill_lv : parseInt(skill_point/500)
+              skill_lv : parseInt(skill_point/500),
+              update_date : result.rows[0].update_date
             });
           }
         }
