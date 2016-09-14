@@ -3,23 +3,29 @@ html
   head
     title gitadora skill viewer
     link(rel="stylesheet" type="text/css" href="/css/index.css")
-    script(type='text/javascript' src='js/index.js').
+    script(type='text/javascript' src='http://code.jquery.com/jquery-1.12.4.min.js')
+    script(type='text/javascript' src='js/index.js')
   body
-    table
+    table(class="main")
       tr
         td Gitadora Skill Viewer
       tr(height="20px")
-      tr(class="head")
+      tr(class="subtitle" id="sub1")
         td 使い方
       tr
         td
-          p 1.ブックマークに下記のスクリプトを登録
-          pre javascript:void(!function(d){var s =d.createElement("script");s.type="text/javascript";s.src="https://gitadora-skill-viewer.herokuapp.com/js/uploaddata.js";d.head.appendChild(s);}(document));
-          img(src="image/1.jpeg")
-          p 2.
-            b コナミ様のサイトにログインした状態で
-            a 、登録されたブックマークをクリック
-          img(src="image/2.jpeg" width="80%")
-          p 3.データのアップロードが終わったらすぐ（約5秒）スキル表示画面への遷移が行われます。
-            b 遷移先のURLを覚えておいてください
-          img(src="image/3.jpeg" width="80%")
+          div(class="block" id='block1')
+            p 1.ブックマークに下記のスクリプトを登録
+            pre javascript:void(!function(d){var s =d.createElement("script");s.type="text/javascript";s.src="https://gitadora-skill-viewer.herokuapp.com/js/uploaddata.js";d.head.appendChild(s);}(document));
+            img(src="image/1.jpeg")
+            p 2.
+              b コナミ様のサイトにログインした状態で
+              a 、登録されたブックマークをクリック
+            img(src="image/2.jpeg" width="80%")
+            p 3.データのアップロードが終わったらすぐ（約5秒）スキル表示画面への遷移が行われます。
+              b 遷移先のURLを覚えておいてください
+            img(src="image/3.jpeg" width="80%")
+      tr(class="subtitle" id="sub2")
+        td その他
+
+        
