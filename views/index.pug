@@ -11,10 +11,16 @@ html
         td Gitadora Skill Viewer
       tr(height="20px")
       tr(class="subtitle" id="sub1")
+        td なにこれ？
+      tr
+        td
+          div(class="block" id="block1")
+            p コナミ様のサイトからスキルデータを取得し、スキル表を公開するためのウェブサイトです。
+      tr(class="subtitle" id="sub2")
         td 使い方
       tr
         td
-          div(class="block" id='block1')
+          div(class="block" id="block2")
             p 1.ブックマークに下記のスクリプトを登録
             pre javascript:void(!function(d){var s =d.createElement("script");s.type="text/javascript";s.src="http://gitadora-skill-viewer.herokuapp.com/js/uploaddata.js";d.head.appendChild(s);}(document));
             img(src="image/1.jpeg")
@@ -25,7 +31,28 @@ html
             p 3.データのアップロードが終わったらすぐ（約5秒）スキル表示画面への遷移が行われます。
               b 遷移先のURLを覚えておいてください
             img(src="image/3.jpeg" width="80%")
-      tr(class="subtitle" id="sub2")
+      tr(class="subtitle" id="sub3")
+        td 仕様説明
+      tr
+        td
+          div(class="block" id="block3")
+            p 1.アップロードする時、古いデータが
+              b 上書き
+              a されます。つまり、本サイトには古いスキルデータを保存する機能がありません。
+            p 2.コナミ様のサイトから取得するデータは
+              b プレイヤーネームとスキルに関する情報のみ
+              a となります。
+            p 3.ある程度の専門知識を持っている方なら
+              b スキルデータを改竄することが可能です
+              a 。このサイトに載せているデータが全部真実であること、かつ、アップロードされたデータが改竄されないことについての保証ができかねます。
+      tr(class="subtitle" id="sub4")
         td その他
+      tr
+        td
+          div(class="block" id="block4")
+            p ソース：
+              a(href="https://github.com/matsumatsu233/gitadora-skill-viewer" target="_blank") Github
+            p 不具合報告、ご意見など：
+              a(href="" target="_blank") Blog
+            p ここの日本語がおかしい！とか、スキル表をこうしたらもっと綺麗にできるよ！とか、何かあったらBlogでコメントして頂くと嬉しいです。
 
-        
