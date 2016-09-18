@@ -144,3 +144,8 @@ body {
 .MAS {
   background-color:#D8BFF8;
 }
+
+#footer a {
+  font-size: 90%;
+  text-decoration: none;
+}
