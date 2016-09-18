@@ -1,7 +1,7 @@
 var pg = require('pg');
 
 module.exports.controller = function (app) {
-  app.get('/:id/drum', function (req, res) {
+  app.get('/:id/d', function (req, res) {
     //pg.defaults.ssl = true;
     pg.connect(process.env.DATABASE_URL, function (err, client, done) {
       var sql = 'select * from skill where id =' + req.params.id + ';';

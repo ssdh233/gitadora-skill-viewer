@@ -114,7 +114,7 @@ if (window.location.hostname == "p.eagate.573.jp") {
               },
               success: function(data){
                 if (data.status === 0) {
-                  location = "http://gitadora-skill-viewer.herokuapp.com/" + data.message + "/guitar";
+                  location = "http://gitadora-skill-viewer.herokuapp.com/" + data.message + "/g";
                   //location = "http://127.0.0.1:3000/" + data.message + "/guitar";
                 } else {
                   alert(data.message);
