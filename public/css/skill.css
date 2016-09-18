@@ -145,7 +145,10 @@ body {
   background-color:#D8BFF8;
 }
 
-#footer a {
+.save input[type=submit] {
+  font-size: 200%;
+}
+
+.footer a {
   font-size: 90%;
-  text-decoration: none;
 }

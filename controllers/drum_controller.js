@@ -20,6 +20,7 @@ module.exports.controller = function (app) {
             var skill_point = (parseFloat(skill_data.hot.point) + parseFloat(skill_data.other.point)).toFixed(2);
             res.render("drum" , {
               player_name : result.rows[0].player_name.replace(/^"(.*)"$/, '$1'),
+              id : req.params.id,
               skill_data : skill_data,
               skill_point : skill_point,
               skill_lv : parseInt(skill_point/500),

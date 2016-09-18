@@ -8,11 +8,6 @@ html
       if skill_data
         tr
           td(colspan="2")
-            a(href="guitar") Guitarfreaks
-            a /
-            a(href="drum") Drummania
-        tr
-          td(colspan="2")
             a Last updated: 
             a= update_date
         tr
@@ -31,7 +26,10 @@ html
         tr
           td(colspan="2")
             table(class="skill_table")
-              caption HOT
+              if type == "guitar"
+                caption GUITAR HOT
+              else
+                caption DRUM HOT
               tr
                 th(class="name") 曲名
                 th(class="diff") レベル
@@ -41,13 +39,19 @@ html
                 each item in skill_data.hot.data
                   tr(class=item.diff)
                     td(class="name")= item.name
-                    td(class="diff")= item.diff_value + " " + item.diff
+                    if type == "guitar"
+                      td(class="diff")= item.diff_value + " " + item.diff + "-" + item.part
+                    else
+                      td(class="diff")= item.diff_value + " " + item.diff
                     td(class="achieve")= item.achive_value
                     td(class="skill")= item.skill_value
         tr  
           td(colspan="2")
             table(class="skill_table")
-              caption OTHER
+              if type == "guitar"
+                caption GUITAR OTHER
+              else
+                caption DRUM OTHER
               tr
                 th(class="name") 曲名
                 th(class="diff") レベル
@@ -57,18 +61,21 @@ html
                 each item in skill_data.other.data
                   tr(class=item.diff)
                     td(class="name")= item.name
-                    td(class="diff")= item.diff_value + " " + item.diff
+                    if type == "guitar"
+                      td(class="diff")= item.diff_value + " " + item.diff + "-" + item.part
+                    else
+                      td(class="diff")= item.diff_value + " " + item.diff
                     td(class="achieve")= item.achive_value
                     td(class="skill")= item.skill_value
         tr
           td 
             form(class="save" action="/save" method="post")
               input(type="hidden" name="skill_id" value=id) 
-              input(type="hidden" name="type" value="drum") 
+              input(type="hidden" name="type" value="guitar") 
               input(type="hidden" name="skill" value=skill_point) 
-              input(type="submit" value="このスキル表を永久に保存したい！")
           td(class="footer" align="right")
             a(href="/") このサイトについて
+
       else
         tr
           td NO DATA
