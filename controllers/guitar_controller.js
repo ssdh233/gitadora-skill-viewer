@@ -9,8 +9,9 @@ module.exports.controller = function (app) {
         done();
 
         if (err) {
-          console.err(err);
-          res.send("Error" + err);
+          console.error(sql);
+          console.error(err);
+          res.send(sql + "<br>" + err);
         } else {
           if (!result.rows[0]) {
             res.render("guitar");

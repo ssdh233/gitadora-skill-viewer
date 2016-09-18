@@ -16,10 +16,11 @@ module.exports.controller = function (app) {
         done();
 
         if (err) {
+          console.error(sql);
           console.error(err);
           res.send({ 
             status: 1, 
-            message: "Error" + err 
+            message: sql + ' | ' + err 
           });
         } else {
           if (result.rows[0]) {
@@ -29,10 +30,11 @@ module.exports.controller = function (app) {
               done();
 
               if (err) {
+                console.error(sql);
                 console.error(err);
                 res.send({
                   status: 1,
-                  message: "Error" + err
+                  message: sql + ' | ' + err 
                 });
               } else {
                 res.send({
@@ -47,10 +49,11 @@ module.exports.controller = function (app) {
               done();
 
               if (err) {
+                console.error(sql);
                 console.error(err);
                 res.send({
                   status: 1,
-                  message: "Error" + err
+                  message: sql + ' | ' + err 
                 });
               } else {
                 var id = (result.rows[0].maxid || 0) + 1;
@@ -59,10 +62,11 @@ module.exports.controller = function (app) {
                   done();
 
                   if (err) {
+                    console.error(sql);
                     console.error(err);
                     res.send({
                       status: 1,
-                      message: "Error" + err
+                      message: sql + ' | ' + err 
                     });
                   } else {
                     res.send({
