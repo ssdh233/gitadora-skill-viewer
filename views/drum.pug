@@ -62,7 +62,7 @@ html
                     td(class="skill")= item.skill_value
         tr
           td 
-            form(class="save" action="/save" method="post")
+            form(class="save" action="/save" method="post" onSubmit="return check()")
               input(type="hidden" name="skill_id" value=id) 
               input(type="hidden" name="type" value="drum") 
               input(type="hidden" name="skill" value=skill_point) 
@@ -94,4 +94,11 @@ html
         tr(class="footer")
           td
             a(href="/") このサイトについて
-
+    script.
+      function check() {
+        if(window.confirm('本サイトは無料なものしか使っていないため、データベースの容量が限られています。本機能のご利用には節度を守ってください。\n本当に保存したいですか？')){
+          return true;
+        } else {
+          return false;
+        }
+      }
