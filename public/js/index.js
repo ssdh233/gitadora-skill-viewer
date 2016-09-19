@@ -16,4 +16,12 @@ $(document).ready(function() {
     $('#block4').slideToggle();
   });
 
+  $('#subsub1').click( function(){
+    $('#subblock1').slideToggle();
+  });
+
+  $('#subsub2').click( function(){
+    $('#subblock2').slideToggle();
+  });
+
 });
