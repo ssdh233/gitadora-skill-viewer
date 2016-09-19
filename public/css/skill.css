@@ -152,3 +152,22 @@ body {
 .footer a {
   font-size: 90%;
 }
+
+.snapshot {
+  background-color: #000000;
+  border: 0 none;
+}
+
+.snapshot tr:first-child td {
+  color: #FFFFFF;
+  background-color: #333333;
+}
+
+.snapshot td {
+  font-size: 90%;
+  padding: 3px;
+}
+
+.snapshot a {
+  text-decoration: none;
+}

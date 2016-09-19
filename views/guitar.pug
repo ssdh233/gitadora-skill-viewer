@@ -23,7 +23,7 @@ html
                 td SKILL
                 td HOT
                 td OTHER
-              tr(class="lv"+skill_lv)
+              tr(class="lv"+parseInt(skill_point/500))
                 td= player_name
                 td= skill_point
                 td= skill_data.hot.point
@@ -69,7 +69,26 @@ html
               input(type="submit" value="このスキル表を永久に保存したい！")
           td(class="footer" align="right")
             a(href="/") このサイトについて
-
+        tr(height="10px")
+        tr
+          td
+            if skillp_data
+              table(class="snapshot")
+                caption Snapshots
+                tr
+                  td No.
+                  td SKILL
+                  td DATE
+                -var index = 1
+                each item in skillp_data
+                  tr
+                    td
+                      a(class="lv"+parseInt(skill_point/500) href="/"+item.id+ "/p")= index++
+                    td
+                      a(class="lv"+parseInt(skill_point/500) href="/"+item.id+ "/p")= item.skill 
+                    td
+                      a(class="lv"+parseInt(skill_point/500) href="/"+item.id+ "/p")= item.update_date
+              
       else
         tr
           td NO DATA

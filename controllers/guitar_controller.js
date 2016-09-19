@@ -16,15 +16,27 @@ module.exports.controller = function (app) {
           if (!result.rows[0]) {
             res.render("guitar");
           } else {
-            var skill_data = JSON.parse(result.rows[0].guitar_skill);
-            var skill_point = (parseFloat(skill_data.hot.point) + parseFloat(skill_data.other.point)).toFixed(2);
-            res.render("guitar" , {
-              player_name : result.rows[0].player_name.replace(/^"(.*)"$/, '$1'),
-              id : req.params.id,
-              skill_data : skill_data,
-              skill_point : skill_point,
-              skill_lv : parseInt(skill_point/500),
-              update_date : result.rows[0].update_date
+            var result_skill = result.rows[0];
+            sql = 'select * from skillp where skill_id =' + req.params.id + ' and type = $$guitar$$;';
+            client.query(sql, function (err, result) {
+              done();
+
+              if (err) {
+                console.error(sql);
+                console.error(err);
+                res.send(sql + "<br>" + err);
+              } else {
+                var skill_data = JSON.parse(result_skill.guitar_skill);
+                var skill_point = (parseFloat(skill_data.hot.point) + parseFloat(skill_data.other.point)).toFixed(2);
+                res.render("guitar" , {
+                  player_name : result_skill.player_name.replace(/^"(.*)"$/, '$1'),
+                  id : req.params.id,
+                  skill_data : skill_data,
+                  skill_point : skill_point,
+                  update_date : result_skill.update_date,
+                  skillp_data : result.rows
+                });
+              }
             });
           }
         }
