@@ -23,11 +23,11 @@ html
                 td SKILL
                 td HOT
                 td OTHER
-              tr(class="lv"+parseInt(skill_point/500))
-                td= player_name
-                td= skill_point
-                td= skill_data.hot.point
-                td= skill_data.other.point
+              tr
+                td(class="lv"+parseInt(skill_point/500))= player_name
+                td(class="lv"+parseInt(skill_point/500))= skill_point
+                td(class="lv"+parseInt(skill_point/500))= skill_data.hot.point
+                td(class="lv"+parseInt(skill_point/500))= skill_data.other.point
         tr
           td(colspan="2")
             table(class="skill_table")
