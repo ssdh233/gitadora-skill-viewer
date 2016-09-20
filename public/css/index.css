@@ -3,7 +3,7 @@ body {
 }
 
 .main {
-  width: 1220px;
+  width: 100%;
 }
 
 .main .title {
@@ -16,6 +16,10 @@ body {
   font-family: Andada;
   font-weight: bold;
   display: none;
+}
+
+.main .script {
+  font-size: 80%;
 }
 
 .main .subtitle {
