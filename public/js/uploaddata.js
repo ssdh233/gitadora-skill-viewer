@@ -1,14 +1,14 @@
 var script = document.createElement('script');
-script.src = 'http://code.jquery.com/jquery-1.12.4.min.js';
+script.src = '//code.jquery.com/jquery-1.12.4.min.js';
 script.type = 'text/javascript';
 document.getElementsByTagName('head')[0].appendChild(script);
 
 if (window.location.hostname == "p.eagate.573.jp") {
   var urls = [
-    "http://p.eagate.573.jp/game/gfdm/gitadora_tb/p/eam/playdata/skill.html?gtype=gf&stype=0",
-    "http://p.eagate.573.jp/game/gfdm/gitadora_tb/p/eam/playdata/skill.html?gtype=gf&stype=1",
-    "http://p.eagate.573.jp/game/gfdm/gitadora_tb/p/eam/playdata/skill.html?gtype=dm&stype=0",
-    "http://p.eagate.573.jp/game/gfdm/gitadora_tb/p/eam/playdata/skill.html?gtype=dm&stype=1"
+    "//p.eagate.573.jp/game/gfdm/gitadora_tb/p/eam/playdata/skill.html?gtype=gf&stype=0",
+    "//p.eagate.573.jp/game/gfdm/gitadora_tb/p/eam/playdata/skill.html?gtype=gf&stype=1",
+    "//p.eagate.573.jp/game/gfdm/gitadora_tb/p/eam/playdata/skill.html?gtype=dm&stype=0",
+    "//p.eagate.573.jp/game/gfdm/gitadora_tb/p/eam/playdata/skill.html?gtype=dm&stype=1"
   ];
 
   var label = [
@@ -25,7 +25,7 @@ if (window.location.hostname == "p.eagate.573.jp") {
   var count = 0;
 
   // get profile data
-  var url = "http://p.eagate.573.jp/game/gfdm/gitadora_tb/p/eam/playdata/profile.html";
+  var url = "//p.eagate.573.jp/game/gfdm/gitadora_tb/p/eam/playdata/profile.html";
   $.ajax({
     url: url,
     async: false,
@@ -96,7 +96,7 @@ if (window.location.hostname == "p.eagate.573.jp") {
         complete: function() {
           if (count === 4) {
             $.ajax({
-              url: "http://gitadora-skill-viewer.herokuapp.com/upload",
+              url: "//gitadora-skill-viewer.herokuapp.com/upload",
               //url: "http://127.0.0.1:3000/upload",
               method: "POST",
               data: {
@@ -114,8 +114,8 @@ if (window.location.hostname == "p.eagate.573.jp") {
               },
               success: function(data){
                 if (data.status === 0) {
-                  location = "http://gitadora-skill-viewer.herokuapp.com/" + data.message + "/g";
-                  //location = "http://127.0.0.1:3000/" + data.message + "/guitar";
+                  location = "//gitadora-skill-viewer.herokuapp.com/" + data.message + "/g";
+                  //location = "http://127.0.0.1:3000/" + data.message + "/g";
                 } else {
                   alert(data.message);
                 }
