@@ -18,11 +18,11 @@ html
                 td SKILL
                 td HOT
                 td OTHER
-              tr(class="lv"+skill_lv)
-                td= player_name
-                td= skill_point
-                td= skill_data.hot.point
-                td= skill_data.other.point
+              tr
+                td(class="lv"+skill_lv)= player_name
+                td(class="lv"+skill_lv)= skill_point
+                td(class="lv"+skill_lv)= skill_data.hot.point
+                td(class="lv"+skill_lv)= skill_data.other.point
         tr
           td(colspan="2")
             table(class="skill_table")
