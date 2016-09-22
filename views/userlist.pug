@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    link(rel="stylesheet" type="text/css" href="/css/userlist.css")
+    title gitadora skill viewer
+  body
+    table(class="userlist")
+      tr
+        td ID
+        td NAME
+        td GUITAR
+        td DRUM
+        td LAST UPDATE
+      each item in data
+        tr
+          td= item.id
+          td= item.player_name
+          td(class="lv"+parseInt(item.guitar_skill/500))= item.guitar_skill
+          td(class="lv"+parseInt(item.drum_skill/500))= item.drum_skill
+          td= item.update_date
+
