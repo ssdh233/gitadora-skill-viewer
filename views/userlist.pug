@@ -15,7 +15,9 @@ html
         tr
           td= item.id
           td= item.player_name
-          td(class="lv"+parseInt(item.guitar_skill/500))= item.guitar_skill
-          td(class="lv"+parseInt(item.drum_skill/500))= item.drum_skill
+          td
+            a(class="lv"+parseInt(item.guitar_skill/500) href=item.id+"/g")= item.guitar_skill
+          td
+            a(class="lv"+parseInt(item.drum_skill/500) href=item.id+"/d")= item.drum_skill
           td= item.update_date
 
