@@ -102,8 +102,8 @@ function extract_data(url, label) {
     complete: function() {
       if (count === 4) {
         $.ajax({
-          //url: "//gitadora-skill-viewer.herokuapp.com/upload",
-          url: "http://127.0.0.1:3000/upload",
+          url: "//gitadora-skill-viewer.herokuapp.com/upload",
+          //url: "http://127.0.0.1:3000/upload",
           method: "POST",
           data: {
             card_number: profile_data["card_number"],
@@ -120,8 +120,8 @@ function extract_data(url, label) {
           },
           success: function(data){
             if (data.status === 0) {
-              //location = "//gitadora-skill-viewer.herokuapp.com/" + data.message + "/g";
-              location = "http://127.0.0.1:3000/" + data.message + "/g";
+              location = "//gitadora-skill-viewer.herokuapp.com/" + data.message + "/g";
+              //location = "http://127.0.0.1:3000/" + data.message + "/g";
             } else {
               alert(data.message);
             }
