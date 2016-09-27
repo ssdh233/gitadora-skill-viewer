@@ -11,6 +11,7 @@ html
         td GUITAR
         td DRUM
         td LAST UPDATE
+        td COUNT
       each item in data
         tr
           td= item.id
@@ -20,4 +21,5 @@ html
           td
             a(class="lv"+parseInt(item.drum_skill/500) href=item.id+"/d")= item.drum_skill
           td= item.update_date
+          td= item.update_count
 
