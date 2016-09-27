@@ -45,7 +45,13 @@ body {
 }
 
 .skill_table .achieve {
-  width: 80px;
+  padding-left: 20px;
+  padding-right: 10px;
+  text-align: left;
+}
+
+.skill_table th.achieve {
+  padding: 0px;
   text-align: center;
 }
 
