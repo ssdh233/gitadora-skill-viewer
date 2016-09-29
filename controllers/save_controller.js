@@ -50,7 +50,6 @@ module.exports.controller = function (app) {
                           console.error(err);
                         } else {
                           res.redirect('/' + id + '/p');
-
                         }
                       });
                     } else {
