@@ -83,11 +83,11 @@ html
                 each item in skillp_data
                   tr
                     td
-                      a(class="lv"+parseInt(skill_point/500) href="/"+item.id+ "/p")= index++
+                      a(class="lv"+parseInt(item.skill/500) href="/"+item.id+ "/p")= index++
                     td
-                      a(class="lv"+parseInt(skill_point/500) href="/"+item.id+ "/p")= item.skill 
+                      a(class="lv"+parseInt(item.skill/500) href="/"+item.id+ "/p")= item.skill 
                     td
-                      a(class="lv"+parseInt(skill_point/500) href="/"+item.id+ "/p")= item.update_date
+                      a(class="lv"+parseInt(item.skill/500) href="/"+item.id+ "/p")= item.update_date
               
       else
         tr
