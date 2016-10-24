@@ -29,3 +29,5 @@ app.listen(process.env.PORT, function (){
 process.on('uncaughtException', function (err) {
     console.log('uncaughtException => ' + err);
 });
+
+setInterval(() => console.log("I'm working...(*´ω｀*)"), 24*60*60*1000);
