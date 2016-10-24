@@ -30,4 +30,4 @@ process.on('uncaughtException', function (err) {
     console.log('uncaughtException => ' + err);
 });
 
-setInterval(() => console.log("I'm working...(*´ω｀*)"), 24*60*60*1000);
+setInterval(() => console.log("I'm working...(*´ω｀*)"), 10*60*1000);
