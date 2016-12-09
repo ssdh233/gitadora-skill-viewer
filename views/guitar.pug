@@ -2,10 +2,14 @@ doctype html
 html
   head
     link(rel="stylesheet" type="text/css" href="/css/skill.css")
+    link(rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Andada")
     title gitadora skill viewer
   body
     table
       if skill_data
+        tr(class="title")
+          td(colspan="2")
+            a= version
         tr
           td(colspan="2")
             a Guitarfreaks

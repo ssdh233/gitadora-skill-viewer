@@ -4,11 +4,13 @@ module.exports.controller = function (app) {
   app.get('/:ver/:id/d', function (req, res) {
     var skill_table_name;
     var skillp_table_name;
+    var version_name;
 
     switch (req.params.ver) {
       case "tb":
         skill_table_name = "skill_tb";
         skillp_table_name = "skillp_tb";
+        version_name = "GITADORA Tri-Boost";
         break;
       default:
         res.send("Unexpected version name");
@@ -41,7 +43,7 @@ module.exports.controller = function (app) {
                 var skill_data = JSON.parse(result_skill.drum_skill);
                 var skill_point = (parseFloat(skill_data.hot.point) + parseFloat(skill_data.other.point)).toFixed(2);
                 res.render("drum" , {
-                  version: req.params.ver,
+                  version: version_name,
                   player_name : result_skill.player_name.replace(/^"(.*)"$/, '$1'),
                   id : req.params.id,
                   skill_data : skill_data,

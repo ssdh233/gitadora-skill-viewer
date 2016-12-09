@@ -5,6 +5,12 @@ body {
   font-size: 90%;
 }
 
+.title {
+  font-size: 120%;
+  font-family: Andada;
+  font-weight: bold;
+}
+
 .profile_table {
   background-color: #000000;
   border: 0 none;
