@@ -17,7 +17,7 @@ module.exports.controller = function (app) {
     }
 
     pg.connect(process.env.DATABASE_URL, function (err, client, done) {
-      var sql = 'select * from skillp where id =' + req.params.id + ';';
+      var sql = 'select * from ' + skillp_table_name + ' where id =' + req.params.id + ';';
       client.query(sql, function (err, result) {
         done();
 
