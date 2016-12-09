@@ -119,7 +119,7 @@ function extract_data(url, label) {
           },
           success: function(data){
             if (data.status === 0) {
-              location = "http://127.0.0.1:3000/" + data.message + "/g";
+              location = "http://127.0.0.1:3000/tb/" + data.message + "/g";
             } else {
               alert(data.message);
             }
