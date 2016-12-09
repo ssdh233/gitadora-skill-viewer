@@ -4,7 +4,7 @@ module.exports.controller = function (app) {
   app.get('/:id/d', function (req, res) {
     //pg.defaults.ssl = true;
     pg.connect(process.env.DATABASE_URL, function (err, client, done) {
-      var sql = 'select * from skill where id =' + req.params.id + ';';
+      var sql = 'select * from skill_tb where id =' + req.params.id + ';';
       client.query(sql, function (err, result) {
         done();
 
@@ -17,7 +17,7 @@ module.exports.controller = function (app) {
             res.render("drum");
           } else {
             var result_skill = result.rows[0];
-            sql = 'select * from skillp where skill_id =' + req.params.id + ' and type = $$drum$$;';
+            sql = 'select * from skillp_tb where skill_id =' + req.params.id + ' and type = $$drum$$;';
             client.query(sql, function (err, result) {
               done();
 
