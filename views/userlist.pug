@@ -2,10 +2,13 @@ doctype html
 html
   head
     link(rel="stylesheet" type="text/css" href="/css/userlist.css")
+    link(rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Andada")
     title gitadora skill viewer
   body
     table(class="userlist")
-      tr
+      tr(class="title")
+        td(colspan=6)= version_full
+      tr(class="head")
         td ID
         td NAME
         td GUITAR

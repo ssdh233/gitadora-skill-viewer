@@ -43,7 +43,8 @@ module.exports.controller = function (app) {
                 var skill_data = JSON.parse(result_skill.drum_skill);
                 var skill_point = (parseFloat(skill_data.hot.point) + parseFloat(skill_data.other.point)).toFixed(2);
                 res.render("drum" , {
-                  version: version_name,
+                  version: "tb",
+                  version_full: version_name,
                   player_name : result_skill.player_name.replace(/^"(.*)"$/, '$1'),
                   id : req.params.id,
                   skill_data : skill_data,

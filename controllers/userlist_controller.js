@@ -1,10 +1,22 @@
 var pg = require('pg');
 
 module.exports.controller = function (app) {
-  app.get('/userlist', function (req, res) {
+  app.get('/:ver/userlist', function (req, res) {
+    var skill_table_name;
+    var version_name;
+
+    switch (req.params.ver) {
+      case "tb":
+        skill_table_name = "skill_tb";
+        version_name = "GITADORA Tri-Boost";
+        break;
+      default:
+        res.send("Unexpected version name");
+    }
+
     //pg.defaults.ssl = true;
     pg.connect(process.env.DATABASE_URL, function (err, client, done) {
-      var sql = 'select * from skill order by id asc;';
+      var sql = 'select * from ' + skill_table_name + ' order by id asc;';
       client.query(sql, function (err, result) {
         done();
 
@@ -26,7 +38,11 @@ module.exports.controller = function (app) {
               update_count: result.rows[i].update_count
             });
           }
-          res.render("userlist" , { data : data });
+          res.render("userlist" , { 
+            data : data,
+            version: req.params.ver,
+            version_full: version_name
+          });
         }
       });
     });
