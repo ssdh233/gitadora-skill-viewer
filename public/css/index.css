@@ -18,7 +18,10 @@ body {
   display: none;
 }
 
-.main .script {
+.main div.script {
+  background: #f6f6f6;
+  padding: 20px;
+  border-radius: 6px;
   font-size: 80%;
 }
 
@@ -39,6 +42,10 @@ body {
 
 .main .block {
   display: none;
+}
+
+.main #block1 {
+  display: inline;
 }
 
 .main .subblock {
