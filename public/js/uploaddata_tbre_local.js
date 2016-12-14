@@ -5,10 +5,10 @@ document.getElementsByTagName('head')[0].appendChild(script);
 
 if (window.location.hostname == "p.eagate.573.jp") {
   var urls = [
-    "//p.eagate.573.jp/game/gfdm/gitadora_tb/p/eam/playdata/skill.html?gtype=gf&stype=0",
-    "//p.eagate.573.jp/game/gfdm/gitadora_tb/p/eam/playdata/skill.html?gtype=gf&stype=1",
-    "//p.eagate.573.jp/game/gfdm/gitadora_tb/p/eam/playdata/skill.html?gtype=dm&stype=0",
-    "//p.eagate.573.jp/game/gfdm/gitadora_tb/p/eam/playdata/skill.html?gtype=dm&stype=1"
+    "//p.eagate.573.jp/game/gfdm/gitadora_tbre/p/eam/playdata/skill.html?gtype=gf&stype=0",
+    "//p.eagate.573.jp/game/gfdm/gitadora_tbre/p/eam/playdata/skill.html?gtype=gf&stype=1",
+    "//p.eagate.573.jp/game/gfdm/gitadora_tbre/p/eam/playdata/skill.html?gtype=dm&stype=0",
+    "//p.eagate.573.jp/game/gfdm/gitadora_tbre/p/eam/playdata/skill.html?gtype=dm&stype=1"
   ];
 
   var label = [
@@ -101,11 +101,25 @@ function extract_data(url, label) {
     },
     complete: function() {
       if (count === 4) {
+        var data = {
+          version: "tbre",
+            card_number: profile_data["card_number"],
+            player_name: profile_data["player_name"],
+            guitar: {
+              hot: skill_data["guitar_hot"],
+              other: skill_data["guitar_other"]
+            },
+            drum: {
+              hot: skill_data["drum_hot"],
+              other: skill_data["drum_other"]
+            },
+            update_date: getDate()
+          };
         $.ajax({
-          url: "http://127.0.0.1:3000/tb/upload",
+          url: "http://127.0.0.1:3000/tbre/upload",
           method: "POST",
           data: {
-            version: "tb",
+            version: "tbre",
             card_number: profile_data["card_number"],
             player_name: profile_data["player_name"],
             guitar: {
@@ -120,7 +134,7 @@ function extract_data(url, label) {
           },
           success: function(data){
             if (data.status === 0) {
-              location = "http://127.0.0.1:3000/tb/" + data.message + "/g";
+              location = "http://127.0.0.1:3000/tbre/" + data.message + "/g";
             } else {
               alert(data.message);
             }

@@ -12,6 +12,10 @@ module.exports.controller = function (app) {
           skill_table_name = "skill_tb";
           skillp_table_name = "skillp_tb";
           break;
+        case "tbre":
+          skill_table_name = "skill_tbre";
+          skillp_table_name = "skillp_tbre";
+          break;
         default:
           res.send("Unexpected version name");
       }

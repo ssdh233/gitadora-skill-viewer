@@ -2,7 +2,17 @@ var http = require('http');
 var pg = require('pg');
 
 module.exports.controller = function (app) {
-  app.post('/upload', function (req, res) {
+  app.post('/:ver/upload', function (req, res) {
+    switch (req.params.ver) {
+      case "tb":
+        skill_table_name = "skill_tb";
+        break;
+      case "tbre":
+        skill_table_name = "skill_tbre";
+        break;
+      default:
+        res.send("Unexpected version name");
+    }
     //pg.defaults.ssl = true;
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
       var card_number = req.body.card_number;
@@ -11,7 +21,7 @@ module.exports.controller = function (app) {
       var drum_data_str = JSON.stringify(req.body.drum);
       var update_date = req.body.update_date;
       
-      var sql = 'select * from skill_tb where card_number = $$' + card_number + '$$;';
+      var sql = 'select * from ' + skill_table_name + ' where card_number = $$' + card_number + '$$;';
       client.query(sql, function(err, result) {
         done();
 
@@ -25,7 +35,7 @@ module.exports.controller = function (app) {
         } else {
           if (result.rows[0]) {
             var id = result.rows[0].id;
-            var sql = 'update skill_tb set player_name = $$' + player_name + '$$, guitar_skill = $$' + guitar_data_str + '$$, drum_skill = $$' + drum_data_str + '$$, update_date = $$' + update_date + '$$, update_count = ' + ((result.rows[0].update_count || 1) + 1) + ' where id = ' + id  +';';
+            var sql = 'update ' + skill_table_name + ' set player_name = $$' + player_name + '$$, guitar_skill = $$' + guitar_data_str + '$$, drum_skill = $$' + drum_data_str + '$$, update_date = $$' + update_date + '$$, update_count = ' + ((result.rows[0].update_count || 1) + 1) + ' where id = ' + id  +';';
             client.query(sql, function(err, result) {
               done();
 
@@ -44,7 +54,7 @@ module.exports.controller = function (app) {
               }
             });
           } else {
-            var sql = 'select max(id) as maxid from skill_tb;';
+            var sql = 'select max(id) as maxid from ' + skill_table_name + ';';
             client.query(sql, function(err, result) {
               done();
 
@@ -57,7 +67,7 @@ module.exports.controller = function (app) {
                 });
               } else {
                 var id = (result.rows[0].maxid || 0) + 1;
-                var sql = 'insert into skill_tb values (' + id + ',$$' + card_number + '$$,$$' + player_name + '$$,$$' + guitar_data_str +  '$$,$$' + drum_data_str + '$$,$$' + update_date + '$$, 1);';
+                var sql = 'insert into ' + skill_table_name + ' values (' + id + ',$$' + card_number + '$$,$$' + player_name + '$$,$$' + guitar_data_str +  '$$,$$' + drum_data_str + '$$,$$' + update_date + '$$, 1);';
                 client.query(sql, function(err, result) {
                   done();
 
