@@ -52,3 +52,7 @@ body {
   display: none;
 }
 
+span.lang {
+  float: right;
+  margin-top: 10px;
+}

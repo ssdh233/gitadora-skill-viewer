@@ -1,0 +1,88 @@
+doctype html
+html
+  head
+    title gitadora skill viewer
+    link(rel="stylesheet" type="text/css" href="/css/index.css")
+    link(rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Andada")
+    script(type='text/javascript' src='//code.jquery.com/jquery-1.12.4.min.js')
+    script(type='text/javascript' src='js/index.js')
+  body
+    table(class="main")
+      tr
+        td
+          span(class="title") Gitadora Skill Viewer 
+          span(class="title_version") v1.0.0
+          span(class="lang") 
+            a(href="/jp") 日本語
+            span /中文
+      tr(class="subtitle" id="sub1")
+        td 这是什么?
+      tr
+        td
+          div(class="block" id="block1")
+            p 一个从konami的官方网站上获取skill相关的数据，用来保存并公开的网站。
+      tr(class="subtitle" id="sub2")
+        td 使用方法
+      tr
+        td
+          div(class="block" id="block2")
+            div(class="subsubtitle" id="subsub1") 上传skill data
+            div(class="subblock" id="subblock1")
+              p 1.在浏览器的书签上登录下面的代码
+              p For GITADORA Tri-Boost Re:EVOLVE
+              div(class="script") javascript:void(!function(d){var s=d.createElement("script");s.type="text/javascript";s.src="//gitadora-skill-viewer.herokuapp.com/js/uploaddata_tbre.js";d.head.appendChild(s);}(document));
+              p For GITADORA Tri-Boost
+              div(class="script") javascript:void(!function(d){var s=d.createElement("script");s.type="text/javascript";s.src="//gitadora-skill-viewer.herokuapp.com/js/uploaddata.js";d.head.appendChild(s);}(document));
+              p 
+                img(src="image/1-1cn.jpeg")
+              p 2.
+                b 在konami的网站上保持登录状态的时候
+                a ，点击刚才登录的书签
+              img(src="image/1-2cn.jpeg" width="80%")
+              p 3.等待5～10秒钟之后，就会自动跳转到skill data的表示画面。
+                b 请记住跳转之后的地址（用来公开当前的skill）。
+              img(src="image/1-3cn.jpeg" width="80%")
+            div(class="subsubtitle" id="subsub2") 保存skill data（snapshot）
+            div(class="subblock" id="subblock2") 
+              p 1.点击skill表下方的"このスキル表を永久に保存したい!"按钮，然后确认出来的对话框（抱歉这里是日语(´・ω・｀)，不用在意里面的内容）
+              p
+                img(src="image/2-1.jpeg")
+              p
+                img(src="image/2-2.jpeg")
+              p 2.确认之后，skill data就被保存了，然后会自动跳转到被保存的页面。
+                b 请记住跳转之后的地址（用来公开某个时间点的skill）。
+              p
+                img(src="image/2-3cn.jpeg" width="80%")
+      tr(class="subtitle" id="sub3")
+        td 一些说明
+      tr
+        td
+          div(class="block" id="block3")
+            p 1.上传skill data之后，旧的skill data会被
+              b 覆盖
+              span ，所以如果想保存以前的skill data的话，请使用
+              b 保存skill data（snapshot）
+              span 功能。
+            p 2.从konami的网站获取的
+              b 只有玩家的nickname和skill相关的数据
+              span （也就是没有做什么坏事(^_^)，想做也做不了）。
+            p 3.有一定程度的知识的话，
+              b 完全可以篡改skill data
+              span 。所以没有办法保证在这个网站上的data都是真实的，也没有办法保证上传过的data不被别人篡改（除非使用了保存skill data功能）。
+      tr(class="subtitle" id="sub4")
+        td 其他
+      tr
+        td
+          div(class="block" id="block4")
+            p ★Source code：
+              a(href="https://github.com/matsumatsu233/gitadora-skill-viewer" target="_blank") Github
+            p ★各种意见和建议：
+              a(href="https://matsumatsu233.github.io/gsv/" target="_blank") Blog
+            p 有什么意见，或者bug反馈的话欢迎在博客留言！
+            p bug反馈の时候，希望能告诉我你现在在使用的
+              b 操作系统和浏览器
+              span 。
+            p ★推荐浏览器
+            p Chrome, Safari
+            p ★关于在手机上的使用
+            p 因为没有在手机上测试过，所以可能会有很多问题，如果有手机用户的话请留言，我会考虑对应的！
