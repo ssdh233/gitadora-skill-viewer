@@ -4,8 +4,14 @@
   -webkit-text-fill-color: transparent;
 }
 
-.lv2, .lv3 {
-  background: -webkit-linear-gradient(#FFFF99, #FFFF99);
+.lv2 {
+  background: -webkit-linear-gradient(#FF6600, #FF6600);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lv3 {
+  background: -webkit-linear-gradient(#FF6600, #FFFFFF);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
