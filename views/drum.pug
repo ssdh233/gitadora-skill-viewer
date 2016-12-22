@@ -46,7 +46,7 @@ html
                   tr(class=item.diff)
                     td(class="name")= item.name
                     td(class="diff")= item.diff_value + " " + item.diff
-                    td(class="achieve")= item.achive_value + " (" + rank(parseInt(item.achive_value.substr(0,2))) + ")"
+                    td(class="achieve")= item.achive_value + " (" + rank(item.achive_value) + ")"
                     td(class="skill")= item.skill_value
         tr  
           td(colspan="2")
@@ -62,7 +62,7 @@ html
                   tr(class=item.diff)
                     td(class="name")= item.name
                     td(class="diff")= item.diff_value + " " + item.diff
-                    td(class="achieve")= item.achive_value + " (" + rank(parseInt(item.achive_value.substr(0,2))) + ")"
+                    td(class="achieve")= item.achive_value + " (" + rank(item.achive_value) + ")"
                     td(class="skill")= item.skill_value
         tr
           td 
@@ -109,15 +109,20 @@ html
       }
       
     -function rank(value){
-    -  if(value > 94) {
+    -  if (value.substr(0,3) == "100") {
     -    return "SS";
-    -  } else if(value > 79) {
-    -    return "S";
-    -  } else if(value > 72) {
-    -    return "A";
-    -  } else if(value > 62) {
-    -    return "B";
     -  } else {
-    -    return "C";
+    -    var value_int = parseInt(value.substr(0,2));
+    -    if(value_int > 94) {
+    -      return "SS";
+    -    } else if(value_int > 79) {
+    -      return "S";
+    -    } else if(value_int > 72) {
+    -      return "A";
+    -    } else if(value_int > 62) {
+    -      return "B";
+    -    } else {
+    -      return "C";
+    -    }
     -  }
     -}
