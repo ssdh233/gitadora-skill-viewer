@@ -25,7 +25,7 @@ if (window.location.hostname == "p.eagate.573.jp") {
   var count = 0;
 
   // get profile data
-  var url = "//p.eagate.573.jp/game/gfdm/gitadora_tb/p/eam/playdata/profile.html";
+  var url = "//p.eagate.573.jp/game/gfdm/gitadora_tbre/p/eam/playdata/profile.html";
   $.ajax({
     url: url,
     async: false,
