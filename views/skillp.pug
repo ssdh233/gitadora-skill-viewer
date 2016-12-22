@@ -47,7 +47,7 @@ html
                       td(class="diff")= item.diff_value + " " + item.diff + "-" + item.part
                     else
                       td(class="diff")= item.diff_value + " " + item.diff
-                    td(class="achieve")= item.achive_value
+                    td(class="achieve")= item.achive_value + " (" + rank(item.achive_value) + ")"
                     td(class="skill")= item.skill_value
         tr  
           td(colspan="2")
@@ -69,7 +69,7 @@ html
                       td(class="diff")= item.diff_value + " " + item.diff + "-" + item.part
                     else
                       td(class="diff")= item.diff_value + " " + item.diff
-                    td(class="achieve")= item.achive_value
+                    td(class="achieve")= item.achive_value + " (" + rank(item.achive_value) + ")"
                     td(class="skill")= item.skill_value
         tr
           td 
@@ -87,3 +87,21 @@ html
           td
             a(href="/") このサイトについて
 
+    -function rank(value){
+    -  if (value.substr(0,3) == "100") {
+    -    return "SS";
+    -  } else {
+    -    var value_int = parseInt(value.substr(0,2));
+    -    if(value_int > 94) {
+    -      return "SS";
+    -    } else if(value_int > 79) {
+    -      return "S";
+    -    } else if(value_int > 72) {
+    -      return "A";
+    -    } else if(value_int > 62) {
+    -      return "B";
+    -    } else {
+    -      return "C";
+    -    }
+    -  }
+    -}
