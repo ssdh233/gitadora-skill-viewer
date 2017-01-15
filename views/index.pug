@@ -1,0 +1,79 @@
+doctype html
+html
+  head
+    title gitadora skill viewer
+    link(rel="stylesheet" type="text/css" href="/css/index.css")
+    link(rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Andada")
+    script(type='text/javascript' src='//code.jquery.com/jquery-1.12.4.min.js')
+    script(type='text/javascript' src='/js/index.js')
+    script(type='text/javascript' src="/js/google_analytics.js")
+  body
+    table(class="main")
+      tr
+        td
+          span(class="title") Gitadora Skill Viewer
+          span(class="title_version") v1.1.2
+          span(class="lang") 
+            span!= __('lang')
+      tr(class="subtitle" id="sub1")
+        td= __('intro.title')
+      tr
+        td
+          div(class="block" id="block1")
+            p= __('intro.desc')
+            p
+              a(style="text-decoration: none" href="https://matsumatsu233.github.io/gsv/2016/12/15/development.html" target="_blank")= __('intro.update_history') + "（Latest:2016.12.29）"
+            p
+              b 
+                a(style="text-decoration: none" href="https://matsumatsu233.github.io/gsv/2016/12/29/version-1-1-2.html" target="_blank") Ver 1.1.2
+            ul 
+              li= __('intro.ver_1_1_2')
+      tr(class="subtitle" id="sub2")
+        td= __('how.title')
+      tr
+        td
+          div(class="block" id="block2")
+            div(class="subsubtitle" id="subsub1")= __('how.upload.title')
+            div(class="subblock" id="subblock1")
+              p=  __('how.upload.step1.desc')
+              p For GITADORA Tri-Boost Re:EVOLVE
+              div(class="script") javascript:void(!function(d){var s=d.createElement("script");s.type="text/javascript";s.src="//gitadora-skill-viewer.herokuapp.com/js/uploaddata_tbre.js";d.head.appendChild(s);}(document));
+              p For GITADORA Tri-Boost
+              div(class="script") javascript:void(!function(d){var s=d.createElement("script");s.type="text/javascript";s.src="//gitadora-skill-viewer.herokuapp.com/js/uploaddata_tb.js";d.head.appendChild(s);}(document));
+              p 
+                img(src="image/" + __('how.upload.step1.img'))
+              p!= __('how.upload.step2.desc')
+              img(src="image/" + __('how.upload.step2.img') width="80%")
+              p!= __('how.upload.step3.desc')
+                img(src="image/" + __('how.upload.step3.img') width="80%")
+            div(class="subsubtitle" id="subsub2")= __('how.save.title')
+            div(class="subblock" id="subblock2") 
+              p= __('how.save.step1.desc')
+              p
+                img(src="image/" + __('how.save.step1.img1'))
+              p
+                img(src="image/" + __('how.save.step1.img2'))
+              p!= __('how.save.step2.desc')
+              p
+                img(src="image/" + __('how.save.step2.img') width="80%")
+      tr(class="subtitle" id="sub3")
+        td= __("desc.title")
+      tr
+        td
+          div(class="block" id="block3")
+            p!= __("desc.1st")
+            p!= __("desc.2nd")
+            p!= __("desc.3rd")
+      tr(class="subtitle" id="sub4")
+        td= __("other.title")
+      tr
+        td
+          div(class="block" id="block4")
+            p= "★" + __("other.code.title") + "："
+              a(href="https://github.com/matsumatsu233/gitadora-skill-viewer" target="_blank") Github
+            p= "★" + __("other.voice.title") + "："
+              a(href="https://matsumatsu233.github.io/gsv/" target="_blank") Blog
+            p= __("other.voice.desc1")
+            p!= __("other.voice.desc2")
+            p= "★" + __("other.browser.title")
+            p Chrome, Safari

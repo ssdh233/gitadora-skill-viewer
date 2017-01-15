@@ -1,0 +1,59 @@
+{
+  "lang": "<a href=\"/jp\")>日本語</a>/中文",
+	"intro": {
+		"title": "这是什么?",
+		"desc": "一个从konami的官方网站上获取skill相关的数据，用来保存并公开的网站。",
+		"update_history": "更新历史（日语）",
+		"ver_1_1_2": "Bug fixed: 修复了主页的GITADORA tri-boost的bookmarklet script的错误"
+	},
+	"how": {
+		"title": "使用方法",
+		"upload": {
+			"title": "上传skill data",
+			"step1": {
+				"desc": "1.在浏览器的书签上登录下面的代码",
+        "img": "1-1cn.jpeg"
+			},
+      "step2": {
+        "desc": "2.<b>在konami的网站上保持登录状态的时候</b>，点击刚才登录的书签",
+        "img": "1-2cn.jpeg"
+      },
+      "step3": {
+        "desc": "3.等待5～10秒钟之后，就会自动跳转到skill data的表示画面。<b>请记住跳转之后的地址（用来公开当前的skill）</b>",
+        "img": "1-3cn.jpeg"
+      }
+		},
+    "save": {
+      "title": "保存skill data（snapshot）",
+      "step1": {
+        "desc": "1.点击skill表下方的\"このスキル表を永久に保存したい!\"按钮，然后确认出来的对话框（抱歉这里是日语(´・ω・｀)，不用在意里面的内容）",
+        "img1": "2-1.jpeg",
+        "img2": "2-2.jpeg"
+      },
+      "step2": {
+        "desc": "2.确认之后，skill data就被保存了，然后会自动跳转到被保存的页面。<b> 请记住跳转之后的地址（用来公开某个时间点的skill）</b>",
+        "img": "2-3cn.jpeg"
+      }
+    }
+	},
+  "desc": {
+    "title": "一些说明",
+    "1st": "1.上传skill data之后，旧的skill data会被<b>覆盖</b>，所以如果想保存以前的skill data的话，请使用<b>保存skill data（snapshot）</b>",
+    "2nd": "2.从konami的网站获取的<b>只有玩家的nickname和skill相关的数据</b>（也就是没有做什么坏事(^_^)，想做也做不了）",
+    "3rd": "3.有一定程度的知识的话，<b>完全可以篡改skill data</b>。所以没有办法保证在这个网站上的data都是真实的，也没有办法保证上传过的data不被别人篡改（除非使用了保存skill data功能）"
+  },
+  "other": {
+    "title": "其他",
+    "code": {
+      "title": "Source code"
+    },
+    "voice": {
+      "title": "各种意见和建议",
+      "desc1": "有什么意见，或者bug反馈的话欢迎在博客留言！",
+      "desc2": "bug反馈の时候，希望能告诉我你现在在使用的<b>操作系统和浏览器</b>。"
+    },
+    "browser": {
+      "title": "推荐浏览器"
+    }
+  }
+}

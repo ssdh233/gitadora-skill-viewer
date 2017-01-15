@@ -2,6 +2,16 @@ var express = require('express');
 var app = express();
 var fs = require('fs');
 var bodyParser = require('body-parser');
+var i18n = require("i18n");
+var cookieParser = require('cookie-parser');
+
+i18n.configure({
+  locales: ['jp', 'cn'],
+  defaultLocale: 'jp',
+  cookie: 'language',
+  directory: __dirname + '/locales',
+  objectNotation: true
+});
 
 app.use(express.static('public'));
 app.set('view engine', 'pug');
@@ -13,6 +23,12 @@ app.use(function(req, res, next) {
 });
 
 app.use(bodyParser());
+app.use(cookieParser());
+app.use(i18n.init);
+
+app.get('/test', function (req, res) {
+  res.render('test');
+});
 
 // dynamically include routes (Controller)
 fs.readdirSync('./controllers').forEach(function (file) {

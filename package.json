@@ -10,7 +10,9 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
+    "i18n": "^0.8.3",
     "pg": "^6.1.0",
     "pug": "^2.0.0-beta5"
   }
