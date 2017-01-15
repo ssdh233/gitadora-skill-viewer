@@ -33,7 +33,7 @@ module.exports.controller = function (app) {
           console.error(err);
         } else {
           if (result.rows[0]) {
-            res.redirect('/' + result.rows[0].id + '/p');
+            res.redirect('/' + req.params.ver + '/' + result.rows[0].id + '/p');
           } else {
             var sql = 'select max(id) as maxid from ' + skillp_table_name;
             client.query(sql, function(err, result) {
