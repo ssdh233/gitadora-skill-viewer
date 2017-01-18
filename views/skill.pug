@@ -1,0 +1,138 @@
+doctype html
+html
+  head
+    link(rel="stylesheet" type="text/css" href="/css/skill.css")
+    link(rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Andada")
+    script(type='text/javascript' src="/js/google_analytics.js")
+    title gitadora skill viewer
+  body
+    table
+      if skill_data
+        tr(class="title")
+          td(colspan="2")
+            a= version_full
+        tr
+          td(colspan="2")
+            if type
+              span Guitarfreaks/
+              a(href="d") Drummania
+            else
+              a(href="g") Guitarfreaks
+              span /Drummania
+        tr
+          td(colspan="2")
+            a Last updated: 
+            a= update_date
+        tr
+          td(colspan="2")
+            table(class="profile_table")
+              tr
+                td NAME
+                td SKILL
+                td HOT
+                td OTHER
+              tr
+                td(class="lv"+parseInt(skill_point/500))= player_name
+                td(class="lv"+parseInt(skill_point/500))= skill_point
+                td(class="lv"+parseInt(skill_point/500))= skill_data.hot.point
+                td(class="lv"+parseInt(skill_point/500))= skill_data.other.point
+        tr
+          td(colspan="2")
+            table(class="skill_table")
+              if type
+                caption GUITAR HOT
+              else
+                caption DRUM HOT
+              tr
+                th(class="name") 曲名
+                th(class="diff") レベル
+                th(class="achieve") 達成率
+                th(class="skill") スキル
+              if skill_data.hot.data
+                each item in skill_data.hot.data
+                  tr(class=item.diff)
+                    td(class="name")= item.name
+                    td(class="diff")= item.diff_value + " " + item.diff
+                    td(class="achieve")= item.achive_value + " (" + rank(item.achive_value) + ")"
+                    td(class="skill")= item.skill_value
+        tr  
+          td(colspan="2")
+            table(class="skill_table")
+              if type
+                caption GUITAR OTHER
+              else
+                caption DRUM OTHER
+              tr
+                th(class="name") 曲名
+                th(class="diff") レベル
+                th(class="achieve") 達成率
+                th(class="skill") スキル
+              if skill_data.other.data
+                each item in skill_data.other.data
+                  tr(class=item.diff)
+                    td(class="name")= item.name
+                    td(class="diff")= item.diff_value + " " + item.diff
+                    td(class="achieve")= item.achive_value + " (" + rank(item.achive_value) + ")"
+                    td(class="skill")= item.skill_value
+        tr
+          td 
+            form(class="save" action="/" + version + "/save" method="post" onSubmit="return check()")
+              input(type="hidden" name="skill_id" value=id) 
+              input(type="hidden" name="type" value=(type)?"drum":"guitar") 
+              input(type="hidden" name="skill" value=skill_point) 
+              input(type="submit" value="このスキル表を永久に保存したい！")
+          td(class="footer" align="right")
+            a(href="/") このサイトについて
+        tr(height="10px")
+        tr
+          td
+            if skillp_data
+              table(class="snapshot")
+                caption Snapshots
+                tr
+                  td No.
+                  td SKILL
+                  td DATE
+                -var index = 1
+                each item in skillp_data
+                  tr
+                    td
+                      a(class="lv"+parseInt(item.skill/500) href="/" + version + "/" + item.id + "/p")= index++
+                    td
+                      a(class="lv"+parseInt(item.skill/500) href="/" + version + "/" + item.id + "/p")= item.skill 
+                    td
+                      a(class="lv"+parseInt(item.skill/500) href="/" + version + "/" + item.id + "/p")= item.update_date
+      else
+        tr
+          td NO DATA
+        tr(class="footer")
+          td
+            a(href="/") このサイトについて
+    script.
+      function check() {
+        //if(window.confirm('本サイトは無料なものしか使っていないため、データベースの容量が限られています。本機能のご利用には節度を守ってください。\n本当に保存したいですか？')){
+        if(window.confirm('本サイトは無料なものしか使っていないため、データベースの容量が限られています。本機能のご利用には節度を守ってください。\nデータベースの容量は思ったより遥かに大きいので暫くは勝手に使っても構いませんよ。<-New!\n本当に保存したいですか？')){
+          return true;
+        } else {
+          return false;
+        }
+      }
+      
+    -function rank(value){
+    -  if (value.substr(0,3) == "100") {
+    -    return "SS";
+    -  } else {
+    -    var value_int = parseInt(value.substr(0,2));
+    -    if(value_int > 94) {
+    -      return "SS";
+    -    } else if(value_int > 79) {
+    -      return "S";
+    -    } else if(value_int > 72) {
+    -      return "A";
+    -    } else if(value_int > 62) {
+    -      return "B";
+    -    } else {
+    -      return "C";
+    -    }
+    -  }
+    -}
