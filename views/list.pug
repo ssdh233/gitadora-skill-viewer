@@ -21,7 +21,6 @@ html
                 th GUITAR
                 th DRUM
                 th LAST UPDATE
-                th COUNT
             tbody
               each item in data
                 tr
@@ -32,8 +31,8 @@ html
                   td
                     a(class="lv"+parseInt(item.drum_skill/500) href=item.id+"/d" target="_blank")= item.drum_skill
                   td= item.update_date
-                  td= item.update_count
   script.
     $(document).ready(function(){ 
       $("#myTable").tablesorter(); 
     }); 
+
