@@ -52,7 +52,10 @@ html
                 each item in skill_data.hot.data
                   tr(class=item.diff)
                     td(class="name")= item.name
-                    td(class="diff")= item.diff_value + " " + item.diff
+                    if type
+                      td(class="diff")= item.diff_value + " " + item.diff + "-" + item.part
+                    else
+                      td(class="diff")= item.diff_value + " " + item.diff
                     td(class="achieve")= item.achive_value + " (" + rank(item.achive_value) + ")"
                     td(class="skill")= item.skill_value
         tr  
@@ -71,7 +74,10 @@ html
                 each item in skill_data.other.data
                   tr(class=item.diff)
                     td(class="name")= item.name
-                    td(class="diff")= item.diff_value + " " + item.diff
+                    if type
+                      td(class="diff")= item.diff_value + " " + item.diff + "-" + item.part
+                    else
+                      td(class="diff")= item.diff_value + " " + item.diff                    
                     td(class="achieve")= item.achive_value + " (" + rank(item.achive_value) + ")"
                     td(class="skill")= item.skill_value
         tr
