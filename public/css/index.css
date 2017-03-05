@@ -24,34 +24,6 @@ body {
   font-size: 80%;
 }
 
-.main .subtitle {
-  font-size: 120%;
-  height: 35px;
-  color: #FFFFFF;
-  background-color: #333333;
-}
-
-.main .subsubtitle{
-  font-size: 100%;
-  height: 30px;
-  margin: 5px 0px 5px 20px;
-  color: #FFFFFF;
-  background-color: #333333;
-}
-
-.main .block {
-  display: none;
-}
-
-.main #block1 {
-  display: inline;
-}
-
-.main .subblock {
-  margin: 5px 0px 5px 20px;
-  display: none;
-}
-
 span.lang {
   float: right;
   margin-top: 10px;
