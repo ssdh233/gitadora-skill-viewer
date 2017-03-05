@@ -2,7 +2,6 @@ var express = require('express');
 var app = express();
 var fs = require('fs');
 var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
 
 app.use(express.static('public'));
 app.set('view engine', 'pug');
@@ -14,10 +13,6 @@ app.use(function(req, res, next) {
 });
 
 app.use(bodyParser());
-
-app.get('/test', function (req, res) {
-  res.render('test');
-});
 
 // dynamically include routes (Controller)
 fs.readdirSync('./controllers').forEach(function (file) {
