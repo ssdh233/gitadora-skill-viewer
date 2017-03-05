@@ -64,7 +64,7 @@ class Index extends React.Component {
             <tr>
               <td>
                 <span className='title'>Gitadora Skill Viewer</span>
-                <span className='title_version'>v1.2.0</span>
+                <span className='title_version'>v1.2.1</span>
                 <span className='lang'>
                   <MuiThemeProvider>
                     <div>
@@ -96,9 +96,15 @@ class Index extends React.Component {
                   <p> {t('intro.desc')} </p>
                   <p>
                     <a style={{textDecoration : 'none'}} href='https://matsumatsu233.github.io/gsv/2016/12/15/development.html' target='_blank'>
-                       {t('intro.update_history') + '（Latest:2017.01.21）'}
+                       {t('intro.update_history') + '（Latest:2017.03.06）'}
                     </a>
                   </p>
+                  <p><b>Ver 1.2.1</b></p>
+                  <ul>
+                    <li>
+                      {t('intro.ver_1_2_1')}
+                    </li>
+                  </ul>
                   <p><b>Ver 1.2.0</b></p>
                   <ul>
                     <li>

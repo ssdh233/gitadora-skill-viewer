@@ -4,6 +4,7 @@
 		"title": "这是什么?",
 		"desc": "一个从konami的官方网站上获取skill相关的数据，用来保存并公开的网站。",
 		"update_history": "更新历史（日语）",
+    "ver_1_2_1": "Bug fixed: 修复了guitar难易度表记的错误",
 		"ver_1_1_2": "Bug fixed: 修复了主页的GITADORA tri-boost的bookmarklet script的错误",
     "ver_1_2_0": {
       "mes1": "添加了用户列表页面（点击header可以排序）",
