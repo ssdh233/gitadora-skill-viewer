@@ -64,7 +64,7 @@ class Index extends React.Component {
             <tr>
               <td>
                 <span className='title'>Gitadora Skill Viewer</span>
-                <span className='title_version'>v1.2.1</span>
+                <span className='title_version'>v1.3.0</span>
                 <span className='lang'>
                   <MuiThemeProvider>
                     <div>
@@ -96,9 +96,18 @@ class Index extends React.Component {
                   <p> {t('intro.desc')} </p>
                   <p>
                     <a style={{textDecoration : 'none'}} href='https://matsumatsu233.github.io/gsv/2016/12/15/development.html' target='_blank'>
-                       {t('intro.update_history') + '（Latest:2017.03.06）'}
+                       {t('intro.update_history') + '（Latest:2017.09.06）'}
                     </a>
                   </p>
+                  <p><b>Ver 1.3.0</b></p>
+                  <ul>
+                    <li>
+                      {t('intro.ver_1_3_0')}
+                    </li>
+                    <li>
+                      <a href='/matixx/list' target='_blank' style={{textDecoration : 'none'}}>GITADORA matixx List</a>
+                    </li>
+                  </ul>
                   <p><b>Ver 1.2.1</b></p>
                   <ul>
                     <li>
@@ -134,10 +143,10 @@ class Index extends React.Component {
                 <SlideToggle defaultStatus={false} title={t('how.title')} level={0}>
                   <SlideToggle defaultStatus={false} title={t('how.upload.title')} level={1}>
                     <p> {t('how.upload.step1.desc')}</p>
+                    <p> For GITADORA matixx </p>
+                    <div className='script'> {'javascript:void(!function(d){var s=d.createElement(\'script\');s.type=\'text/javascript\';s.src=\'//gitadora-skill-viewer.herokuapp.com/js/uploaddata_matixx.js\';d.head.appendChild(s);}(document));'} </div>
                     <p> For GITADORA Tri-Boost Re:EVOLVE </p>
                     <div className='script'> {'javascript:void(!function(d){var s=d.createElement(\'script\');s.type=\'text/javascript\';s.src=\'//gitadora-skill-viewer.herokuapp.com/js/uploaddata_tbre.js\';d.head.appendChild(s);}(document));'} </div>
-                    <p> For GITADORA Tri-Boost </p>
-                    <div className='script'> {'javascript:void(!function(d){var s=d.createElement(\'script\');s.type=\'text/javascript\';s.src=\'//gitadora-skill-viewer.herokuapp.com/js/uploaddata_tb.js\';d.head.appendChild(s);}(document));}'} </div>
                     <p>
                       <img src={'image/' + t('how.upload.step1.img')} />
                     </p>
