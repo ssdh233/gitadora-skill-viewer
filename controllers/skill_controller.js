@@ -36,7 +36,7 @@ function getSkill(req, res, type) {
     case "matixx":
       skill_table_name = "skill_matixx";
       skillp_table_name = "skillp_matixx";
-      version_name = "GITADORA matixx";
+      version_name = "GITADORA Matixx";
       break;
     default:
       res.send("Unexpected version name");

@@ -105,7 +105,7 @@ class Index extends React.Component {
                       {t('intro.ver_1_3_0')}
                     </li>
                     <li>
-                      <a href='/matixx/list' target='_blank' style={{textDecoration : 'none'}}>GITADORA matixx List</a>
+                      <a href='/matixx/list' target='_blank' style={{textDecoration : 'none'}}>GITADORA Matixx List</a>
                     </li>
                   </ul>
                   <p><b>Ver 1.2.1</b></p>

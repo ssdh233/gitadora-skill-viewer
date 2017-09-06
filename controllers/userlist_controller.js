@@ -16,7 +16,7 @@ module.exports.controller = function (app) {
         break;
       case "matixx":
         skill_table_name = "skill_matixx";
-        version_name = "GITADORA matixx";
+        version_name = "GITADORA Matixx";
         break;
       default:
         res.send("Unexpected version name");
