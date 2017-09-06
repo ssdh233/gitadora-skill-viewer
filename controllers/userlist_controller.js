@@ -14,6 +14,10 @@ module.exports.controller = function (app) {
         skill_table_name = "skill_tbre";
         version_name = "GITADORA Tri-Boost Re:EVOLVE";
         break;
+      case "matixx":
+        skill_table_name = "skill_matixx";
+        version_name = "GITADORA matixx";
+        break;
       default:
         res.send("Unexpected version name");
     }

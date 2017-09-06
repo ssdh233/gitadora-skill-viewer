@@ -33,6 +33,11 @@ function getSkill(req, res, type) {
       skillp_table_name = "skillp_tbre";
       version_name = "GITADORA Tri-Boost Re:EVOLVE";
       break;
+    case "matixx":
+      skill_table_name = "skill_matixx";
+      skillp_table_name = "skillp_matixx";
+      version_name = "GITADORA matixx";
+      break;
     default:
       res.send("Unexpected version name");
   }
