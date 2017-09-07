@@ -37,14 +37,19 @@ module.exports.controller = function (app) {
           for (var i in result.rows) {
             var guitar_skill = JSON.parse(result.rows[i].guitar_skill);
             var drum_skill = JSON.parse(result.rows[i].drum_skill);
-            data.push({
-              id : result.rows[i].id,
-              player_name : result.rows[i].player_name,
-              guitar_skill: (parseFloat(guitar_skill.hot.point) + parseFloat(guitar_skill.other.point)).toFixed(2),
-              drum_skill: (parseFloat(drum_skill.hot.point) + parseFloat(drum_skill.other.point)).toFixed(2),
-              update_date: result.rows[i].update_date,
-              update_count: result.rows[i].update_count
-            });
+            try {
+              data.push({
+                id : result.rows[i].id,
+                player_name : result.rows[i].player_name,
+                guitar_skill: (parseFloat(guitar_skill.hot.point) + parseFloat(guitar_skill.other.point)).toFixed(2),
+                drum_skill: (parseFloat(drum_skill.hot.point) + parseFloat(drum_skill.other.point)).toFixed(2),
+                update_date: result.rows[i].update_date,
+                update_count: result.rows[i].update_count
+              });
+            } catch (e) {
+              // TODO figure out why there is no 'other' skill
+              console.log(e);
+            }
           }
           res.render("userlist" , { 
             data : data,
