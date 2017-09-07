@@ -64,7 +64,7 @@ class Index extends React.Component {
             <tr>
               <td>
                 <span className='title'>Gitadora Skill Viewer</span>
-                <span className='title_version'>v1.3.0</span>
+                <span className='title_version'>v1.3.1</span>
                 <span className='lang'>
                   <MuiThemeProvider>
                     <div>
@@ -96,9 +96,15 @@ class Index extends React.Component {
                   <p> {t('intro.desc')} </p>
                   <p>
                     <a style={{textDecoration : 'none'}} href='https://matsumatsu233.github.io/gsv/2016/12/15/development.html' target='_blank'>
-                       {t('intro.update_history') + '（Latest:2017.09.06）'}
+                       {t('intro.update_history')}
                     </a>
                   </p>
+                  <p><b>Ver 1.3.1</b></p>
+                  <ul>
+                    <li>
+                      {t('intro.ver_1_3_1')}
+                    </li>
+                  </ul>
                   <p><b>Ver 1.3.0</b></p>
                   <ul>
                     <li>
@@ -106,12 +112,6 @@ class Index extends React.Component {
                     </li>
                     <li>
                       <a href='/matixx/list' target='_blank' style={{textDecoration : 'none'}}>GITADORA Matixx List</a>
-                    </li>
-                  </ul>
-                  <p><b>Ver 1.2.1</b></p>
-                  <ul>
-                    <li>
-                      {t('intro.ver_1_2_1')}
                     </li>
                   </ul>
                   <p><b>Ver 1.2.0</b></p>
@@ -128,12 +128,6 @@ class Index extends React.Component {
                       </ul>
                     </li>
                     <li>{t('intro.ver_1_2_0.mes2')}</li>
-                  </ul>
-                  <p><b>Ver 1.1.2</b></p>
-                  <ul>
-                    <li>
-                      {t('intro.ver_1_1_2')}
-                    </li>
                   </ul>
                 </SlideToggle>
               </td>
