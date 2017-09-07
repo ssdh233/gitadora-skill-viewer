@@ -25,3 +25,7 @@ fs.readdirSync('./controllers').forEach(function (file) {
 app.listen(process.env.PORT, function (){
   console.log('This app listening on port 3000!');
 });
+
+process.on('uncaughtException', function (err) {
+  console.log('uncaughtException => ', err);
+});
