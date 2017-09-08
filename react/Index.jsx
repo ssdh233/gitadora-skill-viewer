@@ -5,11 +5,11 @@ import { Link } from 'react-router';
 import { translate, Interpolate } from 'react-i18next';
 import i18n from './i18n';
 
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import FlatButton from 'material-ui/FlatButton';
-import Popover from 'material-ui/Popover';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Popover from 'material-ui/Popover';
 
 import SlideToggle from './SlideToggle.jsx';
 
@@ -19,13 +19,38 @@ class Index extends React.Component {
     super(props);
 
     this.state = {
+      list: {
+        open: false,
+      },
       lang: {
         open: false,
       }
     };
   };
 
-  handleLangTouchTap = (event) => {
+  // for list button
+  handleListButtonClick = (event) => {
+    // This prevents ghost click.
+    event.preventDefault();
+
+    this.setState({
+      list: {
+        open: true,
+        anchorEl: event.currentTarget,
+      },
+    });
+  };
+
+  handleListRequestClose = () => {
+    this.setState({
+      list: {
+        open: false,
+      },
+    });
+  };
+
+  // for language switch button
+  handleLangButtonClick = (event) => {
     // This prevents ghost click.
     event.preventDefault();
 
@@ -65,12 +90,34 @@ class Index extends React.Component {
               <td>
                 <span className='title'>Gitadora Skill Viewer</span>
                 <span className='title_version'>v1.3.1</span>
-                <span className='lang'>
+                <span className='buttons'>
                   <MuiThemeProvider>
                     <div>
                       <FlatButton
-                        onTouchTap={this.handleLangTouchTap}
+                        onTouchTap={this.handleListButtonClick}
+                        label={t('list')}
+                        labelPosition='before'
+                        icon={<i className="fa fa-list-ul"></i>}
+                      >
+                      </FlatButton>
+                      <Popover
+                        open={this.state.list.open}
+                        anchorEl={this.state.list.anchorEl}
+                        anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
+                        targetOrigin={{horizontal: 'left', vertical: 'top'}}
+                        onRequestClose={this.handleListRequestClose}
+                      >
+                        <Menu onChange={this.handleLangChange}>
+                          <a href="/matixx/list" target='_blank'><MenuItem primaryText='Matixx' /></a>
+                          <a href="/tbre/list" target='_blank'><MenuItem primaryText='Tri-Boost Re' /></a>
+                          <a href="/tb/list" target='_blank'><MenuItem primaryText='Tri-Boost' /></a>
+                        </Menu>
+                      </Popover>
+                      <FlatButton
+                        onTouchTap={this.handleLangButtonClick}
                         label={t('lang')}
+                        labelPosition='before'
+                        icon={<i className="fa fa-language"></i>}
                       >
                       </FlatButton>
                       <Popover
@@ -95,7 +142,7 @@ class Index extends React.Component {
                 <SlideToggle defaultOpen={true} title={t('intro.title')} level={0}>
                   <p> {t('intro.desc')} </p>
                   <p>
-                    <a style={{textDecoration : 'none'}} href='https://matsumatsu233.github.io/gsv/2016/12/15/development.html' target='_blank'>
+                    <a href='https://matsumatsu233.github.io/gsv/2016/12/15/development.html' target='_blank'>
                        {t('intro.update_history')}
                     </a>
                   </p>
@@ -111,7 +158,7 @@ class Index extends React.Component {
                       {t('intro.ver_1_3_0')}
                     </li>
                     <li>
-                      <a href='/matixx/list' target='_blank' style={{textDecoration : 'none'}}>GITADORA Matixx List</a>
+                      <a href='/matixx/list' target='_blank'>GITADORA Matixx List</a>
                     </li>
                   </ul>
                   <p><b>Ver 1.2.0</b></p>
@@ -120,10 +167,10 @@ class Index extends React.Component {
                       { t('intro.ver_1_2_0.mes1') }
                       <ul>
                         <li>
-                          <a href='/tbre/list' target='_blank' style={{textDecoration : 'none'}}>GITADORA Tri-Boost Re:EVOLVE List</a>
+                          <a href='/tbre/list' target='_blank'>GITADORA Tri-Boost Re:EVOLVE List</a>
                         </li>
                         <li>
-                          <a href='/tb/list' target='_blank' style={{textDecoration : 'none'}}>GITADORA Tri-Boost List</a>
+                          <a href='/tb/list' target='_blank'>GITADORA Tri-Boost List</a>
                         </li>
                       </ul>
                     </li>
