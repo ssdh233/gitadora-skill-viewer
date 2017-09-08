@@ -116,7 +116,7 @@ function extract_data(url, label) {
             update_date: getDate()
           };
         $.ajax({
-          url: "//gitadora-skill-viewer.herokuapp.com/matixx/upload",
+          url: "//gsv.fun/matixx/upload",
           method: "POST",
           data: {
             version: "matixx",
@@ -134,7 +134,7 @@ function extract_data(url, label) {
           },
           success: function(data){
             if (data.status === 0) {
-              location = "//gitadora-skill-viewer.herokuapp.com/matixx/" + data.message + "/g";
+              location = "//gsv.fun/matixx/" + data.message + "/g";
             } else {
               alert(data.message);
             }

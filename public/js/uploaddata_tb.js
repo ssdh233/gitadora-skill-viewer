@@ -102,7 +102,7 @@ function extract_data(url, label) {
     complete: function() {
       if (count === 4) {
         $.ajax({
-          url: "//gitadora-skill-viewer.herokuapp.com/tb/upload",
+          url: "//gsv.fun/tb/upload",
           method: "POST",
           data: {
             card_number: profile_data["card_number"],
@@ -119,7 +119,7 @@ function extract_data(url, label) {
           },
           success: function(data){
             if (data.status === 0) {
-              location = "//gitadora-skill-viewer.herokuapp.com/tb/" + data.message + "/g";
+              location = "//gsv.fun/tb/" + data.message + "/g";
             } else {
               alert(data.message);
             }

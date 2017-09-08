@@ -116,7 +116,7 @@ function extract_data(url, label) {
             update_date: getDate()
           };
         $.ajax({
-          url: "//gitadora-skill-viewer.herokuapp.com/tbre/upload",
+          url: "//gsv.fun/tbre/upload",
           method: "POST",
           data: {
             version: "tbre",
@@ -134,7 +134,7 @@ function extract_data(url, label) {
           },
           success: function(data){
             if (data.status === 0) {
-              location = "//gitadora-skill-viewer.herokuapp.com/tbre/" + data.message + "/g";
+              location = "//gsv.fun/tbre/" + data.message + "/g";
             } else {
               alert(data.message);
             }
