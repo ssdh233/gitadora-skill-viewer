@@ -19,13 +19,38 @@ class Index extends React.Component {
     super(props);
 
     this.state = {
+      list: {
+        open: false,
+      },
       lang: {
         open: false,
       }
     };
   };
 
-  handleLangTouchTap = (event) => {
+  // for list button
+  handleListButtonClick = (event) => {
+    // This prevents ghost click.
+    event.preventDefault();
+
+    this.setState({
+      list: {
+        open: true,
+        anchorEl: event.currentTarget,
+      },
+    });
+  };
+
+  handleListRequestClose = () => {
+    this.setState({
+      list: {
+        open: false,
+      },
+    });
+  };
+
+  // for language switch button
+  handleLangButtonClick = (event) => {
     // This prevents ghost click.
     event.preventDefault();
 
@@ -65,11 +90,29 @@ class Index extends React.Component {
               <td>
                 <span className='title'>Gitadora Skill Viewer</span>
                 <span className='title_version'>v1.3.1</span>
-                <span className='lang'>
+                <span className='buttons'>
                   <MuiThemeProvider>
                     <div>
                       <FlatButton
-                        onTouchTap={this.handleLangTouchTap}
+                        onTouchTap={this.handleListButtonClick}
+                        label={t('list')}
+                      >
+                      </FlatButton>
+                      <Popover
+                        open={this.state.list.open}
+                        anchorEl={this.state.list.anchorEl}
+                        anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
+                        targetOrigin={{horizontal: 'left', vertical: 'top'}}
+                        onRequestClose={this.handleListRequestClose}
+                      >
+                        <Menu onChange={this.handleLangChange}>
+                          <MenuItem primaryText='Matixx' />
+                          <MenuItem primaryText='Tri-Boost Re' />
+                          <MenuItem primaryText='Tri-Boost' />
+                        </Menu>
+                      </Popover>
+                      <FlatButton
+                        onTouchTap={this.handleLangButtonClick}
                         label={t('lang')}
                       >
                       </FlatButton>
