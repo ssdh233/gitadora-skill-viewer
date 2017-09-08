@@ -28,3 +28,11 @@ span.buttons {
   float: right;
   margin-top: 10px;
 }
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
