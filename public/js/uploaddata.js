@@ -1,2 +1,2 @@
 alert("The script has changed, please access gitadora-skill-viewer's homepage and update it.");
-location = "http://gitadora-skill-viewer.herokuapp.com/";
+location = "http://gsv.fun/";

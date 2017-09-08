@@ -24,7 +24,15 @@ body {
   font-size: 80%;
 }
 
-span.lang {
+span.buttons {
   float: right;
   margin-top: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }

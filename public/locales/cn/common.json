@@ -1,9 +1,14 @@
 {
+  "list": "玩家列表",
   "lang": "语言",
 	"intro": {
 		"title": "这是什么?",
 		"desc": "一个从konami的官方网站上获取skill相关的数据，用来保存并公开的网站。",
 		"update_history": "更新历史（日语）",
+    "ver_1_3_2": {
+      "mes1": "添加了一个短的域名<a href='http://gsv.fun'>gsv.fun</a>。以后上传完数据之后会自动跳转到<a href='http://gsv.fun'>gsv.fun</a>。",
+      "mes2": "在主页的右上方增加了用户列表的按钮。"
+    },
     "ver_1_3_1": "临时解决了一个原因不明的bug",
     "ver_1_3_0": "添加了对gitadora matixx的支持。请更新script（在使用方法里可以找到）。",
     "ver_1_2_0": {
