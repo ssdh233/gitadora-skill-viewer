@@ -134,7 +134,7 @@ function extract_data(url, label) {
           },
           success: function(data){
             if (data.status === 0) {
-              location = "//gitadora-skill-viewer.herokuapp.com/matixx/" + data.message + "/g";
+              location = "http://gsv.fun/matixx/" + data.message + "/g";
             } else {
               alert(data.message);
             }
