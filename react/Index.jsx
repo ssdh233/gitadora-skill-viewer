@@ -142,7 +142,7 @@ class Index extends React.Component {
                 <SlideToggle defaultOpen={true} title={t('intro.title')} level={0}>
                   <p> {t('intro.desc')} </p>
                   <p>
-                    <a href='https://ssdh233.me/gsv/2016/12/15/development.html' target='_blank'>
+                    <a href='http://ssdh233.me/gsv/2016/12/15/development.html' target='_blank'>
                        {t('intro.update_history')}
                     </a>
                   </p>
