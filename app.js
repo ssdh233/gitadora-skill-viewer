@@ -1,7 +1,10 @@
-var express = require('express');
-var app = express();
-var fs = require('fs');
-var bodyParser = require('body-parser');
+const express = require('express');
+const app = express();
+const fs = require('fs');
+const bodyParser = require('body-parser');
+const compression = require("compression");
+
+app.use(compression());
 
 app.use(express.static('public'));
 app.set('view engine', 'pug');
