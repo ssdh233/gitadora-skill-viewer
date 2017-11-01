@@ -1,5 +1,4 @@
 import React from 'react';
-import {render} from 'react-dom';
 import { Link } from 'react-router';
 
 import { translate, Interpolate } from 'react-i18next';
@@ -89,7 +88,7 @@ class Index extends React.Component {
             <tr>
               <td>
                 <span className='title'>Gitadora Skill Viewer</span>
-                <span className='title_version'>v1.3.2</span>
+                <span className='title_version'>v1.3.3</span>
                 <span className='buttons'>
                   <MuiThemeProvider>
                     <div>
