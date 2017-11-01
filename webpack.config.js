@@ -3,22 +3,35 @@ const path = require('path');
 const CompressionPlugin = require("compression-webpack-plugin");
 
 const PUBLIC_DIR = path.resolve(__dirname, 'public/js');
-const REACT_DIR = path.resolve(__dirname, 'react');
+const REACT_DIR = path.resolve(__dirname, 'src/react');
+const TYPESCRIPT_DIR = path.resolve(__dirname, 'src/typescript');
 
 var config = {
-  entry: REACT_DIR + '/App.jsx',
+  entry: {
+    bundle: REACT_DIR + '/App.jsx',
+    uploaddata_matixx: TYPESCRIPT_DIR + '/uploaddata_matixx.ts',
+    uploaddata_matixx_local: TYPESCRIPT_DIR + '/uploaddata_matixx_local.ts',
+    uploaddata_tb: TYPESCRIPT_DIR + '/uploaddata_tb.ts',
+    uploaddata_tb_local: TYPESCRIPT_DIR + '/uploaddata_tb_local.ts',
+    uploaddata_tbre: TYPESCRIPT_DIR + '/uploaddata_tbre.ts',
+    uploaddata_tbre_local: TYPESCRIPT_DIR + '/uploaddata_tbre_local.ts',
+  },
   output: {
     path: PUBLIC_DIR,
-    filename: 'bundle.js'
+    filename: '[name].js'
   },
   module: {
-    loaders : [
+    rules: [
       {
         test : /\.jsx?/,
         include : REACT_DIR,
-        loader : 'babel-loader'
+        use: [
+          {
+            loader: 'babel-loader'
+          }
+        ]
       }
-    ]
+    ],
   },
   node: {
     fs: "empty"

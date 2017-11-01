@@ -3,7 +3,7 @@ script.src = '//code.jquery.com/jquery-1.12.4.min.js';
 script.type = 'text/javascript';
 document.getElementsByTagName('head')[0].appendChild(script);
 
-console.log("hahahahahaha");
+alert("Hey typescript is running!")
 
 if (window.location.hostname == "p.eagate.573.jp") {
   var urls = [
