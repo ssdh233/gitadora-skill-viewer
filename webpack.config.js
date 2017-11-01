@@ -1,8 +1,9 @@
-var webpack = require('webpack');
-var path = require('path');
+const webpack = require('webpack');
+const path = require('path');
+const CompressionPlugin = require("compression-webpack-plugin");
 
-var PUBLIC_DIR = path.resolve(__dirname, 'public/js');
-var REACT_DIR = path.resolve(__dirname, 'react');
+const PUBLIC_DIR = path.resolve(__dirname, 'public/js');
+const REACT_DIR = path.resolve(__dirname, 'react');
 
 var config = {
   entry: REACT_DIR + '/App.jsx',
@@ -21,7 +22,15 @@ var config = {
   },
   node: {
     fs: "empty"
-  }
+  },
+  plugins: [
+    new CompressionPlugin({
+      asset: "[path].gz[query]",
+      algorithm: "gzip",
+      test: /\.js$|\.css$|\.html$/,
+      threshold: 10240,
+    })
+  ],
 };
 
 module.exports = config;
