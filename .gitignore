@@ -3,3 +3,9 @@
 /tmp/*
 /public/js/bundle.js
 /public/js/bundle.js.gz
+/public/js/uploaddata_matixx.js
+/public/js/uploaddata_matixx_local.js
+/public/js/uploaddata_tb.js
+/public/js/uploaddata_tb_local.js
+/public/js/uploaddata_tbre.js
+/public/js/uploaddata_tbre_local.js
