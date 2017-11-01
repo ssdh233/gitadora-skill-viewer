@@ -1,9 +1,6 @@
 import React from 'react';
-import {render} from 'react-dom';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { render } from 'react-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
 
 import { Router, Route, hashHistory } from 'react-router';
 import Index from './Index.jsx';
