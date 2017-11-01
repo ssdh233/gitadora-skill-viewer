@@ -15,6 +15,7 @@ var config = {
     uploaddata_tb_local: TYPESCRIPT_DIR + '/uploaddata_tb_local.ts',
     uploaddata_tbre: TYPESCRIPT_DIR + '/uploaddata_tbre.ts',
     uploaddata_tbre_local: TYPESCRIPT_DIR + '/uploaddata_tbre_local.ts',
+    uploaddata_new: TYPESCRIPT_DIR + '/uploaddata_new.ts',
   },
   output: {
     path: PUBLIC_DIR,
