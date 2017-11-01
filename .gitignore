@@ -2,3 +2,4 @@
 /.env
 /tmp/*
 /public/js/bundle.js
+/public/js/bundle.js.gz
