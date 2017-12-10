@@ -4,16 +4,9 @@
 	"intro": {
 		"title": "这是什么?",
 		"desc": "一个从konami的官方网站上获取skill相关的数据，用来保存并公开的网站。",
-		"update_history": "更新历史（日语）",
-    "ver_1_3_2": {
-      "mes1": "添加了一个短的域名<a href='http://gsv.fun'>gsv.fun</a>。以后上传完数据之后会自动跳转到<a href='http://gsv.fun'>gsv.fun</a>。",
-      "mes2": "在主页的右上方增加了用户列表的按钮。"
-    },
-    "ver_1_3_1": "临时解决了一个原因不明的bug",
-    "ver_1_3_0": "添加了对gitadora matixx的支持。请更新script（在使用方法里可以找到）。",
-    "ver_1_2_0": {
-      "mes1": "添加了用户列表页面（点击header可以排序）",
-      "mes2": "Bug fixed: 修复了snapshot后页面跳转的问题"
+		"info": {
+      "title": "通知",
+      "content": "<ul><li>语言列表中增加了英语</li></ul>"
     }
 	},
 	"how": {
@@ -49,8 +42,7 @@
   "desc": {
     "title": "一些说明",
     "1st": "1.上传skill data之后，旧的skill data会被<b>覆盖</b>，所以如果想保存以前的skill data的话，请使用<b>保存skill data（snapshot）</b>",
-    "2nd": "2.从konami的网站获取的<b>只有玩家的nickname和skill相关的数据</b>（也就是没有做什么坏事(^_^)，想做也做不了）",
-    "3rd": "3.有一定程度的知识的话，<b>完全可以篡改skill data</b>。所以没有办法保证在这个网站上的data都是真实的，也没有办法保证上传过的data不被别人篡改（除非使用了保存skill data功能）"
+    "2nd": "2.有一定程度的知识的话，<b>完全可以篡改skill data</b>。所以没有办法保证在这个网站上的data都是真实的，也没有办法保证上传过的data不被别人篡改（除非使用了保存skill data功能）"
   },
   "other": {
     "title": "其他",
@@ -59,8 +51,7 @@
     },
     "voice": {
       "title": "各种意见和建议",
-      "desc1": "有什么意见，或者bug反馈的话欢迎在博客留言！",
-      "desc2": "bug反馈の时候，希望能告诉我你现在在使用的<b>操作系统和浏览器</b>。"
+      "desc1": "有什么意见，或者bug反馈的话欢迎在博客留言！"
     },
     "browser": {
       "title": "推荐浏览器"
