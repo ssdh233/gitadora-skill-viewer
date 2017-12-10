@@ -88,7 +88,7 @@ class Index extends React.Component {
             <tr>
               <td>
                 <span className='title'>Gitadora Skill Viewer</span>
-                <span className='title_version'>v1.3.3</span>
+                <span className='title_version'>v1.4.0</span>
                 <span className='buttons'>
                   <MuiThemeProvider>
                     <div>
@@ -127,6 +127,7 @@ class Index extends React.Component {
                         onRequestClose={this.handleLangRequestClose}
                       >
                         <Menu onChange={this.handleLangChange}>
+                          <MenuItem primaryText='English' value='en'/>
                           <MenuItem primaryText='日本語' value='ja'/>
                           <MenuItem primaryText='简体中文' value='cn'/>
                         </Menu>
@@ -140,46 +141,12 @@ class Index extends React.Component {
               <td>
                 <SlideToggle defaultOpen={true} title={t('intro.title')} level={0}>
                   <p> {t('intro.desc')} </p>
+                  <h3>
+                    {t('intro.info.title')}
+                  </h3>
                   <p>
-                    <a href='http://ssdh233.me/gsv/2016/12/15/development.html' target='_blank'>
-                       {t('intro.update_history')}
-                    </a>
+                    <Interpolate i18nKey='intro.info.content' useDangerouslySetInnerHTML={true}/>
                   </p>
-                  <p><b>Ver 1.3.2</b></p>
-                  <ul>
-                    <li><Interpolate i18nKey='intro.ver_1_3_2.mes1' useDangerouslySetInnerHTML={true}/></li>
-                    <li>{ t('intro.ver_1_3_2.mes2') }</li>
-                  </ul>
-                  <p><b>Ver 1.3.1</b></p>
-                  <ul>
-                    <li>
-                      { t('intro.ver_1_3_1') }
-                    </li>
-                  </ul>
-                  <p><b>Ver 1.3.0</b></p>
-                  <ul>
-                    <li>
-                      { t('intro.ver_1_3_0') }
-                    </li>
-                    <li>
-                      <a href='/matixx/list' target='_blank'>GITADORA Matixx List</a>
-                    </li>
-                  </ul>
-                  <p><b>Ver 1.2.0</b></p>
-                  <ul>
-                    <li>
-                      { t('intro.ver_1_2_0.mes1') }
-                      <ul>
-                        <li>
-                          <a href='/tbre/list' target='_blank'>GITADORA Tri-Boost Re:EVOLVE List</a>
-                        </li>
-                        <li>
-                          <a href='/tb/list' target='_blank'>GITADORA Tri-Boost List</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>{ t('intro.ver_1_2_0.mes2') }</li>
-                  </ul>
                 </SlideToggle>
               </td>
             </tr>
@@ -221,7 +188,6 @@ class Index extends React.Component {
                 <SlideToggle defaultStatus={false} title={t('desc.title')} level={0}>
                   <p><Interpolate i18nKey='desc.1st' useDangerouslySetInnerHTML={true}/></p>
                   <p><Interpolate i18nKey='desc.2nd' useDangerouslySetInnerHTML={true}/></p>
-                  <p><Interpolate i18nKey='desc.3rd' useDangerouslySetInnerHTML={true}/></p>
                 </SlideToggle>
               </td>
             </tr>
@@ -234,10 +200,9 @@ class Index extends React.Component {
                   </p>
                   <p>
                     { '★' + t('other.voice.title') + '：' }
-                    <a href='https://matsumatsu233.github.io/gsv/' target='_blank'>Blog</a>
+                    <a href='https://matsumatsu233.github.io/gsv/' target='_blank'>My Blog</a>
                   </p>
                   <p> { t('other.voice.desc1') } </p>
-                  <p><Interpolate i18nKey='other.voice.desc2' useDangerouslySetInnerHTML={true}/></p>
                   <p> { '★' + t('other.browser.title') } </p>
                   <p> Chrome, Safari </p>
                 </SlideToggle>
