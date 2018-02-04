@@ -22,8 +22,10 @@ module.exports.controller = function (app) {
         res.send("Unexpected version name");
     }
 
-    //pg.defaults.ssl = true;
     pg.connect(process.env.DATABASE_URL, function (err, client, done) {
+      if (err) {
+        console.log('err', err);
+      }
       var sql = 'select * from ' + skill_table_name + ' order by id asc;';
       client.query(sql, function (err, result) {
         done();
@@ -50,7 +52,7 @@ module.exports.controller = function (app) {
               console.log(e);
             }
           }
-          res.render("list" , { 
+          res.render("list" , {
             data : data,
             version: req.params.ver,
             version_full: version_name
