@@ -2,94 +2,103 @@ var pg = require('pg');
 
 module.exports.controller = function (app) {
   app.get('/:ver/:id/g', function (req, res) {
-    getSkill(req, res, 'g');
+    doSomething(req, res, 'g');
   });
 
   app.get('/:ver/:id/d', function (req, res) {
-    getSkill(req, res, 'd');
+    doSomething(req, res, 'd');
   });
 }
 
-function getSkill(req, res, type) {
-  var skill_table_name;
-  var skillp_table_name;
-  var version_name;
-  var type_name;
+function doSomething(req, res, type) {
+  const typeName = {
+    d: "drum",
+    g: "guitar"
+  }[type];
 
-  if (type == "d") {
-    type_name = "drum";
-  } else {
-    type_name = "guitar";
-  }
+  const versionName =  {
+    tb: "GITADORA Tri-Boost",
+    tbre: "GITADORA Tri-Boost Re:EVOLVE",
+    matixx: "GITADORA Matixx",
+  }[version];
 
-  switch (req.params.ver) {
-    case "tb":
-      skill_table_name = "skill_tb";
-      skillp_table_name = "skillp_tb";
-      version_name = "GITADORA Tri-Boost";
-      break;
-    case "tbre":
-      skill_table_name = "skill_tbre";
-      skillp_table_name = "skillp_tbre";
-      version_name = "GITADORA Tri-Boost Re:EVOLVE";
-      break;
-    case "matixx":
-      skill_table_name = "skill_matixx";
-      skillp_table_name = "skillp_matixx";
-      version_name = "GITADORA Matixx";
-      break;
-    default:
-      res.send("Unexpected version name");
-  }
-
-  //pg.defaults.ssl = true;
-  pg.connect(process.env.DATABASE_URL, function (err, client, done) {
-    var sql = 'select * from ' + skill_table_name + ' where id =' + req.params.id + ';';
-    client.query(sql, function (err, result) {
-      done();
-
-      if (err) {
-        console.error(sql);
-        console.error(err);
-        res.send(sql + "<br>" + err);
-      } else {
-        if (!result.rows[0]) {
-          //tmp
-          res.render("skill");
-        } else {
-          var result_skill = result.rows[0];
-          sql = 'select * from ' + skillp_table_name + ' where skill_id =' + req.params.id + ' and type = $$' + type_name + '$$;';
-          client.query(sql, function (err, result) {
-            done();
-
-            if (err) {
-              console.error(sql);
-              console.error(err);
-              res.send(sql + "<br>" + err);
-            } else {
-              var skill_data;
-              if (type_name == "drum"){
-                skill_data = JSON.parse(result_skill.drum_skill);
-              } else {
-                skill_data = JSON.parse(result_skill.guitar_skill);
-              }
-
-              var skill_point = (parseFloat(skill_data.hot.point) + parseFloat(skill_data.other.point)).toFixed(2);
-              res.render("skill" , {
-                version : req.params.ver,
-                version_full : version_name,
-                player_name : result_skill.player_name.replace(/^"(.*)"$/, '$1'),
-                id : req.params.id,
-                skill_data : skill_data,
-                skill_point : skill_point,
-                update_date : result_skill.update_date,
-                skillp_data : result.rows,
-                type : (type_name == "drum") ? 0 : 1 //1:guitar 0:drum
-              });
-            }
-          });
-        }
-      }
+  pg.connect(process.env.DATABASE_URL, (err, client, done) => {
+    getSkill({
+      client: client,
+      res: res,
+      version: req.params.ver,
+      type: typeName,
+      id: req.params.id,
+    }, ({ skillName, updateDate, skillData }) => {
+      getSavedSkillList({
+        client: client,
+        res: res,
+        version: req.params.ver,
+        type: typeName,
+        id: req.params.id,
+      }, (savedSkillList) => {
+        done();
+        const skillPoint = (parseFloat(skillData.hot.point) + parseFloat(skillData.other.point)).toFixed(2);
+        res.render("skill" , {
+          version : req.params.ver,
+          version_full : versionName,
+          player_name : skillName.replace(/^"(.*)"$/, '$1'),
+          id : req.params.id,
+          skill_data : skillData,
+          skill_point : skillPoint,
+          update_date : updateDate,
+          skillp_data : savedSkillList,
+          type : (typeName == "drum") ? 0 : 1 //1:guitar 0:drum
+        });
+      })
     });
+  });
+}
+
+function getSkill({client, res, version, type, id}, callback) {
+  let skillTableName = {
+    tb: "skill_tb",
+    tbre: "skill_tbre",
+    matixx: "skill_matixx",
+  }[version];
+
+  const sql = 'select * from ' + skillTableName + ' where id =' + id + ';';
+  client.query(sql, (err, result) => {
+    if (err) {
+      res.send(sql + "<br>" + err);
+    } else if(!result.rows[0]) {
+      // no result
+      res.render("skill");
+    } else {
+      const userData = result.rows[0];
+      let skillData;
+      if (type == "drum"){
+        skillData = JSON.parse(userData.drum_skill);
+      } else {
+        skillData = JSON.parse(userData.guitar_skill);
+      }
+      callback({
+        skillName: userData.player_name,
+        updateDate: userData.update_date,
+        skillData: skillData,
+      });
+    }
+  });
+}
+
+function getSavedSkillList({client, res, version, type, id}, callback) {
+  let skillpTableName = {
+    tb: "skillp_tb",
+    tbre: "skillp_tbre",
+    matixx: "skillp_matixx",
+  }[version];
+
+  const sql = 'select * from ' + skillpTableName + ' where skill_id =' + id + ' and type = $$' + type + '$$;';
+  client.query(sql, (err, result) => {
+    if (err) {
+      res.send(sql + "<br>" + err);
+    } else {
+      callback(result.rows);
+    }
   });
 }
