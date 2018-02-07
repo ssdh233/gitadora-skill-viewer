@@ -151,6 +151,10 @@ function getSavedSkill({client, res, version, skillid}, callback) {
   });
 }
 
+const oldNameMap = {
+  "Windy Fairy -GITADO ROCK ver.-": "Windy Fairy -GITADOROCK ver.-",
+};
+
 function compareSkill(current, old) {
   let result = Object.assign({}, current);
 
@@ -171,7 +175,7 @@ function compareSkillHalf(current, old) {
     result.data.forEach((item) => {
       let newSkillFlag = true;
       for (let i=0; i < old.data.length; i++) {
-        if (old.data[i].name === item.name) {
+        if (old.data[i].name === item.name || oldNameMap[old.data[i].name] === item.name) {
           newSkillFlag = false;
           if (item.skill_value > old.data[i].skill_value) {
             const sub = (item.skill_value - old.data[i].skill_value).toFixed(2);
