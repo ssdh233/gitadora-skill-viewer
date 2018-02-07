@@ -1,4 +1,5 @@
 var pg = require('pg');
+//pg.defaults.ssl = true;
 
 module.exports.controller = function (app) {
   app.get('/:ver/list', function (req, res) {
