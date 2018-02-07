@@ -88,7 +88,7 @@ class Index extends React.Component {
             <tr>
               <td>
                 <span className='title'>Gitadora Skill Viewer</span>
-                <span className='title_version'>v1.5.0</span>
+                <span className='title_version'>v1.5.1</span>
                 <span className='buttons'>
                   <MuiThemeProvider>
                     <div>
@@ -215,4 +215,4 @@ class Index extends React.Component {
   }
 }
 
-export default translate(['common'])(Index); 
+export default translate(['common'])(Index);
