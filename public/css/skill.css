@@ -66,20 +66,25 @@ body {
   text-align: center;
 }
 
+.skill_table .compare {
+  background-color: white;
+  font-size: 12px;
+}
+
 .BAS {
-  background-color:#C7E7FF;
+  background-color: #C7E7FF;
 }
 
 .ADV {
-  background-color:#FFFFC7;
+  background-color: #FFFFC7;
 }
 
 .EXT {
-  background-color:#FFC7C7;
+  background-color: #FFC7C7;
 }
 
 .MAS {
-  background-color:#D8BFF8;
+  background-color: #D8BFF8;
 }
 
 .save input[type=submit] {
@@ -107,4 +112,8 @@ body {
 
 .snapshot a {
   text-decoration: none;
+}
+
+.snapshot .compare {
+  color: #FFFFFF;
 }

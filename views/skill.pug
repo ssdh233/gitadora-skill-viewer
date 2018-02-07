@@ -3,6 +3,7 @@ html
   head
     link(rel="stylesheet" type="text/css" href="/css/skill.css")
     link(rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Andada")
+    link(rel="stylesheet" type="text/css" href="/css/font-awesome.min.css")
     script(type='text/javascript' src="/js/google_analytics.js")
     title gitadora skill viewer
   body
@@ -58,6 +59,7 @@ html
                       td(class="diff")= item.diff_value + " " + item.diff
                     td(class="achieve")= item.achive_value + " (" + rank(item.achive_value) + ")"
                     td(class="skill")= item.skill_value
+                    td(class="compare")= item.compare
         tr  
           td(colspan="2")
             table(class="skill_table")
@@ -80,6 +82,7 @@ html
                       td(class="diff")= item.diff_value + " " + item.diff                    
                     td(class="achieve")= item.achive_value + " (" + rank(item.achive_value) + ")"
                     td(class="skill")= item.skill_value
+                    td(class="compare")= item.compare
         tr
           td 
             form(class="save" action="/" + version + "/save" method="post" onSubmit="return check()")
@@ -99,6 +102,7 @@ html
                   td No.
                   td SKILL
                   td DATE
+                  td
                 -var index = 1
                 each item in skillp_data
                   tr
@@ -108,6 +112,9 @@ html
                       a(class="lv"+parseInt(item.skill/500) href="/" + version + "/" + item.id + "/p")= item.skill 
                     td
                       a(class="lv"+parseInt(item.skill/500) href="/" + version + "/" + item.id + "/p")= item.update_date
+                    td
+                      a(class="compare" href=`?c=${item.id}`)
+                        i(class="fas fa-exchange-alt")
       else
         tr
           td NO DATA
