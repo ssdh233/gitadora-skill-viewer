@@ -1,6 +1,5 @@
 {
   "name": "gitadora-skill-viewer",
-  "version": "1.5.1",
   "description": "",
   "engines": {
     "node": "7.7.1"

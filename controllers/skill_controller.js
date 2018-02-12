@@ -49,6 +49,7 @@ function doSomething(req, res, type) {
             version: req.params.ver,
             skillid: comparingSkillId,
           }, ({ skillData: savedSkillData }) => {
+            done();
             currentSkillData = compareSkill(skillData, savedSkillData);
             res.render("skill" , {
               version : req.params.ver,
