@@ -27,12 +27,12 @@ html
                   td= item.id
                   td= item.player_name
                   td
-                    a(class="lv"+parseInt(item.guitar_skill/500) href=item.id+"/g" target="_blank")= item.guitar_skill
+                    a(class="lv"+parseInt(item.guitar_skill/500) href="../"+item.id+"/g" target="_blank")= item.guitar_skill
                   td
-                    a(class="lv"+parseInt(item.drum_skill/500) href=item.id+"/d" target="_blank")= item.drum_skill
+                    a(class="lv"+parseInt(item.drum_skill/500) href="../"+item.id+"/d" target="_blank")= item.drum_skill
                   td= item.update_date
   script.
-    $(document).ready(function(){ 
-      $("#myTable").tablesorter(); 
-    }); 
+    $(document).ready(function(){
+      $("#myTable").tablesorter();
+    });
 
