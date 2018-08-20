@@ -38,9 +38,9 @@ module.exports.controller = function (app) {
         } else {
           var data = [];
           for (var i in result.rows) {
-            var guitar_skill = JSON.parse(result.rows[i].guitar_skill);
-            var drum_skill = JSON.parse(result.rows[i].drum_skill);
             try {
+              var guitar_skill = JSON.parse(result.rows[i].guitar_skill);
+              var drum_skill = JSON.parse(result.rows[i].drum_skill);
               data.push({
                 id : result.rows[i].id,
                 player_name : result.rows[i].player_name,
