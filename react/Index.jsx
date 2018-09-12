@@ -88,7 +88,7 @@ class Index extends React.Component {
             <tr>
               <td>
                 <span className='title'>Gitadora Skill Viewer</span>
-                <span className='title_version'>v1.5.4</span>
+                <span className='title_version'>v1.6.0</span>
                 <span className='buttons'>
                   <MuiThemeProvider>
                     <div>
@@ -107,6 +107,7 @@ class Index extends React.Component {
                         onRequestClose={this.handleListRequestClose}
                       >
                         <Menu onChange={this.handleLangChange}>
+                          <a href="/exchain/list" target='_blank'><MenuItem primaryText='EXCHAIN' /></a>
                           <a href="/matixx/list" target='_blank'><MenuItem primaryText='Matixx' /></a>
                           <a href="/tbre/list" target='_blank'><MenuItem primaryText='Tri-Boost Re' /></a>
                           <a href="/tb/list" target='_blank'><MenuItem primaryText='Tri-Boost' /></a>
@@ -155,7 +156,9 @@ class Index extends React.Component {
                 <SlideToggle defaultStatus={false} title={t('how.title')} level={0}>
                   <SlideToggle defaultStatus={false} title={t('how.upload.title')} level={1}>
                     <p> {t('how.upload.step1.desc')}</p>
-                    <p> For GITADORA matixx </p>
+                    <p> For GITADORA EXCHAIN </p>
+                    <div className='script'> {'javascript:void(!function(d){var s=d.createElement(\'script\');s.type=\'text/javascript\';s.src=\'//gitadora-skill-viewer.herokuapp.com/js/uploaddata_exchain.js\';d.head.appendChild(s);}(document));'} </div>
+                    <p> For GITADORA Matixx </p>
                     <div className='script'> {'javascript:void(!function(d){var s=d.createElement(\'script\');s.type=\'text/javascript\';s.src=\'//gitadora-skill-viewer.herokuapp.com/js/uploaddata_matixx.js\';d.head.appendChild(s);}(document));'} </div>
                     <p> For GITADORA Tri-Boost Re:EVOLVE </p>
                     <div className='script'> {'javascript:void(!function(d){var s=d.createElement(\'script\');s.type=\'text/javascript\';s.src=\'//gitadora-skill-viewer.herokuapp.com/js/uploaddata_tbre.js\';d.head.appendChild(s);}(document));'} </div>

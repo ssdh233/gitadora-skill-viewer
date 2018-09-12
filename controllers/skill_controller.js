@@ -88,6 +88,7 @@ function getSkill({client, res, version, type, id}, callback) {
     tb: "skill_tb",
     tbre: "skill_tbre",
     matixx: "skill_matixx",
+    exchain: "skill_exchain",
   }[version];
 
   const sql = 'select * from ' + skillTableName + ' where id =' + id + ';';
@@ -119,6 +120,7 @@ function getSavedSkillList({client, res, version, type, id}, callback) {
     tb: "skillp_tb",
     tbre: "skillp_tbre",
     matixx: "skillp_matixx",
+    exchain: "skill_exchain",
   }[version];
 
   const sql = 'select * from ' + skillpTableName + ' where skill_id =' + id + ' and type = $$' + type + '$$ order by update_date asc;';
@@ -136,6 +138,7 @@ function getSavedSkill({client, res, version, skillid}, callback) {
     tb: "skillp_tb",
     tbre: "skillp_tbre",
     matixx: "skillp_matixx",
+    exchain: "skill_exchain",
   }[version];
 
   const sql = 'select * from ' + skillpTableName + ' where id =' + skillid + ';';
