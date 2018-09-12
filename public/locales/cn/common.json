@@ -6,7 +6,7 @@
 		"desc": "一个从konami的官方网站上获取skill相关的数据，用来保存并公开的网站。",
 		"info": {
       "title": "通知",
-      "content": "<ul><li>增加了和过去的skill比较的功能。点击snapshot列表右侧的<i class=\"fas fa-exchange-alt\"></i>来比较当前的skill和过去的skill</li></ul>"
+      "content": "<ul><li>增加了对新版本GITADORA EXCHAIN的支持。请更新书签代码（在使用方法中可以找到）。</li></ul>"
     }
 	},
 	"how": {
