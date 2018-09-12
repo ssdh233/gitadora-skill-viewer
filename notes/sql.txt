@@ -1,0 +1,4 @@
+create table skill_newname as select * from skill_tb;
+delete from skill_newname;
+create table skillp_newname as select * from skillp_tb;
+delete from skillp_newname;

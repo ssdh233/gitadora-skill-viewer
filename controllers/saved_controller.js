@@ -22,6 +22,11 @@ module.exports.controller = function (app) {
         skillp_table_name = "skillp_matixx";
         version_name = "GITADORA Matixx";
         break;
+      case "exchain":
+        skill_table_name = "skill_exchain";
+        skillp_table_name = "skillp_exchain";
+        version_name = "GITADORA EXCHAIN";
+        break;
       default:
         res.send("Unexpected version name");
     }
