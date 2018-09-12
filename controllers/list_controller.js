@@ -20,7 +20,7 @@ module.exports.controller = function (app) {
         version_name = "GITADORA Matixx";
         break;
       case "exchain":
-        skill_table_name = "skill_matixx";
+        skill_table_name = "skill_exchain";
         version_name = "GITADORA EXCHAIN";
         break;
       default:
