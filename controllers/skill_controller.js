@@ -21,6 +21,7 @@ function doSomething(req, res, type) {
     tb: "GITADORA Tri-Boost",
     tbre: "GITADORA Tri-Boost Re:EVOLVE",
     matixx: "GITADORA Matixx",
+    exchain: "GITADORA EXCHAIN",
   }[req.params.ver];
 
   pg.connect(process.env.DATABASE_URL, (err, client, done) => {

@@ -13,6 +13,9 @@ module.exports.controller = function (app) {
       case "matixx":
         skill_table_name = "skill_matixx";
         break;
+      case "exchain":
+        skill_table_name = "skill_exchain";
+        break;
       default:
         res.send("Unexpected version name");
     }
