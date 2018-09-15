@@ -1,4 +1,4 @@
-var pg = require('pg');
+var pg = require('../modules/pg');
 
 module.exports.controller = function (app) {
   app.get('/:ver/userlist', function (req, res) {
@@ -26,7 +26,6 @@ module.exports.controller = function (app) {
         res.send("Unexpected version name");
     }
 
-    //pg.defaults.ssl = true;
     pg.connect(process.env.DATABASE_URL, function (err, client, done) {
       var sql = 'select * from ' + skill_table_name + ' order by id asc;';
       client.query(sql, function (err, result) {

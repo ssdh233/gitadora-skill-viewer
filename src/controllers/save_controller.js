@@ -1,5 +1,5 @@
 var http = require('http');
-var pg = require('pg');
+var pg = require('../modules/pg');
 
 var { SKILL_TABLE, SKILLP_TABLE } = require('../constants');
 
