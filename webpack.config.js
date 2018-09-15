@@ -2,8 +2,8 @@ const webpack = require('webpack');
 const path = require('path');
 const CompressionPlugin = require("compression-webpack-plugin");
 
-const PUBLIC_DIR = path.resolve(__dirname, 'public/js');
-const REACT_DIR = path.resolve(__dirname, 'react');
+const PUBLIC_DIR = path.resolve(__dirname, 'src/public/js');
+const REACT_DIR = path.resolve(__dirname, 'src/react');
 
 var config = {
   entry: REACT_DIR + '/App.jsx',

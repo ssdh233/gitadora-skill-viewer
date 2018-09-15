@@ -1,5 +1,4 @@
 /node_modules/*
 /.env
-/tmp/*
-/public/js/bundle.js
-/public/js/bundle.js.gz
+/src/public/js/bundle.js
+/src/public/js/bundle.js.gz
