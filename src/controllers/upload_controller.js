@@ -1,5 +1,5 @@
 var http = require('http');
-var pg = require('pg');
+var pg = require('../modules/pg');
 
 module.exports.controller = function (app) {
   app.post('/:ver/upload', function (req, res) {

@@ -1,7 +1,5 @@
-var pg = require('pg');
+var pg = require('../modules/pg');
 var { SKILL_TABLE, SKILLP_TABLE, VERSION_NAME, OLD_NAME_MAP } = require('../constants');
-
-pg.defaults.ssl = true;
 
 module.exports.controller = function (app) {
   app.get('/:ver/:id/g', function (req, res) {

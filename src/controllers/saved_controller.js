@@ -1,4 +1,4 @@
-var pg = require('pg');
+var pg = require('../modules/pg');
 
 var { SKILLP_TABLE, VERSION_NAME } = require('../constants');
 
