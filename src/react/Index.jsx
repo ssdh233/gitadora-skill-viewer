@@ -107,10 +107,10 @@ class Index extends React.Component {
                         onRequestClose={this.handleListRequestClose}
                       >
                         <Menu onChange={this.handleLangChange}>
-                          <a href="/exchain/list" target='_blank'><MenuItem primaryText='EXCHAIN' /></a>
-                          <a href="/matixx/list" target='_blank'><MenuItem primaryText='Matixx' /></a>
-                          <a href="/tbre/list" target='_blank'><MenuItem primaryText='Tri-Boost Re' /></a>
-                          <a href="/tb/list" target='_blank'><MenuItem primaryText='Tri-Boost' /></a>
+                          <a href="/exchain/list"><MenuItem primaryText='EXCHAIN' /></a>
+                          <a href="/matixx/list"><MenuItem primaryText='Matixx' /></a>
+                          <a href="/tbre/list"><MenuItem primaryText='Tri-Boost Re' /></a>
+                          <a href="/tb/list"><MenuItem primaryText='Tri-Boost' /></a>
                         </Menu>
                       </Popover>
                       <FlatButton
