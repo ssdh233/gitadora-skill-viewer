@@ -88,7 +88,7 @@ class Index extends React.Component {
             <tr>
               <td>
                 <span className='title'>Gitadora Skill Viewer</span>
-                <span className='title_version'>v1.6.1</span>
+                <span className='title_version'>v1.6.2</span>
                 <span className='buttons'>
                   <MuiThemeProvider>
                     <div>
