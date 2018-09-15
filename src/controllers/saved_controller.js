@@ -1,34 +1,15 @@
 var pg = require('pg');
 
+var { SKILLP_TABLE, VERSION_NAME } = require('../constants');
+
 module.exports.controller = function (app) {
   app.get('/:ver/:id/p', function (req, res) {
-    var skill_table_name;
-    var skillp_table_name;
-    var version_name;
+    const version = req.params.ver;
+    const skillp_table_name = SKILLP_TABLE[version];
+    const version_name = VERSION_NAME[version];
 
-    switch (req.params.ver) {
-      case "tb":
-        skill_table_name = "skill_tb";
-        skillp_table_name = "skillp_tb";
-        version_name = "GITADORA Tri-Boost";
-        break;
-      case "tbre":
-        skill_table_name = "skill_tbre";
-        skillp_table_name = "skillp_tbre";
-        version_name = "GITADORA Tri-Boost Re:EVOLVE";
-        break;
-      case "matixx":
-        skill_table_name = "skill_matixx";
-        skillp_table_name = "skillp_matixx";
-        version_name = "GITADORA Matixx";
-        break;
-      case "exchain":
-        skill_table_name = "skill_exchain";
-        skillp_table_name = "skillp_exchain";
-        version_name = "GITADORA EXCHAIN";
-        break;
-      default:
-        res.send("Unexpected version name");
+    if (!skillp_table_name || !version_name) {
+      res.send("Unexpected version parameter.");
     }
 
     pg.connect(process.env.DATABASE_URL, function (err, client, done) {

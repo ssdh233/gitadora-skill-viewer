@@ -1,36 +1,22 @@
 var http = require('http');
 var pg = require('pg');
 
+var { SKILL_TABLE, SKILLP_TABLE } = require('../constants');
+
 module.exports.controller = function (app) {
   app.post('/:ver/save', function (req, res) {
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-      var skill_table_name;
-      var skillp_table_name;
+      const version = req.params.ver;
+      const skill_table_name = SKILL_TABLE[version];
+      const skillp_table_name = SKILLP_TABLE[version];
 
-      switch (req.params.ver) {
-        case "tb":
-          skill_table_name = "skill_tb";
-          skillp_table_name = "skillp_tb";
-          break;
-        case "tbre":
-          skill_table_name = "skill_tbre";
-          skillp_table_name = "skillp_tbre";
-          break;
-        case "matixx":
-          skill_table_name = "skill_matixx";
-          skillp_table_name = "skillp_matixx";
-          break;
-        case "exchain":
-          skill_table_name = "skill_exchain";
-          skillp_table_name = "skillp_exchain";
-          break;
-        default:
-          res.send("Unexpected version name");
+      if (!skill_table_name || !skillp_table_name) {
+        res.send("Unexpected version parameter.");
       }
-      
-      var skill_id = req.body.skill_id;
-      var type = req.body.type;
-      var skill = req.body.skill;
+  
+      const skill_id = req.body.skill_id;
+      const type = req.body.type;
+      const skill = req.body.skill;
 
       var sql = 'select * from ' + skillp_table_name + ' where skill_id =' + skill_id + ' and type = $$' + type + '$$ and skill = $$' + skill + '$$;';
       client.query(sql, function(err, result) {
