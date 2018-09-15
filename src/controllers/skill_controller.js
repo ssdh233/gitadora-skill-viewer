@@ -1,5 +1,7 @@
 var pg = require('pg');
-//pg.defaults.ssl = true;
+var { SKILL_TABLE, SKILLP_TABLE, VERSION_NAME, OLD_NAME_MAP } = require('../constants');
+
+pg.defaults.ssl = true;
 
 module.exports.controller = function (app) {
   app.get('/:ver/:id/g', function (req, res) {
@@ -17,12 +19,7 @@ function doSomething(req, res, type) {
     g: "guitar"
   }[type];
 
-  const versionName =  {
-    tb: "GITADORA Tri-Boost",
-    tbre: "GITADORA Tri-Boost Re:EVOLVE",
-    matixx: "GITADORA Matixx",
-    exchain: "GITADORA EXCHAIN",
-  }[req.params.ver];
+  const versionName = VERSION_NAME[req.params.ver];
 
   pg.connect(process.env.DATABASE_URL, (err, client, done) => {
     getSkill({
@@ -84,12 +81,7 @@ function doSomething(req, res, type) {
 }
 
 function getSkill({client, res, version, type, id}, callback) {
-  let skillTableName = {
-    tb: "skill_tb",
-    tbre: "skill_tbre",
-    matixx: "skill_matixx",
-    exchain: "skill_exchain",
-  }[version];
+  let skillTableName = SKILL_TABLE[version];
 
   const sql = 'select * from ' + skillTableName + ' where id =' + id + ';';
   client.query(sql, (err, result) => {
@@ -116,12 +108,7 @@ function getSkill({client, res, version, type, id}, callback) {
 }
 
 function getSavedSkillList({client, res, version, type, id}, callback) {
-  let skillpTableName = {
-    tb: "skillp_tb",
-    tbre: "skillp_tbre",
-    matixx: "skillp_matixx",
-    exchain: "skillp_exchain",
-  }[version];
+  let skillpTableName = SKILLP_TABLE[version];
 
   const sql = 'select * from ' + skillpTableName + ' where skill_id =' + id + ' and type = $$' + type + '$$ order by update_date asc;';
   client.query(sql, (err, result) => {
@@ -134,12 +121,7 @@ function getSavedSkillList({client, res, version, type, id}, callback) {
 }
 
 function getSavedSkill({client, res, version, skillid}, callback) {
-  let skillpTableName = {
-    tb: "skillp_tb",
-    tbre: "skillp_tbre",
-    matixx: "skillp_matixx",
-    exchain: "skillp_exchain",
-  }[version];
+  let skillpTableName = SKILLP_TABLE[version];
 
   const sql = 'select * from ' + skillpTableName + ' where id =' + skillid + ';';
   client.query(sql, (err, result) => {
@@ -155,10 +137,6 @@ function getSavedSkill({client, res, version, skillid}, callback) {
     }
   });
 }
-
-const oldNameMap = {
-  "Windy Fairy -GITADO ROCK ver.-": "Windy Fairy -GITADOROCK ver.-",
-};
 
 function compareSkill(current, old) {
   let result = Object.assign({}, current);
@@ -180,7 +158,7 @@ function compareSkillHalf(current, old) {
     result.data.forEach((item) => {
       let newSkillFlag = true;
       for (let i=0; i < old.data.length; i++) {
-        if (old.data[i].name === item.name || oldNameMap[old.data[i].name] === item.name) {
+        if (old.data[i].name === item.name || OLD_NAME_MAP[old.data[i].name] === item.name) {
           newSkillFlag = false;
           if (item.skill_value > old.data[i].skill_value) {
             const sub = (item.skill_value - old.data[i].skill_value).toFixed(2);
