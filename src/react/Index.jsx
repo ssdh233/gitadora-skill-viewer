@@ -12,6 +12,8 @@ import Popover from 'material-ui/Popover';
 
 import SlideToggle from './SlideToggle.jsx';
 
+const VERSION = "v1.6.3";
+
 class Index extends React.Component {
 
   constructor(props) {
@@ -88,7 +90,7 @@ class Index extends React.Component {
             <tr>
               <td>
                 <span className='title'>Gitadora Skill Viewer</span>
-                <span className='title_version'>v1.6.2</span>
+                <span className='title_version'>{VERSION}</span>
                 <span className='buttons'>
                   <MuiThemeProvider>
                     <div>
