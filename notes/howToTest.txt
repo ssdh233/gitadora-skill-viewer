@@ -1,0 +1,11 @@
+1. Make sure following pages are accessible and look good on dev enviroment (Try to automate it?)
+http://gitadora-skill-viewer-dev.herokuapp.com/#/
+http://gitadora-skill-viewer-dev.herokuapp.com/matixx/list
+http://gitadora-skill-viewer-dev.herokuapp.com/matixx/userlist
+http://gitadora-skill-viewer-dev.herokuapp.com/matixx/1/d
+http://gitadora-skill-viewer-dev.herokuapp.com/matixx/1/d?c=802
+
+2. Test Upload with dev script
+(Maybe I should prepare a database for dev only)
+
+3. Test Save
