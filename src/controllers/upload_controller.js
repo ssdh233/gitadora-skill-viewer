@@ -1,8 +1,10 @@
 var http = require('http');
 var pg = require('../modules/pg');
+var { SKILL_TABLE } = require('../constants');
 
 module.exports.controller = function (app) {
   app.post('/:ver/upload', function (req, res) {
+    const version = req.params.ver;
     const skill_table_name = SKILL_TABLE[version];
 
     if (!skill_table_name) {

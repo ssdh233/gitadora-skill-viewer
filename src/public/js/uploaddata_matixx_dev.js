@@ -1,4 +1,4 @@
-var TARGET_DOMAIN = "http://gsv.fun";
+var TARGET_DOMAIN = "//gitadora-skill-viewer-dev.herokuapp.com";
 var VERSION = "matixx";
 
 var script = document.createElement('script');

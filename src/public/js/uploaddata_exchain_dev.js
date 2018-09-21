@@ -1,5 +1,5 @@
-var TARGET_DOMAIN = "http://gsv.fun";
-var VERSION = "matixx";
+var TARGET_DOMAIN = "//gitadora-skill-viewer-dev.herokuapp.com";
+var VERSION = "exchain";
 
 var script = document.createElement('script');
 script.src = `${TARGET_DOMAIN}/js/uploaddata_core.js`;
