@@ -6,7 +6,7 @@ const PUBLIC_DIR = path.resolve(__dirname, "src/public/js");
 const REACT_DIR = path.resolve(__dirname, "src/react");
 
 var config = {
-  entry: REACT_DIR + "/App.jsx",
+  entry: `${REACT_DIR}/App.jsx`,
   output: {
     path: PUBLIC_DIR,
     filename: "bundle.js"
