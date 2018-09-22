@@ -24,78 +24,85 @@ function doSomething(req, res, type) {
 
   const versionName = VERSION_NAME[req.params.ver];
 
-  pg.connect(
-    process.env.DATABASE_URL,
-    (err, client, done) => {
-      getSkill(
-        {
-          client: client,
-          res: res,
-          version: req.params.ver,
-          type: typeName,
-          id: req.params.id
-        },
-        ({ skillName, updateDate, skillData }) => {
-          let currentSkillData = skillData;
-          getSavedSkillList(
-            {
-              client: client,
-              res: res,
-              version: req.params.ver,
-              type: typeName,
-              id: req.params.id
-            },
-            savedSkillList => {
-              const skillPoint = (
-                parseFloat(skillData.hot.point) +
-                parseFloat(skillData.other.point)
-              ).toFixed(2);
+  if (!typeName || !versionName) {
+    res.send("Unexpected version parameter.");
+  } else {
+    pg.connect(
+      process.env.DATABASE_URL,
+      (err, client, done) => {
+        getSkill(
+          {
+            client: client,
+            res: res,
+            version: req.params.ver,
+            type: typeName,
+            id: req.params.id
+          },
+          ({ skillName, updateDate, skillData }) => {
+            let currentSkillData = skillData;
+            getSavedSkillList(
+              {
+                client: client,
+                res: res,
+                version: req.params.ver,
+                type: typeName,
+                id: req.params.id
+              },
+              savedSkillList => {
+                const skillPoint = (
+                  parseFloat(skillData.hot.point) +
+                  parseFloat(skillData.other.point)
+                ).toFixed(2);
 
-              const comparingSkillId = req.query.c;
-              if (comparingSkillId) {
-                getSavedSkill(
-                  {
-                    client: client,
-                    res: res,
-                    version: req.params.ver,
-                    skillid: comparingSkillId
-                  },
-                  ({ skillData: savedSkillData }) => {
-                    done();
-                    currentSkillData = compareSkill(skillData, savedSkillData);
-                    res.render("skill", {
+                const comparingSkillId = req.query.c;
+                if (comparingSkillId) {
+                  getSavedSkill(
+                    {
+                      client: client,
+                      res: res,
                       version: req.params.ver,
-                      version_full: versionName,
-                      player_name: skillName.replace(/^"(.*)"$/, "$1"),
-                      id: req.params.id,
-                      skill_data: currentSkillData,
-                      skill_point: skillPoint,
-                      update_date: updateDate,
-                      skillp_data: savedSkillList,
-                      type: typeName == "drum" ? 0 : 1 //1:guitar 0:drum
-                    });
-                  }
-                );
-              } else {
-                done();
-                res.render("skill", {
-                  version: req.params.ver,
-                  version_full: versionName,
-                  player_name: skillName.replace(/^"(.*)"$/, "$1"),
-                  id: req.params.id,
-                  skill_data: currentSkillData,
-                  skill_point: skillPoint,
-                  update_date: updateDate,
-                  skillp_data: savedSkillList,
-                  type: typeName == "drum" ? 0 : 1 //1:guitar 0:drum
-                });
+                      skillid: comparingSkillId
+                    },
+                    ({ skillData: savedSkillData }) => {
+                      done();
+                      currentSkillData = compareSkill(
+                        skillData,
+                        savedSkillData
+                      );
+                      res.render("skill", {
+                        version: req.params.ver,
+                        version_full: versionName,
+                        player_name: skillName.replace(/^"(.*)"$/, "$1"),
+                        id: req.params.id,
+                        skill_data: currentSkillData,
+                        skill_point: skillPoint,
+                        update_date: updateDate,
+                        skillp_data: savedSkillList,
+                        type: typeName == "drum" ? 0 : 1 //1:guitar 0:drum
+                      });
+                    }
+                  );
+                } else {
+                  done();
+                  res.render("skill", {
+                    version: req.params.ver,
+                    version_full: versionName,
+                    player_name: skillName.replace(/^"(.*)"$/, "$1"),
+                    id: req.params.id,
+                    skill_data: currentSkillData,
+                    skill_point: skillPoint,
+                    update_date: updateDate,
+                    skillp_data: savedSkillList,
+                    type: typeName == "drum" ? 0 : 1 //1:guitar 0:drum
+                  });
+                }
               }
-            }
-          );
-        }
-      );
-    }
-  );
+            );
+          }
+        );
+      }
+    );
+  }
 }
 
 function getSkill({ client, res, version, type, id }, callback) {
