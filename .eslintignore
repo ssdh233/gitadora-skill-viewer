@@ -1,0 +1,3 @@
+/node_modules/*
+/src/public/js/bundle.js
+/src/public/js/google_analytics.js
