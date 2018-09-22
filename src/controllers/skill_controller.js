@@ -108,10 +108,10 @@ function doSomething(req, res, type) {
 function getSkill({ client, res, version, type, id }, callback) {
   let skillTableName = SKILL_TABLE[version];
 
-  const sql = "select * from " + skillTableName + " where id =" + id + ";";
+  const sql = `select * from ${skillTableName} where id =${id};`;
   client.query(sql, (err, result) => {
     if (err) {
-      res.send(sql + "<br>" + err);
+      res.send(`${sql}<br>${err}`);
     } else if (!result.rows[0]) {
       // no result
       res.render("skill");
@@ -135,17 +135,10 @@ function getSkill({ client, res, version, type, id }, callback) {
 function getSavedSkillList({ client, res, version, type, id }, callback) {
   let skillpTableName = SKILLP_TABLE[version];
 
-  const sql =
-    "select * from " +
-    skillpTableName +
-    " where skill_id =" +
-    id +
-    " and type = $$" +
-    type +
-    "$$ order by update_date asc;";
+  const sql = `select * from ${skillpTableName} where skill_id =${id} and type = $$${type}$$ order by update_date asc;`;
   client.query(sql, (err, result) => {
     if (err) {
-      res.send(sql + "<br>" + err);
+      res.send(`${sql}<br>${err}`);
     } else {
       callback(result.rows);
     }
@@ -155,11 +148,10 @@ function getSavedSkillList({ client, res, version, type, id }, callback) {
 function getSavedSkill({ client, res, version, skillid }, callback) {
   let skillpTableName = SKILLP_TABLE[version];
 
-  const sql =
-    "select * from " + skillpTableName + " where id =" + skillid + ";";
+  const sql = `select * from ${skillpTableName} where id =${skillid};`;
   client.query(sql, (err, result) => {
     if (err) {
-      res.send(sql + "<br>" + err);
+      res.send(`${sql}<br>${err}`);
     } else {
       const userData = result.rows[0];
       callback({

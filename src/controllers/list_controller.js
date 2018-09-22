@@ -25,14 +25,14 @@ function getList({ req, res }, showCount) {
         if (err) {
           console.log("err", err);
         }
-        var sql = "select * from " + skill_table_name + " order by id asc;";
+        var sql = `select * from ${skill_table_name} order by id asc;`;
         client.query(sql, function(err, result) {
           done();
 
           if (err) {
             console.error(sql);
             console.error(err);
-            res.send(sql + "<br>" + err);
+            res.send(`${sql}<br>${err}`);
           } else {
             var data = [];
             for (var i in result.rows) {

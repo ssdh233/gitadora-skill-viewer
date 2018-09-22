@@ -179,20 +179,20 @@ function getDate() {
   var YYYY = date.getFullYear();
 
   if (mm < 10) {
-    mm = "0" + mm;
+    mm = `0${mm}`;
   }
 
   if (hh < 10) {
-    hh = "0" + hh;
+    hh = `0${hh}`;
   }
 
   if (DD < 10) {
-    DD = "0" + DD;
+    DD = `0${DD}`;
   }
 
   if (MM < 10) {
-    MM = "0" + MM;
+    MM = `0${MM}`;
   }
 
-  return YYYY + "/" + MM + "/" + DD + " " + hh + ":" + mm;
+  return `${YYYY}/${MM}/${DD} ${hh}:${mm}`;
 }

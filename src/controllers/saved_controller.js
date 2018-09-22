@@ -14,19 +14,16 @@ module.exports.controller = function(app) {
       pg.connect(
         process.env.DATABASE_URL,
         function(err, client, done) {
-          var sql =
-            "select * from " +
-            skillp_table_name +
-            " where id =" +
-            req.params.id +
-            ";";
+          var sql = `select * from ${skillp_table_name} where id =${
+            req.params.id
+          };`;
           client.query(sql, function(err, result) {
             done();
 
             if (err) {
               console.error(sql);
               console.error(err);
-              res.send(sql + "<br>" + err);
+              res.send(`${sql}<br>${err}`);
             } else {
               if (!result.rows[0]) {
                 res.render("skillp");
