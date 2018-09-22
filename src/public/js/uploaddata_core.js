@@ -140,7 +140,7 @@ function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
           };
 
           $.ajax({
-            url: `${TARGET_DOMAIN}/${VERSION}/upload`,
+            url: `${SCRIPT_DOMAIN}/${VERSION}/upload`,
             method: "POST",
             data: {
               version: VERSION,
