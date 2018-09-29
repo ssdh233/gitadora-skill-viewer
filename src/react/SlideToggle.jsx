@@ -1,6 +1,10 @@
 import React from "react";
 
 class SlideToggle extends React.Component {
+  static defaultProps = {
+    defaultOpen: false
+  };
+
   constructor(props) {
     super(props);
     this._toggleDiv = this._toggleDiv.bind(this);
