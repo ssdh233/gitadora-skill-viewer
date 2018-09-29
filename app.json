@@ -3,7 +3,7 @@
   "scripts": {
   },
   "env": {
-    "HEROKU_POSTGRESQL_ROSE_URL": {
+    "DATABASE_URL": {
       "required": true
     },
     "NODE_ENV": {
