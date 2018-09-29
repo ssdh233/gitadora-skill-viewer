@@ -12,7 +12,7 @@ import SlideToggle from "./SlideToggle.jsx";
 
 import styles from "./Index.modules.scss";
 
-const VERSION = "v1.6.5";
+const VERSION = "v1.7.0";
 
 class Index extends React.Component {
   constructor(props) {
