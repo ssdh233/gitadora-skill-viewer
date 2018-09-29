@@ -28,7 +28,8 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-i18next": "^2.2.0",
-    "react-router": "^3.0.2",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
     "react-tap-event-plugin": "^2.0.1"
   },
   "devDependencies": {
@@ -47,8 +48,12 @@
     "webpack": "^2.2.1"
   },
   "eslintConfig": {
-    "extends": ["prettier"],
-    "plugins": ["prettier"],
+    "extends": [
+      "prettier"
+    ],
+    "plugins": [
+      "prettier"
+    ],
     "parser": "babel-eslint",
     "rules": {
       "prettier/prettier": "error",

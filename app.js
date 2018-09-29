@@ -22,12 +22,17 @@ app.use(function(req, res, next) {
 
 app.use(bodyParser());
 
-// dynamically include routes (Controller)
+// for express endpoints.
 fs.readdirSync("./src/controllers").forEach(function(file) {
   if (file.substr(-3) == ".js") {
-    route = require("./src/controllers/" + file);
+    route = require(`./src/controllers/${file}`);
     route.controller(app);
   }
+});
+
+// for react pages
+app.get("*", function(req, res) {
+  res.render("react");
 });
 
 app.listen(process.env.PORT, function() {
