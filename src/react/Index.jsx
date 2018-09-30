@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router";
 import { translate, Interpolate } from "react-i18next";
 import i18n from "./i18n";
+import { Helmet } from "react-helmet";
 
 import FlatButton from "material-ui/FlatButton";
 import Menu from "material-ui/Menu";
@@ -84,6 +85,14 @@ class Index extends React.Component {
 
     return (
       <div className={styles.indexPage}>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <meta
+            name="description"
+            content={`${t("intro.desc")}${t("desc.3rd").substring(2)}`}
+          />
+          <title>Gitadora Skill Viewer</title>
+        </Helmet>
         <div className={styles.header}>
           <span className={styles.title}>
             Gitadora Skill Viewer
@@ -223,6 +232,9 @@ class Index extends React.Component {
           </p>
           <p>
             <Interpolate i18nKey="desc.2nd" useDangerouslySetInnerHTML={true} />
+          </p>
+          <p>
+            <Interpolate i18nKey="desc.3rd" useDangerouslySetInnerHTML={true} />
           </p>
         </SlideToggle>
         <SlideToggle title={t("other.title")}>
