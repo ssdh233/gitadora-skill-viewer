@@ -32,7 +32,9 @@ fs.readdirSync("./src/controllers").forEach(function(file) {
 
 // for react pages
 app.get("*", function(req, res) {
-  res.render("react");
+  res.render("react", {
+    googleSiteVerfication: process.env.GOOGLE_SITE_VERIFICATION
+  });
 });
 
 app.listen(process.env.PORT, function() {
