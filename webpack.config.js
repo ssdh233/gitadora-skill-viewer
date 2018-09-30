@@ -6,24 +6,36 @@ const PUBLIC_DIR = path.resolve(__dirname, "src/public/js");
 const REACT_DIR = path.resolve(__dirname, "src/react");
 
 var config = {
+  mode: "production",
   entry: `${REACT_DIR}/App.jsx`,
   output: {
     path: PUBLIC_DIR,
     filename: "bundle.js"
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?/,
-        include: REACT_DIR,
-        loader: "babel-loader"
+        use: [
+          {
+            loader: "babel-loader"
+          }
+        ],
+        include: REACT_DIR
       },
       {
         test: /\.scss$/,
-        loaders: [
-          "style-loader",
-          "css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]",
-          "sass-loader"
+        use: [
+          {
+            loader: "style-loader"
+          },
+          {
+            loader:
+              "css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]"
+          },
+          {
+            loader: "sass-loader"
+          }
         ]
       }
     ]

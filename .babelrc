@@ -1,6 +1,6 @@
 {
-  "presets" : ["es2015", "react", [
-    "env",
+  "presets" : ["@babel/preset-react", [
+    "@babel/env",
     {
       "loose": true,
       "modules": false,
@@ -9,7 +9,7 @@
           ">1%"
         ]
       },
-      "useBuiltIns": true
+      "useBuiltIns": "usage"
     }
   ]],
   "plugins": ["transform-class-properties"]
