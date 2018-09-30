@@ -1,0 +1,108 @@
+doctype html
+html
+  head
+    link(rel="stylesheet" type="text/css" href="/css/skill.css")
+    link(rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Andada")
+    script(type='text/javascript' src="/js/google_analytics.js")
+    title gitadora skill viewer
+  body
+    table
+      if skill_data
+        tr(class="title")
+          td(colspan="2")
+            a= version
+        tr
+          td(colspan="2")
+            a Last updated: 
+            a= update_date
+        tr
+          td(colspan="2")
+            table(class="profile_table")
+              tr
+                td NAME
+                td SKILL
+                td HOT
+                td OTHER
+              tr
+                td(class="lv"+skill_lv)= player_name
+                td(class="lv"+skill_lv)= skill_point
+                td(class="lv"+skill_lv)= skill_data.hot.point
+                td(class="lv"+skill_lv)= skill_data.other.point
+        tr
+          td(colspan="2")
+            table(class="skill_table")
+              if type == "guitar"
+                caption GUITAR HOT
+              else
+                caption DRUM HOT
+              tr
+                th(class="name") 曲名
+                th(class="diff") レベル
+                th(class="achieve") 達成率
+                th(class="skill") スキル
+              if skill_data.hot.data
+                each item in skill_data.hot.data
+                  tr(class=item.diff)
+                    td(class="name")= item.name
+                    if type == "guitar"
+                      td(class="diff")= item.diff_value + " " + item.diff + "-" + item.part
+                    else
+                      td(class="diff")= item.diff_value + " " + item.diff
+                    td(class="achieve")= item.achive_value + " (" + rank(item.achive_value) + ")"
+                    td(class="skill")= item.skill_value
+        tr  
+          td(colspan="2")
+            table(class="skill_table")
+              if type == "guitar"
+                caption GUITAR OTHER
+              else
+                caption DRUM OTHER
+              tr
+                th(class="name") 曲名
+                th(class="diff") レベル
+                th(class="achieve") 達成率
+                th(class="skill") スキル
+              if skill_data.other.data
+                each item in skill_data.other.data
+                  tr(class=item.diff)
+                    td(class="name")= item.name
+                    if type == "guitar"
+                      td(class="diff")= item.diff_value + " " + item.diff + "-" + item.part
+                    else
+                      td(class="diff")= item.diff_value + " " + item.diff
+                    td(class="achieve")= item.achive_value + " (" + rank(item.achive_value) + ")"
+                    td(class="skill")= item.skill_value
+        tr
+          td 
+            form(class="save" action="/save" method="post")
+              input(type="hidden" name="skill_id" value=id) 
+              input(type="hidden" name="type" value="guitar") 
+              input(type="hidden" name="skill" value=skill_point) 
+          td(class="footer" align="right")
+            a(href="/") このサイトについて
+
+      else
+        tr
+          td NO DATA
+        tr(class="footer")
+          td
+            a(href="/") このサイトについて
+
+    -function rank(value){
+    -  if (value.substr(0,3) == "100") {
+    -    return "SS";
+    -  } else {
+    -    var value_int = parseInt(value.substr(0,2));
+    -    if(value_int > 94) {
+    -      return "SS";
+    -    } else if(value_int > 79) {
+    -      return "S";
+    -    } else if(value_int > 72) {
+    -      return "A";
+    -    } else if(value_int > 62) {
+    -      return "B";
+    -    } else {
+    -      return "C";
+    -    }
+    -  }
+    -}
