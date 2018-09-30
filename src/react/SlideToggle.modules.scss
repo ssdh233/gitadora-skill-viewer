@@ -1,0 +1,27 @@
+%common {
+  font-weight: normal;
+  margin: 0;
+  color: #FFFFFF;
+  background-color: #333333;
+}
+
+
+.level1 {
+  .title {
+    @extend %common;
+
+    font-size: 120%;
+    height: 35px;
+  }
+}
+
+.level2 {
+  margin: 5px 0px 5px 20px;
+
+  .title {
+    @extend %common;
+
+    font-size: 100%;
+    height: 30px;
+  }
+}

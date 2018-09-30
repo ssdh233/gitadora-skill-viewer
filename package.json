@@ -28,6 +28,7 @@
     "pug": "^2.0.0-beta5",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "react-helmet": "^5.2.0",
     "react-i18next": "^2.2.0",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
