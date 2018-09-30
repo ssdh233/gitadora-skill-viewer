@@ -1,56 +1,34 @@
 import React from "react";
 
+import styles from "./SlideToggle.modules.scss";
+
 class SlideToggle extends React.Component {
   static defaultProps = {
-    defaultOpen: false
+    defaultOpen: false,
+    level: 1
   };
 
-  constructor(props) {
-    super(props);
-    this._toggleDiv = this._toggleDiv.bind(this);
-  }
-
-  _toggleDiv() {
+  _toggleDiv = () => {
     $(this.refs["toggle-div"]).slideToggle();
-  }
+  };
 
   render() {
-    const { t } = this.props;
-    let titleStyle = {};
-    let blockStyle = {};
-    switch (this.props.level) {
-      case 0:
-        titleStyle = {
-          fontSize: "120%",
-          height: "35px",
-          color: "#FFFFFF",
-          backgroundColor: "#333333"
-        };
-        break;
-      case 1:
-        titleStyle = {
-          fontSize: "100%",
-          height: "30px",
-          margin: "5px 0px 5px 20px",
-          color: "#FFFFFF",
-          backgroundColor: "#333333"
-        };
-        blockStyle = {
-          margin: "5px 0px 5px 20px"
-        };
-        break;
-      default:
-    }
-    blockStyle = Object.assign(
-      blockStyle,
-      this.props.defaultOpen ? { display: "normal" } : { display: "none" }
-    );
+    const commonTitleProps = {
+      className: styles.title,
+      onClick: this._toggleDiv
+    };
     return (
-      <div>
-        <div style={titleStyle} onClick={this._toggleDiv}>
-          {this.props.title}
-        </div>
-        <div ref="toggle-div" style={blockStyle}>
+      <div className={styles[`level${this.props.level}`]}>
+        {this.props.level === 1 && (
+          <h1 {...commonTitleProps}>{this.props.title}</h1>
+        )}
+        {this.props.level === 2 && (
+          <h2 {...commonTitleProps}>{this.props.title}</h2>
+        )}
+        <div
+          ref="toggle-div"
+          style={{ display: this.props.defaultOpen ? "normal" : "none" }}
+        >
           {this.props.children}
         </div>
       </div>

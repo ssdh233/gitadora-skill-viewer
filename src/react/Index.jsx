@@ -145,7 +145,7 @@ class Index extends React.Component {
             </Popover>
           </span>
         </div>
-        <SlideToggle defaultOpen={true} title={t("intro.title")} level={0}>
+        <SlideToggle defaultOpen={true} title={t("intro.title")}>
           <p> {t("intro.desc")} </p>
           <h3>{t("intro.info.title")}</h3>
           <p>
@@ -155,11 +155,11 @@ class Index extends React.Component {
             />
           </p>
         </SlideToggle>
-        <SlideToggle defaultOpen={true} title={t("how.title")} level={0}>
+        <SlideToggle defaultOpen={true} title={t("how.title")}>
           <SlideToggle
             defaultOpen={false}
             title={t("how.upload.title")}
-            level={1}
+            level={2}
           >
             <p> {t("how.upload.step1.desc")}</p>
             <p> For GITADORA EXCHAIN </p>
@@ -198,7 +198,7 @@ class Index extends React.Component {
             </p>
             <img src={"image/" + t("how.upload.step3.img")} width="80%" />
           </SlideToggle>
-          <SlideToggle title={t("how.save.title")} level={1}>
+          <SlideToggle title={t("how.save.title")} level={2}>
             <p> {t("how.save.step1.desc")} </p>
             <p>
               <img src={"image/" + t("how.save.step1.img1")} />
@@ -217,7 +217,7 @@ class Index extends React.Component {
             </p>
           </SlideToggle>
         </SlideToggle>
-        <SlideToggle title={t("desc.title")} level={0}>
+        <SlideToggle title={t("desc.title")}>
           <p>
             <Interpolate i18nKey="desc.1st" useDangerouslySetInnerHTML={true} />
           </p>
@@ -225,7 +225,7 @@ class Index extends React.Component {
             <Interpolate i18nKey="desc.2nd" useDangerouslySetInnerHTML={true} />
           </p>
         </SlideToggle>
-        <SlideToggle title={t("other.title")} level={0}>
+        <SlideToggle title={t("other.title")}>
           <p>
             {"★" + t("other.code.title") + "："}
             <a
