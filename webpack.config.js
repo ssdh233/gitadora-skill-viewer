@@ -7,7 +7,7 @@ const REACT_DIR = path.resolve(__dirname, "src/react");
 
 var config = {
   mode: "production",
-  entry: [`${REACT_DIR}/App.jsx`],
+  entry: ["@babel/polyfill", `${REACT_DIR}/App.jsx`],
   output: {
     path: PUBLIC_DIR,
     filename: "bundle.js"
