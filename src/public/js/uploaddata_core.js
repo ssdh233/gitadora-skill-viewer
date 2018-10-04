@@ -32,10 +32,20 @@ function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
         var player_name = $(doc)
           .find(".profile_name_frame")
           .text();
-        var card_number = $(doc)
-          .find(".common_frame_date")
-          .text()
-          .substring(10, 26);
+
+        var card_number = "default_card_number";
+
+        if (VERSION === "exchain") {
+          card_number = $(doc)
+            .find("#contents > .maincont > h2")
+            .text()
+            .match(/[a-zA-Z0-9]+/)[0];
+        } else {
+          card_number = $(doc)
+            .find(".common_frame_date")
+            .text()
+            .substring(10, 26);
+        }
 
         profile_data["player_name"] = player_name;
         profile_data["card_number"] = card_number;
