@@ -1,12 +1,13 @@
 import React from "react";
 import { render } from "react-dom";
 import injectTapEventPlugin from "react-tap-event-plugin";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import { I18nextProvider } from "react-i18next";
 import i18n from "./i18n";
 
 import Index from "./Index.jsx";
+import I18nHelper from "./I18nHelper.jsx";
 
 injectTapEventPlugin();
 
@@ -17,7 +18,10 @@ class App extends React.Component {
         <MuiThemeProvider>
           <Router>
             <div>
-              <Route path="/" component={Index} />
+              <Switch>
+                <Route exact path="/" component={I18nHelper} />
+                <Route exact path="/:locale" component={Index} />
+              </Switch>
             </div>
           </Router>
         </MuiThemeProvider>

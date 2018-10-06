@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import { translate, Interpolate } from "react-i18next";
 import i18n from "./i18n";
 import { Helmet } from "react-helmet";
@@ -29,6 +29,29 @@ class Index extends React.Component {
     };
   }
 
+  // TODO extract i18n function to an independent component
+  componentWillMount() {
+    if (
+      this.props.match.params.locale &&
+      this.props.match.params.locale !== i18n.language
+    ) {
+      i18n.changeLanguage(this.props.match.params.locale);
+    }
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (
+      newProps.match.params.locale &&
+      newProps.match.params.locale !== i18n.language
+    ) {
+      i18n.changeLanguage(newProps.match.params.locale);
+
+      // TODO try to close it after clicking. It should not be done here.
+      this.handleLangRequestClose();
+    }
+  }
+
+  // TODO update mui version
   // for list button
   handleListButtonClick = event => {
     // This prevents ghost click.
@@ -71,15 +94,6 @@ class Index extends React.Component {
     });
   };
 
-  handleLangChange = (event, value) => {
-    i18n.changeLanguage(value);
-    this.setState({
-      lang: {
-        open: false
-      }
-    });
-  };
-
   render() {
     const { t } = this.props;
 
@@ -90,6 +104,18 @@ class Index extends React.Component {
           <meta
             name="description"
             content={`${t("intro.desc")}${t("desc.3rd").substring(2)}`}
+          />
+          <link rel="canonical" href={window.location.href} />
+          <link
+            rel="alternate"
+            hreflang={
+              {
+                ja: "ja",
+                en: "en",
+                cn: "zh"
+              }[i18n.language] || "x-default"
+            }
+            href={window.location.href}
           />
           <title>Gitadora Skill Viewer</title>
         </Helmet>
@@ -115,7 +141,7 @@ class Index extends React.Component {
               targetOrigin={{ horizontal: "left", vertical: "top" }}
               onRequestClose={this.handleListRequestClose}
             >
-              <Menu onChange={this.handleLangChange}>
+              <Menu>
                 <a href="/exchain/list">
                   <MenuItem primaryText="EXCHAIN" />
                 </a>
@@ -146,10 +172,16 @@ class Index extends React.Component {
               targetOrigin={{ horizontal: "left", vertical: "top" }}
               onRequestClose={this.handleLangRequestClose}
             >
-              <Menu onChange={this.handleLangChange}>
-                <MenuItem primaryText="English" value="en" />
-                <MenuItem primaryText="日本語" value="ja" />
-                <MenuItem primaryText="简体中文" value="cn" />
+              <Menu onItemTouchTap={this.handleLangRequestClose}>
+                <Link to="/en">
+                  <MenuItem primaryText="English" value="en" />
+                </Link>
+                <Link to="/ja">
+                  <MenuItem primaryText="日本語" value="ja" />
+                </Link>
+                <Link to="/cn">
+                  <MenuItem primaryText="简体中文" value="cn" />
+                </Link>
               </Menu>
             </Popover>
           </span>

@@ -7,7 +7,7 @@
   "main": "app.js",
   "scripts": {
     "heroku-postbuild": "./node_modules/.bin/webpack -p",
-    "build": "./node_modules/.bin/webpack --watch",
+    "build": "./node_modules/.bin/webpack --mode=development --watch",
     "eslint": "./node_modules/.bin/eslint ."
   },
   "author": "",
@@ -29,7 +29,7 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-helmet": "^5.2.0",
-    "react-i18next": "^2.2.0",
+    "react-i18next": "^8.0.7",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-tap-event-plugin": "^2.0.1"
