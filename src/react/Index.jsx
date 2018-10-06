@@ -105,6 +105,18 @@ class Index extends React.Component {
             name="description"
             content={`${t("intro.desc")}${t("desc.3rd").substring(2)}`}
           />
+          <link rel="canonical" href={window.location.href} />
+          <link
+            rel="alternate"
+            hreflang={
+              {
+                ja: "ja",
+                en: "en",
+                cn: "zh"
+              }[i18n.language] || "x-default"
+            }
+            href={window.location.href}
+          />
           <title>Gitadora Skill Viewer</title>
         </Helmet>
         <div className={styles.header}>
