@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { FormattedMessage, FormattedHTMLMessage, injectIntl } from "react-intl";
+import Radium from "radium";
 
 import FlatButton from "material-ui/FlatButton";
 import Menu from "material-ui/Menu";
@@ -9,8 +10,6 @@ import MenuItem from "material-ui/MenuItem";
 import Popover from "material-ui/Popover";
 
 import SlideToggle from "./SlideToggle.jsx";
-
-//import styles from "./Index.modules.scss";
 
 const VERSION = "v1.8.0";
 
@@ -26,27 +25,6 @@ class Index extends React.Component {
         open: false
       }
     };
-  }
-
-  // TODO extract i18n function to an independent component
-  componentWillMount() {
-    // if (
-    //   this.props.match.params.locale &&
-    //   this.props.match.params.locale !== i18n.language
-    // ) {
-    //   i18n.changeLanguage(this.props.match.params.locale);
-    // }
-  }
-
-  componentWillReceiveProps(newProps) {
-    // if (
-    //   newProps.match.params.locale &&
-    //   newProps.match.params.locale !== i18n.language
-    // ) {
-    //   i18n.changeLanguage(newProps.match.params.locale);
-    //   // TODO try to close it after clicking. It should not be done here.
-    //   this.handleLangRequestClose();
-    // }
   }
 
   // TODO update mui version
@@ -97,10 +75,8 @@ class Index extends React.Component {
       intl: { formatMessage }
     } = this.props;
 
-    const styles = {};
-
     return (
-      <div className={styles.indexPage}>
+      <div style={styles.indexPage}>
         <Helmet>
           <meta charSet="utf-8" />
           <meta
@@ -123,12 +99,12 @@ class Index extends React.Component {
           />
           <title>Gitadora Skill Viewer</title>
         </Helmet>
-        <div className={styles.header}>
-          <span className={styles.title}>
+        <div style={styles.header}>
+          <span style={styles.title}>
             Gitadora Skill Viewer
-            <span className={styles.version}>{VERSION}</span>
+            <span style={styles.version}>{VERSION}</span>
           </span>
-          <span className={styles.buttons}>
+          <span style={styles.buttons}>
             <FlatButton
               onTouchTap={this.handleListButtonClick}
               label={<FormattedMessage id="list" />}
@@ -211,19 +187,19 @@ class Index extends React.Component {
           >
             <p> {<FormattedMessage id="how.upload.step1.desc" />}</p>
             <p> For GITADORA EXCHAIN </p>
-            <div className={styles.script}>
+            <div style={styles.script}>
               {
                 "javascript:void(!function(d){var s=d.createElement('script');s.type='text/javascript';s.src='//gitadora-skill-viewer.herokuapp.com/js/uploaddata_exchain.js';d.head.appendChild(s);}(document));"
               }
             </div>
             <p> For GITADORA Matixx </p>
-            <div className={styles.script}>
+            <div style={styles.script}>
               {
                 "javascript:void(!function(d){var s=d.createElement('script');s.type='text/javascript';s.src='//gitadora-skill-viewer.herokuapp.com/js/uploaddata_matixx.js';d.head.appendChild(s);}(document));"
               }
             </div>
             <p> For GITADORA Tri-Boost Re:EVOLVE </p>
-            <div className={styles.script}>
+            <div style={styles.script}>
               {
                 "javascript:void(!function(d){var s=d.createElement('script');s.type='text/javascript';s.src='//gitadora-skill-viewer.herokuapp.com/js/uploaddata_tbre.js';d.head.appendChild(s);}(document));"
               }
@@ -317,4 +293,50 @@ class Index extends React.Component {
   }
 }
 
-export default injectIntl(Index);
+const styles = {
+  indexPage: {
+    fontFamily: "verdana",
+    width: "100%"
+  },
+  header: {
+    display: "flex",
+    flexWrap: "wrap",
+    marginBottom: 5
+  },
+  title: {
+    flexGrow: 1,
+    fontSize: 32,
+    fontFamily: "Andada",
+    fontWeight: "bold",
+
+    "@media (max-width: 742px)": {
+      width: "100%",
+      fontSize: 24
+    }
+  },
+  version: {
+    fontSize: 16,
+
+    "@media (max-width: 742px)": {
+      fontSize: 12
+    }
+  },
+  buttons: {
+    marginTop: 10,
+
+    "@media (max-width: 742px)": {
+      width: "100%",
+      display: "flex",
+      justifyContent: "flex-end"
+    }
+  },
+  script: {
+    background: "#f6f6f6",
+    padding: 20,
+    borderRadius: 6,
+    fontSize: "80%",
+    wordBreak: "break-all"
+  }
+};
+
+export default injectIntl(Radium(Index));
