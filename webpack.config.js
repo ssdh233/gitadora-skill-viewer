@@ -3,25 +3,27 @@ const path = require("path");
 const CompressionPlugin = require("compression-webpack-plugin");
 
 const PUBLIC_DIR = path.resolve(__dirname, "src/public/js");
-const REACT_DIR = path.resolve(__dirname, "src/react");
+const SRC_DIR = path.resolve(__dirname, "src");
 
 var config = {
   mode: "production",
-  entry: ["@babel/polyfill", `${REACT_DIR}/App.jsx`],
+  entry: {
+    bundle: ["@babel/polyfill", `${SRC_DIR}/client.js`]
+  },
   output: {
     path: PUBLIC_DIR,
-    filename: "bundle.js"
+    filename: "[name].js"
   },
   module: {
     rules: [
       {
-        test: /\.jsx?/,
+        test: /\.jsx?$/,
         use: [
           {
             loader: "babel-loader"
           }
         ],
-        include: REACT_DIR
+        include: SRC_DIR
       },
       {
         test: /\.scss$/,

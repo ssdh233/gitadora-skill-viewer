@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "./SlideToggle.modules.scss";
+//import styles from "./SlideToggle.modules.scss";
 
 class SlideToggle extends React.Component {
   static defaultProps = {
@@ -13,6 +13,8 @@ class SlideToggle extends React.Component {
   };
 
   render() {
+    const styles = {};
+
     const commonTitleProps = {
       className: styles.title,
       onClick: this._toggleDiv

@@ -29,7 +29,7 @@
     "save": {
       "title": "Save skill data(take snapshot)",
       "step1": {
-        "desc": "1.Click the button \"このスキル表を永久に保存したい!\" on the left bottom, and click OK（Sorry it's Japanese(´・ω・｀) Please ignore it.）",
+        "desc": "1.Click the button <このスキル表を永久に保存したい!> on the left bottom, and click OK（Sorry it's Japanese(´・ω・｀) Please ignore it.）",
         "img1": "2-1.jpeg",
         "img2": "2-2.jpeg"
       },

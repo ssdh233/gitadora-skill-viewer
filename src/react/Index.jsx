@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { translate, Interpolate } from "react-i18next";
-import i18n from "./i18n";
 import { Helmet } from "react-helmet";
+import { FormattedMessage, FormattedHTMLMessage, injectIntl } from "react-intl";
 
 import FlatButton from "material-ui/FlatButton";
 import Menu from "material-ui/Menu";
@@ -11,7 +10,7 @@ import Popover from "material-ui/Popover";
 
 import SlideToggle from "./SlideToggle.jsx";
 
-import styles from "./Index.modules.scss";
+//import styles from "./Index.modules.scss";
 
 const VERSION = "v1.8.0";
 
@@ -31,24 +30,23 @@ class Index extends React.Component {
 
   // TODO extract i18n function to an independent component
   componentWillMount() {
-    if (
-      this.props.match.params.locale &&
-      this.props.match.params.locale !== i18n.language
-    ) {
-      i18n.changeLanguage(this.props.match.params.locale);
-    }
+    // if (
+    //   this.props.match.params.locale &&
+    //   this.props.match.params.locale !== i18n.language
+    // ) {
+    //   i18n.changeLanguage(this.props.match.params.locale);
+    // }
   }
 
   componentWillReceiveProps(newProps) {
-    if (
-      newProps.match.params.locale &&
-      newProps.match.params.locale !== i18n.language
-    ) {
-      i18n.changeLanguage(newProps.match.params.locale);
-
-      // TODO try to close it after clicking. It should not be done here.
-      this.handleLangRequestClose();
-    }
+    // if (
+    //   newProps.match.params.locale &&
+    //   newProps.match.params.locale !== i18n.language
+    // ) {
+    //   i18n.changeLanguage(newProps.match.params.locale);
+    //   // TODO try to close it after clicking. It should not be done here.
+    //   this.handleLangRequestClose();
+    // }
   }
 
   // TODO update mui version
@@ -95,7 +93,11 @@ class Index extends React.Component {
   };
 
   render() {
-    const { t } = this.props;
+    const {
+      intl: { formatMessage }
+    } = this.props;
+
+    const styles = {};
 
     return (
       <div className={styles.indexPage}>
@@ -103,9 +105,11 @@ class Index extends React.Component {
           <meta charSet="utf-8" />
           <meta
             name="description"
-            content={`${t("intro.desc")}${t("desc.3rd").substring(2)}`}
+            content={`${formatMessage({ id: "intro.desc" })} ${formatMessage({
+              id: "desc.3rd"
+            }).substring(2)}`}
           />
-          <link rel="canonical" href={window.location.href} />
+          <link rel="canonical" href={"123"} />
           <link
             rel="alternate"
             hreflang={
@@ -113,9 +117,9 @@ class Index extends React.Component {
                 ja: "ja",
                 en: "en",
                 cn: "zh"
-              }[i18n.language] || "x-default"
+              }["ja"] || "x-default"
             }
-            href={window.location.href}
+            href={"123"}
           />
           <title>Gitadora Skill Viewer</title>
         </Helmet>
@@ -127,7 +131,7 @@ class Index extends React.Component {
           <span className={styles.buttons}>
             <FlatButton
               onTouchTap={this.handleListButtonClick}
-              label={t("list")}
+              label={<FormattedMessage id="list" />}
               labelPosition="before"
               icon={<i className="fa fa-list-ul" />}
             />
@@ -158,7 +162,7 @@ class Index extends React.Component {
             </Popover>
             <FlatButton
               onTouchTap={this.handleLangButtonClick}
-              label={t("lang")}
+              label={<FormattedMessage id="lang" />}
               labelPosition="before"
               icon={<i className="fa fa-language" />}
             />
@@ -173,36 +177,39 @@ class Index extends React.Component {
               onRequestClose={this.handleLangRequestClose}
             >
               <Menu onItemTouchTap={this.handleLangRequestClose}>
-                <Link to="/en">
+                <a href="/ssr/en">
                   <MenuItem primaryText="English" value="en" />
-                </Link>
-                <Link to="/ja">
+                </a>
+                <a href="/ssr/ja">
                   <MenuItem primaryText="日本語" value="ja" />
-                </Link>
-                <Link to="/cn">
+                </a>
+                <a href="/ssr/zh">
                   <MenuItem primaryText="简体中文" value="cn" />
-                </Link>
+                </a>
               </Menu>
             </Popover>
           </span>
         </div>
-        <SlideToggle defaultOpen={true} title={t("intro.title")}>
-          <p> {t("intro.desc")} </p>
-          <h3>{t("intro.info.title")}</h3>
+        <SlideToggle
+          defaultOpen={true}
+          title={<FormattedMessage id="intro.title" />}
+        >
+          <p> {<FormattedMessage id="intro.desc" />} </p>
+          <h3>{<FormattedMessage id="intro.info.title" />}</h3>
           <p>
-            <Interpolate
-              i18nKey="intro.info.content"
-              useDangerouslySetInnerHTML={true}
-            />
+            <FormattedHTMLMessage id="intro.info.content" />
           </p>
         </SlideToggle>
-        <SlideToggle defaultOpen={true} title={t("how.title")}>
+        <SlideToggle
+          defaultOpen={true}
+          title={<FormattedMessage id="how.title" />}
+        >
           <SlideToggle
             defaultOpen={false}
-            title={t("how.upload.title")}
+            title={<FormattedMessage id="how.upload.title" />}
             level={2}
           >
-            <p> {t("how.upload.step1.desc")}</p>
+            <p> {<FormattedMessage id="how.upload.step1.desc" />}</p>
             <p> For GITADORA EXCHAIN </p>
             <div className={styles.script}>
               {
@@ -222,56 +229,65 @@ class Index extends React.Component {
               }
             </div>
             <p>
-              <img src={"image/" + t("how.upload.step1.img")} />
-            </p>
-            <p>
-              <Interpolate
-                i18nKey="how.upload.step2.desc"
-                useDangerouslySetInnerHTML={true}
+              <img
+                src={"image/" + formatMessage({ id: "how.upload.step1.img" })}
               />
             </p>
-            <img src={"image/" + t("how.upload.step2.img")} width="80%" />
             <p>
-              <Interpolate
-                i18nKey="how.upload.step3.desc"
-                useDangerouslySetInnerHTML={true}
-              />
+              <FormattedHTMLMessage id="how.upload.step2.desc" />
             </p>
-            <img src={"image/" + t("how.upload.step3.img")} width="80%" />
+            <img
+              src={"image/" + formatMessage({ id: "how.upload.step2.img" })}
+              width="80%"
+            />
+            <p>
+              <FormattedHTMLMessage id="how.upload.step3.desc" />
+            </p>
+            <img
+              src={"image/" + formatMessage({ id: "how.upload.step3.img" })}
+              width="80%"
+            />
           </SlideToggle>
-          <SlideToggle title={t("how.save.title")} level={2}>
-            <p> {t("how.save.step1.desc")} </p>
+          <SlideToggle
+            title={<FormattedMessage id="how.save.title" />}
+            level={2}
+          >
+            <p> {<FormattedMessage id="how.save.step1.desc" />} </p>
             <p>
-              <img src={"image/" + t("how.save.step1.img1")} />
-            </p>
-            <p>
-              <img src={"image/" + t("how.save.step1.img2")} />
-            </p>
-            <p>
-              <Interpolate
-                i18nKey="how.save.step2.desc"
-                useDangerouslySetInnerHTML={true}
+              <img
+                src={"image/" + formatMessage({ id: "how.save.step1.img1" })}
               />
             </p>
             <p>
-              <img src={"image/" + t("how.save.step2.img")} width="80%" />
+              <img
+                src={"image/" + formatMessage({ id: "how.save.step1.img2" })}
+              />
+            </p>
+            <p>
+              <FormattedHTMLMessage id="how.save.step2.desc" />
+            </p>
+            <p>
+              <img
+                src={"image/" + formatMessage({ id: "how.save.step2.img" })}
+                width="80%"
+              />
             </p>
           </SlideToggle>
         </SlideToggle>
-        <SlideToggle title={t("desc.title")}>
+        <SlideToggle title={formatMessage({ id: "desc.title" })}>
           <p>
-            <Interpolate i18nKey="desc.1st" useDangerouslySetInnerHTML={true} />
+            <FormattedHTMLMessage id="desc.1st" />
           </p>
           <p>
-            <Interpolate i18nKey="desc.2nd" useDangerouslySetInnerHTML={true} />
+            <FormattedHTMLMessage id="desc.2nd" />
           </p>
           <p>
-            <Interpolate i18nKey="desc.3rd" useDangerouslySetInnerHTML={true} />
+            <FormattedHTMLMessage id="desc.3rd" />
           </p>
         </SlideToggle>
-        <SlideToggle title={t("other.title")}>
+        <SlideToggle title={<FormattedMessage id="other.title" />}>
           <p>
-            {"★" + t("other.code.title") + "："}
+            {"★" + formatMessage({ id: "other.code.title" }) + "："}
             <a
               href="https://github.com/matsumatsu233/gitadora-skill-viewer"
               target="_blank"
@@ -280,13 +296,20 @@ class Index extends React.Component {
             </a>
           </p>
           <p>
-            {"★" + t("other.voice.title") + "："}
+            {"★"}
+            <FormattedMessage id="other.voice.title" />
+            {"："}
             <a href="https://matsumatsu233.github.io/gsv/" target="_blank">
               My Blog
             </a>
           </p>
-          <p> {t("other.voice.desc1")} </p>
-          <p> {"★" + t("other.browser.title")} </p>
+          <p>
+            <FormattedMessage id="other.voice.desc1" />
+          </p>
+          <p>
+            {"★"}
+            <FormattedMessage id="other.browser.title" />
+          </p>
           <p> Chrome, Safari </p>
         </SlideToggle>
       </div>
@@ -294,4 +317,4 @@ class Index extends React.Component {
   }
 }
 
-export default translate(["common"])(Index);
+export default injectIntl(Index);

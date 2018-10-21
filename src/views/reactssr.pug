@@ -1,7 +1,6 @@
 doctype html
 html
-  head
-    title Gitadora skill viewer
+  head!= `${helmet.title.toString()}${helmet.meta.toString()}${helmet.link.toString()}`
     meta(name="viewport" content="width=device-width,initial-scale=1")
     meta(name="google-site-verification" content=`${googleSiteVerfication}`)
     link(rel="stylesheet" type="text/css" href="/css/font-awesome.min.css")
@@ -9,5 +8,9 @@ html
     script(type='text/javascript' src="//cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js")
     script(type='text/javascript' src="/js/google_analytics.js")
   body
+    h1 Server Side Rendering
     div(id="app")
-    script(src="js/client.js" type="text/javascript")
+      div!= content
+    script.
+      window.App=`!{appString}`;
+    script(src="/js/bundle.js" type="text/javascript")
