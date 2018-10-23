@@ -153,13 +153,13 @@ class Index extends React.Component {
               onRequestClose={this.handleLangRequestClose}
             >
               <Menu onItemTouchTap={this.handleLangRequestClose}>
-                <a href="/ssr/en">
+                <a href="/en">
                   <MenuItem primaryText="English" value="en" />
                 </a>
-                <a href="/ssr/ja">
+                <a href="/ja">
                   <MenuItem primaryText="日本語" value="ja" />
                 </a>
-                <a href="/ssr/zh">
+                <a href="/zh">
                   <MenuItem primaryText="简体中文" value="cn" />
                 </a>
               </Menu>
