@@ -40,6 +40,8 @@ fs.readdirSync("./src/controllers").forEach(function(file) {
 app.get("/", (req, res) => {
   const lang =
     req.cookies.locale || req.acceptsLanguages("ja", "zh", "en") || "ja";
+
+  res.setHeader("Cache-Control", "public, max-age=0");
   res.redirect(301, `/${lang}`);
 });
 
