@@ -11,7 +11,7 @@ import Popover from "material-ui/Popover";
 
 import SlideToggle from "./SlideToggle.jsx";
 
-const VERSION = "v1.9.0";
+const VERSION = "v1.9.1";
 
 class Index extends React.Component {
   constructor(props) {
