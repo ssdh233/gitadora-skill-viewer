@@ -3,7 +3,12 @@ const app = express();
 const path = require("path");
 const fs = require("fs");
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 const compression = require("compression");
+
+const React = require("react");
+import { Helmet } from "react-helmet";
+import serverSideRendering from "./src/server";
 
 app.use(compression());
 
@@ -21,8 +26,10 @@ app.use(function(req, res, next) {
 });
 
 app.use(bodyParser());
+app.use(cookieParser());
 
 // for express endpoints.
+let route;
 fs.readdirSync("./src/controllers").forEach(function(file) {
   if (file.substr(-3) == ".js") {
     route = require(`./src/controllers/${file}`);
@@ -30,13 +37,28 @@ fs.readdirSync("./src/controllers").forEach(function(file) {
   }
 });
 
+app.get("/", (req, res) => {
+  const lang =
+    req.cookies.locale || req.acceptsLanguages("ja", "zh", "en") || "ja";
+  res.redirect(301, `/${lang}`);
+});
+
 // for react pages
-app.get("*", function(req, res) {
+app.get("/:locale(en|ja|zh)", function(req, res) {
   if (req.get("Host") === "gitadora-skill-viewer.herokuapp.com") {
     res.redirect(301, `http://gsv.fun${req.url}`);
   } else {
-    res.render("react", {
-      googleSiteVerfication: process.env.GOOGLE_SITE_VERIFICATION
+    const locale = req.params.locale;
+    res.cookie("locale", locale);
+
+    const { renderedString, appString } = serverSideRendering({ locale });
+    const helmet = Helmet.renderStatic();
+
+    res.render("reactssr", {
+      googleSiteVerfication: process.env.GOOGLE_SITE_VERIFICATION,
+      helmet,
+      content: renderedString,
+      appString
     });
   }
 });

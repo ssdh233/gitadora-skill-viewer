@@ -1,33 +1,27 @@
 import React from "react";
-import { render } from "react-dom";
 import injectTapEventPlugin from "react-tap-event-plugin";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import { I18nextProvider } from "react-i18next";
-import i18n from "./i18n";
+import { StyleRoot } from "radium";
 
 import Index from "./Index.jsx";
 import I18nHelper from "./I18nHelper.jsx";
 
+// TODO update mui version and remove this
 injectTapEventPlugin();
 
-class App extends React.Component {
+export class App extends React.Component {
   render() {
     return (
-      <I18nextProvider i18n={i18n}>
+      <StyleRoot>
         <MuiThemeProvider>
-          <Router>
-            <div>
-              <Switch>
-                <Route exact path="/" component={I18nHelper} />
-                <Route exact path="/:locale" component={Index} />
-              </Switch>
-            </div>
-          </Router>
+          <Switch>
+            <Route exact path="/" component={I18nHelper} />
+            <Route exact path="/:locale" component={Index} />
+            <Route exact path="/ssr/:locale" component={Index} />
+          </Switch>
         </MuiThemeProvider>
-      </I18nextProvider>
+      </StyleRoot>
     );
   }
 }
-
-render(<App />, document.getElementById("app"));

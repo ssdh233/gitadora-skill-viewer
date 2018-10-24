@@ -1,6 +1,5 @@
 import React from "react";
-
-import styles from "./SlideToggle.modules.scss";
+import Radium from "radium";
 
 class SlideToggle extends React.Component {
   static defaultProps = {
@@ -8,17 +7,19 @@ class SlideToggle extends React.Component {
     level: 1
   };
 
+  // TODO stop using $
   _toggleDiv = () => {
     $(this.refs["toggle-div"]).slideToggle();
   };
 
   render() {
     const commonTitleProps = {
-      className: styles.title,
+      style: styles[`level${this.props.level}`].title,
       onClick: this._toggleDiv
     };
+
     return (
-      <div className={styles[`level${this.props.level}`]}>
+      <div style={styles[`level${this.props.level}`].div}>
         {this.props.level === 1 && (
           <h1 {...commonTitleProps}>{this.props.title}</h1>
         )}
@@ -35,5 +36,35 @@ class SlideToggle extends React.Component {
     );
   }
 }
+
+const titleCommonStyle = {
+  fontWeight: "normal",
+  margin: 0,
+  color: "#ffffff",
+  backgroundColor: "#333333"
+};
+
+const styles = {
+  level1: {
+    div: {
+      marginBottom: "5px"
+    },
+    title: {
+      fontSize: "120%",
+      height: 35,
+      ...titleCommonStyle
+    }
+  },
+  level2: {
+    div: {
+      margin: "5px 0px 5px 20px"
+    },
+    title: {
+      fontSize: "100%",
+      height: 30,
+      ...titleCommonStyle
+    }
+  }
+};
 
 export default SlideToggle;
