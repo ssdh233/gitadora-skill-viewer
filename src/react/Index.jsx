@@ -97,13 +97,13 @@ class Index extends React.Component {
             }
             href={"123"}
           />
-          <title>Gitadora Skill Viewer</title>
+          <title>{formatMessage({ id: "title" })}</title>
         </Helmet>
         <div style={styles.header}>
-          <span style={styles.title}>
+          <h1 style={styles.title}>
             Gitadora Skill Viewer
             <span style={styles.version}>{VERSION}</span>
-          </span>
+          </h1>
           <span style={styles.buttons}>
             <FlatButton
               onTouchTap={this.handleListButtonClick}
@@ -308,6 +308,7 @@ const styles = {
     fontSize: 32,
     fontFamily: "Andada",
     fontWeight: "bold",
+    margin: 0,
 
     "@media (max-width: 742px)": {
       width: "100%",

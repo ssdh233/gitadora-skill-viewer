@@ -56,7 +56,7 @@ app.get("/:locale(en|ja|zh)", function(req, res) {
     const { renderedString, appString } = serverSideRendering({ locale });
     const helmet = Helmet.renderStatic();
 
-    res.render("reactssr", {
+    res.render("react", {
       googleSiteVerfication: process.env.GOOGLE_SITE_VERIFICATION,
       helmet,
       content: renderedString,

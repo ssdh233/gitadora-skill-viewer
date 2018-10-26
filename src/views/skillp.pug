@@ -3,14 +3,15 @@ html
   head
     link(rel="stylesheet" type="text/css" href="/css/skill.css")
     link(rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Andada")
+    meta(name="robots" content="noindex")
     script(type='text/javascript' src="/js/google_analytics.js")
-    title= `${player_name}さんのスキル(${type ? "Drummania" : "Guitarfreaks"})`
+    title= `${player_name}さんの${type ? "Guitarfreaks" : "Drummania"}スキル | ${version_full}`
   body
     table
       if skill_data
         tr(class="title")
           td(colspan="2")
-            a= version
+            a= version_full
         tr
           td(colspan="2")
             a Last updated: 

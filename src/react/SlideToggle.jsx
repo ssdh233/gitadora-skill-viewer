@@ -21,10 +21,10 @@ class SlideToggle extends React.Component {
     return (
       <div style={styles[`level${this.props.level}`].div}>
         {this.props.level === 1 && (
-          <h1 {...commonTitleProps}>{this.props.title}</h1>
+          <h3 {...commonTitleProps}>{this.props.title}</h3>
         )}
         {this.props.level === 2 && (
-          <h2 {...commonTitleProps}>{this.props.title}</h2>
+          <h4 {...commonTitleProps}>{this.props.title}</h4>
         )}
         <div
           ref="toggle-div"
