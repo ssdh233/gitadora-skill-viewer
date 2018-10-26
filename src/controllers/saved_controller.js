@@ -31,12 +31,12 @@ module.exports.controller = function(app) {
                 var skill_data = JSON.parse(result.rows[0].skill_data);
                 var skill_point = result.rows[0].skill;
                 res.render("skillp", {
-                  version: version_name,
+                  version_full: version_name,
                   player_name: result.rows[0].player_name.replace(
                     /^"(.*)"$/,
                     "$1"
                   ),
-                  type: result.rows[0].type,
+                  type: result.rows[0].type === "guitar" ? 1 : 0, //1:guitar 0:drum
                   skill_data: skill_data,
                   skill_point: skill_point,
                   skill_lv: parseInt(skill_point / 500),
