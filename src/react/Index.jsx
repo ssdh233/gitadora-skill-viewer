@@ -72,7 +72,10 @@ class Index extends React.Component {
 
   render() {
     const {
-      intl: { formatMessage }
+      intl: { formatMessage },
+      match: {
+        params: { locale }
+      }
     } = this.props;
 
     return (
@@ -85,17 +88,17 @@ class Index extends React.Component {
               id: "desc.3rd"
             }).substring(2)}`}
           />
-          <link rel="canonical" href={"123"} />
+          <link rel="canonical" href={`http://gsv.fun/${locale}`} />
           <link
             rel="alternate"
             hreflang={
               {
                 ja: "ja",
                 en: "en",
-                cn: "zh"
-              }["ja"] || "x-default"
+                zh: "zh"
+              }[locale] || "x-default"
             }
-            href={"123"}
+            href={`http://gsv.fun/${locale}`}
           />
           <title>{formatMessage({ id: "title" })}</title>
         </Helmet>
@@ -154,13 +157,13 @@ class Index extends React.Component {
             >
               <Menu onItemTouchTap={this.handleLangRequestClose}>
                 <a href="/en">
-                  <MenuItem primaryText="English" value="en" />
+                  <MenuItem primaryText="English" />
                 </a>
                 <a href="/ja">
-                  <MenuItem primaryText="日本語" value="ja" />
+                  <MenuItem primaryText="日本語" />
                 </a>
                 <a href="/zh">
-                  <MenuItem primaryText="简体中文" value="cn" />
+                  <MenuItem primaryText="简体中文" />
                 </a>
               </Menu>
             </Popover>
