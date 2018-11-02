@@ -45,6 +45,14 @@ app.get("/", (req, res) => {
   res.redirect(301, `/${lang}`);
 });
 
+app.get("/useragent", (req, res) => {
+  console.log("====================================");
+  console.log(req.headers["user-agent"]);
+  res.json({
+    useragent: req.headers["user-agent"]
+  });
+});
+
 // for react pages
 app.get("/:locale(en|ja|zh)", function(req, res) {
   if (req.get("Host") === "gitadora-skill-viewer.herokuapp.com") {
