@@ -154,6 +154,8 @@ module.exports = {
   job: () => {
     kasegi({ version: "exchain", type: "guitar" });
     kasegi({ version: "exchain", type: "drum" });
+    kasegi({ version: "matixx", type: "guitar" });
+    kasegi({ version: "matixx", type: "drum" });
   },
   // every day 1:00 AM UTC = 10:00 AM in Japan
   //cronSchedule: "0 0 1 * * *"
