@@ -5,6 +5,7 @@ const fs = require("fs");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const compression = require("compression");
+const CronJob = require("cron").CronJob;
 
 const React = require("react");
 import { Helmet } from "react-helmet";
@@ -71,8 +72,8 @@ fs.readdirSync("./src/jobs").forEach(file => {
   if (file.substr(-3) == ".js") {
     let job = require(`./src/jobs/${file}`);
 
-    job.job();
-    setInterval(job.job, job.interval);
+    const cronJob = new CronJob(job.cronSchedule, job.job);
+    cronJob.start();
   }
 });
 

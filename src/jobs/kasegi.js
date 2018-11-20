@@ -155,6 +155,7 @@ module.exports = {
     kasegi({ version: "exchain", type: "guitar" });
     kasegi({ version: "exchain", type: "drum" });
   },
-  //interval: 1000 * 3600 * 24
-  interval: 1000 * 60
+  // every day 1:00 AM UTC = 10:00 AM in Japan
+  //cronSchedule: "0 0 1 * * *"
+  cronSchedule: "0 0 * * * *" // for testing
 };
