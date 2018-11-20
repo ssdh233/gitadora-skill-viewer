@@ -65,6 +65,17 @@ app.get("/:locale(en|ja|zh)", function(req, res) {
   }
 });
 
+// for jobs
+
+fs.readdirSync("./src/jobs").forEach(file => {
+  if (file.substr(-3) == ".js") {
+    let job = require(`./src/jobs/${file}`);
+
+    job.job();
+    setInterval(job.job, job.interval);
+  }
+});
+
 app.listen(process.env.PORT, function() {
   console.log(`This app listening on port ${process.env.PORT}!`);
 });
