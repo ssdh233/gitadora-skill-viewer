@@ -84,3 +84,8 @@ app.listen(process.env.PORT, function() {
 process.on("uncaughtException", function(err) {
   console.log("uncaughtException => ", err);
 });
+
+// for nodemon
+process.on("SIGUSR2", () => {
+  process.exit(0);
+});
