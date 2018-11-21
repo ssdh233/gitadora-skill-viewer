@@ -109,6 +109,11 @@ class Index extends React.Component {
           </h1>
           <span style={styles.buttons}>
             <FlatButton
+              href="/ja/exchain/kasegi/g/5000"
+              label="稼ぎ"
+              labelPosition="before"
+            />
+            <FlatButton
               onTouchTap={this.handleListButtonClick}
               label={<FormattedMessage id="list" />}
               labelPosition="before"
@@ -209,21 +214,21 @@ class Index extends React.Component {
             </div>
             <p>
               <img
-                src={"image/" + formatMessage({ id: "how.upload.step1.img" })}
+                src={"/image/" + formatMessage({ id: "how.upload.step1.img" })}
               />
             </p>
             <p>
               <FormattedHTMLMessage id="how.upload.step2.desc" />
             </p>
             <img
-              src={"image/" + formatMessage({ id: "how.upload.step2.img" })}
+              src={"/image/" + formatMessage({ id: "how.upload.step2.img" })}
               width="80%"
             />
             <p>
               <FormattedHTMLMessage id="how.upload.step3.desc" />
             </p>
             <img
-              src={"image/" + formatMessage({ id: "how.upload.step3.img" })}
+              src={"/image/" + formatMessage({ id: "how.upload.step3.img" })}
               width="80%"
             />
           </SlideToggle>
@@ -234,12 +239,12 @@ class Index extends React.Component {
             <p> {<FormattedMessage id="how.save.step1.desc" />} </p>
             <p>
               <img
-                src={"image/" + formatMessage({ id: "how.save.step1.img1" })}
+                src={"/image/" + formatMessage({ id: "how.save.step1.img1" })}
               />
             </p>
             <p>
               <img
-                src={"image/" + formatMessage({ id: "how.save.step1.img2" })}
+                src={"/image/" + formatMessage({ id: "how.save.step1.img2" })}
               />
             </p>
             <p>
@@ -247,7 +252,7 @@ class Index extends React.Component {
             </p>
             <p>
               <img
-                src={"image/" + formatMessage({ id: "how.save.step2.img" })}
+                src={"/image/" + formatMessage({ id: "how.save.step2.img" })}
                 width="80%"
               />
             </p>

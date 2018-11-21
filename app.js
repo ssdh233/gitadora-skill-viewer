@@ -7,9 +7,7 @@ const cookieParser = require("cookie-parser");
 const compression = require("compression");
 const CronJob = require("cron").CronJob;
 
-const React = require("react");
-import { Helmet } from "react-helmet";
-import serverSideRendering from "./src/server";
+const reactRoute = require("./src/server").default;
 
 app.use(compression());
 
@@ -47,24 +45,8 @@ app.get("/", (req, res) => {
 });
 
 // for react pages
-app.get("/:locale(en|ja|zh)", function(req, res) {
-  if (req.get("Host") === "gitadora-skill-viewer.herokuapp.com") {
-    res.redirect(301, `http://gsv.fun${req.url}`);
-  } else {
-    const locale = req.params.locale;
-    res.cookie("locale", locale);
-
-    const { renderedString, appString } = serverSideRendering({ locale });
-    const helmet = Helmet.renderStatic();
-
-    res.render("react", {
-      googleSiteVerfication: process.env.GOOGLE_SITE_VERIFICATION,
-      helmet,
-      content: renderedString,
-      appString
-    });
-  }
-});
+app.get("/:locale(en|ja|zh)", reactRoute);
+app.get("/:locale(en|ja|zh)/*", reactRoute);
 
 // for jobs
 

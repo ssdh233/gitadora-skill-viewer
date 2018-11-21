@@ -67,4 +67,4 @@ const styles = {
   }
 };
 
-export default SlideToggle;
+export default Radium(SlideToggle);
