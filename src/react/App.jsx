@@ -5,6 +5,7 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import { StyleRoot } from "radium";
 
 import Index from "./Index.jsx";
+import KasegiPage from "./KasegiPage.jsx";
 
 // TODO update mui version and remove this
 injectTapEventPlugin();
@@ -16,6 +17,11 @@ export class App extends React.Component {
         <MuiThemeProvider>
           <Switch>
             <Route exact path="/:locale" component={Index} />
+            <Route
+              exact
+              path="/:locale/:ver/kasegi/:type/:scope"
+              component={KasegiPage}
+            />
           </Switch>
         </MuiThemeProvider>
       </StyleRoot>

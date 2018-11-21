@@ -2,7 +2,7 @@ var pg = require("../modules/pg");
 
 const sortByCount = (a, b) => b.count - a.count;
 module.exports.controller = app => {
-  app.get("/:ver/kasegi/:type/:scope", (req, res) => {
+  app.get("/api/:ver/kasegi/:type/:scope", (req, res) => {
     const { ver, scope } = req.params;
 
     const type = {

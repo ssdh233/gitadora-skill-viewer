@@ -13,15 +13,9 @@ import enMessages from "./public/locales/en/common.json";
 
 import { App } from "./react/App.jsx";
 
+// TODO why this is needed?
 addLocaleData([...enLocale, ...jaLocale, ...zhLocale]);
 
-// const messages = {
-//   ja: flatten(jaMessages),
-//   zh: flatten(zhMessages),
-//   en: flatten(enMessages)
-// };
-
-// const { locale } = window.App;
 const { locale, messages } = JSON.parse(window.App);
 
 render(
