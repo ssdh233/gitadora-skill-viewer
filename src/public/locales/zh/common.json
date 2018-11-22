@@ -60,6 +60,7 @@
     }
   },
   "kasegi": {
+    "title": "赚分曲排行",
     "songname": "曲名",
     "level": "level",
     "count": "回数",

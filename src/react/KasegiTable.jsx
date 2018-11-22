@@ -44,7 +44,7 @@ class KasegiTable extends React.Component {
       },
       {
         Header: () => <FormattedMessage id="kasegi.level" />,
-        accessor: "diff",
+        accessor: "displayedDiff",
         width: 100
       },
       {
@@ -54,8 +54,8 @@ class KasegiTable extends React.Component {
       },
       {
         Header: () => <FormattedMessage id="kasegi.averageskill" />,
-        accessor: "averageSkill",
-        width: 70
+        accessor: "displayedAverageSkill",
+        width: 130
       },
       {
         Header: () => <FormattedMessage id="kasegi.averageplayerskill" />,
