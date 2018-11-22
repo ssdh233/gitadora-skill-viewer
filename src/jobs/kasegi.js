@@ -34,6 +34,7 @@ function gatherKasegiResult({ skillData, kasegiResult }) {
         name: item.name,
         diff: item.diff,
         part: item.part,
+        diffValue: item.diff_value,
         skills: [item.skill_value],
         playerSkills: [skillPoint]
       };

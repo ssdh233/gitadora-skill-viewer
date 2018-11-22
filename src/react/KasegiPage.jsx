@@ -1,5 +1,7 @@
 import React from "react";
 import Radium from "radium";
+import { Helmet } from "react-helmet";
+import { injectIntl } from "react-intl";
 
 import KasegiTable from "./KasegiTable.jsx";
 
@@ -13,28 +15,83 @@ class KasegiPage extends React.Component {
   }
 
   componentDidMount() {
+    this.fetchKasegiData();
+  }
+
+  fetchKasegiData = () => {
+    const sortByCount = (a, b) => b.count - a.count;
+    const processData = (data, index) => {
+      const { diff, part, diffValue, averageSkill, ...rest } = data;
+
+      let displayedDiff = `${diffValue} ${diff}`;
+      if (part !== "D") {
+        displayedDiff = `${displayedDiff}-${part}`;
+      }
+
+      const averageAchieve =
+        ((averageSkill / (diffValue * 20)) * 100).toFixed(2) + "%";
+
+      let displayedAverageSkill = `${averageSkill} (${averageAchieve})`;
+      return {
+        index: index + 1,
+        diff,
+        displayedDiff,
+        displayedAverageSkill,
+        ...data
+      };
+    };
+
     const { ver, type, scope } = this.props.match.params;
     fetch(`/api/${ver}/kasegi/${type}/${scope}`)
       .then(res => res.json())
+      .then(rawData => {
+        const { hot, other, ...rest } = rawData;
+
+        return {
+          ...rest,
+          hot: hot && hot.sort(sortByCount).map(processData),
+          other: other && other.sort(sortByCount).map(processData)
+        };
+      })
       .then(data => {
         this.setState({ data });
       });
-  }
+  };
 
   render() {
     const { data } = this.state;
+    const {
+      intl: { formatMessage },
+      match: {
+        params: { ver, type, scope }
+      }
+    } = this.props;
 
+    const typeTitle = type === "d" ? "DRUM" : "GUITAR";
+    const scopeTitle = `${scope} ~ ${parseInt(scope) + 500}`;
     return (
       <div style={styles.kasegiPage}>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <meta name="description" content={`TODO`} />
+          <title>
+            {scopeTitle}
+            {formatMessage({ id: "kasegi.title" })}
+          </title>
+        </Helmet>
         {data && data.other && (
           <div style={styles.notLastDiv}>
-            <div style={styles.caption}>DRUM OTHER</div>
+            <div style={styles.caption}>
+              {`${typeTitle} OTHER (${scopeTitle})`}
+            </div>
             <KasegiTable data={data.other} />
           </div>
         )}
         {data && data.hot && (
           <div>
-            <div style={styles.caption}>DRUM HOT</div>
+            <div style={styles.caption}>
+              {`${typeTitle} HOT (${scopeTitle})`}
+            </div>
             <KasegiTable data={data.hot} />
           </div>
         )}
@@ -58,4 +115,4 @@ const styles = {
   }
 };
 
-export default Radium(KasegiPage);
+export default injectIntl(Radium(KasegiPage));

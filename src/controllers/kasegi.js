@@ -1,14 +1,5 @@
 var pg = require("../modules/pg");
 
-const sortByCount = (a, b) => b.count - a.count;
-
-function processKasegiData(kasegiData) {
-  return kasegiData.sort(sortByCount).map((item, index) => ({
-    index: index + 1,
-    ...item
-  }));
-}
-
 module.exports.controller = app => {
   app.get("/api/:ver/kasegi/:type/:scope", (req, res) => {
     const { ver, scope } = req.params;
@@ -35,8 +26,8 @@ module.exports.controller = app => {
               version: ver,
               type,
               scope,
-              hot: processKasegiData(kasegiListHot),
-              other: processKasegiData(kasegiListOther)
+              hot: kasegiListHot,
+              other: kasegiListOther
             });
           } else {
             res.json({
