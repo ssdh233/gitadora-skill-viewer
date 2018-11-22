@@ -1,6 +1,7 @@
 import React from "react";
-import ReactTable from "react-table";
 import Radium from "radium";
+
+import KasegiTable from "./KasegiTable.jsx";
 
 class KasegiPage extends React.Component {
   constructor(props) {
@@ -22,37 +23,20 @@ class KasegiPage extends React.Component {
 
   render() {
     const { data } = this.state;
-    const columns = [
-      { Header: "Name", accessor: "name" },
-      { Header: "Diff", accessor: "diff" },
-      { Header: "part", accessor: "part" },
-      { Header: "averageSkill", accessor: "averageSkill" },
-      { Header: "count", accessor: "count" },
-      { Header: "averagePlayerSKill", accessor: "averagePlayerSKill" }
-    ];
 
-    console.log("rendering kasegipage", { styles });
-    console.log("rendering kasegipage", styles.kasegiPage);
     return (
-      <div
-        style={{
-          maxWidth: 1200,
-          margin: "auto"
-        }}
-      >
+      <div style={styles.kasegiPage}>
         {data && data.other && (
-          <ReactTable
-            data={data.other}
-            columns={columns}
-            className="-striped -highlight"
-          />
+          <div style={styles.notLastDiv}>
+            <div style={styles.caption}>DRUM OTHER</div>
+            <KasegiTable data={data.other} />
+          </div>
         )}
         {data && data.hot && (
-          <ReactTable
-            data={data.hot}
-            columns={columns}
-            className="-striped -highlight"
-          />
+          <div>
+            <div style={styles.caption}>DRUM HOT</div>
+            <KasegiTable data={data.hot} />
+          </div>
         )}
       </div>
     );
@@ -61,8 +45,16 @@ class KasegiPage extends React.Component {
 
 const styles = {
   kasegiPage: {
-    maxWidth: 1200,
-    margin: "auto"
+    maxWidth: 800,
+    fontFamily: "verdana" // TODO move this to global css? or app component
+  },
+  notLastDiv: {
+    marginBottom: 20
+  },
+  caption: {
+    fontSize: 14,
+    textAlign: "center",
+    marginBottom: 5
   }
 };
 
