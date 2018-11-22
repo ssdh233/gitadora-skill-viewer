@@ -58,5 +58,12 @@
     "browser": {
       "title": "Recommended browser"
     }
+  },
+  "kasegi": {
+    "songname": "Name",
+    "level": "Level",
+    "count": "Count",
+    "averageskill": "Average",
+    "averageplayerskill": "Player Average"
   }
 }
