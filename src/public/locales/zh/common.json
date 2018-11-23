@@ -8,7 +8,7 @@
     "desc": "一个从konami的官方网站上获取skill数据，用来保存、分享的网站。",
     "info": {
       "title": "通知",
-      "content": "<ul><li>增加了对新版本GITADORA EXCHAIN的支持。请更新书签代码（在使用方法中可以找到）。</li></ul>"
+      "content": "<ul><li>增加了对新版本GITADORA EXCHAIN的支持。请更新书签代码（在使用方法中可以找到）。</li><li>增加了赚分曲排行页面。</li></ul>"
     }
   },
   "how": {

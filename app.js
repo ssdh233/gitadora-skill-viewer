@@ -54,6 +54,7 @@ fs.readdirSync("./src/jobs").forEach(file => {
   if (file.substr(-3) == ".js") {
     let job = require(`./src/jobs/${file}`);
 
+    job.job();
     const cronJob = new CronJob(job.cronSchedule, job.job);
     cronJob.start();
   }
