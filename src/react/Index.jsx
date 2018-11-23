@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { FormattedMessage, FormattedHTMLMessage, injectIntl } from "react-intl";
 import Radium from "radium";
@@ -52,6 +53,56 @@ class Index extends React.Component {
           <p>
             <FormattedHTMLMessage id="intro.info.content" />
           </p>
+          <div>
+            <h4>
+              <FormattedHTMLMessage id="kasegi.title" />
+              {" Drummania"}
+            </h4>
+            <div style={styles.kasegiLinkDiv}>
+              <Link
+                style={styles.kasegiLink}
+                to={`/${locale}/exchain/kasegi/d/9000`}
+              >
+                9000 ~
+              </Link>
+              {[...Array(12).keys()].reverse().map(key => {
+                const scope = `${3000 + key * 500} ~ ${3500 + key * 500}`;
+                return (
+                  <Link
+                    style={styles.kasegiLink}
+                    key={key}
+                    to={`/${locale}/exchain/kasegi/d/${3000 + key * 500}`}
+                  >
+                    {scope}
+                  </Link>
+                );
+              })}
+            </div>
+            <h4>
+              <FormattedHTMLMessage id="kasegi.title" />
+              {" Guitarfreaks"}
+            </h4>
+            <div style={styles.kasegiLinkDiv}>
+              <Link
+                style={styles.kasegiLink}
+                to={`/${locale}/exchain/kasegi/g/9000`}
+              >
+                9000 ~
+              </Link>
+              {[...Array(12).keys()].reverse().map(key => {
+                const scope = `${3000 + key * 500} ~ ${3500 + key * 500}`;
+                return (
+                  <Link
+                    style={styles.kasegiLink}
+                    key={key}
+                    to={`/${locale}/exchain/kasegi/g/${3000 + key * 500}`}
+                  >
+                    {scope}
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
         </SlideToggle>
         <SlideToggle
           defaultOpen={true}
@@ -186,6 +237,14 @@ const styles = {
     borderRadius: 6,
     fontSize: "80%",
     wordBreak: "break-all"
+  },
+  kasegiLinkDiv: {
+    display: "flex",
+    whiteSpace: "nowrap",
+    flexWrap: "wrap"
+  },
+  kasegiLink: {
+    marginRight: 10
   }
 };
 
