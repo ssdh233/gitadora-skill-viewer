@@ -19,8 +19,7 @@ class KasegiTable extends React.Component {
           ADV: "#FFFFC7",
           EXT: "#FFC7C7",
           MAS: "#D8BFF8"
-        }[diff],
-        height: 24
+        }[diff]
       }
     };
   };
@@ -37,30 +36,40 @@ class KasegiTable extends React.Component {
 
   render() {
     const columns = [
-      { Header: "No.", accessor: "index", width: 40 },
+      { Header: "No.", accessor: "index", maxWidth: 40 },
       {
         Header: () => <FormattedMessage id="kasegi.songname" />,
-        accessor: "name"
+        accessor: "name",
+        minWidth: 180,
+        style: {
+          whiteSpace: "unset"
+        }
       },
       {
         Header: () => <FormattedMessage id="kasegi.level" />,
         accessor: "displayedDiff",
-        width: 100
-      },
-      {
-        Header: () => <FormattedMessage id="kasegi.count" />,
-        accessor: "count",
-        width: 54
+        maxWidth: 100,
+        style: {
+          whiteSpace: "unset"
+        }
       },
       {
         Header: () => <FormattedMessage id="kasegi.averageskill" />,
         accessor: "displayedAverageSkill",
-        width: 130
+        maxWidth: 140,
+        style: {
+          whiteSpace: "unset"
+        }
+      },
+      {
+        Header: () => <FormattedMessage id="kasegi.count" />,
+        accessor: "count",
+        maxWidth: 54
       },
       {
         Header: () => <FormattedMessage id="kasegi.averageplayerskill" />,
         accessor: "averagePlayerSKill",
-        width: 80
+        maxWidth: 80
       }
     ];
 
