@@ -1,72 +1,30 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { FormattedMessage, FormattedHTMLMessage, injectIntl } from "react-intl";
 import Radium from "radium";
 
-import FlatButton from "material-ui/FlatButton";
-import Menu from "material-ui/Menu";
-import MenuItem from "material-ui/MenuItem";
-import Popover from "material-ui/Popover";
-
 import SlideToggle from "./SlideToggle.jsx";
-
-const VERSION = "v1.9.3";
+import AppHeader from "./AppHeader.jsx";
 
 class Index extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      list: {
-        open: false
-      },
-      lang: {
-        open: false
-      }
+      listAnchorEl: null,
+      langAnchorEl: null
     };
   }
 
-  // TODO update mui version
-  // for list button
-  handleListButtonClick = event => {
-    // This prevents ghost click.
-    event.preventDefault();
-
+  handleMenuButtonClick = id => event => {
     this.setState({
-      list: {
-        open: true,
-        anchorEl: event.currentTarget
-      }
+      [`${id}AnchorEl`]: event.currentTarget
     });
   };
 
-  handleListRequestClose = () => {
+  handleMenuClose = id => () => {
     this.setState({
-      list: {
-        open: false
-      }
-    });
-  };
-
-  // for language switch button
-  handleLangButtonClick = event => {
-    // This prevents ghost click.
-    event.preventDefault();
-
-    this.setState({
-      lang: {
-        open: true,
-        anchorEl: event.currentTarget
-      }
-    });
-  };
-
-  handleLangRequestClose = () => {
-    this.setState({
-      lang: {
-        open: false
-      }
+      [`${id}AnchorEl`]: null
     });
   };
 
@@ -81,99 +39,10 @@ class Index extends React.Component {
     return (
       <div style={styles.indexPage}>
         <Helmet>
-          <meta charSet="utf-8" />
-          <meta
-            name="description"
-            content={`${formatMessage({ id: "intro.desc" })} ${formatMessage({
-              id: "desc.3rd"
-            }).substring(2)}`}
-          />
           <link rel="canonical" href={`http://gsv.fun/${locale}`} />
-          <link
-            rel="alternate"
-            hreflang={
-              {
-                ja: "ja",
-                en: "en",
-                zh: "zh"
-              }[locale] || "x-default"
-            }
-            href={`http://gsv.fun/${locale}`}
-          />
           <title>{formatMessage({ id: "title" })}</title>
         </Helmet>
-        <div style={styles.header}>
-          <h1 style={styles.title}>
-            Gitadora Skill Viewer
-            <span style={styles.version}>{VERSION}</span>
-          </h1>
-          <span style={styles.buttons}>
-            <FlatButton
-              href="/ja/exchain/kasegi/g/5000"
-              label="稼ぎ"
-              labelPosition="before"
-            />
-            <FlatButton
-              onTouchTap={this.handleListButtonClick}
-              label={<FormattedMessage id="list" />}
-              labelPosition="before"
-              icon={<i className="fa fa-list-ul" />}
-            />
-            <Popover
-              open={this.state.list.open}
-              anchorEl={this.state.list.anchorEl}
-              anchorOrigin={{
-                horizontal: "left",
-                vertical: "bottom"
-              }}
-              targetOrigin={{ horizontal: "left", vertical: "top" }}
-              onRequestClose={this.handleListRequestClose}
-            >
-              <Menu>
-                <a href="/exchain/list">
-                  <MenuItem primaryText="EXCHAIN" />
-                </a>
-                <a href="/matixx/list">
-                  <MenuItem primaryText="Matixx" />
-                </a>
-                <a href="/tbre/list">
-                  <MenuItem primaryText="Tri-Boost Re" />
-                </a>
-                <a href="/tb/list">
-                  <MenuItem primaryText="Tri-Boost" />
-                </a>
-              </Menu>
-            </Popover>
-            <FlatButton
-              onTouchTap={this.handleLangButtonClick}
-              label={<FormattedMessage id="lang" />}
-              labelPosition="before"
-              icon={<i className="fa fa-language" />}
-            />
-            <Popover
-              open={this.state.lang.open}
-              anchorEl={this.state.lang.anchorEl}
-              anchorOrigin={{
-                horizontal: "left",
-                vertical: "bottom"
-              }}
-              targetOrigin={{ horizontal: "left", vertical: "top" }}
-              onRequestClose={this.handleLangRequestClose}
-            >
-              <Menu onItemTouchTap={this.handleLangRequestClose}>
-                <a href="/en">
-                  <MenuItem primaryText="English" />
-                </a>
-                <a href="/ja">
-                  <MenuItem primaryText="日本語" />
-                </a>
-                <a href="/zh">
-                  <MenuItem primaryText="简体中文" />
-                </a>
-              </Menu>
-            </Popover>
-          </span>
-        </div>
+        <AppHeader match={this.props.match} />
         <SlideToggle
           defaultOpen={true}
           title={<FormattedMessage id="intro.title" />}
@@ -275,6 +144,7 @@ class Index extends React.Component {
             <a
               href="https://github.com/matsumatsu233/gitadora-skill-viewer"
               target="_blank"
+              rel="noreferrer noopener"
             >
               Github
             </a>
@@ -283,7 +153,11 @@ class Index extends React.Component {
             {"★"}
             <FormattedMessage id="other.voice.title" />
             {"："}
-            <a href="https://matsumatsu233.github.io/gsv/" target="_blank">
+            <a
+              href="https://matsumatsu233.github.io/gsv/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
               My Blog
             </a>
           </p>
@@ -305,39 +179,6 @@ const styles = {
   indexPage: {
     fontFamily: "verdana",
     width: "100%"
-  },
-  header: {
-    display: "flex",
-    flexWrap: "wrap",
-    marginBottom: 5
-  },
-  title: {
-    flexGrow: 1,
-    fontSize: 32,
-    fontFamily: "Andada",
-    fontWeight: "bold",
-    margin: 0,
-
-    "@media (max-width: 742px)": {
-      width: "100%",
-      fontSize: 24
-    }
-  },
-  version: {
-    fontSize: 16,
-
-    "@media (max-width: 742px)": {
-      fontSize: 12
-    }
-  },
-  buttons: {
-    marginTop: 10,
-
-    "@media (max-width: 742px)": {
-      width: "100%",
-      display: "flex",
-      justifyContent: "flex-end"
-    }
   },
   script: {
     background: "#f6f6f6",
