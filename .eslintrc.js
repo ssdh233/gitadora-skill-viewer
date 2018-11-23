@@ -1,37 +1,40 @@
 module.exports = {
-  "extends": ["prettier"],
-  "plugins": ["prettier"],
-  "rules": {
-    "prettier/prettier": "error",
+  extends: ["prettier", "eslint:recommended", "plugin:react/recommended"],
+  plugins: ["prettier", "react"],
+  rules: {
+    "prettier/prettier": "error"
   },
-  "overrides": [
+  overrides: [
     {
-      "files": [ "src/react/*.jsx" ],
-      "parser": "babel-eslint",
-      "env": {
-        "browser": true
+      files: ["src/react/*.jsx"],
+      parser: "babel-eslint",
+      env: {
+        browser: true
+      },
+      rules: {
+        "react/prop-types": "off"
       }
     },
     {
-      "files": [ "src/**/*.js", "app.js", "webpack.config.js" ],
-      "excludedFiles": [ "src/public/**/*.js" ],
-      "env": {
-        "node": true
+      files: ["src/**/*.js", "app.js", "webpack.config.js"],
+      excludedFiles: ["src/public/**/*.js"],
+      env: {
+        node: true
       },
-      "parser": "babel-eslint",
-      "rules": {
+      parser: "babel-eslint",
+      rules: {
         "prefer-template": "error"
       }
     },
     {
-      "files": [ "src/public/**/*.js" ],
-      "env": {
-        "browser": true
+      files: ["src/public/**/*.js"],
+      env: {
+        browser: true
       },
-      "parser": "babel-eslint",
-      "rules": {
+      parser: "babel-eslint",
+      rules: {
         "prefer-template": "error"
       }
     }
   ]
-}
+};
