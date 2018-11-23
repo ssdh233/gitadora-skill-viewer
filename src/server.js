@@ -1,11 +1,9 @@
 import React from "react";
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router";
-import { IntlProvider, addLocaleData } from "react-intl";
+import { IntlProvider } from "react-intl";
 import flatten from "flat";
-import enLocale from "react-intl/locale-data/en";
-import jaLocale from "react-intl/locale-data/ja";
-import zhLocale from "react-intl/locale-data/zh";
+import { Helmet } from "react-helmet";
 
 import jaMessages from "./public/locales/ja/common.json";
 import zhMessages from "./public/locales/zh/common.json";
@@ -21,17 +19,30 @@ const messages = {
   en: flatten(enMessages)
 };
 
-let serverSideRendering = ({ locale }) => {
-  return {
-    renderedString: renderToString(
+const reactRoute = (req, res) => {
+  if (req.get("Host") === "gitadora-skill-viewer.herokuapp.com") {
+    res.redirect(301, `http://gsv.fun${req.url}`);
+  } else {
+    const locale = req.params.locale;
+    res.cookie("locale", locale);
+
+    const renderedString = renderToString(
       <IntlProvider locale={locale} messages={messages[locale]}>
-        <StaticRouter location={`/${locale}`} context={{}}>
+        <StaticRouter location={req.url} context={{}}>
           <App />
         </StaticRouter>
       </IntlProvider>
-    ),
-    appString: JSON.stringify({ locale, messages: messages[locale] })
-  };
+    );
+    const appString = JSON.stringify({ locale, messages: messages[locale] });
+    const helmet = Helmet.renderStatic();
+
+    res.render("react", {
+      googleSiteVerfication: process.env.GOOGLE_SITE_VERIFICATION,
+      helmet,
+      content: renderedString,
+      appString
+    });
+  }
 };
 
-export default serverSideRendering;
+export default reactRoute;

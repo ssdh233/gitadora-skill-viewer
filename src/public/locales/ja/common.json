@@ -1,5 +1,6 @@
 {
   "title": "Gitadora Skill Viewer - ギタドラのスキル帳を共有するウェブサイト",
+  "kasegiSong": "稼ぎ曲",
   "list": "ユーザ一覧",
   "lang": "言語",
   "intro": {
@@ -58,5 +59,13 @@
     "browser": {
       "title": "推奨ブラウザ"
     }
+  },
+  "kasegi": {
+    "title": "稼ぎ曲ランキング",
+    "songname": "曲名",
+    "level": "レベル",
+    "count": "回数",
+    "averageskill": "平均",
+    "averageplayerskill": "プレイヤー"
   }
 }

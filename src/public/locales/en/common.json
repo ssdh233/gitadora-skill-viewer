@@ -1,5 +1,6 @@
 {
   "title": "Gitadora Skill Viewer - Share your GITADORA skill list",
+  "kasegiSong": "Song ranking",
   "list": "Player list",
   "lang": "Lang",
   "intro": {
@@ -58,5 +59,13 @@
     "browser": {
       "title": "Recommended browser"
     }
+  },
+  "kasegi": {
+    "title": "song ranking",
+    "songname": "Name",
+    "level": "Level",
+    "count": "Count",
+    "averageskill": "Average",
+    "averageplayerskill": "Player Average"
   }
 }
