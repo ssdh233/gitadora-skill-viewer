@@ -3,6 +3,7 @@ html
   head
     link(rel="stylesheet" type="text/css" href="/css/skill.css")
     link(rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Andada")
+    link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
     meta(name="robots" content="noindex")
     script(type='text/javascript' src="/js/google_analytics.js")
     title= `${player_name}さんの${type ? "Guitarfreaks" : "Drummania"}スキル | ${version_full}`
@@ -114,7 +115,7 @@ html
                       a(class="lv"+parseInt(item.skill/500) href="/" + version + "/" + item.id + "/p")= item.update_date
                     td
                       a(class="compare" href=`?c=${item.id}`)
-                        i(class="fas fa-exchange-alt")
+                        i(class="material-icons" style="font-size:16px") compare_arrows
       else
         tr
           td NO DATA
