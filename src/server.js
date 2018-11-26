@@ -5,9 +5,9 @@ import { IntlProvider } from "react-intl";
 import flatten from "flat";
 import { Helmet } from "react-helmet";
 
-import jaMessages from "./public/locales/ja/common.json";
-import zhMessages from "./public/locales/zh/common.json";
-import enMessages from "./public/locales/en/common.json";
+import jaMessages from "../locales/ja/common.json";
+import zhMessages from "../locales/zh/common.json";
+import enMessages from "../locales/en/common.json";
 
 import { App } from "./react/App.jsx";
 
