@@ -36,7 +36,7 @@ module.exports.controller = function(app) {
                     /^"(.*)"$/,
                     "$1"
                   ),
-                  type: result.rows[0].type === "guitar" ? 1 : 0, //1:guitar 0:drum
+                  type: result.rows[0].type, // guitar / drum
                   skill_data: skill_data,
                   skill_point: skill_point,
                   skill_lv: parseInt(skill_point / 500),
