@@ -3,6 +3,11 @@ script.src = "//code.jquery.com/jquery-1.12.4.min.js";
 script.type = "text/javascript";
 document.getElementsByTagName("head")[0].appendChild(script);
 
+function handleAjaxError(request, status) {
+  // TODO write link to user voice page into this message
+  alert(`${request.responseText}\n\nstatus: ${status}`);
+}
+
 function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
   if (window.location.hostname != "p.eagate.573.jp") {
     alert(
@@ -29,6 +34,7 @@ function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
     $.ajax({
       url: url,
       async: false,
+      error: handleAjaxError,
       success: function(html) {
         var doc = document.implementation.createHTMLDocument("html");
         doc.documentElement.innerHTML = html;
@@ -62,6 +68,7 @@ function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
         extract_data(urls[i], label[i]);
       }
     } else {
+      // TODO write link to user voice page into this message
       alert(
         "プレイヤーデータ取得できません。ログインした状態でもう一度試してみてください。\n\n无法取得玩家数据，请检查您是否已经登录。\n\nFailed to fetch player data. Please log in."
       );
@@ -72,6 +79,7 @@ function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
   function extract_data(url, label) {
     $.ajax({
       url: url,
+      error: handleAjaxError,
       success: function(html) {
         var doc = document.implementation.createHTMLDocument("html");
         doc.documentElement.innerHTML = html;
@@ -171,6 +179,7 @@ function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
               },
               update_date: getDate()
             },
+            error: handleAjaxError,
             success: function(data) {
               if (data.status === 0) {
                 location = `${TARGET_DOMAIN}/${VERSION}/${data.message}/g`;

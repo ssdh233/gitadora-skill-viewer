@@ -8,5 +8,6 @@ script.type = "text/javascript";
 document.getElementsByTagName("head")[0].appendChild(script);
 
 script.onload = () => {
+  alert("Script is running!");
   main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION);
 };
