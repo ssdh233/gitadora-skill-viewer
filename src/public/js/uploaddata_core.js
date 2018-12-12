@@ -3,8 +3,17 @@ script.src = "//code.jquery.com/jquery-1.12.4.min.js";
 script.type = "text/javascript";
 document.getElementsByTagName("head")[0].appendChild(script);
 
+function handleAjaxError(request, status) {
+  // TODO write link to user voice page into this message
+  alert(`${request.responseText}\n\nstatus: ${status}`);
+}
+
 function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
-  if (window.location.hostname == "p.eagate.573.jp") {
+  if (window.location.hostname != "p.eagate.573.jp") {
+    alert(
+      "コナミ様のサイト(http://p.eagate.573.jp/)で行ってください。\n\n请在Konami的官方网站(http://p.eagate.573.jp/)上点击书签。\n\nPlease make sure you are on Konami official site(http://p.eagate.573.jp/)."
+    );
+  } else {
     var urls = [
       `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p/eam/playdata/skill.html?gtype=gf&stype=0`,
       `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p/eam/playdata/skill.html?gtype=gf&stype=1`,
@@ -25,6 +34,7 @@ function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
     $.ajax({
       url: url,
       async: false,
+      error: handleAjaxError,
       success: function(html) {
         var doc = document.implementation.createHTMLDocument("html");
         doc.documentElement.innerHTML = html;
@@ -33,13 +43,14 @@ function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
           .find(".profile_name_frame")
           .text();
 
-        var card_number = "default_card_number";
+        var card_number = "";
 
         if (VERSION === "exchain") {
           card_number = $(doc)
             .find("#contents > .maincont > h2")
             .text()
-            .match(/[a-zA-Z0-9]+/)[0];
+            .match(/[a-zA-Z0-9]+/);
+          card_number = card_number && card_number[0];
         } else {
           card_number = $(doc)
             .find(".common_frame_date")
@@ -57,16 +68,18 @@ function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
         extract_data(urls[i], label[i]);
       }
     } else {
-      alert("Failed to load play data");
+      // TODO write link to user voice page into this message
+      alert(
+        "プレイヤーデータ取得できません。ログインした状態でもう一度試してみてください。\n\n无法取得玩家数据，请检查您是否已经登录。\n\nFailed to fetch player data. Please log in."
+      );
     }
-  } else {
-    alert("コナミ様のサイトhttp://p.eagate.573.jp/で行ってください。");
   }
 
   // for passing parameters
   function extract_data(url, label) {
     $.ajax({
       url: url,
+      error: handleAjaxError,
       success: function(html) {
         var doc = document.implementation.createHTMLDocument("html");
         doc.documentElement.innerHTML = html;
@@ -166,6 +179,7 @@ function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
               },
               update_date: getDate()
             },
+            error: handleAjaxError,
             success: function(data) {
               if (data.status === 0) {
                 location = `${TARGET_DOMAIN}/${VERSION}/${data.message}/g`;
