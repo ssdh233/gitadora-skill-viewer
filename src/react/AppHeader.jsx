@@ -12,7 +12,7 @@ import AttachMoney from "@material-ui/icons/AttachMoney";
 import FormatListBulleted from "@material-ui/icons/FormatListBulleted";
 import Language from "@material-ui/icons/Language";
 
-const VERSION = "v1.10.4";
+const VERSION = "v1.10.5";
 
 class AppHeader extends React.Component {
   constructor(props) {
