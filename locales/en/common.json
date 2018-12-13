@@ -27,7 +27,7 @@
       },
       "step3": {
         "desc": "3.Wait for 5 to 10 seconds. It will jump to your skill page after finishing uploading. <b>Mark this URL so as to share your skill data with other players.</b>",
-        "imgDesc1": "This url can be accessed by anyone. Share it with others!"
+        "imgDesc1": "This url can be accessed by anyone.<br /> Share it with others!"
       }
     },
     "save": {

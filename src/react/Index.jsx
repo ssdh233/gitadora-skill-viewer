@@ -132,7 +132,12 @@ class Index extends React.Component {
                 "javascript:void(!function(d){var s=d.createElement('script');s.type='text/javascript';s.src='//gitadora-skill-viewer.herokuapp.com/js/uploaddata_tbre.js';d.head.appendChild(s);}(document));"
               }
             </div>
-            <div style={{ marginTop: 20, position: "relative", color: "red" }}>
+            <div
+              style={{
+                marginTop: 20,
+                ...styles.imageContainer
+              }}
+            >
               <img src="/image/1-1.jpg" />
               <b style={{ position: "absolute", left: 118, top: 61 }}>
                 <FormattedHTMLMessage id="how.upload.step1.imgDesc1" />
@@ -151,9 +156,15 @@ class Index extends React.Component {
             <p>
               <FormattedHTMLMessage id="how.upload.step2.desc" />
             </p>
-            <div style={{ position: "relative", color: "red" }}>
+            <div style={styles.imageContainer}>
               <img src="/image/1-2.jpg" />
-              <b style={{ position: "absolute", left: 298, top: 66 }}>
+              <b
+                style={{
+                  position: "absolute",
+                  left: 298,
+                  top: 66
+                }}
+              >
                 <FormattedHTMLMessage id="how.upload.step2.imgDesc1" />
               </b>
               <b style={{ position: "absolute", left: 116, top: 106 }}>
@@ -163,9 +174,9 @@ class Index extends React.Component {
             <p>
               <FormattedHTMLMessage id="how.upload.step3.desc" />
             </p>
-            <div style={{ position: "relative", color: "red" }}>
+            <div style={styles.imageContainer}>
               <img src="/image/1-3.jpg" />
-              <b style={{ position: "absolute", left: 419, top: 46 }}>
+              <b style={{ position: "absolute", left: 284, top: 70 }}>
                 <FormattedHTMLMessage id="how.upload.step3.imgDesc1" />
               </b>
             </div>
@@ -180,9 +191,9 @@ class Index extends React.Component {
             <p>
               <FormattedHTMLMessage id="how.save.step2.desc" />
             </p>
-            <div style={{ position: "relative", color: "red" }}>
+            <div style={styles.imageContainer}>
               <img src="/image/2-3.jpg" />
-              <b style={{ position: "absolute", left: 436, top: 50 }}>
+              <b style={{ position: "absolute", left: 256, top: 73 }}>
                 <FormattedHTMLMessage id="how.save.step2.imgDesc1" />
               </b>
             </div>
@@ -247,6 +258,11 @@ const styles = {
     borderRadius: 6,
     fontSize: "80%",
     wordBreak: "break-all"
+  },
+  imageContainer: {
+    position: "relative",
+    color: "red",
+    whiteSpace: "nowrap"
   },
   kasegiLinkDiv: {
     display: "flex",
