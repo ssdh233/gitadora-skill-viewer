@@ -17,27 +17,27 @@
       "title": "上传skill data",
       "step1": {
         "desc": "1.在浏览器的书签上登录下面的代码",
-        "img": "1-1cn.jpeg"
+        "imgDesc1": "书签的名字可以随便填",
+        "imgDesc2": "把代码粘贴到URL这里"
       },
       "step2": {
         "desc": "2.<b>在konami的网站上保持登录状态的时候</b>，点击刚才登录的书签",
-        "img": "1-2cn.jpeg"
+        "imgDesc1": "确认在Konami的网站上",
+        "imgDesc2": "登录后点击这个书签"
       },
       "step3": {
         "desc": "3.等待5～10秒钟之后，就会自动跳转到skill data的表示画面。<b>请记住跳转之后的地址（用来公开当前的skill）</b>",
-        "img": "1-3cn.jpeg"
+        "imgDesc1": "这个URL可以用来分享当前的skill data"
       }
     },
     "save": {
       "title": "保存skill data（snapshot）",
       "step1": {
-        "desc": "1.点击skill表下方的<このスキル表を永久に保存したい!>按钮，然后确认出来的对话框（抱歉这里是日语(´・ω・｀)，不用在意里面的内容）",
-        "img1": "2-1.jpeg",
-        "img2": "2-2.jpeg"
+        "desc": "1.点击skill表下方的<このスキル表を永久に保存したい!>按钮，然后确认出来的对话框（抱歉这里是日语(´・ω・｀)，不用在意里面的内容）"
       },
       "step2": {
         "desc": "2.确认之后，skill data就被保存了，然后会自动跳转到被保存的页面。<b> 请记住跳转之后的地址（用来公开某个时间点的skill）</b>",
-        "img": "2-3cn.jpeg"
+        "imgDesc1": "这个地址上的数据永远不会被覆盖"
       }
     }
   },
