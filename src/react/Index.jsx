@@ -132,50 +132,60 @@ class Index extends React.Component {
                 "javascript:void(!function(d){var s=d.createElement('script');s.type='text/javascript';s.src='//gitadora-skill-viewer.herokuapp.com/js/uploaddata_tbre.js';d.head.appendChild(s);}(document));"
               }
             </div>
-            <p>
-              <img
-                src={"/image/" + formatMessage({ id: "how.upload.step1.img" })}
-              />
-            </p>
+            <div style={{ marginTop: 20, position: "relative", color: "red" }}>
+              <img src="/image/1-1.jpg" />
+              <b style={{ position: "absolute", left: 118, top: 61 }}>
+                <FormattedHTMLMessage id="how.upload.step1.imgDesc1" />
+              </b>
+              <b
+                style={{
+                  position: "absolute",
+                  left: 65,
+                  top: 131,
+                  backgroundColor: "#FFFFFF"
+                }}
+              >
+                <FormattedHTMLMessage id="how.upload.step1.imgDesc2" />
+              </b>
+            </div>
             <p>
               <FormattedHTMLMessage id="how.upload.step2.desc" />
             </p>
-            <img
-              src={"/image/" + formatMessage({ id: "how.upload.step2.img" })}
-              width="80%"
-            />
+            <div style={{ position: "relative", color: "red" }}>
+              <img src="/image/1-2.jpg" />
+              <b style={{ position: "absolute", left: 298, top: 66 }}>
+                <FormattedHTMLMessage id="how.upload.step2.imgDesc1" />
+              </b>
+              <b style={{ position: "absolute", left: 116, top: 106 }}>
+                <FormattedHTMLMessage id="how.upload.step2.imgDesc2" />
+              </b>
+            </div>
             <p>
               <FormattedHTMLMessage id="how.upload.step3.desc" />
             </p>
-            <img
-              src={"/image/" + formatMessage({ id: "how.upload.step3.img" })}
-              width="80%"
-            />
+            <div style={{ position: "relative", color: "red" }}>
+              <img src="/image/1-3.jpg" />
+              <b style={{ position: "absolute", left: 419, top: 46 }}>
+                <FormattedHTMLMessage id="how.upload.step3.imgDesc1" />
+              </b>
+            </div>
           </SlideToggle>
           <SlideToggle
             title={<FormattedMessage id="how.save.title" />}
             level={2}
           >
-            <p> {<FormattedMessage id="how.save.step1.desc" />} </p>
-            <p>
-              <img
-                src={"/image/" + formatMessage({ id: "how.save.step1.img1" })}
-              />
-            </p>
-            <p>
-              <img
-                src={"/image/" + formatMessage({ id: "how.save.step1.img2" })}
-              />
-            </p>
+            <p>{<FormattedMessage id="how.save.step1.desc" />}</p>
+            <img src="/image/2-1.jpeg" />
+            <img src="/image/2-2.jpeg" />
             <p>
               <FormattedHTMLMessage id="how.save.step2.desc" />
             </p>
-            <p>
-              <img
-                src={"/image/" + formatMessage({ id: "how.save.step2.img" })}
-                width="80%"
-              />
-            </p>
+            <div style={{ position: "relative", color: "red" }}>
+              <img src="/image/2-3.jpg" />
+              <b style={{ position: "absolute", left: 436, top: 50 }}>
+                <FormattedHTMLMessage id="how.save.step2.imgDesc1" />
+              </b>
+            </div>
           </SlideToggle>
         </SlideToggle>
         <SlideToggle title={formatMessage({ id: "desc.title" })}>

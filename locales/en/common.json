@@ -17,27 +17,27 @@
       "title": "Upload skill data",
       "step1": {
         "desc": "1.Add below script to bookmark",
-        "img": "1-1en.jpeg"
+        "imgDesc1": "The bookmark name doesn't matter. Put whatever you like.",
+        "imgDesc2": "Paste the script on the URL input"
       },
       "step2": {
         "desc": "2.<b>Log in to GITADORA official site</b>, and click the added bookmark",
-        "img": "1-2en.jpeg"
+        "imgDesc1": "Make sure you are on Konami official site",
+        "imgDesc2": "After login, click the bookmark you just added"
       },
       "step3": {
-        "desc": "3.Wait for 5 to 10 seconds. It will jump to your skill page after uploading. <b>Mark this URL so as to share your skill data with other players.</b>",
-        "img": "1-3en.jpeg"
+        "desc": "3.Wait for 5 to 10 seconds. It will jump to your skill page after finishing uploading. <b>Mark this URL so as to share your skill data with other players.</b>",
+        "imgDesc1": "This url can be accessed by anyone. Share it with others!"
       }
     },
     "save": {
       "title": "Save skill data(take snapshot)",
       "step1": {
-        "desc": "1.Click the button <このスキル表を永久に保存したい!> on the left bottom, and click OK（Sorry it's Japanese(´・ω・｀) Please ignore it.）",
-        "img1": "2-1.jpeg",
-        "img2": "2-2.jpeg"
+        "desc": "1.Click the button <このスキル表を永久に保存したい!> on the left bottom, and click OK（Sorry it's Japanese(´・ω・｀) Please ignore it.）"
       },
       "step2": {
         "desc": "2.After the skill data is saved, it is redirected to another page. <b>The skill data on this page will be kept permanently.</b>",
-        "img": "2-3en.jpeg"
+        "imgDesc1": "The skill data on this url won't be overwritten."
       }
     }
   },
