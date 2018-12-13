@@ -188,8 +188,10 @@ function compareSkillHalf(current, old) {
           OLD_NAME_MAP[old.data[i].name] === item.name
         ) {
           newSkillFlag = false;
-          if (item.skill_value > old.data[i].skill_value) {
-            const sub = (item.skill_value - old.data[i].skill_value).toFixed(2);
+          const newSkill = Number(item.skill_value);
+          const oldSkill = Number(old.data[i].skill_value);
+          if (newSkill > oldSkill) {
+            const sub = (newSkill - oldSkill).toFixed(2);
             item.compare = `${sub}↑`;
           }
           break;
