@@ -14,12 +14,19 @@ class KasegiPageContainer extends React.Component {
     };
   }
 
+  componentDidMount() {
+    if (!this.props.isSSR) {
+      loadData(this.props.dispatch, this.props.match);
+    }
+  }
+
   render() {
     return <KasegiPage data={this.props.data} match={this.props.match} />;
   }
 }
 
 export const loadData = (dispatch, match) => {
+  dispatch(setKasegiData(null));
   return fetchKasegiData(match).then(data => {
     dispatch(setKasegiData(data));
   });
@@ -64,6 +71,7 @@ const fetchKasegiData = match => {
 
 function mapStateToProps(state) {
   return {
+    isSSR: state.isSSR,
     data: state.kasegiData
   };
 }

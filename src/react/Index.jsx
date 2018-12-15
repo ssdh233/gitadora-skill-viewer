@@ -1,5 +1,5 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { FormattedMessage, FormattedHTMLMessage, injectIntl } from "react-intl";
 import Radium from "radium";
@@ -57,22 +57,22 @@ class Index extends React.Component {
               {" Drummania"}
             </h4>
             <div style={styles.kasegiLinkDiv}>
-              <a
+              <Link
                 style={styles.kasegiLink}
-                href={`/${locale}/exchain/kasegi/d/9000`}
+                to={`/${locale}/exchain/kasegi/d/9000`}
               >
                 9000 ~
-              </a>
+              </Link>
               {[...Array(12).keys()].reverse().map(key => {
                 const scope = `${3000 + key * 500} ~ ${3500 + key * 500}`;
                 return (
-                  <a
+                  <Link
                     style={styles.kasegiLink}
                     key={key}
-                    href={`/${locale}/exchain/kasegi/d/${3000 + key * 500}`}
+                    to={`/${locale}/exchain/kasegi/d/${3000 + key * 500}`}
                   >
                     {scope}
-                  </a>
+                  </Link>
                 );
               })}
             </div>
@@ -81,22 +81,22 @@ class Index extends React.Component {
               {" Guitarfreaks"}
             </h4>
             <div style={styles.kasegiLinkDiv}>
-              <a
+              <Link
                 style={styles.kasegiLink}
-                href={`/${locale}/exchain/kasegi/g/9000`}
+                to={`/${locale}/exchain/kasegi/g/9000`}
               >
                 9000 ~
-              </a>
+              </Link>
               {[...Array(12).keys()].reverse().map(key => {
                 const scope = `${3000 + key * 500} ~ ${3500 + key * 500}`;
                 return (
-                  <a
+                  <Link
                     style={styles.kasegiLink}
                     key={key}
-                    href={`/${locale}/exchain/kasegi/g/${3000 + key * 500}`}
+                    to={`/${locale}/exchain/kasegi/g/${3000 + key * 500}`}
                   >
                     {scope}
-                  </a>
+                  </Link>
                 );
               })}
             </div>

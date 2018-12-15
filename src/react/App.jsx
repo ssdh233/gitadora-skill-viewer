@@ -1,11 +1,12 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { connect } from "react-redux";
+import { Switch, Route, withRouter } from "react-router-dom";
 import Radium, { StyleRoot } from "radium";
-
 import Index from "./Index.jsx";
 import KasegiPageContainer, {
   loadData as loadDataForKasegiPageContainer
 } from "./KasegiPageContainer.jsx";
+import { setIsSSR } from "./actions";
 
 export const routes = [
   {
@@ -23,6 +24,10 @@ export const routes = [
 }));
 
 class App extends React.Component {
+  componentDidMount() {
+    this.props.dispatch(setIsSSR(false));
+  }
+
   render() {
     return (
       <StyleRoot>
@@ -36,4 +41,4 @@ class App extends React.Component {
   }
 }
 
-export default Radium(App);
+export default Radium(withRouter(connect()(App)));
