@@ -8,8 +8,7 @@ html
     script(type='text/javascript' src="//cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js")
     script(type='text/javascript' src="/js/google_analytics.js")
   body
-    div(id="app")
-      div!= content
+    div(id="app")!= content
     script.
       window.App=`!{appString}`;
     script.

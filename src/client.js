@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "react-dom";
+import { hydrate } from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
@@ -23,9 +23,7 @@ const store = createStore(reducer, preloadedState);
 delete window.__PRELOADED_STATE__;
 delete window.App;
 
-console.log("client side", store.getState());
-
-render(
+hydrate(
   <Provider store={store}>
     <IntlProvider locale={locale} messages={messages}>
       <BrowserRouter>

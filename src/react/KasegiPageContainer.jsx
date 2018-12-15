@@ -20,7 +20,6 @@ class KasegiPageContainer extends React.Component {
 }
 
 export const loadData = (dispatch, match) => {
-  console.log("loadData is called!");
   return fetchKasegiData(match).then(data => {
     dispatch(setKasegiData(data));
   });

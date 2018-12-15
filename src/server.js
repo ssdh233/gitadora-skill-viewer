@@ -50,7 +50,7 @@ const reactRoute = (req, res) => {
         <Provider store={store}>
           <IntlProvider locale={locale} messages={messages[locale]}>
             <StaticRouter location={req.url} context={{}}>
-              <App />
+              <App radiumConfig={{ userAgent: req.headers["user-agent"] }} />
             </StaticRouter>
           </IntlProvider>
         </Provider>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import { StyleRoot } from "radium";
+import Radium, { StyleRoot } from "radium";
 
 import Index from "./Index.jsx";
 import KasegiPageContainer, {
@@ -22,7 +22,7 @@ export const routes = [
   exact: true
 }));
 
-export default class App extends React.Component {
+class App extends React.Component {
   render() {
     return (
       <StyleRoot>
@@ -35,3 +35,5 @@ export default class App extends React.Component {
     );
   }
 }
+
+export default Radium(App);
