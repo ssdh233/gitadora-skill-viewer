@@ -1,30 +1,37 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import { createStore } from "redux";
-import { Provider } from "react-redux";
 import { StyleRoot } from "radium";
 
 import Index from "./Index.jsx";
-import KasegiPageContainer from "./KasegiPageContainer.jsx";
-import reducer from "./reducer";
+import KasegiPageContainer, {
+  loadData as loadDataForKasegiPageContainer
+} from "./KasegiPageContainer.jsx";
 
-const store = createStore(reducer);
+export const routes = [
+  {
+    path: "/:locale",
+    component: Index
+  },
+  {
+    path: "/:locale/:ver/kasegi/:type/:scope",
+    component: KasegiPageContainer,
+    loadData: loadDataForKasegiPageContainer
+  }
+].map(route => ({
+  ...route,
+  exact: true
+}));
 
-export class App extends React.Component {
+export default class App extends React.Component {
   render() {
     return (
-      <Provider store={store}>
-        <StyleRoot>
-          <Switch>
-            <Route exact path="/:locale" component={Index} />
-            <Route
-              exact
-              path="/:locale/:ver/kasegi/:type/:scope"
-              component={KasegiPageContainer}
-            />
-          </Switch>
-        </StyleRoot>
-      </Provider>
+      <StyleRoot>
+        <Switch>
+          {routes.map(route => (
+            <Route key={route.path} {...route} />
+          ))}
+        </Switch>
+      </StyleRoot>
     );
   }
 }

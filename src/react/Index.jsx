@@ -59,22 +59,22 @@ class Index extends React.Component {
               {" Drummania"}
             </h4>
             <div style={styles.kasegiLinkDiv}>
-              <Link
+              <a
                 style={styles.kasegiLink}
-                to={`/${locale}/exchain/kasegi/d/9000`}
+                href={`/${locale}/exchain/kasegi/d/9000`}
               >
                 9000 ~
-              </Link>
+              </a>
               {[...Array(12).keys()].reverse().map(key => {
                 const scope = `${3000 + key * 500} ~ ${3500 + key * 500}`;
                 return (
-                  <Link
+                  <a
                     style={styles.kasegiLink}
                     key={key}
-                    to={`/${locale}/exchain/kasegi/d/${3000 + key * 500}`}
+                    href={`/${locale}/exchain/kasegi/d/${3000 + key * 500}`}
                   >
                     {scope}
-                  </Link>
+                  </a>
                 );
               })}
             </div>
@@ -83,22 +83,22 @@ class Index extends React.Component {
               {" Guitarfreaks"}
             </h4>
             <div style={styles.kasegiLinkDiv}>
-              <Link
+              <a
                 style={styles.kasegiLink}
-                to={`/${locale}/exchain/kasegi/g/9000`}
+                href={`/${locale}/exchain/kasegi/g/9000`}
               >
                 9000 ~
-              </Link>
+              </a>
               {[...Array(12).keys()].reverse().map(key => {
                 const scope = `${3000 + key * 500} ~ ${3500 + key * 500}`;
                 return (
-                  <Link
+                  <a
                     style={styles.kasegiLink}
                     key={key}
-                    to={`/${locale}/exchain/kasegi/g/${3000 + key * 500}`}
+                    href={`/${locale}/exchain/kasegi/g/${3000 + key * 500}`}
                   >
                     {scope}
-                  </Link>
+                  </a>
                 );
               })}
             </div>

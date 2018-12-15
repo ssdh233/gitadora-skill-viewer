@@ -86,32 +86,32 @@ class AppHeader extends React.Component {
             }}
           >
             <MenuList>
-              <Link to={`/${locale}/exchain/kasegi/d/9000`}>
+              <a href={`/${locale}/exchain/kasegi/d/9000`}>
                 <MenuItem>Drummania 9000 ~</MenuItem>
-              </Link>
+              </a>
               {[...Array(12).keys()].reverse().map(key => {
                 const scope = `${3000 + key * 500} ~ ${3500 + key * 500}`;
                 return (
-                  <Link
+                  <a
                     key={key}
-                    to={`/${locale}/exchain/kasegi/d/${3000 + key * 500}`}
+                    href={`/${locale}/exchain/kasegi/d/${3000 + key * 500}`}
                   >
                     <MenuItem>Drummania {scope}</MenuItem>
-                  </Link>
+                  </a>
                 );
               })}
-              <Link to={`/${locale}/exchain/kasegi/d/9000`}>
+              <a href={`/${locale}/exchain/kasegi/d/9000`}>
                 <MenuItem>Guitarfreaks 9000 ~</MenuItem>
-              </Link>
+              </a>
               {[...Array(12).keys()].reverse().map(key => {
                 const scope = `${3000 + key * 500} ~ ${3500 + key * 500}`;
                 return (
-                  <Link
+                  <a
                     key={key}
-                    to={`/${locale}/exchain/kasegi/g/${3000 + key * 500}`}
+                    href={`/${locale}/exchain/kasegi/g/${3000 + key * 500}`}
                   >
                     <MenuItem key={key}>Guitarfreaks {scope}</MenuItem>
-                  </Link>
+                  </a>
                 );
               })}
             </MenuList>
