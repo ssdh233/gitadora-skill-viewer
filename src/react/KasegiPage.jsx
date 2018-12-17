@@ -6,64 +6,12 @@ import { injectIntl } from "react-intl";
 import KasegiTable from "./KasegiTable.jsx";
 
 class KasegiPage extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      data: null
-    };
-  }
-
-  componentDidMount() {
-    this.fetchKasegiData();
-  }
-
-  fetchKasegiData = () => {
-    const sortByCount = (a, b) => b.count - a.count;
-    const processData = (data, index) => {
-      const { diff, part, diffValue, averageSkill, ...rest } = data;
-
-      let displayedDiff = `${diffValue} ${diff}`;
-      if (part !== "D") {
-        displayedDiff = `${displayedDiff}-${part}`;
-      }
-
-      const averageAchieve =
-        ((averageSkill / (diffValue * 20)) * 100).toFixed(2) + "%";
-
-      let displayedAverageSkill = `${averageSkill} (${averageAchieve})`;
-      return {
-        index: index + 1,
-        diff,
-        displayedDiff,
-        displayedAverageSkill,
-        ...data
-      };
-    };
-
-    const { ver, type, scope } = this.props.match.params;
-    fetch(`/api/${ver}/kasegi/${type}/${scope}`)
-      .then(res => res.json())
-      .then(rawData => {
-        const { hot, other, ...rest } = rawData;
-
-        return {
-          ...rest,
-          hot: hot && hot.sort(sortByCount).map(processData),
-          other: other && other.sort(sortByCount).map(processData)
-        };
-      })
-      .then(data => {
-        this.setState({ data });
-      });
-  };
-
   render() {
-    const { data } = this.state;
     const {
+      data,
       intl: { formatMessage },
       match: {
-        params: { ver, type, scope }
+        params: { type, scope }
       }
     } = this.props;
 

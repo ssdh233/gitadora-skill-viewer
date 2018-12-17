@@ -8,8 +8,11 @@ html
     script(type='text/javascript' src="//cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js")
     script(type='text/javascript' src="/js/google_analytics.js")
   body
-    div(id="app")
-      div!= content
+    div(id="app")!= content
     script.
       window.App=`!{appString}`;
+    script.
+      // WARNING: See the following for security issues around embedding JSON in HTML:
+      // http://redux.js.org/recipes/ServerRendering.html#security-considerations
+      window.__PRELOADED_STATE__=`!{preloadedState}`;
     script(src="/js/bundle.js" type="text/javascript")

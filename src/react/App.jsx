@@ -1,23 +1,44 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
-import { StyleRoot } from "radium";
-
+import { connect } from "react-redux";
+import { Switch, Route, withRouter } from "react-router-dom";
+import Radium, { StyleRoot } from "radium";
 import Index from "./Index.jsx";
-import KasegiPage from "./KasegiPage.jsx";
+import KasegiPageContainer, {
+  loadData as loadDataForKasegiPageContainer
+} from "./KasegiPageContainer.jsx";
+import { setIsSSR } from "./actions";
 
-export class App extends React.Component {
+export const routes = [
+  {
+    path: "/:locale",
+    component: Index
+  },
+  {
+    path: "/:locale/:ver/kasegi/:type/:scope",
+    component: KasegiPageContainer,
+    loadData: loadDataForKasegiPageContainer
+  }
+].map(route => ({
+  ...route,
+  exact: true
+}));
+
+class App extends React.Component {
+  componentDidMount() {
+    this.props.dispatch(setIsSSR(false));
+  }
+
   render() {
     return (
       <StyleRoot>
         <Switch>
-          <Route exact path="/:locale" component={Index} />
-          <Route
-            exact
-            path="/:locale/:ver/kasegi/:type/:scope"
-            component={KasegiPage}
-          />
+          {routes.map(route => (
+            <Route key={route.path} {...route} />
+          ))}
         </Switch>
       </StyleRoot>
     );
   }
 }
+
+export default Radium(withRouter(connect()(App)));

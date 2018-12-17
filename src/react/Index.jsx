@@ -50,9 +50,7 @@ class Index extends React.Component {
         >
           <p> {<FormattedMessage id="intro.desc" />} </p>
           <h3>{<FormattedMessage id="intro.info.title" />}</h3>
-          <p>
-            <FormattedHTMLMessage id="intro.info.content" />
-          </p>
+          <FormattedHTMLMessage id="intro.info.content" />
           <div>
             <h4>
               <FormattedHTMLMessage id="kasegi.title" />
