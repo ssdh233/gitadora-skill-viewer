@@ -11,6 +11,10 @@ import Popover from "@material-ui/core/Popover";
 import AttachMoney from "@material-ui/icons/AttachMoney";
 import FormatListBulleted from "@material-ui/icons/FormatListBulleted";
 import Language from "@material-ui/icons/Language";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import ListSubheader from "@material-ui/core/ListSubheader";
 
 const VERSION = "v1.10.6";
 
@@ -81,40 +85,56 @@ class AppHeader extends React.Component {
             onClose={this.handleMenuClose("kasegi")}
             PaperProps={{
               style: {
-                maxHeight: 400
+                display: "flex"
               }
             }}
           >
-            <MenuList>
+            <List dense>
+              <ListSubheader
+                component="div"
+                style={{ backgroundColor: "#fff" }}
+              >
+                Drummania
+              </ListSubheader>
               <Link to={`/${locale}/exchain/kasegi/d/9000`}>
-                <MenuItem>Drummania 9000 ~</MenuItem>
+                <ListItem button>
+                  <ListItemText primary="9000 ~" />
+                </ListItem>
               </Link>
               {[...Array(12).keys()].reverse().map(key => {
-                const scope = `${3000 + key * 500} ~ ${3500 + key * 500}`;
+                const skill = 3000 + key * 500;
                 return (
-                  <Link
-                    key={key}
-                    to={`/${locale}/exchain/kasegi/d/${3000 + key * 500}`}
-                  >
-                    <MenuItem>Drummania {scope}</MenuItem>
+                  <Link key={key} to={`/${locale}/exchain/kasegi/d/${skill}`}>
+                    <ListItem button>
+                      <ListItemText primary={`${skill} ~`} />
+                    </ListItem>
                   </Link>
                 );
               })}
-              <Link to={`/${locale}/exchain/kasegi/d/9000`}>
-                <MenuItem>Guitarfreaks 9000 ~</MenuItem>
+            </List>
+            <List dense>
+              <ListSubheader
+                component="div"
+                style={{ backgroundColor: "#fff" }}
+              >
+                Guitarfreaks
+              </ListSubheader>
+              <Link to={`/${locale}/exchain/kasegi/g/9000`}>
+                <ListItem button>
+                  <ListItemText primary="9000 ~" />
+                </ListItem>
               </Link>
               {[...Array(12).keys()].reverse().map(key => {
-                const scope = `${3000 + key * 500} ~ ${3500 + key * 500}`;
+                const skill = 3000 + key * 500;
                 return (
-                  <Link
-                    key={key}
-                    to={`/${locale}/exchain/kasegi/g/${3000 + key * 500}`}
-                  >
-                    <MenuItem key={key}>Guitarfreaks {scope}</MenuItem>
+                  <Link key={key} to={`/${locale}/exchain/kasegi/g/${skill}`}>
+                    <ListItem button>
+                      <ListItemText primary={`${skill} ~`} />
+                    </ListItem>
                   </Link>
                 );
               })}
-            </MenuList>
+            </List>
           </Popover>
           <Button onClick={this.handleMenuButtonClick("list")}>
             <span style={{ marginRight: 5 }}>
