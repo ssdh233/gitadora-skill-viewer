@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Switch, Route, withRouter } from "react-router-dom";
 import Radium, { StyleRoot } from "radium";
 import Index from "./Index.jsx";
+import AppHeader from "./AppHeader.jsx";
 import KasegiPageContainer, {
   loadData as loadDataForKasegiPageContainer
 } from "./KasegiPageContainer.jsx";
@@ -31,6 +32,7 @@ class App extends React.Component {
   render() {
     return (
       <StyleRoot>
+        <Route path="/:locale" component={AppHeader} />
         <Switch>
           {routes.map(route => (
             <Route key={route.path} {...route} />

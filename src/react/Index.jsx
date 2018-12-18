@@ -5,7 +5,6 @@ import { FormattedMessage, FormattedHTMLMessage, injectIntl } from "react-intl";
 import Radium from "radium";
 
 import SlideToggle from "./SlideToggle.jsx";
-import AppHeader from "./AppHeader.jsx";
 
 class Index extends React.Component {
   constructor(props) {
@@ -43,7 +42,6 @@ class Index extends React.Component {
           <link rel="canonical" href={`http://gsv.fun/${locale}`} />
           <title>{formatMessage({ id: "title" })}</title>
         </Helmet>
-        <AppHeader match={this.props.match} />
         <SlideToggle
           defaultOpen={true}
           title={<FormattedMessage id="intro.title" />}
