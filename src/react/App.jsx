@@ -32,15 +32,28 @@ class App extends React.Component {
   render() {
     return (
       <StyleRoot>
-        <Route path="/:locale" component={AppHeader} />
-        <Switch>
-          {routes.map(route => (
-            <Route key={route.path} {...route} />
-          ))}
-        </Switch>
+        <div style={styles.globalStyle}>
+          <Route path="/:locale" component={AppHeader} />
+          <Switch>
+            {routes.map(route => (
+              <Route key={route.path} {...route} />
+            ))}
+          </Switch>
+        </div>
       </StyleRoot>
     );
   }
 }
+
+const styles = {
+  globalStyle: {
+    fontFamily: "verdana",
+    fontSize: 16,
+
+    "@media (max-width: 742px)": {
+      fontSize: 14
+    }
+  }
+};
 
 export default Radium(withRouter(connect()(App)));
