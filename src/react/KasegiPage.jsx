@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import { injectIntl } from "react-intl";
 
 import KasegiTable from "./KasegiTable.jsx";
+import SlideToggle from "./SlideToggle.jsx";
 
 class KasegiPage extends React.Component {
   render() {
@@ -53,7 +54,7 @@ const styles = {
     fontFamily: "verdana" // TODO move this to global css? or app component
   },
   title: {
-    fontSize: 24
+    fontSize: 19
   },
   notLastDiv: {
     marginBottom: 20

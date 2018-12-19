@@ -227,7 +227,8 @@ const styles = {
     width: "100%",
     display: "flex",
     flexWrap: "wrap",
-    marginBottom: 5
+    marginBottom: 5,
+    borderBottom: "2px solid"
   },
   firstLine: {
     display: "flex",
