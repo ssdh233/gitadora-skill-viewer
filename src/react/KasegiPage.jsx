@@ -4,7 +4,6 @@ import { Helmet } from "react-helmet";
 import { injectIntl } from "react-intl";
 
 import KasegiTable from "./KasegiTable.jsx";
-import SlideToggle from "./SlideToggle.jsx";
 
 class KasegiPage extends React.Component {
   render() {
