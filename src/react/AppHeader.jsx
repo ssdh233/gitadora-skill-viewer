@@ -201,18 +201,18 @@ class AppHeader extends React.Component {
             onClose={this.handleMenuClose("list")}
           >
             <MenuList>
-              <a href="/exchain/list">
+              <Link to={`/${locale}/exchain/list`}>
                 <MenuItem>EXCHAIN</MenuItem>
-              </a>
-              <a href="/matixx/list">
+              </Link>
+              <Link to={`/${locale}/matixx/list`}>
                 <MenuItem>Matixx</MenuItem>
-              </a>
-              <a href="/tbre/list">
+              </Link>
+              <Link to={`/${locale}/tbre/list`}>
                 <MenuItem>Tri-Boost Re</MenuItem>
-              </a>
-              <a href="/tb/list">
+              </Link>
+              <Link to={`/${locale}/tb/list`}>
                 <MenuItem>Tri-Boost</MenuItem>
-              </a>
+              </Link>
             </MenuList>
           </Popover>
         </div>

@@ -41,10 +41,9 @@ const reactRoute = (req, res) => {
 
     Promise.all(promises).then(() => {
       // server side rendering
-      const preloadedState = JSON.stringify(store.getState()).replace(
-        /</g,
-        "\\u003c"
-      );
+      const preloadedState = JSON.stringify(store.getState())
+        .replace(/</g, "\\u003c")
+        .replace(/`/g, "\\`");
 
       const renderedString = renderToString(
         <Provider store={store}>

@@ -7,17 +7,31 @@ import AppHeader from "./AppHeader.jsx";
 import KasegiPageContainer, {
   loadData as loadDataForKasegiPageContainer
 } from "./KasegiPageContainer.jsx";
+import ListPageContainer, {
+  loadData as loadDataForListPageContainer
+} from "./ListPageContainer.jsx";
 import { setIsSSR } from "./actions";
 
+/* eslint-disable react/display-name */
 export const routes = [
   {
     path: "/:locale",
-    component: Index
+    render: props => <Index {...props} />
   },
   {
     path: "/:locale/:ver/kasegi/:type/:scope",
-    component: KasegiPageContainer,
+    render: props => <KasegiPageContainer {...props} />,
     loadData: loadDataForKasegiPageContainer
+  },
+  {
+    path: "/:locale/:ver/list",
+    render: props => <ListPageContainer {...props} />,
+    loadData: loadDataForListPageContainer
+  },
+  {
+    path: "/:locale/:ver/userlist",
+    render: props => <ListPageContainer isAdmin={true} {...props} />,
+    loadData: loadDataForListPageContainer
   }
 ].map(route => ({
   ...route,

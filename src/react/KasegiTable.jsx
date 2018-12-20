@@ -36,6 +36,8 @@ class KasegiTable extends React.Component {
     };
   };
 
+  getTheadProps = () => ({ style: { height: 30 } });
+
   render() {
     const columns = [
       { Header: "No.", accessor: "index", maxWidth: 40 },
@@ -78,8 +80,7 @@ class KasegiTable extends React.Component {
         }}
         columns={columns}
         defaultPageSize={25}
-        getTableProps={this.getTableProps}
-        getTheadProps={() => ({ style: { height: 30 } })}
+        getTheadProps={this.getTheadProps}
         getTrProps={this.getTrProps}
         getTdProps={this.getTdProps}
       />

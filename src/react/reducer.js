@@ -1,8 +1,9 @@
-import { SET_IS_SSR, SET_KASEGI_DATA } from "./actions";
+import { SET_IS_SSR, SET_KASEGI_DATA, SET_LIST_DATA } from "./actions";
 
 const initialState = {
   isSSR: true,
-  kasegiData: null
+  kasegiData: null,
+  listData: null
 };
 
 export default function reducer(state = initialState, action) {
@@ -14,6 +15,10 @@ export default function reducer(state = initialState, action) {
     case SET_KASEGI_DATA:
       return Object.assign({}, state, {
         kasegiData: action.data
+      });
+    case SET_LIST_DATA:
+      return Object.assign({}, state, {
+        listData: action.data
       });
     default:
       return state;

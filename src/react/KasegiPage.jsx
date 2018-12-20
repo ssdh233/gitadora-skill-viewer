@@ -49,8 +49,7 @@ class KasegiPage extends React.Component {
 
 const styles = {
   kasegiPage: {
-    maxWidth: 800,
-    fontFamily: "verdana" // TODO move this to global css? or app component
+    maxWidth: 800
   },
   title: {
     fontSize: 19
