@@ -1,5 +1,6 @@
 import React from "react";
 import Radium from "radium";
+import { Helmet } from "react-helmet";
 import { injectIntl } from "react-intl";
 import ReactTable from "react-table";
 
@@ -8,29 +9,25 @@ import withMediaQuery from "./withMediaQuery";
 class ListPage extends React.Component {
   getLevel = skill => Math.floor(skill / 500);
 
+  getTrProps = () => ({ style: styles.commonTrStyle });
   getTdProps = (state, rowInfo, column) => {
-    let style = styles.commonTdStyle;
+    let className;
+    let style;
     if (rowInfo) {
       switch (column.id) {
         case "guitar_skill":
-          style = {
-            ...style,
-            ...styles.skill[`lv${this.getLevel(rowInfo.row.guitar_skill)}`],
-            textAlign: "center"
-          };
+          className = `lv${this.getLevel(rowInfo.row.guitar_skill)}`;
+          style = { textAlign: "center" };
           break;
         case "drum_skill":
-          style = {
-            ...style,
-            ...styles.skill[`lv${this.getLevel(rowInfo.row.drum_skill)}`],
-            textAlign: "center"
-          };
+          className = `lv${this.getLevel(rowInfo.row.drum_skill)}`;
+          style = { textAlign: "center" };
           break;
         default:
       }
     }
 
-    return { style };
+    return { className, style };
   };
 
   render() {
@@ -75,6 +72,9 @@ class ListPage extends React.Component {
           ...(this.props.isAdmin ? styles.userlistPage : {})
         }}
       >
+        <Helmet>
+          <style>{stringStyles}</style>
+        </Helmet>
         <h1 style={styles.title}>{version_full}</h1>
         {data && (
           <ReactTable
@@ -84,7 +84,8 @@ class ListPage extends React.Component {
               fontSize: this.props.mediaQuery === "sp" ? 12 : 14
             }}
             defaultPageSize={100}
-            pageSizeOptions={[100, 200, 500, 1000]}
+            pageSizeOptions={[5, 100, 200, 500, 1000]}
+            getTrProps={this.getTrProps}
             getTdProps={this.getTdProps}
           />
         )}
@@ -104,69 +105,113 @@ const styles = {
     fontSize: 19,
     textAlign: "center"
   },
-  commonTdStyle: {
+  commonTrStyle: {
     backgroundColor: "#000000",
     color: "#FFFFFF"
-  },
-  skill: {
-    lv0: {
-      color: "#FFFFFF"
-    },
-    lv1: {
-      color: "#FFFFFF"
-    },
-    lv2: {
-      color: "#FF6600"
-    },
-    lv3: {
-      color: "#FF6600"
-    },
-    lv4: {
-      color: "#FFFF00"
-    },
-    lv5: {
-      color: "#FFFF00"
-    },
-    lv6: {
-      color: "#33FF00"
-    },
-    lv7: {
-      color: "#33FF00"
-    },
-    lv8: {
-      color: "#3366FF"
-    },
-    lv9: {
-      color: "#3366FF"
-    },
-    lv10: {
-      color: "#FF00FF"
-    },
-    lv11: {
-      color: "#FF00FF"
-    },
-    lv12: {
-      color: "#FF0000"
-    },
-    lv13: {
-      color: "#FF0000"
-    },
-    lv14: {
-      color: "#DD8844"
-    },
-    lv15: {
-      color: "#C0C0C0"
-    },
-    lv16: {
-      color: "#FFD700"
-    },
-    lv17: {
-      color: "#FFFFFF"
-    },
-    lv18: {
-      color: "#FFFFFF"
-    }
   }
 };
+
+const stringStyles = `.lv0, .lv1 {
+  background: -webkit-linear-gradient(#FFFFFF, #FFFFFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lv2 {
+  background: -webkit-linear-gradient(#FF6600, #FF6600);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lv3 {
+  background: -webkit-linear-gradient(#FF6600, #FFFFFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lv4 {
+  background: -webkit-linear-gradient(#FFFF00, #FFFF00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lv5 {
+  background: -webkit-linear-gradient(#FFFF00, #FFFFFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lv6 {
+  background: -webkit-linear-gradient(#33FF00, #33FF00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lv7 {
+  background: -webkit-linear-gradient(#33FF00, #FFFFFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lv8 {
+  background: -webkit-linear-gradient(#3366FF, #3366FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lv9 {
+  background: -webkit-linear-gradient(#3366FF, #FFFFFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lv10 {
+  background: -webkit-linear-gradient(#FF00FF, #FF00FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lv11 {
+  background: -webkit-linear-gradient(#FF00FF, #FFFFFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lv12 {
+  background: -webkit-linear-gradient(#FF0000, #FF0000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lv13 {
+  background: -webkit-linear-gradient(#FF0000, #FFFFFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lv14 {
+  background: -webkit-linear-gradient(#DD8844, #DD8844);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lv15 {
+  background: -webkit-linear-gradient(#C0C0C0, #C0C0C0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lv16 {
+  background: -webkit-linear-gradient(#FFD700, #FFD700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lv17, .lv18  {
+  background-image: -webkit-gradient( linear, left top, right bottom, color-stop(0.1, #f22), color-stop(0.2, #f2f), color-stop(0.35, #22f), color-stop(0.5, #2ff), color-stop(0.65, #2f2), color-stop(0.8, #ff2) );
+  color:transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}`;
 
 export default withMediaQuery(injectIntl(Radium(ListPage)));
