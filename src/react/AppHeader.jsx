@@ -49,6 +49,7 @@ class AppHeader extends React.Component {
   render() {
     const {
       match: {
+        url,
         params: { locale }
       }
     } = this.props;
@@ -57,18 +58,18 @@ class AppHeader extends React.Component {
       <div style={styles.appHeader}>
         <Helmet>
           <meta charSet="utf-8" />
-          <link rel="canonical" href={`http://gsv.fun/${locale}`} />
           <link
-            rel="alternate"
-            hrefLang={
-              {
-                ja: "ja",
-                en: "en",
-                zh: "zh"
-              }[locale] || "x-default"
-            }
-            href={`http://gsv.fun/${locale}`}
+            rel="canonical"
+            href={`http://gsv.fun/${locale}${url.substring(3)}`}
           />
+          {["ja", "en", "zh"].map(hrefLocale => (
+            <link
+              key={hrefLocale}
+              rel="alternate"
+              hrefLang={hrefLocale}
+              href={`http://gsv.fun/${hrefLocale}${url.substring(3)}`}
+            />
+          ))}
         </Helmet>
 
         <div style={styles.firstLine}>

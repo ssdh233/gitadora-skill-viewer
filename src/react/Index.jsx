@@ -40,6 +40,12 @@ class Index extends React.Component {
         <Helmet>
           <link rel="canonical" href={`http://gsv.fun/${locale}`} />
           <title>{formatMessage({ id: "title" })}</title>
+          <meta
+            name="description"
+            content={`${formatMessage({ id: "intro.desc" })} ${formatMessage({
+              id: "desc.3rd"
+            }).substring(2)}`}
+          />
         </Helmet>
         <SlideToggle
           defaultOpen={true}

@@ -13,24 +13,45 @@ import ListPageContainer, {
 import { setIsSSR } from "./actions";
 
 /* eslint-disable react/display-name */
+
 export const routes = [
   {
     path: "/:locale",
-    render: props => <Index {...props} />
+    render: props => (
+      <div>
+        <AppHeader {...props} />
+        <Index {...props} />
+      </div>
+    )
   },
   {
     path: "/:locale/:ver/kasegi/:type/:scope",
-    render: props => <KasegiPageContainer {...props} />,
+    render: props => (
+      <div>
+        <AppHeader {...props} />
+        <KasegiPageContainer {...props} />
+      </div>
+    ),
     loadData: loadDataForKasegiPageContainer
   },
   {
     path: "/:locale/:ver/list",
-    render: props => <ListPageContainer {...props} />,
+    render: props => (
+      <div>
+        <AppHeader {...props} />
+        <ListPageContainer {...props} />
+      </div>
+    ),
     loadData: loadDataForListPageContainer
   },
   {
     path: "/:locale/:ver/userlist",
-    render: props => <ListPageContainer isAdmin={true} {...props} />,
+    render: props => (
+      <div>
+        <AppHeader {...props} />
+        <ListPageContainer isAdmin={true} {...props} />
+      </div>
+    ),
     loadData: loadDataForListPageContainer
   }
 ].map(route => ({
@@ -47,7 +68,6 @@ class App extends React.Component {
     return (
       <StyleRoot>
         <div style={styles.globalStyle}>
-          <Route path="/:locale" component={AppHeader} />
           <Switch>
             {routes.map(route => (
               <Route key={route.path} {...route} />
