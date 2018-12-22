@@ -56,7 +56,7 @@ const reactRoute = (req, res) => {
       const theme = createMuiTheme({});
 
       // for passing redux preloaded store
-      const preloadedState = serialize(store.getState()).replace(/`/g, "\\`");
+      const preloadedState = serialize(store.getState());
 
       const renderedString = renderToString(
         <Provider store={store}>

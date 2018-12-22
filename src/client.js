@@ -23,7 +23,7 @@ addLocaleData([...enLocale, ...jaLocale, ...zhLocale]);
 const { locale, messages } = JSON.parse(window.App);
 
 // Grab the state from a global variable injected into the server-generated HTML
-const preloadedState = eval(`(${window.__PRELOADED_STATE__})`);
+const preloadedState = window.__PRELOADED_STATE__;
 const store = createStore(reducer, preloadedState);
 
 delete window.__PRELOADED_STATE__;
