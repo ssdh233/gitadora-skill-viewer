@@ -9,6 +9,7 @@ html
     script(type='text/javascript' src="/js/google_analytics.js")
   body
     div(id="app")!= content
+    style(id="jss-server-side")!= cssForMui
     script.
       window.App=`!{appString}`;
     script.
