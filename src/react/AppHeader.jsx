@@ -17,7 +17,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListSubheader from "@material-ui/core/ListSubheader";
 
-const VERSION = "v1.10.6";
+const VERSION = "v1.11.0";
 
 class AppHeader extends React.Component {
   constructor(props) {
