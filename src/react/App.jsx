@@ -62,6 +62,11 @@ export const routes = [
 class App extends React.Component {
   componentDidMount() {
     this.props.dispatch(setIsSSR(false));
+
+    const jssStyles = document.getElementById("jss-server-side");
+    if (jssStyles && jssStyles.parentNode) {
+      jssStyles.parentNode.removeChild(jssStyles);
+    }
   }
 
   render() {
