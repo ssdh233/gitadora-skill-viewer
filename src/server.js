@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet";
 import { matchPath } from "react-router-dom";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
+import serialize from "serialize-javascript";
 
 import jaMessages from "../locales/ja/common.json";
 import zhMessages from "../locales/zh/common.json";
@@ -41,9 +42,7 @@ const reactRoute = (req, res) => {
 
     Promise.all(promises).then(() => {
       // server side rendering
-      const preloadedState = JSON.stringify(store.getState())
-        .replace(/</g, "\\u003c")
-        .replace(/`/g, "\\`");
+      const preloadedState = serialize(store.getState()).replace(/`/g, "\\`");
 
       const renderedString = renderToString(
         <Provider store={store}>
