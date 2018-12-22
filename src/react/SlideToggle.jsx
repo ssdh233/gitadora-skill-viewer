@@ -23,9 +23,6 @@ class SlideToggle extends React.Component {
         {this.props.level === 1 && (
           <h3 {...commonTitleProps}>{this.props.title}</h3>
         )}
-        {this.props.level === 2 && (
-          <h4 {...commonTitleProps}>{this.props.title}</h4>
-        )}
         <div
           ref="toggle-div"
           style={{ display: this.props.defaultOpen ? "normal" : "none" }}
@@ -50,19 +47,16 @@ const styles = {
       marginBottom: "5px"
     },
     title: {
-      fontSize: "120%",
+      fontSize: 19,
       height: 35,
-      ...titleCommonStyle
-    }
-  },
-  level2: {
-    div: {
-      margin: "5px 0px 5px 20px"
-    },
-    title: {
-      fontSize: "100%",
-      height: 30,
-      ...titleCommonStyle
+      lineHeight: "35px",
+      ...titleCommonStyle,
+
+      "@media (max-width: 742px)": {
+        height: 30,
+        lineHeight: "30px",
+        fontSize: 16
+      }
     }
   }
 };

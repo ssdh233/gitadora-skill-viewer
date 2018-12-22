@@ -3,6 +3,8 @@ import Radium from "radium";
 import ReactTable from "react-table";
 import { FormattedMessage } from "react-intl";
 
+import withMediaQuery from "./withMediaQuery";
+
 class KasegiTable extends React.Component {
   constructor(props) {
     super(props);
@@ -34,13 +36,15 @@ class KasegiTable extends React.Component {
     };
   };
 
+  getTheadProps = () => ({ style: { height: 30 } });
+
   render() {
     const columns = [
       { Header: "No.", accessor: "index", maxWidth: 40 },
       {
         Header: () => <FormattedMessage id="kasegi.songname" />,
         accessor: "name",
-        minWidth: 180,
+        minWidth: this.props.mediaQuery === "sp" ? 150 : 180,
         style: {
           whiteSpace: "unset"
         }
@@ -48,7 +52,7 @@ class KasegiTable extends React.Component {
       {
         Header: () => <FormattedMessage id="kasegi.level" />,
         accessor: "displayedDiff",
-        maxWidth: 100,
+        maxWidth: this.props.mediaQuery === "sp" ? 53 : 100,
         style: {
           whiteSpace: "unset"
         }
@@ -56,7 +60,7 @@ class KasegiTable extends React.Component {
       {
         Header: () => <FormattedMessage id="kasegi.averageskill" />,
         accessor: "displayedAverageSkill",
-        maxWidth: 140,
+        maxWidth: this.props.mediaQuery === "sp" ? 70 : 140,
         style: {
           whiteSpace: "unset"
         }
@@ -64,12 +68,7 @@ class KasegiTable extends React.Component {
       {
         Header: () => <FormattedMessage id="kasegi.count" />,
         accessor: "count",
-        maxWidth: 54
-      },
-      {
-        Header: () => <FormattedMessage id="kasegi.averageplayerskill" />,
-        accessor: "averagePlayerSKill",
-        maxWidth: 80
+        maxWidth: this.props.mediaQuery === "sp" ? 34 : 40
       }
     ];
 
@@ -77,12 +76,11 @@ class KasegiTable extends React.Component {
       <ReactTable
         {...this.props}
         style={{
-          fontSize: 14
+          fontSize: this.props.mediaQuery === "sp" ? 12 : 14
         }}
         columns={columns}
         defaultPageSize={25}
-        getTableProps={this.getTableProps}
-        getTheadProps={() => ({ style: { height: 30 } })}
+        getTheadProps={this.getTheadProps}
         getTrProps={this.getTrProps}
         getTdProps={this.getTdProps}
       />
@@ -90,4 +88,4 @@ class KasegiTable extends React.Component {
   }
 }
 
-export default Radium(KasegiTable);
+export default withMediaQuery(Radium(KasegiTable));

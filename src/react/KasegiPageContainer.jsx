@@ -14,6 +14,14 @@ class KasegiPageContainer extends React.Component {
     };
   }
 
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    if (!this.props.isSSR) {
+      if (nextProps.match !== this.props.match) {
+        loadData(this.props.dispatch, this.props.match);
+      }
+    }
+  }
+
   componentDidMount() {
     if (!this.props.isSSR) {
       loadData(this.props.dispatch, this.props.match);
