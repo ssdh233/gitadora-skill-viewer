@@ -2,6 +2,7 @@ import React from "react";
 import Radium from "radium";
 import { Helmet } from "react-helmet";
 import { injectIntl } from "react-intl";
+import LinearProgress from "@material-ui/core/LinearProgress";
 
 import KasegiTable from "./KasegiTable.jsx";
 
@@ -23,25 +24,28 @@ class KasegiPage extends React.Component {
       id: "kasegi.title"
     })} ${scopeTitle}`;
     return (
-      <div style={styles.kasegiPage}>
+      <div>
         <Helmet>
           <meta charSet="utf-8" />
           <meta name="description" content={`TODO`} />
           <title>{`${title} | Gitadora Skill Viewer`}</title>
         </Helmet>
-        <h1 style={styles.title}>{title}</h1>
-        {data && data.other && (
-          <div style={styles.notLastDiv}>
-            <div style={styles.caption}>{`${typeTitleShort} OTHER`}</div>
-            <KasegiTable data={data.other} />
-          </div>
-        )}
-        {data && data.hot && (
-          <div>
-            <div style={styles.caption}>{`${typeTitleShort} HOT`}</div>
-            <KasegiTable data={data.hot} />
-          </div>
-        )}
+        {!data && <LinearProgress />}
+        <div style={styles.kasegiPage}>
+          <h1 style={styles.title}>{title}</h1>
+          {data && data.other && (
+            <div style={styles.notLastDiv}>
+              <div style={styles.caption}>{`${typeTitleShort} OTHER`}</div>
+              <KasegiTable data={data.other} />
+            </div>
+          )}
+          {data && data.hot && (
+            <div>
+              <div style={styles.caption}>{`${typeTitleShort} HOT`}</div>
+              <KasegiTable data={data.hot} />
+            </div>
+          )}
+        </div>
       </div>
     );
   }
