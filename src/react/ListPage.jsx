@@ -3,6 +3,7 @@ import Radium from "radium";
 import { Helmet } from "react-helmet";
 import { injectIntl } from "react-intl";
 import ReactTable from "react-table";
+import LinearProgress from "@material-ui/core/LinearProgress";
 
 import withMediaQuery from "./withMediaQuery";
 
@@ -72,29 +73,32 @@ class ListPage extends React.Component {
 
     const { data, version_full } = this.props;
     return (
-      <div
-        style={{
-          ...styles.listPage,
-          ...(this.props.isAdmin ? styles.userlistPage : {})
-        }}
-      >
+      <div>
         <Helmet>
           <style>{stringStyles}</style>
         </Helmet>
-        <h1 style={styles.title}>{version_full}</h1>
-        {data && (
-          <ReactTable
-            data={data}
-            columns={columns}
-            style={{
-              fontSize: this.props.mediaQuery === "sp" ? 12 : 14
-            }}
-            defaultPageSize={100}
-            pageSizeOptions={[5, 100, 200, 500, 1000]}
-            getTrProps={this.getTrProps}
-            getTdProps={this.getTdProps}
-          />
-        )}
+        {!data && <LinearProgress />}
+        <div
+          style={{
+            ...styles.listPage,
+            ...(this.props.isAdmin ? styles.userlistPage : {})
+          }}
+        >
+          <h1 style={styles.title}>{version_full}</h1>
+          {data && (
+            <ReactTable
+              data={data}
+              columns={columns}
+              style={{
+                fontSize: this.props.mediaQuery === "sp" ? 12 : 14
+              }}
+              defaultPageSize={100}
+              pageSizeOptions={[5, 100, 200, 500, 1000]}
+              getTrProps={this.getTrProps}
+              getTdProps={this.getTdProps}
+            />
+          )}
+        </div>
       </div>
     );
   }

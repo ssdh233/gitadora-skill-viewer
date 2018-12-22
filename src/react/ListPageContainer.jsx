@@ -17,7 +17,7 @@ class ListPageContainer extends React.Component {
   UNSAFE_componentWillReceiveProps(nextProps) {
     if (!this.props.isSSR) {
       if (nextProps.match !== this.props.match) {
-        loadData(this.props.dispatch, this.props.match);
+        loadData(nextProps.dispatch, nextProps.match);
       }
     }
   }
