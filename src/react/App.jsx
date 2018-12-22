@@ -63,6 +63,8 @@ const styles = {
   globalStyle: {
     fontFamily: "verdana",
     fontSize: 16,
+    maxWidth: 1200,
+    margin: "auto",
 
     "@media (max-width: 742px)": {
       fontSize: 14
