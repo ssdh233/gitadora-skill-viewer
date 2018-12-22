@@ -94,13 +94,13 @@ class AppHeader extends React.Component {
             onClose={this.handleMenuClose("lang")}
           >
             <MenuList>
-              <a href="/en">
+              <a href={`/en${url.substring(3)}`}>
                 <MenuItem>English</MenuItem>
               </a>
-              <a href="/ja">
+              <a href={`/ja${url.substring(3)}`}>
                 <MenuItem>日本語</MenuItem>
               </a>
-              <a href="/zh">
+              <a href={`/zh${url.substring(3)}`}>
                 <MenuItem>简体中文</MenuItem>
               </a>
             </MenuList>
