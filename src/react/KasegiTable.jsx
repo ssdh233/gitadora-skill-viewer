@@ -63,6 +63,11 @@ class KasegiTable extends React.Component {
         maxWidth: this.props.mediaQuery === "sp" ? 70 : 140,
         style: {
           whiteSpace: "unset"
+        },
+        sortMethod: (a, b) => {
+          let skillA = Number(a.split("(")[0]);
+          let skillB = Number(b.split("(")[0]);
+          return skillA - skillB;
         }
       },
       {
