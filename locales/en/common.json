@@ -18,6 +18,7 @@
       "title": "Upload skill data",
       "step1": {
         "desc": "1.Add below script to bookmark",
+        "remark": "※Some browsers（e.g. safari、chrome on mobile）don't provide the feature of creating a new bookmark. In that case you can add a bookmark for any site first, then edit it and replace the URL address with the below script.",
         "imgDesc1": "The bookmark name doesn't matter. Put whatever you like.",
         "imgDesc2": "Paste the script on the URL input"
       },
@@ -75,6 +76,21 @@
     "level": "Level",
     "count": "Count",
     "averageskill": "Average",
-    "averageplayerskill": "Player Average"
+    "averageplayerskill": "Player Average",
+    "scope": {
+      "3000": "Green",
+      "3500": "Green",
+      "4000": "Blue",
+      "4500": "Blue",
+      "5000": "Purple",
+      "5500": "Purple",
+      "6000": "Red",
+      "6500": "Red",
+      "7000": "Bronze",
+      "7500": "Silver",
+      "8000": "Gold",
+      "8500": "Rainbow",
+      "9000": "Rainbow"
+    }
   }
 }
