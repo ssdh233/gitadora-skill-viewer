@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Switch, Route, withRouter } from "react-router-dom";
 import Radium, { StyleRoot } from "radium";
+
 import Index from "./Index.jsx";
 import AppHeader from "./AppHeader.jsx";
 import KasegiPageContainer, {
@@ -10,6 +11,7 @@ import KasegiPageContainer, {
 import ListPageContainer, {
   loadData as loadDataForListPageContainer
 } from "./ListPageContainer.jsx";
+import UserVoicePage from "./UserVoicePage.jsx";
 import { setIsSSR } from "./actions";
 
 /* eslint-disable react/display-name */
@@ -53,6 +55,15 @@ export const routes = [
       </div>
     ),
     loadData: loadDataForListPageContainer
+  },
+  {
+    path: "/:locale/uservoice",
+    render: props => (
+      <div>
+        <AppHeader {...props} />
+        <UserVoicePage {...props} />
+      </div>
+    )
   }
 ].map(route => ({
   ...route,

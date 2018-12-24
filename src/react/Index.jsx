@@ -199,13 +199,7 @@ class Index extends React.Component {
             {"★"}
             <FormattedMessage id="other.voice.title" />
             {"："}
-            <a
-              href="https://matsumatsu233.github.io/gsv/"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              My Blog
-            </a>
+            <Link to={`${locale}/uservoice`}>User Voice</Link>
           </p>
           <p>
             <FormattedMessage id="other.voice.desc1" />

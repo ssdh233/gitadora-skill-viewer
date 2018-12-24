@@ -55,7 +55,7 @@
     },
     "voice": {
       "title": "各种意见和建议",
-      "desc1": "有什么意见，或者bug反馈的话欢迎在博客留言！"
+      "desc1": "有什么意见，或者bug反馈的话欢迎在User Voice里留言！"
     },
     "browser": {
       "title": "推荐浏览器"
@@ -65,6 +65,9 @@
     "message": "要去{name}的skill表页面吗",
     "yes": "好的",
     "no": "不用"
+  },
+  "uservoice": {
+    "message": "有什么意见，或者bug反馈的话欢迎在这留言！"
   },
   "kasegi": {
     "title": "赚分曲排行",
