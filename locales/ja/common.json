@@ -61,6 +61,11 @@
       "title": "推奨ブラウザ"
     }
   },
+  "snackbar": {
+    "message": "スキルページ({name})に行きますか",
+    "yes": "はい",
+    "no": "いいえ"
+  },
   "kasegi": {
     "title": "稼ぎ曲ランキング",
     "songname": "曲名",

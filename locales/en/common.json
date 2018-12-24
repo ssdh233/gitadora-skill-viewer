@@ -61,6 +61,11 @@
       "title": "Recommended browser"
     }
   },
+  "snackbar": {
+    "message": "Go to {name}'s skill page?",
+    "yes": "yes",
+    "no": "no"
+  },
   "kasegi": {
     "title": " song ranking",
     "songname": "Name",

@@ -182,7 +182,9 @@ function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
             error: handleAjaxError,
             success: function(data) {
               if (data.status === 0) {
-                location = `${TARGET_DOMAIN}/${VERSION}/${data.message}/g`;
+                location = `${TARGET_DOMAIN}/${VERSION}/${
+                  data.message
+                }/g?setLocalStorage=${data.message}`;
               } else {
                 alert(data.message);
               }
