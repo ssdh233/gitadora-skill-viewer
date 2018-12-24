@@ -1,7 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { FormattedMessage, FormattedHTMLMessage, injectIntl } from "react-intl";
 import Radium from "radium";
+import Snackbar from "@material-ui/core/Snackbar";
+import Button from "@material-ui/core/Button";
 
 import SlideToggle from "./SlideToggle.jsx";
 
@@ -11,8 +14,23 @@ class Index extends React.Component {
 
     this.state = {
       listAnchorEl: null,
-      langAnchorEl: null
+      langAnchorEl: null,
+      snackbarOpen: false,
+      gsvId: null,
+      gsvName: ""
     };
+  }
+
+  componentDidMount() {
+    const gsvId = localStorage.getItem("gsvId");
+    const gsvName = localStorage.getItem("gsvName");
+    if (gsvId) {
+      this.setState({
+        snackbarOpen: true,
+        gsvId,
+        gsvName
+      });
+    }
   }
 
   handleMenuButtonClick = id => event => {
@@ -24,6 +42,12 @@ class Index extends React.Component {
   handleMenuClose = id => () => {
     this.setState({
       [`${id}AnchorEl`]: null
+    });
+  };
+
+  handleSnackbarClose = () => {
+    this.setState({
+      snackbarOpen: false
     });
   };
 
@@ -47,6 +71,37 @@ class Index extends React.Component {
             }).substring(2)}`}
           />
         </Helmet>
+        <Snackbar
+          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+          open={this.state.snackbarOpen}
+          action={
+            <div>
+              <a href={`/exchain/${this.state.gsvId}/g`}>
+                <Button color="secondary" size="small">
+                  <FormattedMessage id="snackbar.yes" />
+                </Button>
+              </a>
+              <Button
+                color="secondary"
+                size="small"
+                onClick={this.handleSnackbarClose}
+              >
+                <FormattedMessage id="snackbar.no" />
+              </Button>
+            </div>
+          }
+          ContentProps={{
+            "aria-describedby": "message-id"
+          }}
+          message={
+            <span id="message-id">
+              <FormattedMessage
+                id="snackbar.message"
+                values={{ name: this.state.gsvName }}
+              />
+            </span>
+          }
+        />
         <SlideToggle
           defaultOpen={true}
           title={<FormattedMessage id="intro.title" />}

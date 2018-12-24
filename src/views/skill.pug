@@ -123,6 +123,14 @@ html
           td
             a(href="/") このサイトについて
     script.
+      const urlParams = new URLSearchParams(window.location.search);
+      const gsvId = urlParams.get('setLocalStorage');
+      if (gsvId && "!{version}" === "exchain") {
+        localStorage.setItem("gsvId", gsvId);
+        localStorage.setItem("gsvName", "!{player_name}");
+        window.history.pushState("", "", window.location.href.split("?")[0]);
+      }
+
       function check() {
         //if(window.confirm('本サイトは無料なものしか使っていないため、データベースの容量が限られています。本機能のご利用には節度を守ってください。\n本当に保存したいですか？')){
         if(window.confirm('本サイトは無料なものしか使っていないため、データベースの容量が限られています。本機能のご利用には節度を守ってください。\nデータベースの容量は思ったより遥かに大きいので暫くは勝手に使っても構いませんよ。<-New!\n本当に保存したいですか？')){

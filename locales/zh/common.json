@@ -61,6 +61,11 @@
       "title": "推荐浏览器"
     }
   },
+  "snackbar": {
+    "message": "要去{name}的skill表页面吗",
+    "yes": "好的",
+    "no": "不用"
+  },
   "kasegi": {
     "title": "赚分曲排行",
     "songname": "曲名",
