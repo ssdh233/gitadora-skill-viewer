@@ -75,6 +75,21 @@
     "level": "Level",
     "count": "Count",
     "averageskill": "Average",
-    "averageplayerskill": "Player Average"
+    "averageplayerskill": "Player Average",
+    "scope": {
+      "3000": "Green",
+      "3500": "Green",
+      "4000": "Blue",
+      "4500": "Blue",
+      "5000": "Purple",
+      "5500": "Purple",
+      "6000": "Red",
+      "6500": "Red",
+      "7000": "Bronze",
+      "7500": "Silver",
+      "8000": "Gold",
+      "8500": "Rainbow",
+      "9000": "Rainbow"
+    }
   }
 }

@@ -19,15 +19,30 @@ class KasegiPage extends React.Component {
     const typeTitle = type === "d" ? "Drummania" : "Guitarfreaks";
     const typeTitleShort = type === "d" ? "DRUM" : "GUITAR";
     const scopeTitle = `${scope} ~ ${parseInt(scope) + 500}`;
+    const scopeNameColor = formatMessage({
+      id: `kasegi.scope.${scope}`
+    });
 
     const title = `${typeTitle}${formatMessage({
       id: "kasegi.title"
-    })} ${scopeTitle}`;
+    })} ${scopeTitle} ${scopeNameColor}`;
     return (
       <div>
         <Helmet>
           <meta charSet="utf-8" />
-          <meta name="description" content={`TODO`} />
+          <meta
+            name="description"
+            content={formatMessage(
+              {
+                id: "kasegi.desc",
+                defaultMessage: " "
+              },
+              {
+                type: typeTitle,
+                scope: scopeNameColor
+              }
+            )}
+          />
           <title>{`${title} | Gitadora Skill Viewer`}</title>
         </Helmet>
         {!data && <LinearProgress />}
