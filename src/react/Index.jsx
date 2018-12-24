@@ -106,12 +106,15 @@ class Index extends React.Component {
           defaultOpen={true}
           title={<FormattedMessage id="intro.title" />}
         >
-          <p> {<FormattedMessage id="intro.desc" />} </p>
+          <p>{<FormattedMessage id="intro.desc" />}</p>
           <h3>{<FormattedMessage id="intro.info.title" />}</h3>
           <FormattedHTMLMessage id="intro.info.content" />
         </SlideToggle>
         <SlideToggle title={<FormattedMessage id="how.title" />}>
-          <p> {<FormattedMessage id="how.upload.step1.desc" />}</p>
+          <p>{<FormattedMessage id="how.upload.step1.desc" />}</p>
+          <p style={{ fontSize: 14 }}>
+            {<FormattedMessage id="how.upload.step1.remark" />}
+          </p>
           <p> For GITADORA EXCHAIN </p>
           <div style={styles.script}>
             {

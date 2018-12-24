@@ -18,6 +18,7 @@
       "title": "Upload skill data",
       "step1": {
         "desc": "1.Add below script to bookmark",
+        "remark": "※Some browsers（e.g. safari、chrome on mobile）don't provide the feature of creating a new bookmark. In that case you can add a bookmark for any site first, then edit it and replace the URL address with the below script.",
         "imgDesc1": "The bookmark name doesn't matter. Put whatever you like.",
         "imgDesc2": "Paste the script on the URL input"
       },
