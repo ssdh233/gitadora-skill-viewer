@@ -65,9 +65,9 @@ class ListPage extends React.Component {
         {
           Header: "Last Update",
           accessor: "update_date",
-          maxWidth: this.props.mediaQuery === "sp" ? 124 : 160
+          minWidth: 130
         },
-        { Header: "Count", accessor: "update_count", maxWidth: 72 }
+        { Header: "Count", accessor: "update_count", minWidth: 30 }
       ];
     }
 
