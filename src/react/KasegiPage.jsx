@@ -48,16 +48,16 @@ class KasegiPage extends React.Component {
         {!data && <LinearProgress />}
         <div style={styles.kasegiPage}>
           <h1 style={styles.title}>{title}</h1>
-          {data && data.other && (
-            <div style={styles.notLastDiv}>
-              <div style={styles.caption}>{`${typeTitleShort} OTHER`}</div>
-              <KasegiTable data={data.other} />
-            </div>
-          )}
           {data && data.hot && (
             <div>
               <div style={styles.caption}>{`${typeTitleShort} HOT`}</div>
               <KasegiTable data={data.hot} />
+            </div>
+          )}
+          {data && data.other && (
+            <div style={styles.notLastDiv}>
+              <div style={styles.caption}>{`${typeTitleShort} OTHER`}</div>
+              <KasegiTable data={data.other} />
             </div>
           )}
         </div>
