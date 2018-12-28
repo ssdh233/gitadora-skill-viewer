@@ -2,6 +2,7 @@ import React from "react";
 import Radium from "radium";
 import ReactTable from "react-table";
 import { FormattedMessage } from "react-intl";
+import { Helmet } from "react-helmet";
 
 import withMediaQuery from "./withMediaQuery";
 
@@ -26,20 +27,29 @@ class KasegiTable extends React.Component {
     };
   };
 
-  getTdProps = () => {
-    return {
-      style: {
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center"
-      }
+  getTdProps = (state, rowInfo, column) => {
+    let style = {
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center"
     };
+    let className;
+    if (rowInfo && rowInfo.row.compare && column.id === "compare") {
+      if (rowInfo.row.compare.includes("↑")) {
+        className = "higherThanAverage";
+      }
+      if (rowInfo.row.compare.includes("↓")) {
+        className = "lowerThanAverage";
+      }
+    }
+
+    return { className, style };
   };
 
   getTheadProps = () => ({ style: { height: 30 } });
 
   render() {
-    const columns = [
+    let columns = [
       { Header: "No.", accessor: "index", maxWidth: 40 },
       {
         Header: () => <FormattedMessage id="kasegi.songname" />,
@@ -54,7 +64,8 @@ class KasegiTable extends React.Component {
         accessor: "displayedDiff",
         maxWidth: this.props.mediaQuery === "sp" ? 53 : 100,
         style: {
-          whiteSpace: "unset"
+          whiteSpace: "unset",
+          textAlign: "center"
         }
       },
       {
@@ -62,35 +73,72 @@ class KasegiTable extends React.Component {
         accessor: "displayedAverageSkill",
         maxWidth: this.props.mediaQuery === "sp" ? 70 : 140,
         style: {
-          whiteSpace: "unset"
+          whiteSpace: "unset",
+          textAlign: "center"
         },
         sortMethod: (a, b) => {
           let skillA = Number(a.split("(")[0]);
           let skillB = Number(b.split("(")[0]);
           return skillA - skillB;
         }
-      },
-      {
-        Header: () => <FormattedMessage id="kasegi.count" />,
-        accessor: "count",
-        maxWidth: this.props.mediaQuery === "sp" ? 34 : 40
       }
     ];
 
+    if (this.props.hasComparedSkill) {
+      columns = [
+        ...columns,
+        this.props.mediaQuery === "pc" && {
+          Header: () => <FormattedMessage id="kasegi.count" />,
+          accessor: "count",
+          maxWidth: this.props.mediaQuery === "sp" ? 34 : 40
+        },
+        {
+          Header: () => <FormattedMessage id="kasegi.compare" />,
+          accessor: "compare",
+          maxWidth: this.props.mediaQuery === "sp" ? 50 : 60,
+          textAlign: "center"
+        }
+      ].filter(x => x);
+    } else {
+      columns = [
+        ...columns,
+        {
+          Header: () => <FormattedMessage id="kasegi.count" />,
+          accessor: "count",
+          maxWidth: this.props.mediaQuery === "sp" ? 34 : 40
+        }
+      ].filter(x => x);
+    }
+
     return (
-      <ReactTable
-        {...this.props}
-        style={{
-          fontSize: this.props.mediaQuery === "sp" ? 12 : 14
-        }}
-        columns={columns}
-        defaultPageSize={25}
-        getTheadProps={this.getTheadProps}
-        getTrProps={this.getTrProps}
-        getTdProps={this.getTdProps}
-      />
+      <>
+        <Helmet>
+          <style>{stringStyles}</style>
+        </Helmet>
+        <ReactTable
+          {...this.props}
+          style={{
+            fontSize: this.props.mediaQuery === "sp" ? 12 : 14
+          }}
+          columns={columns}
+          defaultPageSize={25}
+          getTheadProps={this.getTheadProps}
+          getTrProps={this.getTrProps}
+          getTdProps={this.getTdProps}
+        />
+      </>
     );
   }
 }
+
+const stringStyles = `
+.higherThanAverage {
+  color: red
+}
+
+.lowerThanAverage {
+  color: green
+}
+`;
 
 export default withMediaQuery(Radium(KasegiTable));

@@ -6,14 +6,17 @@ var {
   OLD_NAME_MAP
 } = require("../constants");
 
-module.exports.controller = function(app) {
-  app.get("/:ver/:id/g", function(req, res) {
-    doSomething(req, res, "g");
-  });
+module.exports = {
+  controller: function(app) {
+    app.get("/:ver/:id/g", function(req, res) {
+      doSomething(req, res, "g");
+    });
 
-  app.get("/:ver/:id/d", function(req, res) {
-    doSomething(req, res, "d");
-  });
+    app.get("/:ver/:id/d", function(req, res) {
+      doSomething(req, res, "d");
+    });
+  },
+  getSkill
 };
 
 function doSomething(req, res, type) {

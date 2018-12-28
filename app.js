@@ -36,13 +36,21 @@ fs.readdirSync("./src/controllers").forEach(function(file) {
   }
 });
 
-app.get("/", (req, res) => {
+const redirectRoute = (req, res) => {
   const lang =
     req.cookies.locale || req.acceptsLanguages("ja", "zh", "en") || "ja";
 
   res.setHeader("Cache-Control", "public, max-age=0");
-  res.redirect(301, `/${lang}`);
-});
+  if (req.url === "/") {
+    res.redirect(301, `/${lang}`);
+  } else {
+    res.redirect(301, `/${lang}${req.url}`);
+  }
+};
+
+app.get("/", redirectRoute);
+app.get("/exchain/list", redirectRoute);
+app.get("/exchain/userlist", redirectRoute);
 
 // for react pages
 app.get("/:locale(en|ja|zh)", reactRoute);

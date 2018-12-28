@@ -15,10 +15,12 @@ import {
   createMuiTheme,
   createGenerateClassName
 } from "@material-ui/core/styles";
+
 import jaMessages from "../locales/ja/common.json";
 import zhMessages from "../locales/zh/common.json";
 import enMessages from "../locales/en/common.json";
 
+import queryParser from "./modules/query";
 import App, { routes } from "./react/App.jsx";
 import reducer from "./react/reducer";
 
@@ -41,8 +43,10 @@ const reactRoute = (req, res) => {
     const promises = [];
     routes.some(route => {
       const match = matchPath(req.path, route);
+      const query = queryParser(req.url);
+
       if (match && route.loadData) {
-        promises.push(route.loadData(store.dispatch, match));
+        promises.push(route.loadData(store.dispatch, match, query));
       }
     });
 

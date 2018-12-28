@@ -78,6 +78,8 @@
     "count": "回数",
     "averageskill": "平均",
     "averageplayerskill": "プレイヤー",
+    "compare": "比較",
+    "compareTitle": "{name}さんのスキルと比較中",
     "scope": {
       "3000": "緑ネ",
       "3500": "緑グラ",

@@ -1,7 +1,7 @@
 import React from "react";
 import Radium from "radium";
 import { Helmet } from "react-helmet";
-import { injectIntl } from "react-intl";
+import { injectIntl, FormattedMessage } from "react-intl";
 import LinearProgress from "@material-ui/core/LinearProgress";
 
 import KasegiTable from "./KasegiTable.jsx";
@@ -9,7 +9,8 @@ import KasegiTable from "./KasegiTable.jsx";
 class KasegiPage extends React.Component {
   render() {
     const {
-      data,
+      kasegiData,
+      comparedSkillData,
       intl: { formatMessage },
       match: {
         params: { type, scope }
@@ -45,19 +46,34 @@ class KasegiPage extends React.Component {
           />
           <title>{`${title} | Gitadora Skill Viewer`}</title>
         </Helmet>
-        {!data && <LinearProgress />}
+        {!kasegiData && <LinearProgress />}
         <div style={styles.kasegiPage}>
           <h1 style={styles.title}>{title}</h1>
-          {data && data.other && (
-            <div style={styles.notLastDiv}>
-              <div style={styles.caption}>{`${typeTitleShort} OTHER`}</div>
-              <KasegiTable data={data.other} />
-            </div>
+          {comparedSkillData && (
+            <h2 style={styles.subtitle}>
+              {/* TODO add link after find a way to inject query to prop */}
+              <FormattedMessage
+                id="kasegi.compareTitle"
+                values={{ name: comparedSkillData.skillName }}
+              />
+            </h2>
           )}
-          {data && data.hot && (
+          {kasegiData && kasegiData.hot && (
             <div>
               <div style={styles.caption}>{`${typeTitleShort} HOT`}</div>
-              <KasegiTable data={data.hot} />
+              <KasegiTable
+                data={kasegiData.hot}
+                hasComparedSkill={Boolean(comparedSkillData)}
+              />
+            </div>
+          )}
+          {kasegiData && kasegiData.other && (
+            <div style={styles.notLastDiv}>
+              <div style={styles.caption}>{`${typeTitleShort} OTHER`}</div>
+              <KasegiTable
+                data={kasegiData.other}
+                hasComparedSkill={Boolean(comparedSkillData)}
+              />
             </div>
           )}
         </div>
@@ -72,6 +88,9 @@ const styles = {
   },
   title: {
     fontSize: 19
+  },
+  subtitle: {
+    fontSize: 16
   },
   notLastDiv: {
     marginBottom: 20
