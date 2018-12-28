@@ -73,7 +73,7 @@ class ListPage extends React.Component {
 
     const { data, version_full } = this.props;
     return (
-      <div>
+      <>
         <Helmet>
           <style>{stringStyles}</style>
         </Helmet>
@@ -99,7 +99,7 @@ class ListPage extends React.Component {
             />
           )}
         </div>
-      </div>
+      </>
     );
   }
 }
