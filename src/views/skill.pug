@@ -84,15 +84,22 @@ html
                     td(class="achieve")= item.achive_value + " (" + rank(item.achive_value) + ")"
                     td(class="skill")= item.skill_value
                     td(class="compare")= item.compare
+        if version==="exchain"
+          tr
+            td
+              a(href=`/ja/exchain/kasegi/${type === 0 ? "d" : "g"}/${parseInt(skill_point/500) * 500}?c=${id}`)= `${parseInt(skill_point/500) * 500}~${parseInt(skill_point/500) * 500 + 500}の稼ぎ曲と比較`
+          tr
+            td
+              a(href=`/ja/exchain/kasegi/${type === 0 ? "d" : "g"}/${parseInt(skill_point/500) * 500 + 500}?c=${id}`)= `${parseInt(skill_point/500) * 500 + 500}~${parseInt(skill_point/500) * 500 + 1000}の稼ぎ曲と比較`
         tr
           td 
             form(class="save" action="/" + version + "/save" method="post" onSubmit="return check()")
               input(type="hidden" name="skill_id" value=id) 
               input(type="hidden" name="type" value=(type)?"guitar":"drum") 
               input(type="hidden" name="skill" value=skill_point) 
-              input(type="submit" value="このスキル表を永久に保存したい！")
+              input(type="submit" value="このスキル表を保存したい！")
           td(class="footer" align="right")
-            a(href="/") このサイトについて
+            a(href="/") gsv.funについて
         tr(height="10px")
         tr
           td
