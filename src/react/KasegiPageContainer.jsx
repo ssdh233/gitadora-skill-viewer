@@ -114,6 +114,10 @@ function getKasegiData(kasegiData, kasegiComparedSkill) {
     };
   };
 
+  if (!kasegiData) {
+    return null;
+  }
+
   const { hot: kasegiHot, other: kasegiOther, ...rest } = kasegiData;
   const { hot: skillHot, other: skillOther } =
     (kasegiComparedSkill && kasegiComparedSkill.skillData) || {};
