@@ -5,6 +5,10 @@ html
     link(rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Andada")
     link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
     meta(name="robots" content="noindex")
+    meta(name="twitter:card" content="summary")
+    meta(property="og:url" content="gsv.fun")
+    meta(property="og:title" content=`${player_name}さんの${type ? "Guitarfreaks" : "Drummania"}スキル`)
+    meta(property="og:description" content=`Total: ${skill_point} hot: ${skill_data.hot.point} other: ${skill_data.other.point}`)
     script(type='text/javascript' src="/js/google_analytics.js")
     title= `${player_name}さんの${type ? "Guitarfreaks" : "Drummania"}スキル | ${version_full}`
   body
