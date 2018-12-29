@@ -72,6 +72,11 @@ function doSomething(req, res, type) {
                         skillData,
                         savedSkillData
                       );
+
+                      const skillPointDiff = getSkillPointDiff(
+                        skillData,
+                        savedSkillData
+                      );
                       res.render("skill", {
                         version: req.params.ver,
                         version_full: versionName,
@@ -79,6 +84,7 @@ function doSomething(req, res, type) {
                         id: req.params.id,
                         skill_data: currentSkillData,
                         skill_point: skillPoint,
+                        skillPointDiff,
                         update_date: updateDate,
                         skillp_data: savedSkillList,
                         type: typeName == "drum" ? 0 : 1 //1:guitar 0:drum
@@ -207,4 +213,16 @@ function compareSkillHalf(current, old) {
   }
 
   return result;
+}
+
+function getSkillPointDiff(current, old) {
+  const currentSkillPoint = (
+    parseFloat(current.hot.point) + parseFloat(current.other.point)
+  ).toFixed(2);
+
+  const oldSkillPoint = (
+    parseFloat(old.hot.point) + parseFloat(old.other.point)
+  ).toFixed(2);
+
+  return (currentSkillPoint - oldSkillPoint).toFixed(2);
 }
