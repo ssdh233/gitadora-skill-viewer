@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>http://gsv.fun/ja</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh"/>
+  </url>
+  <url>
+    <loc>http://gsv.fun/ja/uservoice</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/uservoice"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/uservoice"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/uservoice"/>
+  </url>
+  <url>
+    <loc>http://gsv.fun/ja/exchain/list</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/exchain/list"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/exchain/list"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/exchain/list"/>
+  </url>
+  <url>
+    <loc>http://gsv.fun/ja/matixx/list</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/matixx/list"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/matixx/list"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/matixx/list"/>
+  </url>
+  <url>
+    <loc>http://gsv.fun/ja/tbre/list</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/tbre/list"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/tbre/list"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/tbre/list"/>
+  </url>
+  <url>
+    <loc>http://gsv.fun/ja/tb/list</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/tb/list"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/tb/list"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/tb/list"/>
+  </url>
+  <url>
+    <loc>http://gsv.fun/ja/exchain/kasegi/g/3000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/exchain/kasegi/g/3000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/exchain/kasegi/g/3000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/exchain/kasegi/g/3000"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://gsv.fun/ja/exchain/kasegi/d/3000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/exchain/kasegi/d/3000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/exchain/kasegi/d/3000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/exchain/kasegi/d/3000"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://gsv.fun/ja/exchain/kasegi/g/3500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/exchain/kasegi/g/3500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/exchain/kasegi/g/3500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/exchain/kasegi/g/3500"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://gsv.fun/ja/exchain/kasegi/d/3500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/exchain/kasegi/d/3500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/exchain/kasegi/d/3500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/exchain/kasegi/d/3500"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://gsv.fun/ja/exchain/kasegi/g/4000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/exchain/kasegi/g/4000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/exchain/kasegi/g/4000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/exchain/kasegi/g/4000"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://gsv.fun/ja/exchain/kasegi/d/4000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/exchain/kasegi/d/4000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/exchain/kasegi/d/4000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/exchain/kasegi/d/4000"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://gsv.fun/ja/exchain/kasegi/g/4500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/exchain/kasegi/g/4500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/exchain/kasegi/g/4500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/exchain/kasegi/g/4500"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://gsv.fun/ja/exchain/kasegi/d/4500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/exchain/kasegi/d/4500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/exchain/kasegi/d/4500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/exchain/kasegi/d/4500"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://gsv.fun/ja/exchain/kasegi/g/5000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/exchain/kasegi/g/5000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/exchain/kasegi/g/5000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/exchain/kasegi/g/5000"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://gsv.fun/ja/exchain/kasegi/d/5000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/exchain/kasegi/d/5000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/exchain/kasegi/d/5000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/exchain/kasegi/d/5000"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://gsv.fun/ja/exchain/kasegi/g/5500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/exchain/kasegi/g/5500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/exchain/kasegi/g/5500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/exchain/kasegi/g/5500"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://gsv.fun/ja/exchain/kasegi/d/5500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/exchain/kasegi/d/5500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/exchain/kasegi/d/5500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/exchain/kasegi/d/5500"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://gsv.fun/ja/exchain/kasegi/g/6000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/exchain/kasegi/g/6000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/exchain/kasegi/g/6000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/exchain/kasegi/g/6000"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://gsv.fun/ja/exchain/kasegi/d/6000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/exchain/kasegi/d/6000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/exchain/kasegi/d/6000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/exchain/kasegi/d/6000"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://gsv.fun/ja/exchain/kasegi/g/6500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/exchain/kasegi/g/6500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/exchain/kasegi/g/6500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/exchain/kasegi/g/6500"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://gsv.fun/ja/exchain/kasegi/d/6500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/exchain/kasegi/d/6500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/exchain/kasegi/d/6500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/exchain/kasegi/d/6500"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://gsv.fun/ja/exchain/kasegi/g/7000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/exchain/kasegi/g/7000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/exchain/kasegi/g/7000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/exchain/kasegi/g/7000"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://gsv.fun/ja/exchain/kasegi/d/7000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/exchain/kasegi/d/7000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/exchain/kasegi/d/7000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/exchain/kasegi/d/7000"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://gsv.fun/ja/exchain/kasegi/g/7500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/exchain/kasegi/g/7500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/exchain/kasegi/g/7500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/exchain/kasegi/g/7500"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://gsv.fun/ja/exchain/kasegi/d/7500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/exchain/kasegi/d/7500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/exchain/kasegi/d/7500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/exchain/kasegi/d/7500"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://gsv.fun/ja/exchain/kasegi/g/8000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/exchain/kasegi/g/8000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/exchain/kasegi/g/8000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/exchain/kasegi/g/8000"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://gsv.fun/ja/exchain/kasegi/d/8000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/exchain/kasegi/d/8000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/exchain/kasegi/d/8000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/exchain/kasegi/d/8000"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://gsv.fun/ja/exchain/kasegi/g/8500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/exchain/kasegi/g/8500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/exchain/kasegi/g/8500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/exchain/kasegi/g/8500"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://gsv.fun/ja/exchain/kasegi/d/8500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/exchain/kasegi/d/8500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/exchain/kasegi/d/8500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/exchain/kasegi/d/8500"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://gsv.fun/ja/exchain/kasegi/g/9000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/exchain/kasegi/g/9000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/exchain/kasegi/g/9000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/exchain/kasegi/g/9000"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://gsv.fun/ja/exchain/kasegi/d/9000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/exchain/kasegi/d/9000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/exchain/kasegi/d/9000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/exchain/kasegi/d/9000"/>
+    <changefreq>monthly</changefreq>
+  </url>
+</urlset>
