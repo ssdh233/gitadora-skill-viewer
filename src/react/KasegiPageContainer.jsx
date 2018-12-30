@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import fetch from "../modules/fetch";
+import queryParser from "../modules/query";
 import { setKasegiData, setKasegiComparedSkill } from "./actions";
 import KasegiPage from "./KasegiPage.jsx";
 
@@ -16,12 +17,21 @@ class KasegiPageContainer extends React.Component {
 
   componentDidMount() {
     if (!this.props.isSSR) {
-      loadData(this.props.dispatch, this.props.match);
+      const query = queryParser(this.props.location.search);
+      loadData(this.props.dispatch, this.props.match, query);
     }
   }
 
   render() {
-    return <KasegiPage {...this.props} />;
+    return (
+      <KasegiPage
+        {...this.props}
+        match={{
+          ...this.props.match,
+          query: queryParser(this.props.location.search)
+        }}
+      />
+    );
   }
 }
 

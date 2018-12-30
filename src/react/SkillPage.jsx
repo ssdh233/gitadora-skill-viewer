@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet";
 import { FormattedMessage } from "react-intl";
+import LinearProgress from "@material-ui/core/LinearProgress";
 
 import SkillTable from "./SkillTable.jsx";
 
@@ -27,7 +27,7 @@ class SkillPage extends React.Component {
 
   render() {
     if (!this.props.data) {
-      return null;
+      return <LinearProgress />;
     }
 
     const { locale, ver, id, type } = this.props.match.params;

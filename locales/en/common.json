@@ -78,7 +78,8 @@
     "averageskill": "Average",
     "averageplayerskill": "Player Average",
     "compare": "Compare",
-    "compareTitle": "Comparing with {name}'s skill",
+    "compareSkill": "{name}'s skill",
+    "compareTitle": "Comparing with {compareSkill}",
     "scope": {
       "3000": "Green",
       "3500": "Green",

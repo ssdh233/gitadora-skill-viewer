@@ -78,7 +78,8 @@
     "averageskill": "平均",
     "averageplayerskill": "玩家平均",
     "compare": "比较",
-    "compareTitle": "正在与{name}的skill表进行比较",
+    "compareSkill": "{name}的skill表",
+    "compareTitle": "正在与{compareSkill}进行比较",
     "scope": {
       "3000": "绿名",
       "3500": "绿名",
