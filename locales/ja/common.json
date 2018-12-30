@@ -99,6 +99,8 @@
   },
   "skill": {
     "aboutGsv": "gsv.funについて",
-    "compareWithKasegi": "{scope}の稼ぎ曲と比較"
+    "compareWithKasegi": "{scope}の稼ぎ曲と比較",
+    "saveSkill": "スキル表を保存する",
+    "savedList": "保存されたスキル表"
   }
 }

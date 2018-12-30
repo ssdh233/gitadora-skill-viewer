@@ -3,7 +3,8 @@ import {
   SET_KASEGI_DATA,
   SET_KASEGI_COMPARED_SKILL,
   SET_LIST_DATA,
-  SET_SKILL_DATA
+  SET_SKILL_DATA,
+  SET_SKILL_SAVED_LIST
 } from "./actions";
 
 const initialState = {
@@ -14,7 +15,8 @@ const initialState = {
   // list page
   listData: null,
   // skill page
-  skillData: null
+  skillData: null,
+  skillSavedList: null
 };
 
 export default function reducer(state = initialState, action) {
@@ -38,6 +40,10 @@ export default function reducer(state = initialState, action) {
     case SET_SKILL_DATA:
       return Object.assign({}, state, {
         skillData: action.data
+      });
+    case SET_SKILL_SAVED_LIST:
+      return Object.assign({}, state, {
+        skillSavedList: action.data
       });
     default:
       return state;
