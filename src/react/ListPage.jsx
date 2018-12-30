@@ -1,5 +1,6 @@
 import React from "react";
 import Radium from "radium";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { injectIntl } from "react-intl";
 import ReactTable from "react-table";
@@ -32,7 +33,7 @@ class ListPage extends React.Component {
   };
 
   render() {
-    const { ver } = this.props.match.params;
+    const { locale, ver } = this.props.match.params;
 
     let columns = [
       {
@@ -47,7 +48,7 @@ class ListPage extends React.Component {
         maxWidth: this.props.mediaQuery === "sp" ? 70 : 90,
         sortMethod: (a, b) => Number(a) - Number(b),
         Cell: ({ row }) => (
-          <a href={`/${ver}/${row.id}/g`}>{row.guitar_skill}</a>
+          <Link to={`/${locale}/${ver}/${row.id}/g`}>{row.guitar_skill}</Link>
         )
       },
       {
@@ -55,7 +56,9 @@ class ListPage extends React.Component {
         accessor: "drum_skill",
         maxWidth: this.props.mediaQuery === "sp" ? 70 : 90,
         sortMethod: (a, b) => Number(a) - Number(b),
-        Cell: ({ row }) => <a href={`/${ver}/${row.id}/d`}>{row.drum_skill}</a>
+        Cell: ({ row }) => (
+          <Link to={`/${locale}/${ver}/${row.id}/d`}>{row.drum_skill}</Link>
+        )
       }
     ];
 
