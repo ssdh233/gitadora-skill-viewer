@@ -94,5 +94,9 @@
       "8500": "Rainbow",
       "9000": "Rainbow"
     }
+  },
+  "skill": {
+    "aboutGsv": "About gsv.fun",
+    "compareWithKasegi": "Compare with {scope} ranking"
   }
 }

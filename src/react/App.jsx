@@ -5,13 +5,16 @@ import Radium, { StyleRoot } from "radium";
 
 import Index from "./Index.jsx";
 import AppHeader from "./AppHeader.jsx";
+import UserVoicePage from "./UserVoicePage.jsx";
 import KasegiPageContainer, {
   loadData as loadDataForKasegiPageContainer
 } from "./KasegiPageContainer.jsx";
 import ListPageContainer, {
   loadData as loadDataForListPageContainer
 } from "./ListPageContainer.jsx";
-import UserVoicePage from "./UserVoicePage.jsx";
+import SkillPageContainer, {
+  loadData as loadDataForSkillPageContainer
+} from "./SkillPageContainer.jsx";
 import { setIsSSR } from "./actions";
 
 /* eslint-disable react/display-name */
@@ -20,50 +23,60 @@ export const routes = [
   {
     path: "/:locale",
     render: props => (
-      <div>
+      <>
         <AppHeader {...props} />
         <Index {...props} />
-      </div>
+      </>
+    )
+  },
+  {
+    path: "/:locale/uservoice",
+    render: props => (
+      <>
+        <AppHeader {...props} />
+        <UserVoicePage {...props} />
+      </>
     )
   },
   {
     path: "/:locale/:ver/kasegi/:type/:scope",
     render: props => (
-      <div>
+      <>
         <AppHeader {...props} />
         <KasegiPageContainer {...props} />
-      </div>
+      </>
     ),
     loadData: loadDataForKasegiPageContainer
   },
   {
     path: "/:locale/:ver/list",
     render: props => (
-      <div>
+      <>
         <AppHeader {...props} />
         <ListPageContainer {...props} />
-      </div>
+      </>
     ),
     loadData: loadDataForListPageContainer
   },
   {
     path: "/:locale/:ver/userlist",
     render: props => (
-      <div>
+      <>
         <AppHeader {...props} />
         <ListPageContainer isAdmin={true} {...props} />
-      </div>
+      </>
     ),
     loadData: loadDataForListPageContainer
   },
   {
-    path: "/:locale/uservoice",
+    path: "/:locale/:ver/:id/:type",
     render: props => (
-      <div>
+      <>
         <AppHeader {...props} />
-        <UserVoicePage {...props} />
-      </div>
-    )
+        <SkillPageContainer {...props} />
+      </>
+    ),
+    loadData: loadDataForSkillPageContainer
   }
 ].map(route => ({
   ...route,

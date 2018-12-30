@@ -95,5 +95,9 @@
       "8500": "虹ネ",
       "9000": "虹ネ"
     }
+  },
+  "skill": {
+    "aboutGsv": "gsv.funについて",
+    "compareWithKasegi": "{scope}の稼ぎ曲と比較"
   }
 }

@@ -94,5 +94,9 @@
       "8500": "虹名",
       "9000": "虹名"
     }
+  },
+  "skill": {
+    "aboutGsv": "关于gsv.fun",
+    "compareWithKasegi": "和{scope}的赚分曲比较"
   }
 }
