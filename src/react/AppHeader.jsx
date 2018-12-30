@@ -51,7 +51,8 @@ class AppHeader extends React.Component {
       match: {
         url,
         params: { locale }
-      }
+      },
+      location: { search }
     } = this.props;
 
     return (
@@ -94,13 +95,13 @@ class AppHeader extends React.Component {
             onClose={this.handleMenuClose("lang")}
           >
             <MenuList>
-              <a href={`/en${url.substring(3)}`}>
+              <a href={`/en${url.substring(3)}${search}`}>
                 <MenuItem>English</MenuItem>
               </a>
-              <a href={`/ja${url.substring(3)}`}>
+              <a href={`/ja${url.substring(3)}${search}`}>
                 <MenuItem>日本語</MenuItem>
               </a>
-              <a href={`/zh${url.substring(3)}`}>
+              <a href={`/zh${url.substring(3)}${search}`}>
                 <MenuItem>简体中文</MenuItem>
               </a>
             </MenuList>
