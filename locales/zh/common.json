@@ -100,6 +100,7 @@
     "aboutGsv": "关于gsv.fun",
     "compareWithKasegi": "和{scope}的赚分曲比较",
     "saveSkill": "保存这个skill表",
-    "savedList": "保存的skill表"
+    "savedList": "保存的skill表",
+    "latestSkill": "去看{name}最新的skill表"
   }
 }

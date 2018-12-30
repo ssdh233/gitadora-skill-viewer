@@ -15,6 +15,9 @@ import ListPageContainer, {
 import SkillPageContainer, {
   loadData as loadDataForSkillPageContainer
 } from "./SkillPageContainer.jsx";
+import SavedSkillPageContainer, {
+  loadData as loadDataForSavedSkillPageContainer
+} from "./SavedSkillPageContainer.jsx";
 import { setIsSSR } from "./actions";
 
 /* eslint-disable react/display-name */
@@ -67,6 +70,16 @@ export const routes = [
       </>
     ),
     loadData: loadDataForListPageContainer
+  },
+  {
+    path: "/:locale/:ver/:id/p",
+    render: props => (
+      <>
+        <AppHeader {...props} />
+        <SavedSkillPageContainer {...props} />
+      </>
+    ),
+    loadData: loadDataForSavedSkillPageContainer
   },
   {
     path: "/:locale/:ver/:id/:type",

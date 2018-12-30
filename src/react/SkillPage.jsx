@@ -34,8 +34,11 @@ class SkillPage extends React.Component {
       return <LinearProgress />;
     }
 
-    const { locale, ver, id, type } = this.props.match.params;
-    const { skillData, skillName, updateDate } = this.props.skillData;
+    const { locale, ver, id } = this.props.match.params;
+    const { skillData, skillName, updateDate, playerId } = this.props.skillData;
+    const type = this.props.saved
+      ? this.props.skillData.type
+      : this.props.match.params.type;
     const skillPoint = (
       Number(skillData.hot.point) + Number(skillData.other.point)
     ).toFixed(2);
@@ -57,20 +60,22 @@ class SkillPage extends React.Component {
             }[ver]
           }
         </div>
-        <div style={{ margin: "3px 0" }}>
-          {type === "g" && (
-            <>
-              <span>GuitarFreaks/</span>
-              <Link to={`/${locale}/${ver}/${id}/d`}>Drummania</Link>
-            </>
-          )}
-          {type === "d" && (
-            <>
-              <Link to={`/${locale}/${ver}/${id}/g`}>GuitarFreaks</Link>
-              <span>/Drummania</span>
-            </>
-          )}
-        </div>
+        {!this.props.saved && (
+          <div style={{ margin: "3px 0" }}>
+            {type === "g" && (
+              <>
+                <span>GuitarFreaks/</span>
+                <Link to={`/${locale}/${ver}/${id}/d`}>Drummania</Link>
+              </>
+            )}
+            {type === "d" && (
+              <>
+                <Link to={`/${locale}/${ver}/${id}/g`}>GuitarFreaks</Link>
+                <span>/Drummania</span>
+              </>
+            )}
+          </div>
+        )}
         <table style={styles.profileTable.table}>
           <thead>
             <tr>
@@ -97,16 +102,20 @@ class SkillPage extends React.Component {
             </tr>
           </tbody>
         </table>
-        <SkillTable
-          data={skillData.hot.data}
-          type={type}
-          caption={type === "g" ? "GUITAR HOT" : "DRUM HOT"}
-        />
-        <SkillTable
-          data={skillData.other.data}
-          type={type}
-          caption={type === "g" ? "GUITAR OTHER" : "DRUM OTHER"}
-        />
+        {skillData.hot.data && (
+          <SkillTable
+            data={skillData.hot.data}
+            type={type}
+            caption={type === "g" ? "GUITAR HOT" : "DRUM HOT"}
+          />
+        )}
+        {skillData.other.data && (
+          <SkillTable
+            data={skillData.other.data}
+            type={type}
+            caption={type === "g" ? "GUITAR OTHER" : "DRUM OTHER"}
+          />
+        )}
         <div
           style={{
             maxWidth: 700,
@@ -119,75 +128,96 @@ class SkillPage extends React.Component {
             <FormattedMessage id="skill.aboutGsv" />
           </Link>
         </div>
-        <div>
-          {[level * 500 - 500, level * 500, level * 500 + 500]
-            .filter(scope => scope >= 3000)
-            .map(scope => (
-              <div key={scope}>
-                <Link to={`/${locale}/${ver}/kasegi/${type}/${scope}?c=${id}`}>
-                  <FormattedMessage
-                    id="skill.compareWithKasegi"
-                    values={{ scope: `${scope}~${scope + 500}` }}
-                  />
-                </Link>
-              </div>
-            ))}
-        </div>
-        <div style={{ marginTop: 20 }}>
-          <Button
-            style={{ marginBottom: 10 }}
-            variant="outlined"
-            size="small"
-            onClick={() => this.props.onSaveSkill({ id, type, skillPoint })}
-          >
-            <FormattedMessage id="skill.saveSkill" />
-          </Button>
-          {this.props.skillSavedList && (
-            <table style={styles.savedListTable.table}>
-              <caption style={{ color: "black" }}>
-                <FormattedMessage id="skill.savedList" />
-              </caption>
-              <thead>
-                <tr>
-                  <th style={styles.savedListTable.th}>No.</th>
-                  <th style={styles.savedListTable.th}>SKILL</th>
-                  <th style={styles.savedListTable.th}>DATE</th>
-                  <th style={styles.savedListTable.th} />
-                </tr>
-              </thead>
-              <tbody>
-                {this.props.skillSavedList.map((savedItem, index) => (
-                  <tr key={savedItem.update_date}>
-                    <td
-                      style={styles.savedListTable.td}
-                      className={`lv${parseInt(savedItem.skill / 500)}`}
+        {this.props.saved ? (
+          <div>
+            <Link to={`/${locale}/${ver}/${playerId}/${type}`}>
+              <FormattedMessage
+                id="skill.latestSkill"
+                values={{ name: skillName }}
+              />
+            </Link>
+          </div>
+        ) : (
+          <>
+            <div>
+              {[level * 500 - 500, level * 500, level * 500 + 500]
+                .filter(scope => scope >= 3000)
+                .map(scope => (
+                  <div key={scope}>
+                    <Link
+                      to={`/${locale}/${ver}/kasegi/${type}/${scope}?c=${id}`}
                     >
-                      {index + 1}
-                    </td>
-                    <td
-                      style={styles.savedListTable.td}
-                      className={`lv${parseInt(savedItem.skill / 500)}`}
-                    >
-                      {savedItem.skill}
-                    </td>
-                    <td
-                      style={styles.savedListTable.td}
-                      className={`lv${parseInt(savedItem.skill / 500)}`}
-                    >
-                      {savedItem.update_date}
-                    </td>
-                    <td
-                      style={styles.savedListTable.td}
-                      className={`lv${parseInt(savedItem.skill / 500)}`}
-                    >
-                      <CompareArrows style={{ fontSize: 16 }} />
-                    </td>
-                  </tr>
+                      <FormattedMessage
+                        id="skill.compareWithKasegi"
+                        values={{ scope: `${scope}~${scope + 500}` }}
+                      />
+                    </Link>
+                  </div>
                 ))}
-              </tbody>
-            </table>
-          )}
-        </div>
+            </div>
+            <div style={{ marginTop: 20 }}>
+              <Button
+                style={{ marginBottom: 10 }}
+                variant="outlined"
+                size="small"
+                onClick={() => this.props.onSaveSkill({ id, type, skillPoint })}
+              >
+                <FormattedMessage id="skill.saveSkill" />
+              </Button>
+              {this.props.skillSavedList && (
+                <table style={styles.savedListTable.table}>
+                  <caption style={{ color: "black" }}>
+                    <FormattedMessage id="skill.savedList" />
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th style={styles.savedListTable.th}>No.</th>
+                      <th style={styles.savedListTable.th}>SKILL</th>
+                      <th style={styles.savedListTable.th}>DATE</th>
+                      <th style={styles.savedListTable.th} />
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {this.props.skillSavedList.map((savedItem, index) => (
+                      <tr key={savedItem.update_date}>
+                        <td
+                          style={styles.savedListTable.td}
+                          className={`lv${parseInt(savedItem.skill / 500)}`}
+                        >
+                          <Link to={`/${locale}/${ver}/${savedItem.id}/p`}>
+                            {index + 1}
+                          </Link>
+                        </td>
+                        <td
+                          style={styles.savedListTable.td}
+                          className={`lv${parseInt(savedItem.skill / 500)}`}
+                        >
+                          <Link to={`/${locale}/${ver}/${savedItem.id}/p`}>
+                            {savedItem.skill}
+                          </Link>
+                        </td>
+                        <td
+                          style={styles.savedListTable.td}
+                          className={`lv${parseInt(savedItem.skill / 500)}`}
+                        >
+                          <Link to={`/${locale}/${ver}/${savedItem.id}/p`}>
+                            {savedItem.update_date}
+                          </Link>
+                        </td>
+                        <td
+                          style={styles.savedListTable.td}
+                          className={`lv${parseInt(savedItem.skill / 500)}`}
+                        >
+                          <CompareArrows style={{ fontSize: 16 }} />
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )}
+            </div>
+          </>
+        )}
       </div>
     );
   }
@@ -214,7 +244,7 @@ const styles = {
     table: {
       backgroundColor: "#000000",
       color: "white",
-      marginBottom: 10
+      margin: "10px 0"
     },
     th: {
       backgroundColor: "#333333",

@@ -15,7 +15,7 @@ module.exports.controller = function(app) {
           res.send("Unexpected version parameter.");
         } else {
           const skill_id = req.body.skill_id;
-          const type = req.body.type;
+          const type = { g: "guitar", d: "drum" }[req.body.type];
           const skill = req.body.skill;
 
           var sql = `select * from ${skillp_table_name} where skill_id =${skill_id} and type = $$${type}$$ and skill = $$${skill}$$;`;
