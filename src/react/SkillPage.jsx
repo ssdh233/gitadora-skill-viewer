@@ -1,4 +1,5 @@
 import React from "react";
+import Radium from "radium";
 import { Link } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
 import LinearProgress from "@material-ui/core/LinearProgress";
@@ -39,7 +40,7 @@ class SkillPage extends React.Component {
 
     return (
       <div style={styles.skillPage}>
-        <div style={{ fontFamily: "Andada", fontWeight: "bold", fontSize: 17 }}>
+        <div style={styles.version}>
           GITADORA{" "}
           {
             {
@@ -133,7 +134,20 @@ class SkillPage extends React.Component {
 
 const styles = {
   skillPage: {
-    fontSize: 14
+    fontSize: 14,
+
+    "@media (max-width: 742px)": {
+      fontSize: 12
+    }
+  },
+  version: {
+    fontFamily: "Andada",
+    fontWeight: "bold",
+    fontSize: 17,
+
+    "@media (max-width: 742px)": {
+      fontSize: 15
+    }
   },
   profileTable: {
     table: {
@@ -152,4 +166,4 @@ const styles = {
   }
 };
 
-export default SkillPage;
+export default Radium(SkillPage);

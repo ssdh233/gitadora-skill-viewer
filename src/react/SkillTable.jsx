@@ -1,4 +1,5 @@
 import React from "react";
+import Radium from "radium";
 import { Helmet } from "react-helmet";
 
 class SkillTable extends React.Component {
@@ -48,21 +49,27 @@ class SkillTable extends React.Component {
               <tr
                 key={item.name}
                 style={{
+                  ...styles.skillTable.tr,
                   backgroundColor: {
                     BAS: "#C7E7FF",
                     ADV: "#FFFFC7",
                     EXT: "#FFC7C7",
                     MAS: "#D8BFF8"
-                  }[item.diff],
-                  height: 24
+                  }[item.diff]
                 }}
               >
                 <td
                   style={{
                     ...styles.skillTable.td,
                     width: 400,
+                    maxWidth: 400,
                     textAlign: "left",
-                    paddingLeft: 2
+                    padding: "0 2px",
+
+                    "@media (max-width: 742px)": {
+                      width: 300,
+                      maxWidth: 300
+                    }
                   }}
                 >
                   {item.name}
@@ -88,14 +95,30 @@ const styles = {
     table: {
       backgroundColor: "#FFFFFF",
       fontSize: 14,
-      marginTop: 10
+      marginTop: 10,
+
+      "@media (max-width: 742px)": {
+        fontSize: 10
+      }
     },
     th: {
       backgroundColor: "#5882FA"
     },
+    tr: {
+      height: 24,
+
+      "@media (max-width: 742px)": {
+        height: 18
+      }
+    },
     td: {
+      textAlign: "center",
       padding: "0 10px",
-      textAlign: "center"
+      whiteSpace: "nowrap",
+
+      "@media (max-width: 742px)": {
+        padding: "0 5px"
+      }
     }
   }
 };
@@ -203,4 +226,4 @@ const stringStyles = `.lv0, .lv1 {
   background-clip: text;
 }`;
 
-export default SkillTable;
+export default Radium(SkillTable);
