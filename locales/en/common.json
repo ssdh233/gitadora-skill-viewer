@@ -9,7 +9,8 @@
     "desc": "A web site which uses bookmarklet to fetch and store skill data from GITADORA official site, to share with other players.",
     "info": {
       "title": "Notice",
-      "content": "<ul><li>Add support for GITADORA EXCHAIN. Please update script(You can find it in 'How to use' section).</li><li>Add popular song ranking pages.</li></ul>"
+      "content1": "Added popular song ranking pages, and added a new feature to allow a user to compare his own skill with these song rankings. Please try to click the link on skill table page^^",
+      "content2": "Add a new {uservoice} page in this site, feel free to leave some messages！"
     }
   },
   "how": {
