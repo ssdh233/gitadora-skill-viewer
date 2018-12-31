@@ -76,11 +76,11 @@ class Index extends React.Component {
           open={this.state.snackbarOpen}
           action={
             <div>
-              <a href={`/exchain/${this.state.gsvId}/g`}>
+              <Link to={`/${locale}/exchain/${this.state.gsvId}/g`}>
                 <Button color="secondary" size="small">
                   <FormattedMessage id="snackbar.yes" />
                 </Button>
-              </a>
+              </Link>
               <Button
                 color="secondary"
                 size="small"
