@@ -36,7 +36,12 @@ fs.readdirSync("./src/controllers").forEach(function(file) {
   }
 });
 
-const redirectRoute = (req, res) => {
+// for react pages
+app.get("/:locale(en|ja|zh)", reactRoute);
+app.get("/:locale(en|ja|zh)/*", reactRoute);
+
+// redirect if the first param is not language
+app.get("*", (req, res) => {
   const lang =
     req.cookies.locale || req.acceptsLanguages("ja", "zh", "en") || "ja";
 
@@ -46,18 +51,9 @@ const redirectRoute = (req, res) => {
   } else {
     res.redirect(301, `/${lang}${req.url}`);
   }
-};
-
-app.get("/", redirectRoute);
-app.get("/exchain/list", redirectRoute);
-app.get("/exchain/userlist", redirectRoute);
-
-// for react pages
-app.get("/:locale(en|ja|zh)", reactRoute);
-app.get("/:locale(en|ja|zh)/*", reactRoute);
+});
 
 // for jobs
-
 fs.readdirSync("./src/jobs").forEach(file => {
   if (file.substr(-3) == ".js") {
     let job = require(`./src/jobs/${file}`);
