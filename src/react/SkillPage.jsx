@@ -107,6 +107,7 @@ class SkillPage extends React.Component {
             data={skillData.hot.data}
             type={type}
             caption={type === "g" ? "GUITAR HOT" : "DRUM HOT"}
+            hasComparedSkill={this.props.hasComparedSkill}
           />
         )}
         {skillData.other.data && (
@@ -114,6 +115,7 @@ class SkillPage extends React.Component {
             data={skillData.other.data}
             type={type}
             caption={type === "g" ? "GUITAR OTHER" : "DRUM OTHER"}
+            hasComparedSkill={this.props.hasComparedSkill}
           />
         )}
         <div
@@ -204,11 +206,12 @@ class SkillPage extends React.Component {
                             {savedItem.update_date}
                           </Link>
                         </td>
-                        <td
-                          style={styles.savedListTable.td}
-                          className={`lv${parseInt(savedItem.skill / 500)}`}
-                        >
-                          <CompareArrows style={{ fontSize: 16 }} />
+                        <td style={styles.savedListTable.td}>
+                          <Link to={`?c=${savedItem.id}`}>
+                            <CompareArrows
+                              style={{ fontSize: 16, color: "white" }}
+                            />
+                          </Link>
                         </td>
                       </tr>
                     ))}

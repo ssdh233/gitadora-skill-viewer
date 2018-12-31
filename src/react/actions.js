@@ -4,6 +4,7 @@ export const SET_KASEGI_COMPARED_SKILL = "SET_KASEGI_COMPARED_SKILL";
 export const SET_LIST_DATA = "SET_LIST_DATA";
 export const SET_SKILL_DATA = "SET_SKILL_DATA";
 export const SET_SKILL_SAVED_LIST = "SET_SKILL_SAVED_LIST";
+export const SET_SKILL_COMPARED_SKILL = "SET_SKILL_COMPARED_SKILL";
 export const SET_SAVED_SKILL_DATA = "SET_SAVED_SKILL_DATA";
 
 export function setIsSSR(value) {
@@ -24,6 +25,10 @@ export function setListData(data) {
 
 export function setSkillData(data) {
   return { type: SET_SKILL_DATA, data };
+}
+
+export function setSkillComparedSkill(data) {
+  return { type: SET_SKILL_COMPARED_SKILL, data };
 }
 
 export function setSkillSavedList(data) {

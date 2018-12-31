@@ -37,6 +37,7 @@ class SkillTable extends React.Component {
             <th style={styles.skillTable.th}>レベル</th>
             <th style={styles.skillTable.th}>達成率</th>
             <th style={styles.skillTable.th}>スキル</th>
+            {this.props.hasComparedSkill && <th />}
           </tr>
         </thead>
         <tbody>
@@ -74,6 +75,9 @@ class SkillTable extends React.Component {
                 item.achive_value
               } (${this.getRank(item.achive_value)})`}</td>
               <td style={{ ...styles.skillTable.td }}>{item.skill_value}</td>
+              {this.props.hasComparedSkill && (
+                <td style={styles.skillTable.compareTd}>{item.compare}</td>
+              )}
             </tr>
           ))}
         </tbody>
@@ -110,6 +114,14 @@ const styles = {
 
       "@media (max-width: 742px)": {
         padding: "0 5px"
+      }
+    },
+    compareTd: {
+      backgroundColor: "white",
+      fontSize: 12,
+
+      "@media (max-width: 742px)": {
+        fontSize: 10
       }
     }
   }

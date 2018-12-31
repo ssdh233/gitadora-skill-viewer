@@ -5,6 +5,7 @@ import {
   SET_LIST_DATA,
   SET_SKILL_DATA,
   SET_SKILL_SAVED_LIST,
+  SET_SKILL_COMPARED_SKILL,
   SET_SAVED_SKILL_DATA
 } from "./actions";
 
@@ -18,6 +19,7 @@ const initialState = {
   // skill page
   skillData: null,
   skillSavedList: null,
+  skillComparedSkill: null,
   // saved skill page
   savedSkillData: null
 };
@@ -43,6 +45,10 @@ export default function reducer(state = initialState, action) {
     case SET_SKILL_DATA:
       return Object.assign({}, state, {
         skillData: action.data
+      });
+    case SET_SKILL_COMPARED_SKILL:
+      return Object.assign({}, state, {
+        skillComparedSkill: action.data
       });
     case SET_SKILL_SAVED_LIST:
       return Object.assign({}, state, {
