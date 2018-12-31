@@ -114,9 +114,17 @@ function getSkillData(state) {
     result.hot = compareSkillHalf(result.hot, old.hot);
     result.other = compareSkillHalf(result.other, old.other);
 
+    const skillPointDiff = (
+      Number(result.hot.point || 0) +
+      Number(result.other.point || 0) -
+      Number(old.hot.point || 0) -
+      Number(old.other.point || 0)
+    ).toFixed(2);
+
     return {
       ...skillData,
-      skillData: result
+      skillData: result,
+      skillPointDiff
     };
   }
 }

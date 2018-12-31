@@ -2,11 +2,12 @@ import React from "react";
 import Radium from "radium";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, injectIntl } from "react-intl";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import Button from "@material-ui/core/Button";
 import CompareArrows from "@material-ui/icons/CompareArrows";
 
+import { VERSION_NAME } from "../constants.js";
 import SkillTable from "./SkillTable.jsx";
 
 class SkillPage extends React.Component {
@@ -35,31 +36,54 @@ class SkillPage extends React.Component {
     }
 
     const { locale, ver, id } = this.props.match.params;
-    const { skillData, skillName, updateDate, playerId } = this.props.skillData;
+    const {
+      skillData,
+      skillName,
+      updateDate,
+      playerId,
+      skillPointDiff
+    } = this.props.skillData;
+
     const type = this.props.saved
       ? this.props.skillData.type
       : this.props.match.params.type;
+
     const skillPoint = (
       Number(skillData.hot.point) + Number(skillData.other.point)
     ).toFixed(2);
     const level = parseInt(skillPoint / 500);
 
+    const fullVersionName = VERSION_NAME[ver];
+
+    const {
+      intl: { formatMessage }
+    } = this.props;
+
+    const title = formatMessage(
+      {
+        id: "skill.title"
+      },
+      {
+        name: skillName,
+        type: type === "g" ? "Guitarfreaks" : "Drummania"
+      }
+    );
+
     return (
       <div style={styles.skillPage}>
         <Helmet>
+          <title>{`${title} | ${fullVersionName}`}</title>
+          <meta name="twitter:card" content="summary" />
+          <meta property="og:url" content="gsv.fun" />
+          <meta
+            property="og:title"
+            content={`${title} ${skillPoint} ${
+              skillPointDiff ? `(${skillPointDiff}↑)` : ""
+            }`}
+          />
           <style>{stringStyles}</style>
         </Helmet>
-        <div style={styles.version}>
-          GITADORA{" "}
-          {
-            {
-              exchain: "EXCHAIN",
-              matixx: "Matixx",
-              tbre: "Tri-Boost Re:EVOLVE",
-              tb: "Tri-Boost"
-            }[ver]
-          }
-        </div>
+        <div style={styles.version}>{fullVersionName}</div>
         {!this.props.saved && (
           <div style={{ margin: "3px 0" }}>
             {type === "g" && (
@@ -383,4 +407,4 @@ const stringStyles = `.lv0, .lv1 {
   background-clip: text;
 }`;
 
-export default Radium(SkillPage);
+export default injectIntl(Radium(SkillPage));

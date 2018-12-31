@@ -97,6 +97,7 @@
     }
   },
   "skill": {
+    "title": "{name}'s skill table",
     "aboutGsv": "About gsv.fun",
     "compareWithKasegi": "Compare with {scope} ranking",
     "saveSkill": "Save this skill table",

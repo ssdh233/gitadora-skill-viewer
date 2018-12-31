@@ -97,6 +97,7 @@
     }
   },
   "skill": {
+    "title": "{name}的{type} skill表",
     "aboutGsv": "关于gsv.fun",
     "compareWithKasegi": "和{scope}的赚分曲比较",
     "saveSkill": "保存这个skill表",

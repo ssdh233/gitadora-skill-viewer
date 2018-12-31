@@ -6,6 +6,7 @@ import { injectIntl } from "react-intl";
 import ReactTable from "react-table";
 import LinearProgress from "@material-ui/core/LinearProgress";
 
+import { VERSION_NAME } from "../constants.js";
 import withMediaQuery from "./withMediaQuery";
 
 class ListPage extends React.Component {
@@ -34,6 +35,8 @@ class ListPage extends React.Component {
 
   render() {
     const { locale, ver } = this.props.match.params;
+
+    const fullVersionName = VERSION_NAME[ver];
 
     let columns = [
       {
@@ -74,21 +77,28 @@ class ListPage extends React.Component {
       ];
     }
 
-    const { data, version_full } = this.props;
+    const {
+      data,
+      intl: { formatMessage }
+    } = this.props;
+
     return (
       <>
         <Helmet>
+          <title>{`${formatMessage({
+            id: "list"
+          })} | ${fullVersionName} | Gitadora Skill Viewer`}</title>
           <style>{stringStyles}</style>
         </Helmet>
         {!data && <LinearProgress />}
-        <div
-          style={{
-            ...styles.listPage,
-            ...(this.props.isAdmin ? styles.userlistPage : {})
-          }}
-        >
-          <h1 style={styles.title}>{version_full}</h1>
-          {data && (
+        {data && (
+          <div
+            style={{
+              ...styles.listPage,
+              ...(this.props.isAdmin ? styles.userlistPage : {})
+            }}
+          >
+            <h1 style={styles.title}>{fullVersionName}</h1>
             <ReactTable
               data={data}
               columns={columns}
@@ -100,8 +110,8 @@ class ListPage extends React.Component {
               getTrProps={this.getTrProps}
               getTdProps={this.getTdProps}
             />
-          )}
-        </div>
+          </div>
+        )}
       </>
     );
   }
