@@ -9,7 +9,8 @@
     "desc": "コナミ様の公式サイトからギタドラのスキルデータを取得し、スキルの進捗を記録したり、スキル表を他のプレイヤーをシェアしたりするためのウェブサイトです。",
     "info": {
       "title": "お知らせ",
-      "content": "<ul><li>GITADORA EXCHAINに対応しました。お手数ですが'使い方'からスクリプトを更新してください(>_<)</li><li>稼ぎ曲のランキングページを作りました。</li></ul>"
+      "content1": "稼ぎ曲のランキングページを作りました。プレイヤー現在のスキルを稼ぎ曲と比較する機能も追加しました。スキル表の下にリンクがありますので是非試してみてください^^",
+      "content2": "{uservoice}ページをサイト内に移動しました。ご意見などがありましたらコメントしていただければ嬉しいです。"
     }
   },
   "how": {
@@ -79,7 +80,8 @@
     "averageskill": "平均",
     "averageplayerskill": "プレイヤー",
     "compare": "比較",
-    "compareTitle": "{name}さんのスキルと比較中",
+    "compareSkill": "{name}さんのスキル",
+    "compareTitle": "{compareSkill}と比較中",
     "scope": {
       "3000": "緑ネ",
       "3500": "緑グラ",
@@ -95,5 +97,13 @@
       "8500": "虹ネ",
       "9000": "虹ネ"
     }
+  },
+  "skill": {
+    "title": "{name}さんの{type}スキル",
+    "aboutGsv": "gsv.funについて",
+    "compareWithKasegi": "{scope}の稼ぎ曲と比較",
+    "saveSkill": "スキル表を保存する",
+    "savedList": "保存されたスキル表",
+    "latestSkill": "{name}さんの最新のスキル表"
   }
 }

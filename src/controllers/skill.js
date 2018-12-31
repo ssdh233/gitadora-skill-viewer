@@ -1,6 +1,5 @@
 const pg = require("../modules/pg");
-const { VERSION_NAME } = require("../constants");
-const { getSkill } = require("./skill_controller");
+const { VERSION_NAME, SKILL_TABLE } = require("../constants");
 
 module.exports.controller = function(app) {
   app.get("/api/:ver/:id/g", function(req, res) {
@@ -42,4 +41,31 @@ function getSkillJson(req, res, type) {
       }
     );
   }
+}
+
+function getSkill({ client, res, version, type, id }, callback) {
+  let skillTableName = SKILL_TABLE[version];
+
+  const sql = `select * from ${skillTableName} where id =${id};`;
+  client.query(sql, (err, result) => {
+    if (err) {
+      res.send(`${sql}<br>${err}`);
+    } else if (!result.rows[0]) {
+      // no result
+      res.render("skill");
+    } else {
+      const userData = result.rows[0];
+      let skillData;
+      if (type == "drum") {
+        skillData = JSON.parse(userData.drum_skill);
+      } else {
+        skillData = JSON.parse(userData.guitar_skill);
+      }
+      callback({
+        skillName: userData.player_name,
+        updateDate: userData.update_date,
+        skillData: skillData
+      });
+    }
+  });
 }

@@ -76,11 +76,11 @@ class Index extends React.Component {
           open={this.state.snackbarOpen}
           action={
             <div>
-              <a href={`/exchain/${this.state.gsvId}/g`}>
+              <Link to={`/${locale}/exchain/${this.state.gsvId}/g`}>
                 <Button color="secondary" size="small">
                   <FormattedMessage id="snackbar.yes" />
                 </Button>
-              </a>
+              </Link>
               <Button
                 color="secondary"
                 size="small"
@@ -108,7 +108,19 @@ class Index extends React.Component {
         >
           <p>{<FormattedMessage id="intro.desc" />}</p>
           <h3>{<FormattedMessage id="intro.info.title" />}</h3>
-          <FormattedHTMLMessage id="intro.info.content" />
+          <ul>
+            <li>
+              <FormattedMessage id="intro.info.content1" />
+            </li>
+            <li>
+              <FormattedMessage
+                id="intro.info.content2"
+                values={{
+                  uservoice: <Link to={`${locale}/uservoice`}>User Voice</Link>
+                }}
+              />
+            </li>
+          </ul>
         </SlideToggle>
         <SlideToggle title={<FormattedMessage id="how.title" />}>
           <p>{<FormattedMessage id="how.upload.step1.desc" />}</p>

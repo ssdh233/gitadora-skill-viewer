@@ -9,7 +9,8 @@
     "desc": "A web site which uses bookmarklet to fetch and store skill data from GITADORA official site, to share with other players.",
     "info": {
       "title": "Notice",
-      "content": "<ul><li>Add support for GITADORA EXCHAIN. Please update script(You can find it in 'How to use' section).</li><li>Add popular song ranking pages.</li></ul>"
+      "content1": "Added popular song ranking pages, and added a new feature to allow a user to compare his own skill with these song rankings. Please try to click the link on skill table page^^",
+      "content2": "Add a new {uservoice} page in this site, feel free to leave some messages！"
     }
   },
   "how": {
@@ -78,7 +79,8 @@
     "averageskill": "Average",
     "averageplayerskill": "Player Average",
     "compare": "Compare",
-    "compareTitle": "Comparing with {name}'s skill",
+    "compareSkill": "{name}'s skill",
+    "compareTitle": "Comparing with {compareSkill}",
     "scope": {
       "3000": "Green",
       "3500": "Green",
@@ -94,5 +96,13 @@
       "8500": "Rainbow",
       "9000": "Rainbow"
     }
+  },
+  "skill": {
+    "title": "{name}'s skill table",
+    "aboutGsv": "About gsv.fun",
+    "compareWithKasegi": "Compare with {scope} ranking",
+    "saveSkill": "Save this skill table",
+    "savedList": "Saved skills",
+    "latestSkill": "Check {name}'s latest skill"
   }
 }

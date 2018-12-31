@@ -9,7 +9,8 @@
     "desc": "一个从konami的官方网站上获取skill数据，用来保存、分享的网站。",
     "info": {
       "title": "通知",
-      "content": "<ul><li>增加了对新版本GITADORA EXCHAIN的支持。请更新书签代码（在使用方法中可以找到）。</li><li>增加了赚分曲排行页面。</li></ul>"
+      "content1": "增加了赚分曲排行页面，以及和当前skill表进行比较的功能。详情请去尝试点击skill页面下方的链接^^",
+      "content2": "把{uservoice}页面移动到了站内，有什么意见欢迎留言！"
     }
   },
   "how": {
@@ -78,7 +79,8 @@
     "averageskill": "平均",
     "averageplayerskill": "玩家平均",
     "compare": "比较",
-    "compareTitle": "正在与{name}的skill表进行比较",
+    "compareSkill": "{name}的skill表",
+    "compareTitle": "正在与{compareSkill}进行比较",
     "scope": {
       "3000": "绿名",
       "3500": "绿名",
@@ -94,5 +96,13 @@
       "8500": "虹名",
       "9000": "虹名"
     }
+  },
+  "skill": {
+    "title": "{name}的{type} skill表",
+    "aboutGsv": "关于gsv.fun",
+    "compareWithKasegi": "和{scope}的赚分曲比较",
+    "saveSkill": "保存这个skill表",
+    "savedList": "保存的skill表",
+    "latestSkill": "去看{name}最新的skill表"
   }
 }
