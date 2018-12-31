@@ -57,13 +57,13 @@ class SkillTable extends React.Component {
               <td
                 style={{
                   ...styles.skillTable.td,
-                  width: 400,
+                  width: "100%",
                   maxWidth: 400,
                   textAlign: "left",
+                  whiteSpace: "normal",
                   padding: "0 2px",
 
                   "@media (max-width: 742px)": {
-                    width: 300,
                     maxWidth: 300
                   }
                 }}
@@ -92,8 +92,10 @@ const styles = {
       backgroundColor: "#FFFFFF",
       fontSize: 14,
       marginTop: 10,
+      maxWidth: 700,
 
       "@media (max-width: 742px)": {
+        maxWidth: 500,
         fontSize: 10
       }
     },
