@@ -78,7 +78,8 @@
     "averageskill": "平均",
     "averageplayerskill": "玩家平均",
     "compare": "比较",
-    "compareTitle": "正在与{name}的skill表进行比较",
+    "compareSkill": "{name}的skill表",
+    "compareTitle": "正在与{compareSkill}进行比较",
     "scope": {
       "3000": "绿名",
       "3500": "绿名",
@@ -94,5 +95,13 @@
       "8500": "虹名",
       "9000": "虹名"
     }
+  },
+  "skill": {
+    "title": "{name}的{type} skill表",
+    "aboutGsv": "关于gsv.fun",
+    "compareWithKasegi": "和{scope}的赚分曲比较",
+    "saveSkill": "保存这个skill表",
+    "savedList": "保存的skill表",
+    "latestSkill": "去看{name}最新的skill表"
   }
 }

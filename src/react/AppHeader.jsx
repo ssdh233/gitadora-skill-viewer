@@ -17,7 +17,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListSubheader from "@material-ui/core/ListSubheader";
 
-const VERSION = "v1.13.4";
+const VERSION = "v1.14.0";
 
 class AppHeader extends React.Component {
   constructor(props) {
@@ -51,7 +51,8 @@ class AppHeader extends React.Component {
       match: {
         url,
         params: { locale }
-      }
+      },
+      location: { search }
     } = this.props;
 
     return (
@@ -94,13 +95,13 @@ class AppHeader extends React.Component {
             onClose={this.handleMenuClose("lang")}
           >
             <MenuList>
-              <a href={`/en${url.substring(3)}`}>
+              <a href={`/en${url.substring(3)}${search}`}>
                 <MenuItem>English</MenuItem>
               </a>
-              <a href={`/ja${url.substring(3)}`}>
+              <a href={`/ja${url.substring(3)}${search}`}>
                 <MenuItem>日本語</MenuItem>
               </a>
-              <a href={`/zh${url.substring(3)}`}>
+              <a href={`/zh${url.substring(3)}${search}`}>
                 <MenuItem>简体中文</MenuItem>
               </a>
             </MenuList>
@@ -228,7 +229,7 @@ const styles = {
     width: "100%",
     display: "flex",
     flexWrap: "wrap",
-    marginBottom: 5,
+    marginBottom: 10,
     borderBottom: "2px solid"
   },
   firstLine: {

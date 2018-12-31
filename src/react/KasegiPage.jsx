@@ -1,5 +1,6 @@
 import React from "react";
 import Radium from "radium";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { injectIntl, FormattedMessage } from "react-intl";
 import LinearProgress from "@material-ui/core/LinearProgress";
@@ -13,7 +14,8 @@ class KasegiPage extends React.Component {
       comparedSkillData,
       intl: { formatMessage },
       match: {
-        params: { type, scope }
+        params: { locale, ver, type, scope },
+        query: { c: comparedSkillId }
       }
     } = this.props;
 
@@ -54,7 +56,16 @@ class KasegiPage extends React.Component {
               {/* TODO add link after find a way to inject query to prop */}
               <FormattedMessage
                 id="kasegi.compareTitle"
-                values={{ name: comparedSkillData.skillName }}
+                values={{
+                  compareSkill: (
+                    <Link to={`/${locale}/${ver}/${comparedSkillId}/${type}`}>
+                      <FormattedMessage
+                        id="kasegi.compareSkill"
+                        values={{ name: comparedSkillData.skillName }}
+                      />
+                    </Link>
+                  )
+                }}
               />
             </h2>
           )}

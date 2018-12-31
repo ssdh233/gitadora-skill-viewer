@@ -10,7 +10,6 @@ module.exports.controller = function(app) {
     if (!skill_table_name) {
       res.send("Unexpected version parameter.");
     } else {
-      //pg.defaults.ssl = true;
       pg.connect(
         process.env.DATABASE_URL,
         function(err, client, done) {

@@ -79,7 +79,8 @@
     "averageskill": "平均",
     "averageplayerskill": "プレイヤー",
     "compare": "比較",
-    "compareTitle": "{name}さんのスキルと比較中",
+    "compareSkill": "{name}さんのスキル",
+    "compareTitle": "{compareSkill}と比較中",
     "scope": {
       "3000": "緑ネ",
       "3500": "緑グラ",
@@ -95,5 +96,13 @@
       "8500": "虹ネ",
       "9000": "虹ネ"
     }
+  },
+  "skill": {
+    "title": "{name}さんの{type}スキル",
+    "aboutGsv": "gsv.funについて",
+    "compareWithKasegi": "{scope}の稼ぎ曲と比較",
+    "saveSkill": "スキル表を保存する",
+    "savedList": "保存されたスキル表",
+    "latestSkill": "{name}さんの最新のスキル表"
   }
 }

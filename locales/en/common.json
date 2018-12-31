@@ -78,7 +78,8 @@
     "averageskill": "Average",
     "averageplayerskill": "Player Average",
     "compare": "Compare",
-    "compareTitle": "Comparing with {name}'s skill",
+    "compareSkill": "{name}'s skill",
+    "compareTitle": "Comparing with {compareSkill}",
     "scope": {
       "3000": "Green",
       "3500": "Green",
@@ -94,5 +95,13 @@
       "8500": "Rainbow",
       "9000": "Rainbow"
     }
+  },
+  "skill": {
+    "title": "{name}'s skill table",
+    "aboutGsv": "About gsv.fun",
+    "compareWithKasegi": "Compare with {scope} ranking",
+    "saveSkill": "Save this skill table",
+    "savedList": "Saved skills",
+    "latestSkill": "Check {name}'s latest skill"
   }
 }

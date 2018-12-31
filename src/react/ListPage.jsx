@@ -1,10 +1,12 @@
 import React from "react";
 import Radium from "radium";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { injectIntl } from "react-intl";
 import ReactTable from "react-table";
 import LinearProgress from "@material-ui/core/LinearProgress";
 
+import { VERSION_NAME } from "../constants.js";
 import withMediaQuery from "./withMediaQuery";
 
 class ListPage extends React.Component {
@@ -32,7 +34,9 @@ class ListPage extends React.Component {
   };
 
   render() {
-    const { ver } = this.props.match.params;
+    const { locale, ver } = this.props.match.params;
+
+    const fullVersionName = VERSION_NAME[ver];
 
     let columns = [
       {
@@ -47,7 +51,7 @@ class ListPage extends React.Component {
         maxWidth: this.props.mediaQuery === "sp" ? 70 : 90,
         sortMethod: (a, b) => Number(a) - Number(b),
         Cell: ({ row }) => (
-          <a href={`/${ver}/${row.id}/g`}>{row.guitar_skill}</a>
+          <Link to={`/${locale}/${ver}/${row.id}/g`}>{row.guitar_skill}</Link>
         )
       },
       {
@@ -55,7 +59,9 @@ class ListPage extends React.Component {
         accessor: "drum_skill",
         maxWidth: this.props.mediaQuery === "sp" ? 70 : 90,
         sortMethod: (a, b) => Number(a) - Number(b),
-        Cell: ({ row }) => <a href={`/${ver}/${row.id}/d`}>{row.drum_skill}</a>
+        Cell: ({ row }) => (
+          <Link to={`/${locale}/${ver}/${row.id}/d`}>{row.drum_skill}</Link>
+        )
       }
     ];
 
@@ -71,21 +77,28 @@ class ListPage extends React.Component {
       ];
     }
 
-    const { data, version_full } = this.props;
+    const {
+      data,
+      intl: { formatMessage }
+    } = this.props;
+
     return (
       <>
         <Helmet>
+          <title>{`${formatMessage({
+            id: "list"
+          })} | ${fullVersionName} | Gitadora Skill Viewer`}</title>
           <style>{stringStyles}</style>
         </Helmet>
         {!data && <LinearProgress />}
-        <div
-          style={{
-            ...styles.listPage,
-            ...(this.props.isAdmin ? styles.userlistPage : {})
-          }}
-        >
-          <h1 style={styles.title}>{version_full}</h1>
-          {data && (
+        {data && (
+          <div
+            style={{
+              ...styles.listPage,
+              ...(this.props.isAdmin ? styles.userlistPage : {})
+            }}
+          >
+            <h1 style={styles.title}>{fullVersionName}</h1>
             <ReactTable
               data={data}
               columns={columns}
@@ -97,8 +110,8 @@ class ListPage extends React.Component {
               getTrProps={this.getTrProps}
               getTdProps={this.getTdProps}
             />
-          )}
-        </div>
+          </div>
+        )}
       </>
     );
   }
