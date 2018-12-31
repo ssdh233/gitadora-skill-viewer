@@ -34,6 +34,16 @@ class SkillPageContainer extends React.Component {
     if (!this.props.isSSR) {
       const query = queryParser(this.props.location.search);
       loadData(this.props.dispatch, this.props.match, query);
+    } else {
+      const urlParams = new URLSearchParams(window.location.search);
+      const gsvId = urlParams.get("setLocalStorage");
+      const { ver } = this.props.match.params;
+
+      if (gsvId && ver === "exchain") {
+        localStorage.setItem("gsvId", gsvId);
+        localStorage.setItem("gsvName", this.props.skillData.skillName);
+        window.history.pushState("", "", window.location.href.split("?")[0]);
+      }
     }
   }
 
