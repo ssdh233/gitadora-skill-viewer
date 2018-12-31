@@ -146,7 +146,11 @@ class SkillPage extends React.Component {
           style={{
             maxWidth: 700,
             display: "flex",
-            justifyContent: "space-between"
+            justifyContent: "space-between",
+
+            "@media (max-width: 742px)": {
+              maxWidth: 500
+            }
           }}
         >
           <span>Updated at {updateDate}</span>
