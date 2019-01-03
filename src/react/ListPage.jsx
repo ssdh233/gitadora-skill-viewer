@@ -7,6 +7,7 @@ import ReactTable from "react-table";
 import LinearProgress from "@material-ui/core/LinearProgress";
 
 import { VERSION_NAME } from "../constants.js";
+import skillColorStyles from "./styles/skillColor.js";
 import withMediaQuery from "./withMediaQuery";
 
 class ListPage extends React.Component {
@@ -19,11 +20,7 @@ class ListPage extends React.Component {
     if (rowInfo) {
       switch (column.id) {
         case "guitar_skill":
-          className = `lv${this.getLevel(rowInfo.row.guitar_skill)}`;
-          style = { textAlign: "center" };
-          break;
         case "drum_skill":
-          className = `lv${this.getLevel(rowInfo.row.drum_skill)}`;
           style = { textAlign: "center" };
           break;
         default:
@@ -51,7 +48,12 @@ class ListPage extends React.Component {
         maxWidth: this.props.mediaQuery === "sp" ? 70 : 90,
         sortMethod: (a, b) => Number(a) - Number(b),
         Cell: ({ row }) => (
-          <Link to={`/${locale}/${ver}/${row.id}/g`}>{row.guitar_skill}</Link>
+          <Link
+            to={`/${locale}/${ver}/${row.id}/g`}
+            className={`lv${this.getLevel(row.guitar_skill)}`}
+          >
+            {row.guitar_skill}
+          </Link>
         )
       },
       {
@@ -60,7 +62,12 @@ class ListPage extends React.Component {
         maxWidth: this.props.mediaQuery === "sp" ? 70 : 90,
         sortMethod: (a, b) => Number(a) - Number(b),
         Cell: ({ row }) => (
-          <Link to={`/${locale}/${ver}/${row.id}/d`}>{row.drum_skill}</Link>
+          <Link
+            to={`/${locale}/${ver}/${row.id}/d`}
+            className={`lv${this.getLevel(row.drum_skill)}`}
+          >
+            {row.drum_skill}
+          </Link>
         )
       }
     ];
@@ -134,107 +141,6 @@ const styles = {
   }
 };
 
-const stringStyles = `.lv0, .lv1 {
-  background: -webkit-linear-gradient(#FFFFFF, #FFFFFF);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.lv2 {
-  background: -webkit-linear-gradient(#FF6600, #FF6600);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.lv3 {
-  background: -webkit-linear-gradient(#FF6600, #FFFFFF);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.lv4 {
-  background: -webkit-linear-gradient(#FFFF00, #FFFF00);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.lv5 {
-  background: -webkit-linear-gradient(#FFFF00, #FFFFFF);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.lv6 {
-  background: -webkit-linear-gradient(#33FF00, #33FF00);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.lv7 {
-  background: -webkit-linear-gradient(#33FF00, #FFFFFF);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.lv8 {
-  background: -webkit-linear-gradient(#3366FF, #3366FF);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.lv9 {
-  background: -webkit-linear-gradient(#3366FF, #FFFFFF);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.lv10 {
-  background: -webkit-linear-gradient(#FF00FF, #FF00FF);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.lv11 {
-  background: -webkit-linear-gradient(#FF00FF, #FFFFFF);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.lv12 {
-  background: -webkit-linear-gradient(#FF0000, #FF0000);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.lv13 {
-  background: -webkit-linear-gradient(#FF0000, #FFFFFF);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.lv14 {
-  background: -webkit-linear-gradient(#DD8844, #DD8844);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.lv15 {
-  background: -webkit-linear-gradient(#C0C0C0, #C0C0C0);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.lv16 {
-  background: -webkit-linear-gradient(#FFD700, #FFD700);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.lv17 a, .lv18 a  {
-  background-image: -webkit-gradient( linear, left top, right bottom, color-stop(0.1, #f22), color-stop(0.2, #f2f), color-stop(0.35, #22f), color-stop(0.5, #2ff), color-stop(0.65, #2f2), color-stop(0.8, #ff2) );
-  color:transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-}`;
+const stringStyles = skillColorStyles;
 
 export default withMediaQuery(injectIntl(Radium(ListPage)));
