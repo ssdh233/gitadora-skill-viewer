@@ -69,17 +69,17 @@ class ListPage extends React.Component {
             {row.drum_skill}
           </Link>
         )
+      },
+      {
+        Header: "Last Update",
+        accessor: "update_date",
+        width: 145
       }
     ];
 
     if (this.props.isAdmin) {
       columns = [
         ...columns,
-        {
-          Header: "Last Update",
-          accessor: "update_date",
-          minWidth: 130
-        },
         { Header: "Count", accessor: "update_count", minWidth: 30 }
       ];
     }
@@ -126,7 +126,7 @@ class ListPage extends React.Component {
 
 const styles = {
   listPage: {
-    maxWidth: 600
+    maxWidth: 700
   },
   userlistPage: {
     maxWidth: 800
