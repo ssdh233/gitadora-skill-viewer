@@ -73,7 +73,7 @@ class ListPage extends React.Component {
       {
         Header: "Last Update",
         accessor: "update_date",
-        minWidth: 130
+        width: 145
       }
     ];
 
@@ -126,7 +126,7 @@ class ListPage extends React.Component {
 
 const styles = {
   listPage: {
-    maxWidth: 600
+    maxWidth: 700
   },
   userlistPage: {
     maxWidth: 800
