@@ -104,5 +104,8 @@
     "saveSkill": "保存这个skill表",
     "savedList": "保存的skill表",
     "latestSkill": "去看{name}最新的skill表"
+  },
+  "listPage": {
+    "tips": "点击表格的列名可以排序"
   }
 }
