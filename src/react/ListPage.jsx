@@ -2,7 +2,7 @@ import React from "react";
 import Radium from "radium";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import { injectIntl } from "react-intl";
+import { injectIntl, FormattedMessage } from "react-intl";
 import ReactTable from "react-table";
 import LinearProgress from "@material-ui/core/LinearProgress";
 
@@ -106,6 +106,9 @@ class ListPage extends React.Component {
             }}
           >
             <h1 style={styles.title}>{fullVersionName}</h1>
+            <p>
+              Tips: <FormattedMessage id="listPage.tips" />
+            </p>
             <ReactTable
               data={data}
               columns={columns}

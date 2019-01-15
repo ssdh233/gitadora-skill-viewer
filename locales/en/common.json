@@ -104,5 +104,8 @@
     "saveSkill": "Save this skill table",
     "savedList": "Saved skills",
     "latestSkill": "Check {name}'s latest skill"
+  },
+  "listPage": {
+    "tips": "You can sort this table by clicking the header"
   }
 }
