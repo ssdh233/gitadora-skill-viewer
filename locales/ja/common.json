@@ -105,5 +105,8 @@
     "saveSkill": "スキル表を保存する",
     "savedList": "保存されたスキル表",
     "latestSkill": "{name}さんの最新のスキル表"
+  },
+  "listPage": {
+    "tips": "ヘッダーをクリックするとソートできますよ！"
   }
 }
