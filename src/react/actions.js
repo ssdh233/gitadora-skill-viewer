@@ -6,6 +6,11 @@ export const SET_SKILL_DATA = "SET_SKILL_DATA";
 export const SET_SKILL_SAVED_LIST = "SET_SKILL_SAVED_LIST";
 export const SET_SKILL_COMPARED_SKILL = "SET_SKILL_COMPARED_SKILL";
 export const SET_SAVED_SKILL_DATA = "SET_SAVED_SKILL_DATA";
+export const SET_TEST = "SET_TEST";
+
+export function setTest(value) {
+  return { type: SET_TEST, value };
+}
 
 export function setIsSSR(value) {
   return { type: SET_IS_SSR, value };

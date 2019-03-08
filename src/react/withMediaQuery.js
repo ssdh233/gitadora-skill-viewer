@@ -37,7 +37,7 @@ export default function withMediaQuery(WrappedComponent) {
       );
     }
   }
-  WithMediaQuery.displayName = `WithSubscription(${getDisplayName(
+  WithMediaQuery.displayName = `WithMediaQuery(${getDisplayName(
     WrappedComponent
   )})`;
 

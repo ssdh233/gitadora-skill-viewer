@@ -2,94 +2,84 @@ import React from "react";
 import { connect } from "react-redux";
 import { Switch, Route, withRouter } from "react-router-dom";
 import Radium, { StyleRoot } from "radium";
+import loadable from "loadable-components";
 
+// const Index = loadable(() => import("./Index.jsx"));
+// const AppHeader = loadable(() => import("./AppHeader.jsx"));
+// const UserVoicePage = loadable(() => import("./UserVoicePage.jsx"));
+// const KasegiPageContainer = loadable(() => import("./KasegiPageContainer.jsx"));
+// const ListPageContainer = loadable(() => import("./ListPageContainer.jsx"));
+// const SkillPageContainer = loadable(() => import("./SkillPageContainer.jsx"));
+// const SavedSkillPageContainer = loadable(() =>
+//   import("./SavedSkillPageContainer.jsx")
+// );
+
+import TestPage from "./TestPage.jsx";
 import Index from "./Index.jsx";
 import AppHeader from "./AppHeader.jsx";
 import UserVoicePage from "./UserVoicePage.jsx";
-import KasegiPageContainer, {
-  loadData as loadDataForKasegiPageContainer
-} from "./KasegiPageContainer.jsx";
-import ListPageContainer, {
-  loadData as loadDataForListPageContainer
-} from "./ListPageContainer.jsx";
-import SkillPageContainer, {
-  loadData as loadDataForSkillPageContainer
-} from "./SkillPageContainer.jsx";
-import SavedSkillPageContainer, {
-  loadData as loadDataForSavedSkillPageContainer
-} from "./SavedSkillPageContainer.jsx";
+import KasegiPageContainer from "./KasegiPageContainer.jsx";
+import ListPageContainer from "./ListPageContainer.jsx";
+import SkillPageContainer from "./SkillPageContainer.jsx";
+import SavedSkillPageContainer from "./SavedSkillPageContainer.jsx";
 import { setIsSSR } from "./actions";
 
 /* eslint-disable react/display-name */
 
+function MyRoute(props) {
+  const outerProps = props;
+  return (
+    <Route
+      render={innerProps => {
+        const props = {
+          ...innerProps,
+          match: outerProps.computedMatch
+        };
+
+        return (
+          <>
+            <AppHeader {...props} />
+            {React.createElement(outerProps.component, props)}
+          </>
+        );
+      }}
+    />
+  );
+}
+
 export const routes = [
   {
     path: "/:locale",
-    render: props => (
-      <>
-        <AppHeader {...props} />
-        <Index {...props} />
-      </>
-    )
+    component: Index
+  },
+  {
+    path: "/:locale/test",
+    component: TestPage
   },
   {
     path: "/:locale/uservoice",
-    render: props => (
-      <>
-        <AppHeader {...props} />
-        <UserVoicePage {...props} />
-      </>
-    )
+    component: UserVoicePage
   },
   {
     path: "/:locale/:ver/kasegi/:type/:scope",
-    render: props => (
-      <>
-        <AppHeader {...props} />
-        <KasegiPageContainer {...props} />
-      </>
-    ),
-    loadData: loadDataForKasegiPageContainer
+    component: KasegiPageContainer
   },
   {
     path: "/:locale/:ver/list",
-    render: props => (
-      <>
-        <AppHeader {...props} />
-        <ListPageContainer {...props} />
-      </>
-    ),
-    loadData: loadDataForListPageContainer
+    component: ListPageContainer
   },
   {
     path: "/:locale/:ver/userlist",
-    render: props => (
-      <>
-        <AppHeader {...props} />
-        <ListPageContainer isAdmin={true} {...props} />
-      </>
-    ),
-    loadData: loadDataForListPageContainer
+    component: ListPageContainer
+    // TODO add isAdmin=true
   },
   {
     path: "/:locale/:ver/:id/p",
-    render: props => (
-      <>
-        <AppHeader {...props} />
-        <SavedSkillPageContainer {...props} />
-      </>
-    ),
-    loadData: loadDataForSavedSkillPageContainer
+    component: SavedSkillPageContainer
   },
   {
     path: "/:locale/:ver/:id/:type",
-    render: props => (
-      <>
-        <AppHeader {...props} />
-        <SkillPageContainer {...props} />
-      </>
-    ),
-    loadData: loadDataForSkillPageContainer
+    component: SkillPageContainer
   }
 ].map(route => ({
   ...route,
@@ -112,7 +102,7 @@ class App extends React.Component {
         <div style={styles.globalStyle}>
           <Switch>
             {routes.map(route => (
-              <Route key={route.path} {...route} />
+              <MyRoute key={route.path} {...route} />
             ))}
           </Switch>
         </div>

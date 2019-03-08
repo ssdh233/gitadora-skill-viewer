@@ -6,7 +6,8 @@ import {
   SET_SKILL_DATA,
   SET_SKILL_SAVED_LIST,
   SET_SKILL_COMPARED_SKILL,
-  SET_SAVED_SKILL_DATA
+  SET_SAVED_SKILL_DATA,
+  SET_TEST
 } from "./actions";
 
 const initialState = {
@@ -21,11 +22,17 @@ const initialState = {
   skillSavedList: null,
   skillComparedSkill: null,
   // saved skill page
-  savedSkillData: null
+  savedSkillData: null,
+  // test
+  test: null
 };
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
+    case SET_TEST:
+      return Object.assign({}, state, {
+        test: action.value
+      });
     case SET_IS_SSR:
       return Object.assign({}, state, {
         isSSR: action.value

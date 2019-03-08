@@ -45,8 +45,10 @@ const reactRoute = (req, res) => {
       const match = matchPath(req.path, route);
       const query = queryParser(req.url);
 
-      if (match && route.loadData) {
-        promises.push(route.loadData(store.dispatch, match, query));
+      // if (match && route.loadData) {
+      if (match && route.component && route.component.loadData) {
+        console.log(route.component);
+        promises.push(route.component.loadData(store.dispatch, match, query));
       }
     });
 

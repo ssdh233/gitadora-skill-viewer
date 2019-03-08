@@ -1,4 +1,4 @@
-/node_modules/*
+node_modules
 /.env
 /src/public/js/bundle.js
 /src/public/js/bundle.js.gz
