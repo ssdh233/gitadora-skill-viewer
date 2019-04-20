@@ -96,7 +96,16 @@ class KasegiTable extends React.Component {
           Header: () => <FormattedMessage id="kasegi.compare" />,
           accessor: "compare",
           maxWidth: this.props.mediaQuery === "sp" ? 50 : 60,
-          textAlign: "center"
+          textAlign: "center",
+          sortMethod: (a, b, desc) => {
+            if (!b) return !desc ? -1 : 1;
+            if (!a) return !desc ? 1 : -1;
+            let aNum = Number(a.slice(0, a.length - 1));
+            if (a[a.length - 1] === "↓") aNum = -aNum;
+            let bNum = Number(b.slice(0, b.length - 1));
+            if (b[b.length - 1] === "↓") bNum = -bNum;
+            return aNum - bNum;
+          }
         }
       ].filter(x => x);
     } else {
