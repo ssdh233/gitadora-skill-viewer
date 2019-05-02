@@ -9,8 +9,8 @@
     "desc": "A web site which uses bookmarklet to fetch and store skill data from GITADORA official site, to share with other players.",
     "info": {
       "title": "Notice",
-      "content1": "Added popular song ranking pages, and added a new feature to allow a user to compare his own skill with these song rankings. Please try to click the link on skill table page^^",
-      "content2": "Add a new {uservoice} page in this site, feel free to leave some messages！"
+      "content1": "Add skill song ranking pages, and add a new feature to allow a user to compare his own skill sheet with these skill song rankings. Please give it a try :) (You can find the links on skill page)",
+      "content2": "Add a new {uservoice} page, feel free to leave some messages！"
     }
   },
   "how": {
@@ -18,7 +18,7 @@
     "upload": {
       "title": "Upload skill data",
       "step1": {
-        "desc": "1.Add below script to bookmark",
+        "desc": "1.Add the below script to bookmark",
         "remark": "※Some browsers（e.g. safari、chrome on mobile）don't provide the feature of creating a new bookmark. In that case you can add a bookmark for any site first, then edit it and replace the URL address with the below script.",
         "imgDesc1": "The bookmark name doesn't matter. Put whatever you like.",
         "imgDesc2": "Paste the script on the URL input"
@@ -26,21 +26,11 @@
       "step2": {
         "desc": "2.<b>Log in to GITADORA official site</b>, and click the added bookmark",
         "imgDesc1": "Make sure you are on Konami official site",
-        "imgDesc2": "After login, click the bookmark you just added"
+        "imgDesc2": "After login, click the bookmark which you just added"
       },
       "step3": {
-        "desc": "3.Wait for 5 to 10 seconds. It will jump to your skill page after finishing uploading. <b>Mark this URL so as to share your skill data with other players.</b>",
-        "imgDesc1": "This url can be accessed by anyone.<br /> Share it with others!"
-      }
-    },
-    "save": {
-      "title": "Save skill data(take snapshot)",
-      "step1": {
-        "desc": "1.Click the button <このスキル表を永久に保存したい!> on the left bottom, and click OK（Sorry it's Japanese(´・ω・｀) Please ignore it.）"
-      },
-      "step2": {
-        "desc": "2.After the skill data is saved, it is redirected to another page. <b>The skill data on this page will be kept permanently.</b>",
-        "imgDesc1": "The skill data on this url won't be overwritten."
+        "desc": "3.Wait for 5 to 10 seconds. It will jump to your skill page after finishing uploading. <b>Use this URL to share your skill data with others.</b>",
+        "imgDesc1": "This url is publicly accessible.<br /> Share it with others!"
       }
     }
   },
