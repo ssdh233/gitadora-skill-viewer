@@ -94,7 +94,7 @@ const skillColorStyles = `.lv0, .lv1 {
   -webkit-text-fill-color: transparent;
 }
 
-.lv17, .lv18 {
+.lv17, .lv18, .lv19, .lv20 {
   background-image: -webkit-gradient( linear, left top, right bottom, color-stop(0.1, #f22), color-stop(0.2, #f2f), color-stop(0.35, #22f), color-stop(0.5, #2ff), color-stop(0.65, #2f2), color-stop(0.8, #ff2) );
   color:transparent;
   -webkit-background-clip: text;
