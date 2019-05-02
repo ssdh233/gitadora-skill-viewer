@@ -99,6 +99,11 @@ const skillColorStyles = `.lv0, .lv1 {
   color:transparent;
   -webkit-background-clip: text;
   background-clip: text;
-}`;
+}
+
+.lv17 > a, .lv18 > a, .lv19 > a, .lv20 > a {
+  color: unset;
+} 
+`;
 
 export default skillColorStyles;
