@@ -91,39 +91,34 @@ function extractKasegiResult(gatheredKasegiResult) {
   return kasegiResult;
 }
 
-function kasegi({ version, type }) {
-  pg.connect(
-    process.env.DATABASE_URL,
-    (err, client, done) => {
-      const skill_table_name = SKILL_TABLE[version];
-      const sql = `select * from ${skill_table_name} order by id asc;`;
+async function kasegi({ version, type }) {
+  const skill_table_name = SKILL_TABLE[version];
+  const sql = `select * from ${skill_table_name} order by id asc;`;
 
-      client.query(sql, (err, result) => {
-        done();
+  const result = await pg.query(sql);
+  let gatheredKasegiResult = {};
+  result.rows.forEach(userData => {
+    try {
+      const skillData = JSON.parse(userData[`${type}_skill`]);
 
-        let gatheredKasegiResult = {};
-        result.rows.forEach(userData => {
-          try {
-            const skillData = JSON.parse(userData[`${type}_skill`]);
-
-            if (isValidSkillData(skillData)) {
-              gatheredKasegiResult = gatherKasegiResult({
-                skillData,
-                kasegiResult: gatheredKasegiResult
-              });
-            }
-          } catch (e) {
-            console.error(e);
-          }
+      if (isValidSkillData(skillData)) {
+        gatheredKasegiResult = gatherKasegiResult({
+          skillData,
+          kasegiResult: gatheredKasegiResult
         });
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  });
 
-        const kasegiResult = extractKasegiResult(gatheredKasegiResult);
-        Object.keys(kasegiResult).forEach(skillLevel => {
-          const result = kasegiResult[skillLevel];
+  const kasegiResult = extractKasegiResult(gatheredKasegiResult);
+  Object.keys(kasegiResult).forEach(async skillLevel => {
+    const result = kasegiResult[skillLevel];
 
-          const listHotString = JSON.stringify(result.hot);
-          const listOtherString = JSON.stringify(result.other);
-          const sql = `
+    const listHotString = JSON.stringify(result.hot);
+    const listOtherString = JSON.stringify(result.other);
+    const sql = `
             do $sql$
               begin
                 update kasegi set list_hot=$$${listHotString}$$, list_other=$$${listOtherString}$$ where version=$$${version}$$ and type=$$${type}$$ and scope=${skillLevel};
@@ -134,21 +129,11 @@ function kasegi({ version, type }) {
             $sql$
           `;
 
-          client.query(sql, (err, result) => {
-            done();
-
-            if (err) {
-              console.error(err);
-            } else {
-              console.log(
-                `Update kasegi data successfully for ${version} ${type} ${skillLevel} `
-              );
-            }
-          });
-        });
-      });
-    }
-  );
+    await pg.query(sql);
+    console.log(
+      `Update kasegi data successfully for ${version} ${type} ${skillLevel} `
+    );
+  });
 }
 
 module.exports = {
