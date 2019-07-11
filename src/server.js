@@ -24,6 +24,23 @@ import queryParser from "./modules/query";
 import App, { routes } from "./react/App.jsx";
 import reducer from "./react/reducer";
 
+const bundleFileName = readBundleFileNameFromManifest();
+
+function readBundleFileNameFromManifest() {
+  let bundleFileName;
+  try {
+    let stats = JSON.parse(
+      require("fs")
+        .readFileSync("./src/public/bundle/manifest.json")
+        .toString()
+    );
+    bundleFileName = stats["bundle.js"];
+  } catch (e) {
+    console.error("Failes to load stats file", e);
+  }
+  return bundleFileName;
+}
+
 const messages = {
   ja: flatten(jaMessages),
   zh: flatten(zhMessages),
@@ -94,7 +111,8 @@ const reactRoute = (req, res) => {
         content: renderedString,
         appString,
         preloadedState,
-        cssForMui
+        cssForMui,
+        bundleFileName
       });
     });
   }

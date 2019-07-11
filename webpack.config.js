@@ -1,7 +1,8 @@
 const path = require("path");
 const CompressionPlugin = require("compression-webpack-plugin");
+const ManifestPlugin = require("webpack-manifest-plugin");
 
-const PUBLIC_DIR = path.resolve(__dirname, "src/public/js");
+const BUNDLE_DIR = path.resolve(__dirname, "src/public/bundle");
 const SRC_DIR = path.resolve(__dirname, "src");
 
 var config = {
@@ -10,8 +11,8 @@ var config = {
     bundle: ["@babel/polyfill", `${SRC_DIR}/client.js`]
   },
   output: {
-    path: PUBLIC_DIR,
-    filename: "[name].js"
+    path: BUNDLE_DIR,
+    filename: "[name].[contenthash].js"
   },
   module: {
     rules: [
@@ -50,7 +51,8 @@ var config = {
       algorithm: "gzip",
       test: /\.js$|\.css$|\.html$/,
       threshold: 10240
-    })
+    }),
+    new ManifestPlugin()
   ]
 };
 
