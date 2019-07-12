@@ -1,4 +1,11 @@
-const pg = require("pg");
-pg.defaults.ssl = process.env.PG_SSL_ON || false;
+const { Pool } = require("pg");
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: process.env.PG_SSL_ON || false
+});
 
-module.exports = pg;
+module.exports = {
+  query: (text, params, callback) => {
+    return pool.query(text, params, callback);
+  }
+};
