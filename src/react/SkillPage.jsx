@@ -129,6 +129,7 @@ class SkillPage extends React.Component {
         </table>
         {skillData.hot.data && (
           <SkillTable
+            id="skill-table-hot"
             data={skillData.hot.data}
             type={type}
             caption={type === "g" ? "GUITAR HOT" : "DRUM HOT"}
@@ -137,6 +138,7 @@ class SkillPage extends React.Component {
         )}
         {skillData.other.data && (
           <SkillTable
+            id="skill-table-other"
             data={skillData.other.data}
             type={type}
             caption={type === "g" ? "GUITAR OTHER" : "DRUM OTHER"}

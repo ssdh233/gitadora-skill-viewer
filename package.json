@@ -8,7 +8,8 @@
   "scripts": {
     "heroku-postbuild": "./node_modules/.bin/webpack -p",
     "build": "./node_modules/.bin/webpack --mode=development --watch",
-    "eslint": "./node_modules/.bin/eslint ."
+    "eslint": "./node_modules/.bin/eslint .",
+    "cypress:open": "cypress open"
   },
   "author": "",
   "license": "ISC",
@@ -24,7 +25,7 @@
     "express": "^4.14.0",
     "flat": "^4.1.0",
     "isomorphic-fetch": "^2.2.1",
-    "pg": "^6.1.0",
+    "pg": "^7.11.0",
     "pug": "^2.0.0-beta5",
     "radium": "^0.25.0",
     "react": "^16.6.3",
@@ -54,6 +55,7 @@
     "babel-eslint": "^9.0.0",
     "babel-loader": "^8.0.4",
     "css-loader": "^1.0.0",
+    "cypress": "^3.4.0",
     "eslint": "^5.6.0",
     "eslint-config-prettier": "^3.0.1",
     "eslint-plugin-prettier": "^2.6.2",
@@ -62,11 +64,12 @@
     "node-sass": "^4.9.3",
     "nodemon": "^1.18.9",
     "prettier": "^1.14.3",
-    "prettier-eslint": "^8.8.2",
+    "prettier-eslint": "^9.0.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.0",
     "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^3.1.2",
+    "webpack-manifest-plugin": "^2.0.4"
   },
   "eslintConfig": {
     "extends": [

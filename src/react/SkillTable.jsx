@@ -21,15 +21,16 @@ class SkillTable extends React.Component {
     }
   };
 
-  getDiff = item => {
-    return this.props.type === "g"
+  getDiff = (item, type) => {
+    return type === "g"
       ? `${item.diff_value} ${item.diff}-${item.part}`
       : `${item.diff_value} ${item.diff}`;
   };
 
   render() {
+    const { data, caption, type, hasComparedSkill, ...rest } = this.props;
     return (
-      <table style={styles.skillTable.table}>
+      <table style={styles.skillTable.table} {...rest}>
         <caption>{this.props.caption}</caption>
         <thead>
           <tr>
@@ -37,11 +38,11 @@ class SkillTable extends React.Component {
             <th style={styles.skillTable.th}>レベル</th>
             <th style={styles.skillTable.th}>達成率</th>
             <th style={styles.skillTable.th}>スキル</th>
-            {this.props.hasComparedSkill && <th />}
+            {hasComparedSkill && <th />}
           </tr>
         </thead>
         <tbody>
-          {this.props.data.map(item => (
+          {data.map(item => (
             <tr
               key={item.name}
               style={{
@@ -70,12 +71,14 @@ class SkillTable extends React.Component {
               >
                 {item.name}
               </td>
-              <td style={{ ...styles.skillTable.td }}>{this.getDiff(item)}</td>
+              <td style={{ ...styles.skillTable.td }}>
+                {this.getDiff(item, type)}
+              </td>
               <td style={{ ...styles.skillTable.td }}>{`${
                 item.achive_value
               } (${this.getRank(item.achive_value)})`}</td>
               <td style={{ ...styles.skillTable.td }}>{item.skill_value}</td>
-              {this.props.hasComparedSkill && (
+              {hasComparedSkill && (
                 <td style={styles.skillTable.compareTd}>{item.compare}</td>
               )}
             </tr>
