@@ -104,6 +104,7 @@ class ListPage extends React.Component {
               ...styles.listPage,
               ...(this.props.isAdmin ? styles.userlistPage : {})
             }}
+            id="list-table"
           >
             <h1 style={styles.title}>{fullVersionName}</h1>
             <p>
