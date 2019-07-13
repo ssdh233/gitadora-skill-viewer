@@ -70,7 +70,7 @@ class KasegiPage extends React.Component {
             </h2>
           )}
           {kasegiData && kasegiData.hot && (
-            <div>
+            <div id="kasegi-hot-table">
               <div style={styles.caption}>{`${typeTitleShort} HOT`}</div>
               <KasegiTable
                 data={kasegiData.hot}
@@ -79,7 +79,7 @@ class KasegiPage extends React.Component {
             </div>
           )}
           {kasegiData && kasegiData.other && (
-            <div style={styles.notLastDiv}>
+            <div style={styles.notLastDiv} id="kasegi-other-table">
               <div style={styles.caption}>{`${typeTitleShort} OTHER`}</div>
               <KasegiTable
                 data={kasegiData.other}

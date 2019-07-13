@@ -79,6 +79,7 @@ class AppHeader extends React.Component {
           <Button
             onClick={this.handleMenuButtonClick("lang")}
             style={{ width: 109 }}
+            id="lang-button"
           >
             <Language />
             <span style={{ marginLeft: 5, whiteSpace: "nowrap" }}>
@@ -113,14 +114,17 @@ class AppHeader extends React.Component {
             to={`/${locale}`}
             style={{ textDecoration: "none", color: "black" }}
           >
-            <Button>
+            <Button id="home-button">
               <Home />
               <span style={{ marginLeft: 5 }}>
                 <FormattedMessage id="home" />
               </span>
             </Button>
           </Link>
-          <Button onClick={this.handleMenuButtonClick("kasegi")}>
+          <Button
+            id="kasegi-button"
+            onClick={this.handleMenuButtonClick("kasegi")}
+          >
             <AttachMoney />
             <span style={{ marginLeft: 5 }}>
               <FormattedMessage id="kasegiSong" />
@@ -187,13 +191,14 @@ class AppHeader extends React.Component {
               })}
             </List>
           </Popover>
-          <Button onClick={this.handleMenuButtonClick("list")}>
+          <Button id="list-button" onClick={this.handleMenuButtonClick("list")}>
             <FormatListBulleted />
             <span style={{ marginLeft: 5 }}>
               <FormattedMessage id="list" />
             </span>
           </Button>
           <Popover
+            id="list-popover"
             open={Boolean(this.state.listAnchorEl)}
             anchorEl={this.state.listAnchorEl}
             anchorOrigin={{
