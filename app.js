@@ -12,7 +12,6 @@ const reactRoute = require("./src/server").default;
 app.use(compression());
 
 app.use(express.static("src/public", { maxAge: 31536000000 }));
-app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "/src/views"));
 
 app.use(function(req, res, next) {

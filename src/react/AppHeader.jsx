@@ -57,7 +57,7 @@ class AppHeader extends React.Component {
 
     return (
       <div style={styles.appHeader}>
-        <Helmet>
+        <Helmet htmlAttributes={{ lang: locale }}>
           <meta charSet="utf-8" />
           <link
             rel="canonical"
@@ -80,6 +80,7 @@ class AppHeader extends React.Component {
             onClick={this.handleMenuButtonClick("lang")}
             style={{ width: 109 }}
             id="lang-button"
+            aria-haspopup={true}
           >
             <Language />
             <span style={{ marginLeft: 5, whiteSpace: "nowrap" }}>
@@ -109,12 +110,12 @@ class AppHeader extends React.Component {
           </Popover>
         </div>
 
-        <div style={styles.secondLine}>
+        <navi style={styles.secondLine}>
           <Link
             to={`/${locale}`}
             style={{ textDecoration: "none", color: "black" }}
           >
-            <Button id="home-button">
+            <Button id="home-button" aria-haspopup={true}>
               <Home />
               <span style={{ marginLeft: 5 }}>
                 <FormattedMessage id="home" />
@@ -124,6 +125,7 @@ class AppHeader extends React.Component {
           <Button
             id="kasegi-button"
             onClick={this.handleMenuButtonClick("kasegi")}
+            aria-haspopup={true}
           >
             <AttachMoney />
             <span style={{ marginLeft: 5 }}>
@@ -191,7 +193,11 @@ class AppHeader extends React.Component {
               })}
             </List>
           </Popover>
-          <Button id="list-button" onClick={this.handleMenuButtonClick("list")}>
+          <Button
+            id="list-button"
+            aria-haspopup={true}
+            onClick={this.handleMenuButtonClick("list")}
+          >
             <FormatListBulleted />
             <span style={{ marginLeft: 5 }}>
               <FormattedMessage id="list" />
@@ -222,7 +228,7 @@ class AppHeader extends React.Component {
               </Link>
             </MenuList>
           </Popover>
-        </div>
+        </navi>
       </div>
     );
   }

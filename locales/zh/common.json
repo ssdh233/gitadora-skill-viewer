@@ -36,8 +36,8 @@
   },
   "desc": {
     "title": "一些说明",
-    "1st": "1.上传skill data之后，旧的skill data会被<b>覆盖</b>，所以如果想保存以前的skill data的话，请使用<b>保存skill data（snapshot）</b>",
-    "2nd": "2.有一定程度的知识的话，<b>完全可以篡改skill data</b>。所以没有办法保证在这个网站上的data都是真实的，也没有办法保证上传过的data不被别人篡改（除非使用了保存skill data功能）",
+    "1st": "1.上传skill data之后，旧的skill data会被<strong>覆盖</strong>，所以如果想保存以前的skill data的话，请使用<b>保存skill data（snapshot）</b>",
+    "2nd": "2.有一定程度的知识的话，<strong>完全可以篡改skill data</strong>。所以没有办法保证在这个网站上的data都是真实的，也没有办法保证上传过的data不被别人篡改（除非使用了保存skill data功能）",
     "3rd": "3.这个网站和之前大家常用的skill simulator不同，没有手动更改skill的功能。"
   },
   "other": {
