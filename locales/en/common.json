@@ -36,7 +36,7 @@
   },
   "desc": {
     "title": "Readme",
-    "1st": "1.Uploading skill data will <b>overwrite</b> old data. Please use <b>Save skill data（take snapshot）</b> function if you want to save your old skill data",
+    "1st": "1.Uploading skill data will <strong>overwrite</strong> old data. Please use <b>Save skill data（take snapshot）</b> function if you want to save your old skill data",
     "2nd": "2.It's not hard to upload faked skill data to gsv.fun if someone wants. So gsv.fun can not guarantee the authenticity of skill data here, and also it can not guarantee that your uploaded skill data won't be falsified by others, unless you saved your data.",
     "3rd": "3.Different with the commonly used skill simulator, on this web site a user can not change his uploaded skill data."
   },

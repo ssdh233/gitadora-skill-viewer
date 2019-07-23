@@ -20,6 +20,7 @@ import jaMessages from "../locales/ja/common.json";
 import zhMessages from "../locales/zh/common.json";
 import enMessages from "../locales/en/common.json";
 
+import htmlTemplate from "./views/htmlTemplate";
 import queryParser from "./modules/query";
 import App, { routes } from "./react/App.jsx";
 import reducer from "./react/reducer";
@@ -105,7 +106,7 @@ const reactRoute = (req, res) => {
       // for mui components
       const cssForMui = sheetsRegistry.toString();
 
-      res.render("react", {
+      const html = htmlTemplate({
         googleSiteVerfication: process.env.GOOGLE_SITE_VERIFICATION,
         helmet,
         content: renderedString,
@@ -114,6 +115,8 @@ const reactRoute = (req, res) => {
         cssForMui,
         bundleFileName
       });
+      // console.log(html);
+      res.send(html);
     });
   }
 };
