@@ -95,6 +95,7 @@ class AppHeader extends React.Component {
               vertical: "bottom"
             }}
             onClose={this.handleMenuClose("lang")}
+            onClick={this.handleMenuClose("lang")}
           >
             <MenuList>
               <a href={`/en${url.substring(3)}${search}`}>
@@ -140,6 +141,7 @@ class AppHeader extends React.Component {
               vertical: "bottom"
             }}
             onClose={this.handleMenuClose("kasegi")}
+            onClick={this.handleMenuClose("kasegi")}
             PaperProps={{
               style: {
                 display: "flex"
@@ -212,6 +214,7 @@ class AppHeader extends React.Component {
               vertical: "bottom"
             }}
             onClose={this.handleMenuClose("list")}
+            onClick={this.handleMenuClose("list")}
           >
             <MenuList>
               <Link to={`/${locale}/exchain/list`}>
