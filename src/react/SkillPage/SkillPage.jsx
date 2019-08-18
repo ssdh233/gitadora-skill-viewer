@@ -1,5 +1,5 @@
 import React from "react";
-import Radium from "radium";
+import styled from "styled-components";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { FormattedMessage, injectIntl } from "react-intl";
@@ -72,7 +72,7 @@ class SkillPage extends React.Component {
     );
 
     return (
-      <div style={styles.skillPage}>
+      <SkillPageDiv>
         <Helmet>
           <title>{`${title} | ${fullVersionName}`}</title>
           <meta name="twitter:card" content="summary" />
@@ -85,7 +85,7 @@ class SkillPage extends React.Component {
           />
           <style>{stringStyles}</style>
         </Helmet>
-        <div style={styles.version}>{fullVersionName}</div>
+        <VersionDiv>{fullVersionName}</VersionDiv>
         {!this.props.saved && (
           <div style={{ margin: "3px 0" }}>
             {type === "g" && (
@@ -102,32 +102,32 @@ class SkillPage extends React.Component {
             )}
           </div>
         )}
-        <table style={styles.profileTable.table}>
+        <ProfileTable>
           <thead>
             <tr>
-              <th style={styles.profileTable.th}>NAME</th>
-              <th style={styles.profileTable.th}>SKILL</th>
-              <th style={styles.profileTable.th}>HOT</th>
-              <th style={styles.profileTable.th}>OTHER</th>
+              <ProfileTableTh>NAME</ProfileTableTh>
+              <ProfileTableTh>SKILL</ProfileTableTh>
+              <ProfileTableTh>HOT</ProfileTableTh>
+              <ProfileTableTh>OTHER</ProfileTableTh>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td style={styles.profileTable.td} className={`lv${level}`}>
+              <ProfileTableTd className={`lv${level}`}>
                 {playerName}
-              </td>
-              <td style={styles.profileTable.td} className={`lv${level}`}>
+              </ProfileTableTd>
+              <ProfileTableTd className={`lv${level}`}>
                 {skillPoint}
-              </td>
-              <td style={styles.profileTable.td} className={`lv${level}`}>
+              </ProfileTableTd>
+              <ProfileTableTd className={`lv${level}`}>
                 {skillData.hot.point}
-              </td>
-              <td style={styles.profileTable.td} className={`lv${level}`}>
+              </ProfileTableTd>
+              <ProfileTableTd className={`lv${level}`}>
                 {skillData.other.point}
-              </td>
+              </ProfileTableTd>
             </tr>
           </tbody>
-        </table>
+        </ProfileTable>
         {skillData.hot.data && (
           <SkillTable
             id="skill-table-hot"
@@ -146,22 +146,12 @@ class SkillPage extends React.Component {
             hasComparedSkill={this.props.hasComparedSkill}
           />
         )}
-        <div
-          style={{
-            maxWidth: 700,
-            display: "flex",
-            justifyContent: "space-between",
-
-            "@media (max-width: 742px)": {
-              maxWidth: 500
-            }
-          }}
-        >
+        <BottomDiv>
           <span>Updated at {updateDate}</span>
           <Link to={`/${locale}`}>
             <FormattedMessage id="skill.aboutGsv" />
           </Link>
-        </div>
+        </BottomDiv>
         {this.props.saved ? (
           <div>
             <Link to={`/${locale}/${version}/${playerId}/${type}`}>
@@ -199,23 +189,22 @@ class SkillPage extends React.Component {
                 <FormattedMessage id="skill.saveSkill" />
               </Button>
               {this.props.skillSavedList && (
-                <table style={styles.savedListTable.table}>
+                <SavedListTable>
                   <caption style={{ color: "black" }}>
                     <FormattedMessage id="skill.savedList" />
                   </caption>
                   <thead>
                     <tr>
-                      <th style={styles.savedListTable.th}>No.</th>
-                      <th style={styles.savedListTable.th}>SKILL</th>
-                      <th style={styles.savedListTable.th}>DATE</th>
-                      <th style={styles.savedListTable.th} />
+                      <SavedListTableTh>No.</SavedListTableTh>
+                      <SavedListTableTh>SKILL</SavedListTableTh>
+                      <SavedListTableTh>DATE</SavedListTableTh>
+                      <SavedListTableTh />
                     </tr>
                   </thead>
                   <tbody>
                     {this.props.skillSavedList.map((savedItem, index) => (
                       <tr key={savedItem.updateDate}>
-                        <td
-                          style={styles.savedListTable.td}
+                        <SavedListTableTd
                           className={`lv${parseInt(
                             savedItem.skillPoint / 500
                           )}`}
@@ -223,9 +212,8 @@ class SkillPage extends React.Component {
                           <Link to={`/${locale}/${version}/${savedItem.id}/p`}>
                             {index + 1}
                           </Link>
-                        </td>
-                        <td
-                          style={styles.savedListTable.td}
+                        </SavedListTableTd>
+                        <SavedListTableTd
                           className={`lv${parseInt(
                             savedItem.skillPoint / 500
                           )}`}
@@ -233,9 +221,8 @@ class SkillPage extends React.Component {
                           <Link to={`/${locale}/${version}/${savedItem.id}/p`}>
                             {savedItem.skillPoint}
                           </Link>
-                        </td>
-                        <td
-                          style={styles.savedListTable.td}
+                        </SavedListTableTd>
+                        <SavedListTableTd
                           className={`lv${parseInt(
                             savedItem.skillPoint / 500
                           )}`}
@@ -243,81 +230,92 @@ class SkillPage extends React.Component {
                           <Link to={`/${locale}/${version}/${savedItem.id}/p`}>
                             {savedItem.updateDate}
                           </Link>
-                        </td>
-                        <td style={styles.savedListTable.td}>
+                        </SavedListTableTd>
+                        <SavedListTableTd>
                           <Link to={`?c=${savedItem.id}`}>
                             <CompareArrows
                               style={{ fontSize: 16, color: "white" }}
                             />
                           </Link>
-                        </td>
+                        </SavedListTableTd>
                       </tr>
                     ))}
                   </tbody>
-                </table>
+                </SavedListTable>
               )}
             </div>
           </>
         )}
-      </div>
+      </SkillPageDiv>
     );
   }
 }
 
-const styles = {
-  skillPage: {
-    fontSize: 14,
+const SkillPageDiv = styled.div`
+  font-size: 14px;
 
-    "@media (max-width: 742px)": {
-      fontSize: 12
-    }
-  },
-  version: {
-    fontFamily: "Andada",
-    fontWeight: "bold",
-    fontSize: 17,
-
-    "@media (max-width: 742px)": {
-      fontSize: 15
-    }
-  },
-  profileTable: {
-    table: {
-      backgroundColor: "#000000",
-      color: "white",
-      margin: "10px 0"
-    },
-    th: {
-      backgroundColor: "#333333",
-      padding: "2px 10px 2px 10px",
-      fontWeight: "normal",
-      textAlign: "left"
-    },
-    td: {
-      padding: "2px 10px 2px 10px"
-    }
-  },
-  savedListTable: {
-    table: {
-      backgroundColor: "#000000",
-      color: "white",
-      marginBottom: 10,
-      fontSize: 12
-    },
-    th: {
-      backgroundColor: "#333333",
-      textAlign: "left",
-      fontWeight: "normal",
-      lineHeight: "20px",
-      padding: 2
-    },
-    td: {
-      lineHeight: "20px",
-      padding: 2
-    }
+  @media (max-width: 742px) : {
+    font-size: 12px;
   }
-};
+`;
+
+const VersionDiv = styled.div`
+  font-family: Andada;
+  font-weight: bold;
+  font-size: 17px;
+
+  @media (max-width: 742px) : {
+    font-size: 15px;
+  }
+`;
+
+const ProfileTable = styled.table`
+  background-color: #000000;
+  color: white;
+  margin: 10px 0;
+`;
+
+const ProfileTableTh = styled.th`
+  background-color: #333333;
+  padding: 2px 10px 2px 10px;
+  font-weight: normal;
+  text-align: left;
+`;
+
+const ProfileTableTd = styled.td`
+  padding: 2px 10px 2px 10px;
+`;
+
+const SavedListTable = styled.table`
+  background-color: #000000;
+  color: white;
+  margin-bottom: 10px;
+  font-size: 12px;
+`;
+
+const SavedListTableTh = styled.th`
+  background-color: #333333;
+  text-align: left;
+  font-weight: normal;
+  line-height: 20px;
+  padding: 2px;
+`;
+
+const SavedListTableTd = styled.th`
+  line-height: 20px;
+  padding: 2px;
+`;
+
+const BottomDiv = styled.div`
+  max-width: 700px;
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 742px) : {
+    max-width: 500px;
+  }
+`;
 
 const stringStyles = skillColorStyles;
 
-export default injectIntl(Radium(SkillPage));
+export default injectIntl(SkillPage);

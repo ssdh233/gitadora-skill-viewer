@@ -1,5 +1,5 @@
 import React from "react";
-import Radium from "radium";
+import styled from "styled-components";
 
 class SlideToggle extends React.Component {
   static defaultProps = {
@@ -13,15 +13,14 @@ class SlideToggle extends React.Component {
   };
 
   render() {
-    const commonTitleProps = {
-      style: styles[`level${this.props.level}`].title,
-      onClick: this._toggleDiv
-    };
+    const SlideToggleDiv = styled.div`
+      margin-bottom: 5px;
+    `;
 
     return (
-      <div style={styles[`level${this.props.level}`].div}>
+      <SlideToggleDiv>
         {this.props.level === 1 && (
-          <h3 {...commonTitleProps}>{this.props.title}</h3>
+          <Title onClick={this._toggleDiv}>{this.props.title}</Title>
         )}
         <div
           ref="toggle-div"
@@ -29,36 +28,25 @@ class SlideToggle extends React.Component {
         >
           {this.props.children}
         </div>
-      </div>
+      </SlideToggleDiv>
     );
   }
 }
 
-const titleCommonStyle = {
-  fontWeight: "normal",
-  margin: 0,
-  color: "#ffffff",
-  backgroundColor: "#333333"
-};
+const Title = styled.h3`
+font-size: 19px;
+height: 35px;
+line-height: 35px,
+font-weight: normal;
+margin: 0;
+color: #ffffff;
+background-color: #333333;
 
-const styles = {
-  level1: {
-    div: {
-      marginBottom: "5px"
-    },
-    title: {
-      fontSize: 19,
-      height: 35,
-      lineHeight: "35px",
-      ...titleCommonStyle,
+@media (max-width: 742px): {
+  height: 30px;
+  line-height: 30px;
+  font-size: 16px;
+}
+`;
 
-      "@media (max-width: 742px)": {
-        height: 30,
-        lineHeight: "30px",
-        fontSize: 16
-      }
-    }
-  }
-};
-
-export default Radium(SlideToggle);
+export default SlideToggle;

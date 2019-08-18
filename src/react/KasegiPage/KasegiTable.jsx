@@ -1,5 +1,4 @@
 import React from "react";
-import Radium from "radium";
 import ReactTable from "react-table";
 import { FormattedMessage } from "react-intl";
 import { Helmet } from "react-helmet";
@@ -150,4 +149,4 @@ const stringStyles = `
 }
 `;
 
-export default withMediaQuery(Radium(KasegiTable));
+export default withMediaQuery(KasegiTable);

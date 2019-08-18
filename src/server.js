@@ -17,6 +17,7 @@ import { HttpLink } from "apollo-link-http";
 import { ApolloClient } from "apollo-client";
 import { getDataFromTree } from "@apollo/react-ssr";
 import fetch from "node-fetch";
+import { ServerStyleSheet } from "styled-components";
 
 import jaMessages from "../locales/ja/common.json";
 import zhMessages from "../locales/zh/common.json";
@@ -70,8 +71,9 @@ const reactRoute = (req, res) => {
         fetch
       })
     });
+    const sheet = new ServerStyleSheet();
 
-    const Temp = (
+    const Temp = sheet.collectStyles(
       <ApolloProvider client={client}>
         <IntlProvider locale={locale} messages={messages[locale]}>
           <StaticRouter location={req.url} context={{}}>
@@ -91,6 +93,9 @@ const reactRoute = (req, res) => {
     getDataFromTree(Temp).then(() => {
       const renderedString = renderToString(Temp);
 
+      // for styled component
+      const styleTags = sheet.getStyleTags(); // or sheet.getStyleElement();
+
       // for i18n
       const appString = JSON.stringify({
         locale,
@@ -108,7 +113,8 @@ const reactRoute = (req, res) => {
         appString,
         cssForMui,
         bundleFileName,
-        client
+        client,
+        styleTags
       });
       res.send(html);
     });

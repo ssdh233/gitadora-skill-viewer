@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { FormattedMessage, FormattedHTMLMessage, injectIntl } from "react-intl";
-import Radium from "radium";
 import LazyLoad from "react-lazyload";
 import Snackbar from "@material-ui/core/Snackbar";
 import Button from "@material-ui/core/Button";
@@ -276,4 +275,4 @@ const styles = {
   }
 };
 
-export default injectIntl(Radium(Index));
+export default injectIntl(Index);

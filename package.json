@@ -36,7 +36,6 @@
     "node-fetch": "^2.6.0",
     "pg": "^7.11.0",
     "pug": "^2.0.0-beta5",
-    "radium": "^0.25.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.0",
@@ -46,6 +45,7 @@
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-table": "^6.8.6",
+    "styled-components": "^4.3.2",
     "url-search-params": "^1.1.0",
     "xml-js": "^1.6.8"
   },
