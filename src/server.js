@@ -4,10 +4,6 @@ import { StaticRouter } from "react-router";
 import { IntlProvider } from "react-intl";
 import flatten from "flat";
 import { Helmet } from "react-helmet";
-import { matchPath } from "react-router-dom";
-import { Provider } from "react-redux";
-import { createStore } from "redux";
-import serialize from "serialize-javascript";
 import { SheetsRegistry } from "jss";
 import JssProvider from "react-jss/lib/JssProvider";
 import {
@@ -15,15 +11,19 @@ import {
   createMuiTheme,
   createGenerateClassName
 } from "@material-ui/core/styles";
+import { ApolloProvider } from "@apollo/react-common";
+import { InMemoryCache } from "apollo-cache-inmemory";
+import { HttpLink } from "apollo-link-http";
+import { ApolloClient } from "apollo-client";
+import { getDataFromTree } from "@apollo/react-ssr";
+import fetch from "node-fetch";
 
 import jaMessages from "../locales/ja/common.json";
 import zhMessages from "../locales/zh/common.json";
 import enMessages from "../locales/en/common.json";
 
 import htmlTemplate from "./views/htmlTemplate";
-import queryParser from "./modules/query";
-import App, { routes } from "./react/App.jsx";
-import reducer from "./react/reducer";
+import App from "./react/App.jsx";
 
 const bundleFileName = readBundleFileNameFromManifest();
 
@@ -56,51 +56,46 @@ const reactRoute = (req, res) => {
     const locale = req.params.locale;
     res.cookie("locale", locale);
 
-    const store = createStore(reducer);
+    // for mui components
+    const sheetsRegistry = new SheetsRegistry();
+    const sheetsManager = new Map();
+    const generateClassName = createGenerateClassName();
+    const theme = createMuiTheme({});
 
-    const promises = [];
-    routes.some(route => {
-      const match = matchPath(req.path, route);
-      const query = queryParser(req.url);
-
-      if (match && route.loadData) {
-        promises.push(route.loadData(store.dispatch, match, query));
-      }
+    const client = new ApolloClient({
+      ssrMode: true,
+      cache: new InMemoryCache(),
+      link: new HttpLink({
+        uri: `${process.env.APP_URL}/graphql`,
+        fetch
+      })
     });
 
-    Promise.all(promises).then(() => {
-      // server side rendering
+    const Temp = (
+      <ApolloProvider client={client}>
+        <IntlProvider locale={locale} messages={messages[locale]}>
+          <StaticRouter location={req.url} context={{}}>
+            <JssProvider
+              registry={sheetsRegistry}
+              generateClassName={generateClassName}
+            >
+              <MuiThemeProvider theme={theme} sheetsManager={sheetsManager}>
+                <App radiumConfig={{ userAgent: req.headers["user-agent"] }} />
+              </MuiThemeProvider>
+            </JssProvider>
+          </StaticRouter>
+        </IntlProvider>
+      </ApolloProvider>
+    );
 
-      // for mui components
-      const sheetsRegistry = new SheetsRegistry();
-      const sheetsManager = new Map();
-      const generateClassName = createGenerateClassName();
-      const theme = createMuiTheme({});
-
-      // for passing redux preloaded store
-      const preloadedState = serialize(store.getState());
-
-      const renderedString = renderToString(
-        <Provider store={store}>
-          <IntlProvider locale={locale} messages={messages[locale]}>
-            <StaticRouter location={req.url} context={{}}>
-              <JssProvider
-                registry={sheetsRegistry}
-                generateClassName={generateClassName}
-              >
-                <MuiThemeProvider theme={theme} sheetsManager={sheetsManager}>
-                  <App
-                    radiumConfig={{ userAgent: req.headers["user-agent"] }}
-                  />
-                </MuiThemeProvider>
-              </JssProvider>
-            </StaticRouter>
-          </IntlProvider>
-        </Provider>
-      );
+    getDataFromTree(Temp).then(() => {
+      const renderedString = renderToString(Temp);
 
       // for i18n
-      const appString = JSON.stringify({ locale, messages: messages[locale] });
+      const appString = JSON.stringify({
+        locale,
+        messages: messages[locale]
+      });
       // for SEO
       const helmet = Helmet.renderStatic();
       // for mui components
@@ -111,11 +106,10 @@ const reactRoute = (req, res) => {
         helmet,
         content: renderedString,
         appString,
-        preloadedState,
         cssForMui,
-        bundleFileName
+        bundleFileName,
+        client
       });
-      // console.log(html);
       res.send(html);
     });
   }

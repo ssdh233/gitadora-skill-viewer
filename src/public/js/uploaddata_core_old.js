@@ -134,7 +134,7 @@ function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
               diff_value: diff_value
             });
             skill_point += parseFloat(skill_value);
-          } catch (error) {
+          } catch (TypeError) {
             // when the form is not fully filled, ignore error
             break;
           }
@@ -147,37 +147,47 @@ function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
       },
       complete: function() {
         if (count === 4) {
+          var data = {
+            version: VERSION,
+            card_number: profile_data["card_number"],
+            player_name: profile_data["player_name"],
+            guitar: {
+              hot: skill_data["guitar_hot"],
+              other: skill_data["guitar_other"]
+            },
+            drum: {
+              hot: skill_data["drum_hot"],
+              other: skill_data["drum_other"]
+            },
+            update_date: getDate()
+          };
+
           $.ajax({
-            url: `${SCRIPT_DOMAIN}/graphql`,
+            url: `${SCRIPT_DOMAIN}/${VERSION}/upload`,
             method: "POST",
-            contentType: "application/json",
-            data: JSON.stringify({
-              query: `
-                mutation Upload($version: Version, $data: UserInput) {
-                  upload(version: $version, data: $data)
-                }
-              `,
-              variables: {
-                version: VERSION,
-                data: {
-                  cardNumber: profile_data["card_number"],
-                  playerName: profile_data["player_name"],
-                  guitarSkill: {
-                    hot: skill_data["guitar_hot"],
-                    other: skill_data["guitar_other"]
-                  },
-                  drumSkill: {
-                    hot: skill_data["drum_hot"],
-                    other: skill_data["drum_other"]
-                  },
-                  updateDate: getDate()
-                }
+            data: {
+              version: VERSION,
+              card_number: profile_data["card_number"],
+              player_name: profile_data["player_name"],
+              guitar: {
+                hot: skill_data["guitar_hot"],
+                other: skill_data["guitar_other"]
+              },
+              drum: {
+                hot: skill_data["drum_hot"],
+                other: skill_data["drum_other"]
+              },
+              update_date: getDate()
+            },
+            error: handleAjaxError,
+            success: function(data) {
+              if (data.status === 0) {
+                location = `${TARGET_DOMAIN}/${VERSION}/${
+                  data.message
+                }/g?setLocalStorage=${data.message}`;
+              } else {
+                alert(data.message);
               }
-            }),
-            success: function(res) {
-              location = `${TARGET_DOMAIN}/${VERSION}/${
-                res.data.upload
-              }/g?setLocalStorage=${res.data.upload}`;
             }
           });
         }

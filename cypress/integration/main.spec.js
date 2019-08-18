@@ -1,5 +1,5 @@
-const SITE_URL = "http://gitadora-skill-viewer-dev.herokuapp.com/ja";
-// const SITE_URL = "http://localhost:5000";
+// const SITE_URL = "http://gitadora-skill-viewer-dev.herokuapp.com/ja";
+const SITE_URL = "http://localhost:5000/ja";
 
 describe("Smoke test", function() {
   it("Visits home page", function() {

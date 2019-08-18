@@ -3,12 +3,11 @@ import Radium from "radium";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { FormattedMessage, injectIntl } from "react-intl";
-import LinearProgress from "@material-ui/core/LinearProgress";
 import Button from "@material-ui/core/Button";
 import CompareArrows from "@material-ui/icons/CompareArrows";
 
-import { VERSION_NAME } from "../constants.js";
-import skillColorStyles from "./styles/skillColor.js";
+import { VERSION_NAME } from "../../constants.js";
+import skillColorStyles from "../styles/skillColor.js";
 import SkillTable from "./SkillTable.jsx";
 
 class SkillPage extends React.Component {
@@ -33,13 +32,13 @@ class SkillPage extends React.Component {
 
   render() {
     if (!this.props.skillData) {
-      return <LinearProgress />;
+      return null;
     }
 
-    const { locale, ver, id } = this.props.match.params;
+    const { locale, version, id } = this.props.match.params;
     const {
       skillData,
-      skillName,
+      playerName,
       updateDate,
       playerId,
       skillPointDiff
@@ -49,12 +48,14 @@ class SkillPage extends React.Component {
       ? this.props.skillData.type
       : this.props.match.params.type;
 
+    if (!skillData) return null;
+
     const skillPoint = (
       Number(skillData.hot.point) + Number(skillData.other.point)
     ).toFixed(2);
     const level = parseInt(skillPoint / 500);
 
-    const fullVersionName = VERSION_NAME[ver];
+    const fullVersionName = VERSION_NAME[version];
 
     const {
       intl: { formatMessage }
@@ -65,7 +66,7 @@ class SkillPage extends React.Component {
         id: "skill.title"
       },
       {
-        name: skillName,
+        name: playerName,
         type: type === "g" ? "Guitarfreaks" : "Drummania"
       }
     );
@@ -90,12 +91,12 @@ class SkillPage extends React.Component {
             {type === "g" && (
               <>
                 <span>GuitarFreaks/</span>
-                <Link to={`/${locale}/${ver}/${id}/d`}>Drummania</Link>
+                <Link to={`/${locale}/${version}/${id}/d`}>Drummania</Link>
               </>
             )}
             {type === "d" && (
               <>
-                <Link to={`/${locale}/${ver}/${id}/g`}>GuitarFreaks</Link>
+                <Link to={`/${locale}/${version}/${id}/g`}>GuitarFreaks</Link>
                 <span>/Drummania</span>
               </>
             )}
@@ -113,7 +114,7 @@ class SkillPage extends React.Component {
           <tbody>
             <tr>
               <td style={styles.profileTable.td} className={`lv${level}`}>
-                {skillName}
+                {playerName}
               </td>
               <td style={styles.profileTable.td} className={`lv${level}`}>
                 {skillPoint}
@@ -163,10 +164,10 @@ class SkillPage extends React.Component {
         </div>
         {this.props.saved ? (
           <div>
-            <Link to={`/${locale}/${ver}/${playerId}/${type}`}>
+            <Link to={`/${locale}/${version}/${playerId}/${type}`}>
               <FormattedMessage
                 id="skill.latestSkill"
-                values={{ name: skillName }}
+                values={{ name: playerName }}
               />
             </Link>
           </div>
@@ -178,7 +179,7 @@ class SkillPage extends React.Component {
                 .map(scope => (
                   <div key={scope}>
                     <Link
-                      to={`/${locale}/${ver}/kasegi/${type}/${scope}?c=${id}`}
+                      to={`/${locale}/${version}/kasegi/${type}/${scope}?c=${id}`}
                     >
                       <FormattedMessage
                         id="skill.compareWithKasegi"
@@ -212,29 +213,35 @@ class SkillPage extends React.Component {
                   </thead>
                   <tbody>
                     {this.props.skillSavedList.map((savedItem, index) => (
-                      <tr key={savedItem.update_date}>
+                      <tr key={savedItem.updateDate}>
                         <td
                           style={styles.savedListTable.td}
-                          className={`lv${parseInt(savedItem.skill / 500)}`}
+                          className={`lv${parseInt(
+                            savedItem.skillPoint / 500
+                          )}`}
                         >
-                          <Link to={`/${locale}/${ver}/${savedItem.id}/p`}>
+                          <Link to={`/${locale}/${version}/${savedItem.id}/p`}>
                             {index + 1}
                           </Link>
                         </td>
                         <td
                           style={styles.savedListTable.td}
-                          className={`lv${parseInt(savedItem.skill / 500)}`}
+                          className={`lv${parseInt(
+                            savedItem.skillPoint / 500
+                          )}`}
                         >
-                          <Link to={`/${locale}/${ver}/${savedItem.id}/p`}>
-                            {savedItem.skill}
+                          <Link to={`/${locale}/${version}/${savedItem.id}/p`}>
+                            {savedItem.skillPoint}
                           </Link>
                         </td>
                         <td
                           style={styles.savedListTable.td}
-                          className={`lv${parseInt(savedItem.skill / 500)}`}
+                          className={`lv${parseInt(
+                            savedItem.skillPoint / 500
+                          )}`}
                         >
-                          <Link to={`/${locale}/${ver}/${savedItem.id}/p`}>
-                            {savedItem.update_date}
+                          <Link to={`/${locale}/${version}/${savedItem.id}/p`}>
+                            {savedItem.updateDate}
                           </Link>
                         </td>
                         <td style={styles.savedListTable.td}>
