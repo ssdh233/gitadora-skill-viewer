@@ -6,6 +6,8 @@ import Radium from "radium";
 import LazyLoad from "react-lazyload";
 import Snackbar from "@material-ui/core/Snackbar";
 import Button from "@material-ui/core/Button";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
 
 import SlideToggle from "./SlideToggle.jsx";
 
@@ -18,7 +20,8 @@ class Index extends React.Component {
       langAnchorEl: null,
       snackbarOpen: false,
       gsvId: null,
-      gsvName: ""
+      gsvName: "",
+      versionSelectValue: "matixx"
     };
   }
 
@@ -33,18 +36,6 @@ class Index extends React.Component {
       });
     }
   }
-
-  handleMenuButtonClick = id => event => {
-    this.setState({
-      [`${id}AnchorEl`]: event.currentTarget
-    });
-  };
-
-  handleMenuClose = id => () => {
-    this.setState({
-      [`${id}AnchorEl`]: null
-    });
-  };
 
   handleSnackbarClose = () => {
     this.setState({
@@ -128,17 +119,38 @@ class Index extends React.Component {
           <p style={{ fontSize: 14 }}>
             {<FormattedMessage id="how.upload.step1.remark" />}
           </p>
-          <p> For GITADORA EXCHAIN </p>
+          <div>
+            <FormattedMessage id="how.upload.step1.currentVersion" />
+            <span style={{ fontSize: 14, marginLeft: 20 }}>
+              <FormattedMessage id="how.upload.step1.currentVersionDesc" />
+            </span>
+          </div>
+
           <div style={styles.script}>
             {
-              "javascript:void(!function(d){var s=d.createElement('script');s.type='text/javascript';s.src='//gitadora-skill-viewer.herokuapp.com/js/uploaddata_exchain.js';d.head.appendChild(s);}(document));"
+              "javascript:void(!function(d){var s=d.createElement('script');s.type='text/javascript';s.src='//gitadora-skill-viewer.herokuapp.com/js/uploaddata_latest.js';d.head.appendChild(s);}(document));"
             }
           </div>
-          <p> For GITADORA Matixx </p>
+
+          <div>
+            <FormattedMessage id="how.upload.step1.oldVersion" />
+            <Select
+              inputProps={{ name: "version" }}
+              style={{ marginLeft: 10 }}
+              value={this.state.versionSelectValue}
+              onChange={event => {
+                this.setState({ versionSelectValue: event.target.value });
+              }}
+            >
+              <MenuItem value="matixx">Matixx</MenuItem>
+              <MenuItem value="tbre">Tri-Boost Re:EVOLVE</MenuItem>
+            </Select>
+          </div>
+
           <div style={styles.script}>
-            {
-              "javascript:void(!function(d){var s=d.createElement('script');s.type='text/javascript';s.src='//gitadora-skill-viewer.herokuapp.com/js/uploaddata_matixx.js';d.head.appendChild(s);}(document));"
-            }
+            {`javascript:void(!function(d){var s=d.createElement('script');s.type='text/javascript';s.src='//gitadora-skill-viewer.herokuapp.com/js/uploaddata_${
+              this.state.versionSelectValue
+            }.js';d.head.appendChild(s);}(document));`}
           </div>
           <LazyLoad height={532}>
             <div
@@ -246,7 +258,8 @@ const styles = {
     padding: 20,
     borderRadius: 6,
     fontSize: "80%",
-    wordBreak: "break-all"
+    wordBreak: "break-all",
+    marginBottom: 20
   },
   imageContainer: {
     position: "relative",
