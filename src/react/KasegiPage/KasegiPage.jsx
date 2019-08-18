@@ -1,5 +1,4 @@
 import React from "react";
-import Radium from "radium";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { injectIntl, FormattedMessage } from "react-intl";
@@ -113,4 +112,4 @@ const styles = {
   }
 };
 
-export default injectIntl(Radium(KasegiPage));
+export default injectIntl(KasegiPage);

@@ -86,9 +86,6 @@ export default function SkillPageContainer(props) {
     fetchPolicy: "network-only" // TODO
   });
 
-  if (loading) return <LinearProgress />;
-  if (error) return <p>ERROR: {error.toString()}</p>;
-
   useEffect(() => {
     const gsvId = query.setLocalStorage;
 
@@ -98,6 +95,9 @@ export default function SkillPageContainer(props) {
       window.history.pushState("", "", window.location.href.split("?")[0]);
     }
   }, []);
+
+  if (loading) return <LinearProgress />;
+  if (error) return <p>ERROR: {error.toString()}</p>;
 
   return (
     <SkillPage

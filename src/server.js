@@ -4,19 +4,14 @@ import { StaticRouter } from "react-router";
 import { IntlProvider } from "react-intl";
 import flatten from "flat";
 import { Helmet } from "react-helmet";
-import { SheetsRegistry } from "jss";
-import JssProvider from "react-jss/lib/JssProvider";
-import {
-  MuiThemeProvider,
-  createMuiTheme,
-  createGenerateClassName
-} from "@material-ui/core/styles";
+import { ServerStyleSheets as MuiServerStyleSheets } from "@material-ui/styles";
 import { ApolloProvider } from "@apollo/react-common";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { HttpLink } from "apollo-link-http";
 import { ApolloClient } from "apollo-client";
 import { getDataFromTree } from "@apollo/react-ssr";
 import fetch from "node-fetch";
+import { ServerStyleSheet } from "styled-components";
 
 import jaMessages from "../locales/ja/common.json";
 import zhMessages from "../locales/zh/common.json";
@@ -57,11 +52,6 @@ const reactRoute = (req, res) => {
     res.cookie("locale", locale);
 
     // for mui components
-    const sheetsRegistry = new SheetsRegistry();
-    const sheetsManager = new Map();
-    const generateClassName = createGenerateClassName();
-    const theme = createMuiTheme({});
-
     const client = new ApolloClient({
       ssrMode: true,
       cache: new InMemoryCache(),
@@ -70,26 +60,27 @@ const reactRoute = (req, res) => {
         fetch
       })
     });
+    const sheet = new ServerStyleSheet();
+    const muiSheet = new MuiServerStyleSheets();
 
-    const Temp = (
-      <ApolloProvider client={client}>
-        <IntlProvider locale={locale} messages={messages[locale]}>
-          <StaticRouter location={req.url} context={{}}>
-            <JssProvider
-              registry={sheetsRegistry}
-              generateClassName={generateClassName}
-            >
-              <MuiThemeProvider theme={theme} sheetsManager={sheetsManager}>
-                <App radiumConfig={{ userAgent: req.headers["user-agent"] }} />
-              </MuiThemeProvider>
-            </JssProvider>
-          </StaticRouter>
-        </IntlProvider>
-      </ApolloProvider>
+    let Temp = sheet.collectStyles(
+      muiSheet.collect(
+        <ApolloProvider client={client}>
+          <IntlProvider locale={locale} messages={messages[locale]}>
+            <StaticRouter location={req.url} context={{}}>
+              <App radiumConfig={{ userAgent: req.headers["user-agent"] }} />
+            </StaticRouter>
+          </IntlProvider>
+        </ApolloProvider>
+      )
     );
 
     getDataFromTree(Temp).then(() => {
       const renderedString = renderToString(Temp);
+
+      // for styled component
+      const styleTags = sheet.getStyleTags(); // or sheet.getStyleElement();
+      const cssForMui = muiSheet.toString();
 
       // for i18n
       const appString = JSON.stringify({
@@ -98,17 +89,16 @@ const reactRoute = (req, res) => {
       });
       // for SEO
       const helmet = Helmet.renderStatic();
-      // for mui components
-      const cssForMui = sheetsRegistry.toString();
 
       const html = htmlTemplate({
         googleSiteVerfication: process.env.GOOGLE_SITE_VERIFICATION,
         helmet,
         content: renderedString,
         appString,
-        cssForMui,
         bundleFileName,
-        client
+        client,
+        styleTags,
+        cssForMui
       });
       res.send(html);
     });

@@ -1,6 +1,8 @@
 import React from "react";
+import styled from "styled-components";
 import { Switch, Route, withRouter } from "react-router-dom";
-import Radium, { StyleRoot } from "radium";
+import { ThemeProvider } from "@material-ui/styles";
+import { createMuiTheme } from "@material-ui/core/styles";
 
 import Index from "./Index.jsx";
 import AppHeader from "./AppHeader.jsx";
@@ -37,8 +39,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <StyleRoot>
-        <div style={styles.globalStyle}>
+      <ThemeProvider theme={createMuiTheme()}>
+        <AppDiv>
           <Switch>
             <MyRoute exact path="/:locale" component={Index} />
             <MyRoute
@@ -68,23 +70,21 @@ class App extends React.Component {
               component={SkillPageContainer}
             />
           </Switch>
-        </div>
-      </StyleRoot>
+        </AppDiv>
+      </ThemeProvider>
     );
   }
 }
 
-const styles = {
-  globalStyle: {
-    fontFamily: "verdana",
-    fontSize: 16,
-    maxWidth: 1200,
-    margin: "auto",
+const AppDiv = styled.div`
+  font-family: verdana;
+  font-size: 16px;
+  max-width: 1200px;
+  margin: auto;
 
-    "@media (max-width: 742px)": {
-      fontSize: 14
-    }
+  @media (max-width: 742px) {
+    font-size: 14px;
   }
-};
+`;
 
-export default Radium(withRouter(App));
+export default withRouter(App);

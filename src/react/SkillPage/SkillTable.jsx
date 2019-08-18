@@ -1,5 +1,5 @@
 import React from "react";
-import Radium from "radium";
+import styled from "styled-components";
 
 class SkillTable extends React.Component {
   getRank = value => {
@@ -29,109 +29,99 @@ class SkillTable extends React.Component {
 
   render() {
     const { data, caption, type, hasComparedSkill, ...rest } = this.props;
+
     return (
-      <table style={styles.skillTable.table} {...rest}>
+      <SkillTableRoot {...rest}>
         <caption>{this.props.caption}</caption>
         <thead>
           <tr>
-            <th style={styles.skillTable.th}>曲名</th>
-            <th style={styles.skillTable.th}>レベル</th>
-            <th style={styles.skillTable.th}>達成率</th>
-            <th style={styles.skillTable.th}>スキル</th>
-            {hasComparedSkill && <th />}
+            <SkillTableTh>曲名</SkillTableTh>
+            <SkillTableTh>レベル</SkillTableTh>
+            <SkillTableTh>達成率</SkillTableTh>
+            <SkillTableTh>スキル</SkillTableTh>
+            {hasComparedSkill && <SkillTableTh />}
           </tr>
         </thead>
         <tbody>
           {data.map(item => (
-            <tr
-              key={item.name}
-              style={{
-                ...styles.skillTable.tr,
-                backgroundColor: {
-                  BAS: "#C7E7FF",
-                  ADV: "#FFFFC7",
-                  EXT: "#FFC7C7",
-                  MAS: "#D8BFF8"
-                }[item.diff]
-              }}
-            >
-              <td
-                style={{
-                  ...styles.skillTable.td,
-                  width: "100%",
-                  maxWidth: 400,
-                  textAlign: "left",
-                  whiteSpace: "normal",
-                  padding: "0 2px",
-
-                  "@media (max-width: 742px)": {
-                    maxWidth: 300
-                  }
-                }}
-              >
-                {item.name}
-              </td>
-              <td style={{ ...styles.skillTable.td }}>
-                {this.getDiff(item, type)}
-              </td>
-              <td style={{ ...styles.skillTable.td }}>{`${
+            <SkillTableTr key={item.name} diff={item.diff}>
+              <SkillTableNameTd>{item.name}</SkillTableNameTd>
+              <SkillTableTd>{this.getDiff(item, type)}</SkillTableTd>
+              <SkillTableTd>{`${item.achive_value} (${this.getRank(
                 item.achive_value
-              } (${this.getRank(item.achive_value)})`}</td>
-              <td style={{ ...styles.skillTable.td }}>
-                {item.skill_value.toFixed(2)}
-              </td>
+              )})`}</SkillTableTd>
+              <SkillTableTd>{item.skill_value.toFixed(2)}</SkillTableTd>
               {hasComparedSkill && (
-                <td style={styles.skillTable.compareTd}>{item.compare}</td>
+                <SkillTableCompareTd>{item.compare}</SkillTableCompareTd>
               )}
-            </tr>
+            </SkillTableTr>
           ))}
         </tbody>
-      </table>
+      </SkillTableRoot>
     );
   }
 }
 
-const styles = {
-  skillTable: {
-    table: {
-      backgroundColor: "#FFFFFF",
-      fontSize: 14,
-      marginTop: 10,
-      maxWidth: 700,
+const SkillTableRoot = styled.table`
+  background-color: #ffffff;
+  font-size: 14px;
+  margin-top: 10px;
+  max-width: 700px;
 
-      "@media (max-width: 742px)": {
-        maxWidth: 500,
-        fontSize: 10
-      }
-    },
-    th: {
-      backgroundColor: "#5882FA"
-    },
-    tr: {
-      height: 24,
-
-      "@media (max-width: 742px)": {
-        height: 18
-      }
-    },
-    td: {
-      textAlign: "center",
-      padding: "0 10px",
-      whiteSpace: "nowrap",
-
-      "@media (max-width: 742px)": {
-        padding: "0 5px"
-      }
-    },
-    compareTd: {
-      backgroundColor: "white",
-      fontSize: 12,
-
-      "@media (max-width: 742px)": {
-        fontSize: 10
-      }
-    }
+  @media (max-width: 742px) {
+    max-width: 500px;
+    font-size: 10px;
   }
-};
+`;
 
-export default Radium(SkillTable);
+const SkillTableTh = styled.th`
+  background-color: #5882fa;
+`;
+
+const SkillTableTr = styled.tr`
+  height: 24px;
+  background-color: ${({ diff }) =>
+    ({
+      BAS: "#C7E7FF",
+      ADV: "#FFFFC7",
+      EXT: "#FFC7C7",
+      MAS: "#D8BFF8"
+    }[diff])};
+
+  @media (max-width: 742px) {
+    height: 18px;
+  }
+`;
+
+const SkillTableTd = styled.td`
+  text-align: center;
+  padding: 0 10px;
+  white-space: nowrap;
+
+  @media (max-width: 742px) {
+    padding: 0 5px;
+  }
+`;
+
+const SkillTableNameTd = styled(SkillTableTd)`
+  width: 100%;
+  max-width: 400px;
+  text-align: left;
+  white-space: normal;
+  padding: 0 2px;
+
+  @media (max-width: 742px) {
+    max-width: 300px;
+  }
+`;
+
+const SkillTableCompareTd = styled(SkillTableTd)`
+  background-color: white;
+  font-size: 12px;
+
+  @media (max-width: 742px) {
+    font-size: 10px;
+  }
+`;
+
+export default SkillTable;

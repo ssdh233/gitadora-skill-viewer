@@ -5,12 +5,6 @@ import { IntlProvider, addLocaleData } from "react-intl";
 import enLocale from "react-intl/locale-data/en";
 import jaLocale from "react-intl/locale-data/ja";
 import zhLocale from "react-intl/locale-data/zh";
-import JssProvider from "react-jss/lib/JssProvider";
-import {
-  MuiThemeProvider,
-  createMuiTheme,
-  createGenerateClassName
-} from "@material-ui/core/styles";
 import { ApolloProvider } from "@apollo/react-hooks";
 import { ApolloClient } from "apollo-client";
 import { InMemoryCache } from "apollo-cache-inmemory";
@@ -22,9 +16,6 @@ import App from "./react/App.jsx";
 addLocaleData([...enLocale, ...jaLocale, ...zhLocale]);
 
 const { locale, messages } = JSON.parse(window.App);
-
-const generateClassName = createGenerateClassName();
-const theme = createMuiTheme({});
 
 const link = new HttpLink({
   uri: "/graphql"
@@ -40,11 +31,7 @@ hydrate(
   <ApolloProvider client={client}>
     <IntlProvider locale={locale} messages={messages}>
       <BrowserRouter>
-        <JssProvider generateClassName={generateClassName}>
-          <MuiThemeProvider theme={theme}>
-            <App />
-          </MuiThemeProvider>
-        </JssProvider>
+        <App />
       </BrowserRouter>
     </IntlProvider>
   </ApolloProvider>,

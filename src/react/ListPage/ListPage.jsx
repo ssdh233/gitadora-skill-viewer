@@ -1,5 +1,5 @@
 import React from "react";
-import Radium from "radium";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { injectIntl, FormattedMessage } from "react-intl";
@@ -11,8 +11,12 @@ import withMediaQuery from "../withMediaQuery";
 
 class ListPage extends React.Component {
   getLevel = skill => Math.floor(skill / 500);
-
-  getTrProps = () => ({ style: styles.commonTrStyle });
+  getTrProps = () => ({
+    style: {
+      backgroundColor: "#000000",
+      color: "#FFFFFF"
+    }
+  });
   getTdProps = (state, rowInfo, column) => {
     let className;
     let style;
@@ -108,17 +112,16 @@ class ListPage extends React.Component {
             <p>
               Tips: <FormattedMessage id="listPage.tips" />
             </p>
-            <ReactTable
-              data={data}
-              columns={columns}
-              style={{
-                fontSize: this.props.mediaQuery === "sp" ? 12 : 14
-              }}
-              defaultPageSize={100}
-              pageSizeOptions={[5, 100, 200, 500, 1000]}
-              getTrProps={this.getTrProps}
-              getTdProps={this.getTdProps}
-            />
+            <TableDiv>
+              <ReactTable
+                data={data}
+                columns={columns}
+                defaultPageSize={100}
+                pageSizeOptions={[5, 100, 200, 500, 1000]}
+                getTrProps={this.getTrProps}
+                getTdProps={this.getTdProps}
+              />
+            </TableDiv>
           </div>
         )}
       </>
@@ -143,6 +146,14 @@ const styles = {
   }
 };
 
+const TableDiv = styled.div`
+  font-size: 14px;
+
+  @media (max-width: 742px) {
+    font-size: 12px;
+  }
+`;
+
 const stringStyles = skillColorStyles;
 
-export default withMediaQuery(injectIntl(Radium(ListPage)));
+export default withMediaQuery(injectIntl(ListPage));
