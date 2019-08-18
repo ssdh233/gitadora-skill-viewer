@@ -5,9 +5,8 @@ import { FormattedMessage, FormattedHTMLMessage, injectIntl } from "react-intl";
 import LazyLoad from "react-lazyload";
 import Snackbar from "@material-ui/core/Snackbar";
 import Button from "@material-ui/core/Button";
-import Select from "@material-ui/core/Select";
-import MenuItem from "@material-ui/core/MenuItem";
 
+import BookmarkletScript from "./BookmarkletScript.jsx";
 import SlideToggle from "./SlideToggle.jsx";
 
 class Index extends React.Component {
@@ -19,8 +18,7 @@ class Index extends React.Component {
       langAnchorEl: null,
       snackbarOpen: false,
       gsvId: null,
-      gsvName: "",
-      versionSelectValue: "matixx"
+      gsvName: ""
     };
   }
 
@@ -124,33 +122,7 @@ class Index extends React.Component {
               <FormattedMessage id="how.upload.step1.currentVersionDesc" />
             </span>
           </div>
-
-          <div style={styles.script}>
-            {
-              "javascript:void(!function(d){var s=d.createElement('script');s.type='text/javascript';s.src='//gitadora-skill-viewer.herokuapp.com/js/uploaddata_latest.js';d.head.appendChild(s);}(document));"
-            }
-          </div>
-
-          <div>
-            <FormattedMessage id="how.upload.step1.oldVersion" />
-            <Select
-              inputProps={{ name: "version" }}
-              style={{ marginLeft: 10 }}
-              value={this.state.versionSelectValue}
-              onChange={event => {
-                this.setState({ versionSelectValue: event.target.value });
-              }}
-            >
-              <MenuItem value="matixx">Matixx</MenuItem>
-              <MenuItem value="tbre">Tri-Boost Re:EVOLVE</MenuItem>
-            </Select>
-          </div>
-
-          <div style={styles.script}>
-            {`javascript:void(!function(d){var s=d.createElement('script');s.type='text/javascript';s.src='//gitadora-skill-viewer.herokuapp.com/js/uploaddata_${
-              this.state.versionSelectValue
-            }.js';d.head.appendChild(s);}(document));`}
-          </div>
+          <BookmarkletScript />
           <LazyLoad height={532}>
             <div
               style={{
@@ -251,14 +223,6 @@ class Index extends React.Component {
 const styles = {
   indexPage: {
     width: "100%"
-  },
-  script: {
-    background: "#f6f6f6",
-    padding: 20,
-    borderRadius: 6,
-    fontSize: "80%",
-    wordBreak: "break-all",
-    marginBottom: 20
   },
   imageContainer: {
     position: "relative",
