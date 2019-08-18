@@ -4,9 +4,9 @@ const htmlTemplate = ({
   appString,
   bundleFileName,
   googleSiteVerfication,
-  cssForMui,
   client,
-  styleTags
+  styleTags,
+  cssForMui
 }) => {
   return `
 <!doctype html>
@@ -18,16 +18,16 @@ const htmlTemplate = ({
     ${helmet.meta.toString()}
     ${helmet.link.toString()}
     ${helmet.style.toString()}
-    ${styleTags}
     <link rel="preload" href="/bundle/${bundleFileName}" as="script" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="google-site-verification" content="${googleSiteVerfication}" />
     <script type='text/javascript' src="http://cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js" defer></script>
     <script type='text/javascript' src="/js/google_analytics.js" defer></script>
+    <style id="jss-server-side">${cssForMui}</style>
+    ${styleTags}
   </head>
   <body>
     <div id="app">${content}</div>
-    <style id="jss-server-side">${cssForMui}</style>
     <script>
       window.App=\`${appString}\`;
       window.__APOLLO_STATE__ = ${JSON.stringify(client.extract())};

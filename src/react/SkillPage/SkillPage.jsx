@@ -254,7 +254,7 @@ class SkillPage extends React.Component {
 const SkillPageDiv = styled.div`
   font-size: 14px;
 
-  @media (max-width: 742px) : {
+  @media (max-width: 742px) {
     font-size: 12px;
   }
 `;
@@ -264,7 +264,7 @@ const VersionDiv = styled.div`
   font-weight: bold;
   font-size: 17px;
 
-  @media (max-width: 742px) : {
+  @media (max-width: 742px) {
     font-size: 15px;
   }
 `;
@@ -311,7 +311,7 @@ const BottomDiv = styled.div`
   display: flex;
   justify-content: space-between;
 
-  @media (max-width: 742px) : {
+  @media (max-width: 742px) {
     max-width: 500px;
   }
 `;

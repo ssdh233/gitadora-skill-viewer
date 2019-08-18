@@ -68,7 +68,7 @@ const SkillTableRoot = styled.table`
   margin-top: 10px;
   max-width: 700px;
 
-  @media (max-width: 742px) : {
+  @media (max-width: 742px) {
     max-width: 500px;
     font-size: 10px;
   }
@@ -88,7 +88,7 @@ const SkillTableTr = styled.tr`
       MAS: "#D8BFF8"
     }[diff])};
 
-  @media (max-width: 742px) : {
+  @media (max-width: 742px) {
     height: 18px;
   }
 `;
@@ -98,7 +98,7 @@ const SkillTableTd = styled.td`
   padding: 0 10px;
   white-space: nowrap;
 
-  @media (max-width: 742px) : {
+  @media (max-width: 742px) {
     padding: 0 5px;
   }
 `;
@@ -110,7 +110,7 @@ const SkillTableNameTd = styled(SkillTableTd)`
   white-space: normal;
   padding: 0 2px;
 
-  @media (max-width: 742px) : {
+  @media (max-width: 742px) {
     max-width: 300px;
   }
 `;
@@ -119,7 +119,7 @@ const SkillTableCompareTd = styled(SkillTableTd)`
   background-color: white;
   font-size: 12px;
 
-  @media (max-width: 742px) : {
+  @media (max-width: 742px) {
     font-size: 10px;
   }
 `;

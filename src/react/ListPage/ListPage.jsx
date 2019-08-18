@@ -149,7 +149,7 @@ const styles = {
 const TableDiv = styled.div`
   font-size: 14px;
 
-  @media (max-width: 742px) : {
+  @media (max-width: 742px) {
     font-size: 12px;
   }
 `;

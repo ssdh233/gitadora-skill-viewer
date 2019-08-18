@@ -255,7 +255,7 @@ const Title = styled.h1`
   font-weight: bold;
   margin: 0;
 
-  @media (max-width: 742px) : {
+  @media (max-width: 742px) {
     width: "100%";
     font-size: 24px;
   }
