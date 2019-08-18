@@ -4,11 +4,10 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { injectIntl, FormattedMessage } from "react-intl";
 import ReactTable from "react-table";
-import LinearProgress from "@material-ui/core/LinearProgress";
 
-import { VERSION_NAME } from "../constants.js";
-import skillColorStyles from "./styles/skillColor.js";
-import withMediaQuery from "./withMediaQuery";
+import { VERSION_NAME } from "../../constants.js";
+import skillColorStyles from "../styles/skillColor.js";
+import withMediaQuery from "../withMediaQuery";
 
 class ListPage extends React.Component {
   getLevel = skill => Math.floor(skill / 500);
@@ -19,8 +18,8 @@ class ListPage extends React.Component {
     let style;
     if (rowInfo) {
       switch (column.id) {
-        case "guitar_skill":
-        case "drum_skill":
+        case "guitarSkill":
+        case "drumSkill":
           style = { textAlign: "center" };
           break;
         default:
@@ -31,9 +30,9 @@ class ListPage extends React.Component {
   };
 
   render() {
-    const { locale, ver } = this.props.match.params;
+    const { locale, version } = this.props.match.params;
 
-    const fullVersionName = VERSION_NAME[ver];
+    const fullVersionName = VERSION_NAME[version];
 
     let columns = [
       {
@@ -41,38 +40,38 @@ class ListPage extends React.Component {
         accessor: "id",
         maxWidth: this.props.mediaQuery === "sp" ? 40 : 48
       },
-      { Header: "Name", accessor: "player_name", minWidth: 164 },
+      { Header: "Name", accessor: "playerName", minWidth: 164 },
       {
         Header: "Guitar",
-        accessor: "guitar_skill",
+        accessor: "guitarSkill",
         maxWidth: this.props.mediaQuery === "sp" ? 70 : 90,
         sortMethod: (a, b) => Number(a) - Number(b),
         Cell: ({ row }) => (
           <Link
-            to={`/${locale}/${ver}/${row.id}/g`}
-            className={`lv${this.getLevel(row.guitar_skill)}`}
+            to={`/${locale}/${version}/${row.id}/g`}
+            className={`lv${this.getLevel(row.guitarSkill)}`}
           >
-            {row.guitar_skill}
+            {row.guitarSkill}
           </Link>
         )
       },
       {
         Header: "Drum",
-        accessor: "drum_skill",
+        accessor: "drumSkill",
         maxWidth: this.props.mediaQuery === "sp" ? 70 : 90,
         sortMethod: (a, b) => Number(a) - Number(b),
         Cell: ({ row }) => (
           <Link
-            to={`/${locale}/${ver}/${row.id}/d`}
-            className={`lv${this.getLevel(row.drum_skill)}`}
+            to={`/${locale}/${version}/${row.id}/d`}
+            className={`lv${this.getLevel(row.drumSkill)}`}
           >
-            {row.drum_skill}
+            {row.drumSkill}
           </Link>
         )
       },
       {
         Header: "Last Update",
-        accessor: "update_date",
+        accessor: "updateDate",
         width: 145
       }
     ];
@@ -80,7 +79,7 @@ class ListPage extends React.Component {
     if (this.props.isAdmin) {
       columns = [
         ...columns,
-        { Header: "Count", accessor: "update_count", minWidth: 30 }
+        { Header: "Count", accessor: "updateCount", minWidth: 30 }
       ];
     }
 
@@ -97,7 +96,6 @@ class ListPage extends React.Component {
           })} | ${fullVersionName} | Gitadora Skill Viewer`}</title>
           <style>{stringStyles}</style>
         </Helmet>
-        {!data && <LinearProgress />}
         {data && (
           <div
             style={{

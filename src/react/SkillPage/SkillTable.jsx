@@ -23,8 +23,8 @@ class SkillTable extends React.Component {
 
   getDiff = (item, type) => {
     return type === "g"
-      ? `${item.diff_value} ${item.diff}-${item.part}`
-      : `${item.diff_value} ${item.diff}`;
+      ? `${item.diff_value.toFixed(2)} ${item.diff}-${item.part}`
+      : `${item.diff_value.toFixed(2)} ${item.diff}`;
   };
 
   render() {
@@ -77,7 +77,9 @@ class SkillTable extends React.Component {
               <td style={{ ...styles.skillTable.td }}>{`${
                 item.achive_value
               } (${this.getRank(item.achive_value)})`}</td>
-              <td style={{ ...styles.skillTable.td }}>{item.skill_value}</td>
+              <td style={{ ...styles.skillTable.td }}>
+                {item.skill_value.toFixed(2)}
+              </td>
               {hasComparedSkill && (
                 <td style={styles.skillTable.compareTd}>{item.compare}</td>
               )}

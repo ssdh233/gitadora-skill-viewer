@@ -4,8 +4,8 @@ const htmlTemplate = ({
   appString,
   bundleFileName,
   googleSiteVerfication,
-  preloadedState,
-  cssForMui
+  cssForMui,
+  client
 }) => {
   return `
 <!doctype html>
@@ -28,9 +28,7 @@ const htmlTemplate = ({
     <style id="jss-server-side">${cssForMui}</style>
     <script>
       window.App=\`${appString}\`;
-      // WARNING: See the following for security issues around embedding JSON in HTML:
-      // http://redux.js.org/recipes/ServerRendering.html#security-considerations
-      window.__PRELOADED_STATE__=${preloadedState};
+      window.__APOLLO_STATE__ = ${JSON.stringify(client.extract())};
     </script>
     <script src="/bundle/${bundleFileName}" type="text/javascript"></script>
   </body>

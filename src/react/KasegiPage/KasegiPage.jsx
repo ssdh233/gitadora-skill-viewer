@@ -3,7 +3,6 @@ import Radium from "radium";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { injectIntl, FormattedMessage } from "react-intl";
-import LinearProgress from "@material-ui/core/LinearProgress";
 
 import KasegiTable from "./KasegiTable.jsx";
 
@@ -14,7 +13,7 @@ class KasegiPage extends React.Component {
       comparedSkillData,
       intl: { formatMessage },
       match: {
-        params: { locale, ver, type, scope },
+        params: { locale, version, type, scope },
         query: { c: comparedSkillId }
       }
     } = this.props;
@@ -48,7 +47,6 @@ class KasegiPage extends React.Component {
           />
           <title>{`${title} | Gitadora Skill Viewer`}</title>
         </Helmet>
-        {!kasegiData && <LinearProgress />}
         <div style={styles.kasegiPage}>
           <h1 style={styles.title}>{title}</h1>
           {comparedSkillData && (
@@ -58,10 +56,12 @@ class KasegiPage extends React.Component {
                 id="kasegi.compareTitle"
                 values={{
                   compareSkill: (
-                    <Link to={`/${locale}/${ver}/${comparedSkillId}/${type}`}>
+                    <Link
+                      to={`/${locale}/${version}/${comparedSkillId}/${type}`}
+                    >
                       <FormattedMessage
                         id="kasegi.compareSkill"
-                        values={{ name: comparedSkillData.skillName }}
+                        values={{ name: comparedSkillData.playerName }}
                       />
                     </Link>
                   )

@@ -4,7 +4,7 @@ import ReactTable from "react-table";
 import { FormattedMessage } from "react-intl";
 import { Helmet } from "react-helmet";
 
-import withMediaQuery from "./withMediaQuery";
+import withMediaQuery from "../withMediaQuery";
 
 class KasegiTable extends React.Component {
   constructor(props) {

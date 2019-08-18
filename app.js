@@ -6,8 +6,11 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const compression = require("compression");
 const CronJob = require("cron").CronJob;
+const { ApolloServer } = require("apollo-server-express");
 
 const reactRoute = require("./src/server").default;
+const typeDefs = require("./src/schema");
+const resolvers = require("./src/resolvers");
 
 app.use(compression());
 
@@ -26,14 +29,12 @@ app.use(function(req, res, next) {
 app.use(bodyParser());
 app.use(cookieParser());
 
-// for express endpoints.
-let route;
-fs.readdirSync("./src/controllers").forEach(function(file) {
-  if (file.substr(-3) == ".js") {
-    route = require(`./src/controllers/${file}`);
-    route.controller(app);
-  }
+// for graphql
+const server = new ApolloServer({
+  typeDefs,
+  resolvers
 });
+server.applyMiddleware({ app });
 
 // for react pages
 app.get("/:locale(en|ja|zh)", reactRoute);
