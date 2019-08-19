@@ -22,8 +22,8 @@ class ListPage extends React.Component {
     let style;
     if (rowInfo) {
       switch (column.id) {
-        case "guitarSkill":
-        case "drumSkill":
+        case "guitarSkillPoint":
+        case "drumSkillPoint":
           style = { textAlign: "center" };
           break;
         default:
@@ -41,35 +41,35 @@ class ListPage extends React.Component {
     let columns = [
       {
         Header: "ID",
-        accessor: "id",
+        accessor: "playerId",
         maxWidth: this.props.mediaQuery === "sp" ? 40 : 48
       },
       { Header: "Name", accessor: "playerName", minWidth: 164 },
       {
         Header: "Guitar",
-        accessor: "guitarSkill",
+        accessor: "guitarSkillPoint",
         maxWidth: this.props.mediaQuery === "sp" ? 70 : 90,
         sortMethod: (a, b) => Number(a) - Number(b),
         Cell: ({ row }) => (
           <Link
-            to={`/${locale}/${version}/${row.id}/g`}
-            className={`lv${this.getLevel(row.guitarSkill)}`}
+            to={`/${locale}/${version}/${row.playerId}/g`}
+            className={`lv${this.getLevel(row.guitarSkillPoint)}`}
           >
-            {row.guitarSkill}
+            {row.guitarSkillPoint.toFixed(2)}
           </Link>
         )
       },
       {
         Header: "Drum",
-        accessor: "drumSkill",
+        accessor: "drumSkillPoint",
         maxWidth: this.props.mediaQuery === "sp" ? 70 : 90,
         sortMethod: (a, b) => Number(a) - Number(b),
         Cell: ({ row }) => (
           <Link
-            to={`/${locale}/${version}/${row.id}/d`}
-            className={`lv${this.getLevel(row.drumSkill)}`}
+            to={`/${locale}/${version}/${row.playerId}/d`}
+            className={`lv${this.getLevel(row.drumSkillPoint)}`}
           >
-            {row.drumSkill}
+            {row.drumSkillPoint.toFixed(2)}
           </Link>
         )
       },

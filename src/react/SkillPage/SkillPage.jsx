@@ -209,7 +209,9 @@ class SkillPage extends React.Component {
                             savedItem.skillPoint / 500
                           )}`}
                         >
-                          <Link to={`/${locale}/${version}/${savedItem.id}/p`}>
+                          <Link
+                            to={`/${locale}/${version}/${savedItem.skillId}/p`}
+                          >
                             {index + 1}
                           </Link>
                         </SavedListTableTd>
@@ -218,7 +220,9 @@ class SkillPage extends React.Component {
                             savedItem.skillPoint / 500
                           )}`}
                         >
-                          <Link to={`/${locale}/${version}/${savedItem.id}/p`}>
+                          <Link
+                            to={`/${locale}/${version}/${savedItem.skillId}/p`}
+                          >
                             {savedItem.skillPoint}
                           </Link>
                         </SavedListTableTd>
@@ -227,12 +231,14 @@ class SkillPage extends React.Component {
                             savedItem.skillPoint / 500
                           )}`}
                         >
-                          <Link to={`/${locale}/${version}/${savedItem.id}/p`}>
+                          <Link
+                            to={`/${locale}/${version}/${savedItem.skillId}/p`}
+                          >
                             {savedItem.updateDate}
                           </Link>
                         </SavedListTableTd>
                         <SavedListTableTd>
-                          <Link to={`?c=${savedItem.id}`}>
+                          <Link to={`?c=${savedItem.skillId}`}>
                             <CompareArrows
                               style={{ fontSize: 16, color: "white" }}
                             />

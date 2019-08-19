@@ -39,7 +39,7 @@ class SkillTable extends React.Component {
             <SkillTableTh>レベル</SkillTableTh>
             <SkillTableTh>達成率</SkillTableTh>
             <SkillTableTh>スキル</SkillTableTh>
-            {hasComparedSkill && <SkillTableTh />}
+            {hasComparedSkill && <th />}
           </tr>
         </thead>
         <tbody>
@@ -116,6 +116,7 @@ const SkillTableNameTd = styled(SkillTableTd)`
 `;
 
 const SkillTableCompareTd = styled(SkillTableTd)`
+  text-align: left;
   background-color: white;
   font-size: 12px;
 

@@ -3,21 +3,21 @@
 #### skill
 ```sql
 CREATE TABLE skill(
-  playerId serial,
-  version varchar(50),
-  cardNumber varchar(16),
-  gitadoraId varchar(20),
-  playerName varchar(20),
-  guitarSkillPoint varchar(10),
-  drumSkillPoint varchar(10),
-  guitarSkill json,
-  drumSKill json,
-  updateDate varchar(20),
-  updateCount integer,
-  PRIMARY KEY (playerId, version)
+  "playerId" serial,
+  "version" varchar(50),
+  "cardNumber" varchar(16),
+  "gitadoraId" varchar(20),
+  "playerName" varchar(20),
+  "guitarSkillPoint" varchar(10),
+  "drumSkillPoint" varchar(10),
+  "guitarSkill" json,
+  "drumSkill" json,
+  "updateDate" varchar(20),
+  "updateCount" integer,
+  PRIMARY KEY ("playerId", "version")
 );
 
-INSERT INTO skill (playerId, version, cardNumber, playerName, guitarSkillPoint, drumSkillPoint, guitarSkill, drumSkill, updateDate, updateCount) (
+INSERT INTO skill ("playerId", "version", "cardNumber", "playerName", "guitarSkillPoint", "drumSkillPoint", "guitarSkill", "drumSkill", "updateDate", "updateCount") (
     SELECT
         id,
         'tb' AS version,
@@ -78,14 +78,15 @@ INSERT INTO skill (playerId, version, cardNumber, playerName, guitarSkillPoint, 
 #### skillp
 ```sql
 CREATE TABLE skillp(
-  skillId serial,
-  version varchar(50),
-  playerId serial,
-  type varchar(1),
-  skillPoint varchar(10),
-  skill json,
-  updateDate varchar(20),
-  PRIMARY KEY (skillId, version)
+  "skillId" serial,
+  "version" varchar(50),
+  "playerId" serial,
+  "playerName" varchar(20),
+  "type" varchar(1),
+  "skillPoint" varchar(10),
+  "skill" json,
+  "updateDate" varchar(20),
+  PRIMARY KEY ("skillId", "version")
 );
 
 INSERT INTO skillp
@@ -93,6 +94,7 @@ SELECT
     id,
     'tb' AS version,
     skill_id,
+    player_name,
     CASE TYPE
     WHEN 'drum' THEN
         'd'
@@ -109,6 +111,7 @@ SELECT
     id,
     'tbre' AS version,
     skill_id,
+    player_name,
     CASE TYPE
     WHEN 'drum' THEN
         'd'
@@ -125,6 +128,7 @@ SELECT
     id,
     'matixx' AS version,
     skill_id,
+    player_name,
     CASE TYPE
     WHEN 'drum' THEN
         'd'
@@ -141,6 +145,7 @@ SELECT
     id,
     'exchain' AS version,
     skill_id,
+    player_name,
     CASE TYPE
     WHEN 'drum' THEN
         'd'

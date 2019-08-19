@@ -22,7 +22,7 @@ const GET_SKILL = gql`
     }
   }
 
-  query User($id: String, $version: Version, $type: GameType) {
+  query SavedSkill($id: String, $version: Version, $type: GameType) {
     savedSkill(id: $id, type: $type, version: $version) {
       id
       playerId

@@ -6,38 +6,17 @@ import LinearProgress from "@material-ui/core/LinearProgress";
 import ListPage from "./ListPage.jsx";
 
 const GET_LISTS = gql`
-  fragment Point on SkillTable {
-    hot {
-      point
-    }
-    other {
-      point
-    }
-  }
-
   query UserList($version: Version) {
     users(version: $version) {
-      id
+      playerId
       playerName
       updateDate
       updateCount
-      drumSkill {
-        ...Point
-      }
-      guitarSkill {
-        ...Point
-      }
+      drumSkillPoint
+      guitarSkillPoint
     }
   }
 `;
-
-function sumSkillPoint(skill) {
-  let sum =
-    (skill.hot ? parseFloat(skill.hot.point) : 0) +
-    (skill.other ? parseFloat(skill.other.point) : 0);
-
-  return sum.toFixed(2);
-}
 
 export default function ListPageContainer(props) {
   const { data, loading, error } = useQuery(GET_LISTS, {
@@ -50,11 +29,7 @@ export default function ListPageContainer(props) {
 
   return (
     <ListPage
-      data={data.users.map(user => ({
-        ...user,
-        drumSkill: sumSkillPoint(user.drumSkill),
-        guitarSkill: sumSkillPoint(user.guitarSkill)
-      }))}
+      data={data.users}
       version="tb"
       version_full="GITADORA Tri-Boost"
       match={props.match}

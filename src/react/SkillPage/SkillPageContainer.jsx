@@ -25,14 +25,14 @@ const GET_SKILL = gql`
   }
 
   query User(
-    $id: String
-    $version: Version
-    $type: GameType
-    $savedSkillId: String
+    $playerId: Int = 1
+    $version: Version = tbre
+    $type: GameType = g
+    $savedSkillId: Int = 3
   ) {
-    user(id: $id, version: $version) {
-      vesion
-      id
+    user(playerId: $playerId, version: $version) {
+      version
+      playerId
       playerName
       updateDate
       updateCount
@@ -54,18 +54,16 @@ const GET_SKILL = gql`
       }
     }
 
-    savedSkills(id: $id, type: $type, version: $version) {
-      id
-      playerId
+    savedSkills(playerId: $playerId, type: $type, version: $version) {
+      skillId
       playerName
       updateDate
-      type
       skillPoint
     }
 
-    savedSkill(id: $savedSkillId, type: $type, version: $version) {
-      id
-      skillData {
+    savedSkill(skillId: $savedSkillId, type: $type, version: $version) {
+      skillId
+      skill {
         hot {
           ...HalfSkillTable
         }
@@ -82,7 +80,7 @@ export default function SkillPageContainer(props) {
   const query = queryParser(props.location.search);
 
   const { data, loading, error } = useQuery(GET_SKILL, {
-    variables: { id, version, type, savedSkillId: query.c },
+    variables: { id, version, type, savedSkillId: parseInt(query.c) },
     fetchPolicy: "network-only" // TODO
   });
 
@@ -119,7 +117,7 @@ function getSkillData(skillData, skillComparedSkill, type) {
     };
   } else {
     const result = type === "d" ? skillData.drumSkill : skillData.guitarSkill;
-    const old = skillComparedSkill.skillData;
+    const old = skillComparedSkill.skill;
 
     result.hot = compareSkillHalf(result.hot, old.hot);
     result.other = compareSkillHalf(result.other, old.other);

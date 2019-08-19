@@ -3,10 +3,10 @@ const { gql } = require("apollo-server-express");
 const typeDefs = gql`
   type Query {
     users(version: Version): [User]
-    user(id: String, type: GameType, version: Version): User
+    user(playerId: Int, type: GameType, version: Version): User
     kasegi(scope: Int, type: GameType, version: Version): Kasegi
-    savedSkill(id: String, type: GameType, version: Version): SavedSkill
-    savedSkills(id: String, type: GameType, version: Version): [SavedSkill]
+    savedSkill(skillId: Int, type: GameType, version: Version): SavedSkill
+    savedSkills(playerId: Int, type: GameType, version: Version): [SavedSkill]
   }
 
   type Mutation {
@@ -25,52 +25,27 @@ const typeDefs = gql`
     tb
   }
 
-  input UserInput {
-    cardNumber: String
-    playerName: String
-    updateDate: String
-    drumSkill: SkillTableInput
-    guitarSkill: SkillTableInput
-  }
-
-  input SkillTableInput {
-    hot: HalfSkillTableInput
-    other: HalfSkillTableInput
-  }
-
-  input HalfSkillTableInput {
-    point: String
-    data: [SkillRecordInput]
-  }
-
-  input SkillRecordInput {
-    name: String
-    part: String
-    diff: String
-    skill_value: String
-    achive_value: String
-    diff_value: String
-  }
-
   type User {
-    vesion: String
-    id: String
+    version: String
+    playerId: Int
     playerName: String
     updateDate: String
     updateCount: Float
+    drumSkillPoint: Float
+    guitarSkillPoint: Float
     drumSkill: SkillTable
     guitarSkill: SkillTable
     savedSkills: [SavedSkill]
   }
 
   type SavedSkill {
-    id: String
-    playerId: String
+    skillId: Int
+    playerId: Int
     playerName: String
     updateDate: String
     type: String
-    skillPoint: String
-    skillData: SkillTable
+    skillPoint: Float
+    skill: SkillTable
   }
 
   type SkillTable {
@@ -108,6 +83,33 @@ const typeDefs = gql`
     averageSkill: Float
     count: Int
     averagePlayerSKill: Float
+  }
+
+  input UserInput {
+    cardNumber: String
+    playerName: String
+    updateDate: String
+    drumSkill: SkillTableInput
+    guitarSkill: SkillTableInput
+  }
+
+  input SkillTableInput {
+    hot: HalfSkillTableInput
+    other: HalfSkillTableInput
+  }
+
+  input HalfSkillTableInput {
+    point: String
+    data: [SkillRecordInput]
+  }
+
+  input SkillRecordInput {
+    name: String
+    part: String
+    diff: String
+    skill_value: String
+    achive_value: String
+    diff_value: String
   }
 `;
 
