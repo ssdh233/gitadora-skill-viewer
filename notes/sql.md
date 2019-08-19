@@ -1,14 +1,161 @@
-### skill
+### migration
 
+#### skill
+```sql
+CREATE TABLE skill(
+  playerId serial,
+  version varchar(50),
+  cardNumber varchar(16),
+  gitadoraId varchar(20),
+  playerName varchar(20),
+  guitarSkillPoint varchar(10),
+  drumSkillPoint varchar(10),
+  guitarSkill json,
+  drumSKill json,
+  updateDate varchar(20),
+  updateCount integer,
+  PRIMARY KEY (playerId, version)
+);
+
+INSERT INTO skill (playerId, version, cardNumber, playerName, guitarSkillPoint, drumSkillPoint, guitarSkill, drumSkill, updateDate, updateCount) (
+    SELECT
+        id,
+        'tb' AS version,
+        card_number,
+        player_name,
+        ((guitar_skill::json -> 'hot' ->> 'point')::float + (guitar_skill::json -> 'other' ->> 'point')::float)::text,
+        ((drum_skill::json -> 'hot' ->> 'point')::float + (drum_skill::json -> 'other' ->> 'point')::float)::text,
+        guitar_skill::json,
+        drum_skill::json,
+        update_date,
+        update_count
+    FROM
+        skill_tb
+    UNION ALL
+    SELECT
+        id,
+        'tbre' AS version,
+        card_number,
+        player_name,
+        ((guitar_skill::json -> 'hot' ->> 'point')::float + (guitar_skill::json -> 'other' ->> 'point')::float)::text,
+        ((drum_skill::json -> 'hot' ->> 'point')::float + (drum_skill::json -> 'other' ->> 'point')::float)::text,
+        guitar_skill::json,
+        drum_skill::json,
+        update_date,
+        update_count
+    FROM
+        skill_tbre
+    UNION ALL
+    SELECT
+        id,
+        'matixx' AS version,
+        card_number,
+        player_name,
+        ((guitar_skill::json -> 'hot' ->> 'point')::float + (guitar_skill::json -> 'other' ->> 'point')::float)::text,
+        ((drum_skill::json -> 'hot' ->> 'point')::float + (drum_skill::json -> 'other' ->> 'point')::float)::text,
+        guitar_skill::json,
+        drum_skill::json,
+        update_date,
+        update_count
+    FROM
+        skill_matixx
+    UNION ALL
+    SELECT
+        id,
+        'exchain' AS version,
+        card_number,
+        player_name,
+        ((guitar_skill::json -> 'hot' ->> 'point')::float + (guitar_skill::json -> 'other' ->> 'point')::float)::text,
+        ((drum_skill::json -> 'hot' ->> 'point')::float + (drum_skill::json -> 'other' ->> 'point')::float)::text,
+        guitar_skill::json,
+        drum_skill::json,
+        update_date,
+        update_count
+    FROM
+        skill_exchain);
 ```
-create table skill_newname as select * from skill_tb;
-delete from skill_newname;
-create table skillp_newname as select * from skillp_tb;
-delete from skillp_newname;
+
+#### skillp
+```sql
+CREATE TABLE skillp(
+  skillId serial,
+  version varchar(50),
+  playerId serial,
+  type varchar(1),
+  skillPoint varchar(10),
+  skill json,
+  updateDate varchar(20),
+  PRIMARY KEY (skillId, version)
+);
+
+INSERT INTO skillp
+SELECT
+    id,
+    'tb' AS version,
+    skill_id,
+    CASE TYPE
+    WHEN 'drum' THEN
+        'd'
+    WHEN 'guitar' THEN
+        'g'
+    END,
+    skill,
+    skill_data::json,
+    update_date
+FROM
+    skillp_tb
+UNION ALL
+SELECT
+    id,
+    'tbre' AS version,
+    skill_id,
+    CASE TYPE
+    WHEN 'drum' THEN
+        'd'
+    WHEN 'guitar' THEN
+        'g'
+    END,
+    skill,
+    skill_data::json,
+    update_date
+FROM
+    skillp_tbre
+UNION ALL
+SELECT
+    id,
+    'matixx' AS version,
+    skill_id,
+    CASE TYPE
+    WHEN 'drum' THEN
+        'd'
+    WHEN 'guitar' THEN
+        'g'
+    END,
+    skill,
+    skill_data::json,
+    update_date
+FROM
+    skillp_matixx
+UNION ALL
+SELECT
+    id,
+    'exchain' AS version,
+    skill_id,
+    CASE TYPE
+    WHEN 'drum' THEN
+        'd'
+    WHEN 'guitar' THEN
+        'g'
+    END,
+    skill,
+    skill_data::json,
+    update_date
+FROM
+    skillp_exchain;
 ```
 
 ### kasegi
 
-```
+```sql
 create table kasegi(version varchar(50) NOT NULL, type varchar(50) NOT NULL,scope integer NOT NULL, list_hot text, list_other text);
 ```

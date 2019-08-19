@@ -125,7 +125,6 @@ module.exports = {
   },
   Mutation: {
     upload: async (_, { version, data }) => {
-      console.log(version, data);
       const skillTableName = SKILL_TABLE[version];
 
       const guitarDataStr = JSON.stringify(data.guitarSkill);
@@ -147,7 +146,6 @@ module.exports = {
             1} where id = ${id};`
         );
 
-        // TODO automatically save old data?
         return id;
       } else {
         const result = await pg.query(
