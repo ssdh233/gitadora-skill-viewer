@@ -61,12 +61,12 @@ class App extends React.Component {
             />
             <MyRoute
               exact
-              path="/:locale/:version/:id/p"
+              path="/:locale/:version/:skillId/p"
               component={SavedSkillPageContainer}
             />
             <MyRoute
               exact
-              path="/:locale/:version/:id/:type"
+              path="/:locale/:version/:playerId/:type"
               component={SkillPageContainer}
             />
           </Switch>

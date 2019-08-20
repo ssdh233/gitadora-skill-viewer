@@ -89,6 +89,14 @@ CREATE TABLE skillp(
   PRIMARY KEY ("skillId", "version")
 );
 
+SELECT id, count(*)
+FROM skillp_exchain
+GROUP BY id
+HAVING count(*) > 1;
+
+DELETE FROM skillp_exchain
+WHERE ctid IN (SELECT ctid FROM skillp_exchain WHERE id=1038 LIMIT 1);
+
 INSERT INTO skillp
 SELECT
     id,

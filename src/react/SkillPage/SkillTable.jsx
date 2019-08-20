@@ -115,7 +115,7 @@ const SkillTableNameTd = styled(SkillTableTd)`
   }
 `;
 
-const SkillTableCompareTd = styled(SkillTableTd)`
+const SkillTableCompareTd = styled.td`
   text-align: left;
   background-color: white;
   font-size: 12px;

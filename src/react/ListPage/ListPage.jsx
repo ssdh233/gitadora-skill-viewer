@@ -55,7 +55,8 @@ class ListPage extends React.Component {
             to={`/${locale}/${version}/${row.playerId}/g`}
             className={`lv${this.getLevel(row.guitarSkillPoint)}`}
           >
-            {row.guitarSkillPoint.toFixed(2)}
+            {(row.guitarSkillPoint && row.guitarSkillPoint.toFixed(2)) ||
+              "0.00"}
           </Link>
         )
       },
@@ -69,7 +70,7 @@ class ListPage extends React.Component {
             to={`/${locale}/${version}/${row.playerId}/d`}
             className={`lv${this.getLevel(row.drumSkillPoint)}`}
           >
-            {row.drumSkillPoint.toFixed(2)}
+            {(row.drumSkillPoint && row.drumSkillPoint.toFixed(2)) || "0.00"}
           </Link>
         )
       },

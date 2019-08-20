@@ -85,8 +85,7 @@ export default function KasegiPageContainer(props) {
       type,
       scope: parseInt(scope),
       playerId: parseInt(query.c)
-    },
-    fetchPolicy: "network-only" // TODO
+    }
   });
 
   if (loading) return <LinearProgress />;

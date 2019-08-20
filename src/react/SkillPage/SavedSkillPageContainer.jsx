@@ -22,15 +22,15 @@ const GET_SKILL = gql`
     }
   }
 
-  query SavedSkill($id: String, $version: Version, $type: GameType) {
-    savedSkill(id: $id, type: $type, version: $version) {
-      id
+  query SavedSkill($skillId: Int, $version: Version, $type: GameType) {
+    savedSkill(skillId: $skillId, type: $type, version: $version) {
+      skillId
       playerId
       playerName
       updateDate
       type
       skillPoint
-      skillData {
+      skill {
         hot {
           ...HalfSkillTable
         }
@@ -43,10 +43,9 @@ const GET_SKILL = gql`
 `;
 
 export default function SavedSkillPageContainer(props) {
-  const { id, version } = props.match.params;
+  const { skillId, version } = props.match.params;
   const { data, loading, error } = useQuery(GET_SKILL, {
-    variables: { id, version },
-    fetchPolicy: "network-only" // TODO
+    variables: { skillId: parseInt(skillId), version }
   });
 
   if (loading) return <LinearProgress />;
