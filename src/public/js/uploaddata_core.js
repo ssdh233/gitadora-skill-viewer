@@ -175,9 +175,13 @@ function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
               }
             }),
             success: function(res) {
-              location = `${TARGET_DOMAIN}/${VERSION}/${
-                res.data.upload
-              }/g?setLocalStorage=${res.data.upload}`;
+              if (res.errors) {
+                console.error(res.errors);
+              } else {
+                location = `${TARGET_DOMAIN}/${VERSION}/${
+                  res.data.upload
+                }/g?setLocalStorage=${res.data.upload}`;
+              }
             }
           });
         }

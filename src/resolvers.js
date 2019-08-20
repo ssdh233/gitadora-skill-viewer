@@ -70,43 +70,59 @@ module.exports = {
   },
   Mutation: {
     upload: async (_, { version, data }) => {
-      const skillTableName = SKILL_TABLE[version];
+      const result = await pg.query(
+        `select * from skill where "cardNumber" = $$${
+          data.cardNumber
+        }$$ and version='${version}';`
+      );
 
+      const guitarSkillPoint = (
+        parseFloat(data.guitarSkill.hot.point) +
+        parseFloat(data.guitarSkill.other.point)
+      ).toFixed(2);
+      const drumSkillPoint = (
+        parseFloat(data.drumSkill.hot.point) +
+        parseFloat(data.drumSkill.other.point)
+      ).toFixed(2);
       const guitarDataStr = JSON.stringify(data.guitarSkill);
       const drumDataStr = JSON.stringify(data.drumSkill);
 
-      const result = await pg.query(
-        `select * from ${skillTableName} where card_number = $$${
-          data.cardNumber
-        }$$;`
-      );
       if (result.rows[0]) {
-        const id = result.rows[0].id;
-        await pg.query(
-          `update ${skillTableName} set player_name = $$${
-            data.playerName
-          }$$, guitar_skill = $$${guitarDataStr}$$, drum_skill = $$${drumDataStr}$$, update_date = $$${
-            data.updateDate
-          }$$, update_count = ${(result.rows[0].update_count || 1) +
-            1} where id = ${id};`
-        );
+        const playerId = result.rows[0].playerId;
 
-        return id;
+        // TODO update gitadoraId
+        await pg.query(`
+            UPDATE skill SET 
+              "playerName" = $$${data.playerName}$$,
+              "guitarSkillPoint" = $$${guitarSkillPoint}$$,
+              "drumSkillPoint" = $$${drumSkillPoint}$$,
+              "guitarSkill" = $$${guitarDataStr}$$::json,
+              "drumSkill" = $$${drumDataStr}$$::json,
+              "updateDate" = $$${data.updateDate}$$,
+              "updateCount" = ${(result.rows[0].update_count || 1) + 1}
+            WHERE "playerId" = ${playerId} and version = '${version}';`);
+
+        return playerId;
       } else {
-        const result = await pg.query(
-          `select max(id) as maxid from ${skillTableName};`
-        );
-        const id = (result.rows[0].maxid || 0) + 1;
-        await pg.query(
-          `insert into ${skillTableName} values (${id},$$${
-            data.cardNumber
-          }$$,$$${
-            data.playerName
-          }$$,$$${guitarDataStr}$$,$$${drumDataStr}$$,$$${
-            data.updateDate
-          }$$, 1);`
+        await pg.query("BEGIN");
+        const idResult = await pg.query(
+          `SELECT coalesce(max("playerId") + 1,0) as id FROM skill WHERE version='${version}';`
         );
 
+        const id = idResult.rows[0].id;
+
+        await pg.query(`
+          INSERT INTO skill VALUES (
+            ${id}, $$${version}$$, $$${data.cardNumber}$$, $$$$,
+            $$${data.playerName}$$,
+            $$${guitarSkillPoint}$$, $$${drumSkillPoint}$$,
+            $$${guitarDataStr}$$::json, $$${drumDataStr}$$::json,
+            $$${data.updateDate}$$,
+            1
+          );
+        `);
+
+        await pg.query("COMMIT");
         return id;
       }
     }
