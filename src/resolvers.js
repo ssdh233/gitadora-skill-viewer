@@ -88,7 +88,21 @@ module.exports = {
       const drumDataStr = JSON.stringify(data.drumSkill);
 
       if (result.rows[0]) {
-        const playerId = result.rows[0].playerId;
+        await pg.query("BEGIN");
+
+        const {
+          playerId,
+          guitarSkillPoint: oldGuitarSkillPoint,
+          drumSkillPoint: oldDrumSkillPoint
+        } = result.rows[0];
+
+        console.log({ oldGuitarSkillPoint, guitarSkillPoint });
+        if (oldGuitarSkillPoint < guitarSkillPoint)
+          await saveSkill({ version, data, playerId, type: "g" });
+
+        console.log({ oldDrumSkillPoint, drumSkillPoint });
+        if (oldDrumSkillPoint < drumSkillPoint)
+          await saveSkill({ version, data, playerId, type: "d" });
 
         // TODO update gitadoraId
         await pg.query(`
@@ -102,18 +116,20 @@ module.exports = {
               "updateCount" = ${(result.rows[0].update_count || 1) + 1}
             WHERE "playerId" = ${playerId} and version = '${version}';`);
 
+        await pg.query("COMMIT");
+
         return playerId;
       } else {
         await pg.query("BEGIN");
         const idResult = await pg.query(
-          `SELECT coalesce(max("playerId") + 1,0) as id FROM skill WHERE version='${version}';`
+          `SELECT coalesce(max("playerId") + 1,0) as "playerId" FROM skill WHERE version='${version}';`
         );
 
-        const id = idResult.rows[0].id;
+        const playerId = idResult.rows[0].playerId;
 
         await pg.query(`
           INSERT INTO skill VALUES (
-            ${id}, $$${version}$$, $$${data.cardNumber}$$, $$$$,
+            ${playerId}, $$${version}$$, $$${data.cardNumber}$$, $$$$,
             $$${data.playerName}$$,
             $$${guitarSkillPoint}$$, $$${drumSkillPoint}$$,
             $$${guitarDataStr}$$::json, $$${drumDataStr}$$::json,
@@ -122,9 +138,41 @@ module.exports = {
           );
         `);
 
+        await saveSkill({ version, data, playerId, type: "g" });
+        await saveSkill({ version, data, playerId, type: "d" });
+
         await pg.query("COMMIT");
-        return id;
+        return playerId;
       }
     }
   }
 };
+
+async function saveSkill({ version, data, playerId, type }) {
+  const guitarSkillPoint = (
+    parseFloat(data.guitarSkill.hot.point) +
+    parseFloat(data.guitarSkill.other.point)
+  ).toFixed(2);
+  const drumSkillPoint = (
+    parseFloat(data.drumSkill.hot.point) +
+    parseFloat(data.drumSkill.other.point)
+  ).toFixed(2);
+  const guitarDataStr = JSON.stringify(data.guitarSkill);
+  const drumDataStr = JSON.stringify(data.drumSkill);
+
+  const skillIdResult = await pg.query(
+    `SELECT coalesce(max("skillId") + 1,0) as "skillId" FROM skillp WHERE version='${version}';`
+  );
+
+  const skillId = skillIdResult.rows[0].skillId;
+
+  await pg.query(`
+    INSERT INTO skillp VALUES (
+      ${skillId}, $$${version}$$, ${playerId}, $$${data.playerName}$$,
+      $$${type}$$,
+      $$${type === "g" ? guitarSkillPoint : drumSkillPoint}$$,
+      $$${type === "g" ? guitarDataStr : drumDataStr}$$::json,
+      $$${data.updateDate}$$
+    );
+  `);
+}
