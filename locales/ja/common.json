@@ -95,8 +95,7 @@
     "title": "{name}さんの{type}スキル",
     "aboutGsv": "gsv.funについて",
     "compareWithKasegi": "{scope}の稼ぎ曲と比較",
-    "saveSkill": "スキル表を保存する",
-    "savedList": "保存されたスキル表",
+    "savedList": "スキル履歴",
     "latestSkill": "{name}さんの最新のスキル表"
   },
   "listPage": {

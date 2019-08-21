@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { FormattedMessage, injectIntl } from "react-intl";
-import Button from "@material-ui/core/Button";
 import CompareArrows from "@material-ui/icons/CompareArrows";
 
 import { VERSION_NAME } from "../../constants.js";
@@ -184,16 +183,6 @@ class SkillPage extends React.Component {
                 ))}
             </div>
             <div style={{ marginTop: 20 }}>
-              <Button
-                style={{ marginBottom: 10 }}
-                variant="outlined"
-                size="small"
-                onClick={() =>
-                  this.props.onSaveSkill({ playerId, type, skillPoint })
-                }
-              >
-                <FormattedMessage id="skill.saveSkill" />
-              </Button>
               {this.props.skillSavedList && (
                 <SavedListTable>
                   <caption style={{ color: "black" }}>
