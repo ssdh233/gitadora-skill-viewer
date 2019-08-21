@@ -87,6 +87,7 @@ const typeDefs = gql`
 
   input UserInput {
     cardNumber: String
+    gitadoraId: String
     playerName: String
     updateDate: String
     drumSkill: SkillTableInput

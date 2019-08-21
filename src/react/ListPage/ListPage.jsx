@@ -10,7 +10,11 @@ import skillColorStyles from "../styles/skillColor.js";
 import withMediaQuery from "../withMediaQuery";
 
 class ListPage extends React.Component {
-  getLevel = skill => Math.floor(skill / 500);
+  getLevel = (...skills) => {
+    let skill = Math.max(...skills);
+    return Math.floor(skill / 500);
+  };
+
   getTrProps = () => ({
     style: {
       backgroundColor: "#000000",
@@ -18,19 +22,19 @@ class ListPage extends React.Component {
     }
   });
   getTdProps = (state, rowInfo, column) => {
-    let className;
     let style;
     if (rowInfo) {
       switch (column.id) {
         case "guitarSkillPoint":
         case "drumSkillPoint":
+        case "totalSkillPoint":
           style = { textAlign: "center" };
           break;
         default:
       }
     }
 
-    return { className, style };
+    return { style };
   };
 
   render() {
@@ -40,11 +44,14 @@ class ListPage extends React.Component {
 
     let columns = [
       {
-        Header: "ID",
-        accessor: "playerId",
-        maxWidth: this.props.mediaQuery === "sp" ? 40 : 48
+        Header: "",
+        accessor: "index",
+        maxWidth: this.props.mediaQuery === "sp" ? 40 : 48,
+        Cell: ({ viewIndex, page, pageSize }) => {
+          return page * pageSize + viewIndex + 1;
+        }
       },
-      { Header: "Name", accessor: "playerName", minWidth: 164 },
+      { Header: "Name", accessor: "playerName", minWidth: 144 },
       {
         Header: "Guitar",
         accessor: "guitarSkillPoint",
@@ -52,7 +59,7 @@ class ListPage extends React.Component {
         sortMethod: (a, b) => Number(a) - Number(b),
         Cell: ({ row }) => (
           <Link
-            to={`/${locale}/${version}/${row.playerId}/g`}
+            to={`/${locale}/${version}/${row._original.playerId}/g`}
             className={`lv${this.getLevel(row.guitarSkillPoint)}`}
           >
             {(row.guitarSkillPoint && row.guitarSkillPoint.toFixed(2)) ||
@@ -67,10 +74,27 @@ class ListPage extends React.Component {
         sortMethod: (a, b) => Number(a) - Number(b),
         Cell: ({ row }) => (
           <Link
-            to={`/${locale}/${version}/${row.playerId}/d`}
+            to={`/${locale}/${version}/${row._original.playerId}/d`}
             className={`lv${this.getLevel(row.drumSkillPoint)}`}
           >
             {(row.drumSkillPoint && row.drumSkillPoint.toFixed(2)) || "0.00"}
+          </Link>
+        )
+      },
+      {
+        Header: "Total",
+        accessor: "totalSkillPoint",
+        maxWidth: this.props.mediaQuery === "sp" ? 70 : 90,
+        sortMethod: (a, b) => Number(a) - Number(b),
+        Cell: ({ row }) => (
+          <Link
+            to={`/${locale}/${version}/${row._original.playerId}/g`}
+            className={`lv${this.getLevel(
+              row.drumSkillPoint,
+              row.guitarSkillPoint
+            )}`}
+          >
+            {(row.totalSkillPoint && row.totalSkillPoint.toFixed(2)) || "0.00"}
           </Link>
         )
       },

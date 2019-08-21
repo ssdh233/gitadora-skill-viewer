@@ -107,7 +107,6 @@ export default function SkillPageContainer(props) {
       skillData={getSkillData(data.user, data.savedSkill, type)}
       hasComparedSkill={Boolean(data.savedSkill)}
       skillSavedList={data.savedSkills}
-      onSaveSkill={() => {}}
     />
   );
 }

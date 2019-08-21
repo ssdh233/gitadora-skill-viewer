@@ -26,9 +26,16 @@ export default function ListPageContainer(props) {
   if (loading) return <LinearProgress />;
   if (error) return <p>ERROR: {error.toString()}</p>;
 
+  const listData = data.users
+    .map(user => ({
+      ...user,
+      totalSkillPoint: user.drumSkillPoint + user.guitarSkillPoint
+    }))
+    .sort((a, b) => b.totalSkillPoint - a.totalSkillPoint);
+
   return (
     <ListPage
-      data={data.users}
+      data={listData}
       version="tb"
       version_full="GITADORA Tri-Boost"
       match={props.match}

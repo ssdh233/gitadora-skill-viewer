@@ -58,8 +58,14 @@ function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
             .substring(10, 26);
         }
 
+        const gitadora_id = $(doc)
+          .find("div.common_frame_date")
+          .text()
+          .trim();
+
         profile_data["player_name"] = player_name;
         profile_data["card_number"] = card_number;
+        profile_data["gitadora_id"] = gitadora_id;
       }
     });
 
@@ -161,6 +167,7 @@ function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
                 version: VERSION,
                 data: {
                   cardNumber: profile_data["card_number"],
+                  gitadoraId: profile_data["gitadora_id"],
                   playerName: profile_data["player_name"],
                   guitarSkill: {
                     hot: skill_data["guitar_hot"],
