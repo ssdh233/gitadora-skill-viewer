@@ -47,8 +47,8 @@ class ListPage extends React.Component {
         Header: "",
         accessor: "index",
         maxWidth: this.props.mediaQuery === "sp" ? 40 : 48,
-        Cell: ({ viewIndex }) => {
-          return viewIndex + 1;
+        Cell: ({ viewIndex, page, pageSize }) => {
+          return page * pageSize + viewIndex + 1;
         }
       },
       { Header: "Name", accessor: "playerName", minWidth: 144 },
