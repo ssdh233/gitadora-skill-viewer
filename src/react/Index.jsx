@@ -99,15 +99,18 @@ class Index extends React.Component {
           <h3>{<FormattedMessage id="intro.info.title" />}</h3>
           <ul>
             <li>
-              <FormattedMessage id="intro.info.content1" />
-            </li>
-            <li>
               <FormattedMessage
-                id="intro.info.content2"
+                id="intro.info.content1"
                 values={{
                   uservoice: <Link to={`${locale}/uservoice`}>User Voice</Link>
                 }}
               />
+            </li>
+            <li>
+              <FormattedMessage id="intro.info.content2" />
+            </li>
+            <li>
+              <FormattedMessage id="intro.info.content3" />
             </li>
           </ul>
         </SlideToggle>
@@ -184,9 +187,6 @@ class Index extends React.Component {
           </p>
           <p>
             <FormattedHTMLMessage id="desc.2nd" />
-          </p>
-          <p>
-            <FormattedHTMLMessage id="desc.3rd" />
           </p>
         </SlideToggle>
         <SlideToggle title={<FormattedMessage id="other.title" />}>
