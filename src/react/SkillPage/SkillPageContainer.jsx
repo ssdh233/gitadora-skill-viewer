@@ -25,14 +25,14 @@ const GET_SKILL = gql`
   }
 
   query User(
-    $id: String
+    $playerId: Int
     $version: Version
     $type: GameType
-    $savedSkillId: String
+    $savedSkillId: Int
   ) {
-    user(id: $id, version: $version) {
-      vesion
-      id
+    user(playerId: $playerId, version: $version) {
+      version
+      playerId
       playerName
       updateDate
       updateCount
@@ -54,18 +54,16 @@ const GET_SKILL = gql`
       }
     }
 
-    savedSkills(id: $id, type: $type, version: $version) {
-      id
-      playerId
+    savedSkills(playerId: $playerId, type: $type, version: $version) {
+      skillId
       playerName
       updateDate
-      type
       skillPoint
     }
 
-    savedSkill(id: $savedSkillId, type: $type, version: $version) {
-      id
-      skillData {
+    savedSkill(skillId: $savedSkillId, type: $type, version: $version) {
+      skillId
+      skill {
         hot {
           ...HalfSkillTable
         }
@@ -78,12 +76,16 @@ const GET_SKILL = gql`
 `;
 
 export default function SkillPageContainer(props) {
-  const { id, version, type } = props.match.params;
+  const { playerId, version, type } = props.match.params;
   const query = queryParser(props.location.search);
 
   const { data, loading, error } = useQuery(GET_SKILL, {
-    variables: { id, version, type, savedSkillId: query.c },
-    fetchPolicy: "network-only" // TODO
+    variables: {
+      playerId: parseInt(playerId),
+      version,
+      type,
+      savedSkillId: parseInt(query.c)
+    }
   });
 
   useEffect(() => {
@@ -110,16 +112,16 @@ export default function SkillPageContainer(props) {
   );
 }
 
-function getSkillData(skillData, skillComparedSkill, type) {
-  if (!skillComparedSkill || !skillData) {
-    const result = type === "d" ? skillData.drumSkill : skillData.guitarSkill;
+function getSkillData(skill, skillComparedSkill, type) {
+  if (!skillComparedSkill || !skill) {
+    const result = type === "d" ? skill.drumSkill : skill.guitarSkill;
     return {
-      ...skillData,
-      skillData: result
+      ...skill,
+      skill: result
     };
   } else {
-    const result = type === "d" ? skillData.drumSkill : skillData.guitarSkill;
-    const old = skillComparedSkill.skillData;
+    const result = type === "d" ? skill.drumSkill : skill.guitarSkill;
+    const old = skillComparedSkill.skill;
 
     result.hot = compareSkillHalf(result.hot, old.hot);
     result.other = compareSkillHalf(result.other, old.other);
@@ -132,8 +134,8 @@ function getSkillData(skillData, skillComparedSkill, type) {
     ).toFixed(2);
 
     return {
-      ...skillData,
-      skillData: result,
+      ...skill,
+      skill: result,
       skillPointDiff
     };
   }

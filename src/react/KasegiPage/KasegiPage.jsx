@@ -69,7 +69,7 @@ class KasegiPage extends React.Component {
             </h2>
           )}
           {kasegiData && kasegiData.hot && (
-            <div id="kasegi-hot-table">
+            <div id="kasegi-hot-table" style={{ marginBottom: 20 }}>
               <div style={styles.caption}>{`${typeTitleShort} HOT`}</div>
               <KasegiTable
                 data={kasegiData.hot}

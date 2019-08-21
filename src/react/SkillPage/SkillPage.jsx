@@ -35,12 +35,12 @@ class SkillPage extends React.Component {
       return null;
     }
 
-    const { locale, version, id } = this.props.match.params;
+    const { locale, version } = this.props.match.params;
     const {
-      skillData,
+      skill,
+      playerId,
       playerName,
       updateDate,
-      playerId,
       skillPointDiff
     } = this.props.skillData;
 
@@ -48,10 +48,10 @@ class SkillPage extends React.Component {
       ? this.props.skillData.type
       : this.props.match.params.type;
 
-    if (!skillData) return null;
+    if (!skill) return null;
 
     const skillPoint = (
-      Number(skillData.hot.point) + Number(skillData.other.point)
+      Number(skill.hot.point) + Number(skill.other.point)
     ).toFixed(2);
     const level = parseInt(skillPoint / 500);
 
@@ -91,12 +91,16 @@ class SkillPage extends React.Component {
             {type === "g" && (
               <>
                 <span>GuitarFreaks/</span>
-                <Link to={`/${locale}/${version}/${id}/d`}>Drummania</Link>
+                <Link to={`/${locale}/${version}/${playerId}/d`}>
+                  Drummania
+                </Link>
               </>
             )}
             {type === "d" && (
               <>
-                <Link to={`/${locale}/${version}/${id}/g`}>GuitarFreaks</Link>
+                <Link to={`/${locale}/${version}/${playerId}/g`}>
+                  GuitarFreaks
+                </Link>
                 <span>/Drummania</span>
               </>
             )}
@@ -120,27 +124,27 @@ class SkillPage extends React.Component {
                 {skillPoint}
               </ProfileTableTd>
               <ProfileTableTd className={`lv${level}`}>
-                {skillData.hot.point}
+                {skill.hot.point.toFixed(2)}
               </ProfileTableTd>
               <ProfileTableTd className={`lv${level}`}>
-                {skillData.other.point}
+                {skill.other.point.toFixed(2)}
               </ProfileTableTd>
             </tr>
           </tbody>
         </ProfileTable>
-        {skillData.hot.data && (
+        {skill.hot.data && (
           <SkillTable
             id="skill-table-hot"
-            data={skillData.hot.data}
+            data={skill.hot.data}
             type={type}
             caption={type === "g" ? "GUITAR HOT" : "DRUM HOT"}
             hasComparedSkill={this.props.hasComparedSkill}
           />
         )}
-        {skillData.other.data && (
+        {skill.other.data && (
           <SkillTable
             id="skill-table-other"
-            data={skillData.other.data}
+            data={skill.other.data}
             type={type}
             caption={type === "g" ? "GUITAR OTHER" : "DRUM OTHER"}
             hasComparedSkill={this.props.hasComparedSkill}
@@ -169,7 +173,7 @@ class SkillPage extends React.Component {
                 .map(scope => (
                   <div key={scope}>
                     <Link
-                      to={`/${locale}/${version}/kasegi/${type}/${scope}?c=${id}`}
+                      to={`/${locale}/${version}/kasegi/${type}/${scope}?c=${playerId}`}
                     >
                       <FormattedMessage
                         id="skill.compareWithKasegi"
@@ -184,7 +188,9 @@ class SkillPage extends React.Component {
                 style={{ marginBottom: 10 }}
                 variant="outlined"
                 size="small"
-                onClick={() => this.props.onSaveSkill({ id, type, skillPoint })}
+                onClick={() =>
+                  this.props.onSaveSkill({ playerId, type, skillPoint })
+                }
               >
                 <FormattedMessage id="skill.saveSkill" />
               </Button>
@@ -209,7 +215,9 @@ class SkillPage extends React.Component {
                             savedItem.skillPoint / 500
                           )}`}
                         >
-                          <Link to={`/${locale}/${version}/${savedItem.id}/p`}>
+                          <Link
+                            to={`/${locale}/${version}/${savedItem.skillId}/p`}
+                          >
                             {index + 1}
                           </Link>
                         </SavedListTableTd>
@@ -218,7 +226,9 @@ class SkillPage extends React.Component {
                             savedItem.skillPoint / 500
                           )}`}
                         >
-                          <Link to={`/${locale}/${version}/${savedItem.id}/p`}>
+                          <Link
+                            to={`/${locale}/${version}/${savedItem.skillId}/p`}
+                          >
                             {savedItem.skillPoint}
                           </Link>
                         </SavedListTableTd>
@@ -227,12 +237,14 @@ class SkillPage extends React.Component {
                             savedItem.skillPoint / 500
                           )}`}
                         >
-                          <Link to={`/${locale}/${version}/${savedItem.id}/p`}>
+                          <Link
+                            to={`/${locale}/${version}/${savedItem.skillId}/p`}
+                          >
                             {savedItem.updateDate}
                           </Link>
                         </SavedListTableTd>
                         <SavedListTableTd>
-                          <Link to={`?c=${savedItem.id}`}>
+                          <Link to={`?c=${savedItem.skillId}`}>
                             <CompareArrows
                               style={{ fontSize: 16, color: "white" }}
                             />
@@ -301,7 +313,7 @@ const SavedListTableTh = styled.th`
   padding: 2px;
 `;
 
-const SavedListTableTd = styled.th`
+const SavedListTableTd = styled.td`
   line-height: 20px;
   padding: 2px;
 `;

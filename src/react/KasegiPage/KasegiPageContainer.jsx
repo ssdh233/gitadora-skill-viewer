@@ -35,7 +35,12 @@ const GET_KASEGI = gql`
     averagePlayerSKill
   }
 
-  query Kasegi($version: Version, $type: GameType, $scope: Int, $id: String) {
+  query Kasegi(
+    $version: Version
+    $type: GameType
+    $scope: Int
+    $playerId: Int
+  ) {
     kasegi(version: $version, type: $type, scope: $scope) {
       version
       type
@@ -47,8 +52,8 @@ const GET_KASEGI = gql`
         ...KasegiRecord
       }
     }
-    user(id: $id, version: $version) {
-      id
+    user(playerId: $playerId, version: $version) {
+      playerId
       playerName
       drumSkill {
         hot {
@@ -75,8 +80,12 @@ export default function KasegiPageContainer(props) {
   const query = queryParser(props.location.search);
 
   const { data, loading, error } = useQuery(GET_KASEGI, {
-    variables: { version, type, scope: parseInt(scope), id: query.c },
-    fetchPolicy: "network-only" // TODO
+    variables: {
+      version,
+      type,
+      scope: parseInt(scope),
+      playerId: parseInt(query.c)
+    }
   });
 
   if (loading) return <LinearProgress />;
