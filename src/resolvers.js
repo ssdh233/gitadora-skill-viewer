@@ -89,8 +89,6 @@ module.exports = {
         }$$ and version='${version}';`
       );
 
-      console.log(searchByGitadoraIdResult, { version, data });
-
       if (searchByGitadoraIdResult.rows[0]) {
         playerDataRow = searchByGitadoraIdResult.rows[0];
       } else {
