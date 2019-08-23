@@ -112,6 +112,9 @@ class Index extends React.Component {
             <li>
               <FormattedMessage id="intro.info.content3" />
             </li>
+            <li>
+              <FormattedHTMLMessage id="intro.info.content4" />
+            </li>
           </ul>
         </SlideToggle>
         <SlideToggle title={<FormattedMessage id="how.title" />}>
