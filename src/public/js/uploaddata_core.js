@@ -44,6 +44,7 @@ function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
           .text();
 
         var card_number = "";
+        var gitadora_id = "";
 
         if (VERSION === "exchain") {
           card_number = $(doc)
@@ -51,17 +52,17 @@ function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
             .text()
             .match(/[a-zA-Z0-9]+/);
           card_number = card_number && card_number[0];
+
+          gitadora_id = $(doc)
+            .find("div.common_frame_date")
+            .text()
+            .trim();
         } else {
           card_number = $(doc)
             .find(".common_frame_date")
             .text()
             .substring(10, 26);
         }
-
-        const gitadora_id = $(doc)
-          .find("div.common_frame_date")
-          .text()
-          .trim();
 
         profile_data["player_name"] = player_name;
         profile_data["card_number"] = card_number;
