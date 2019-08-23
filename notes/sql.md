@@ -1,3 +1,9 @@
+### add sharedSongs column
+```sql
+ALTER TABLE skill
+ADD COLUMN "sharedSongs" json
+```
+
 ### migration
 
 #### skill

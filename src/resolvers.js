@@ -80,6 +80,7 @@ module.exports = {
       ).toFixed(2);
       const guitarDataStr = JSON.stringify(data.guitarSkill);
       const drumDataStr = JSON.stringify(data.drumSkill);
+      const sharedSongsStr = JSON.stringify(data.sharedSongs);
 
       let playerDataRow;
 
@@ -127,7 +128,8 @@ module.exports = {
               "guitarSkill" = $$${guitarDataStr}$$::json,
               "drumSkill" = $$${drumDataStr}$$::json,
               "updateDate" = $$${data.updateDate}$$,
-              "updateCount" = ${(playerDataRow.updateCount || 1) + 1}
+              "updateCount" = ${(playerDataRow.updateCount || 1) + 1},
+              "sharedSongs" = $$${sharedSongsStr}$$::json
             WHERE "playerId" = ${playerId} and version = '${version}';`);
 
         await pg.query("COMMIT");
@@ -147,8 +149,7 @@ module.exports = {
             $$${data.gitadoraId}$$, $$${data.playerName}$$,
             $$${guitarSkillPoint}$$, $$${drumSkillPoint}$$,
             $$${guitarDataStr}$$::json, $$${drumDataStr}$$::json,
-            $$${data.updateDate}$$,
-            1
+            $$${data.updateDate}$$, 1, $$${sharedSongsStr}$$::json
           );
         `);
 

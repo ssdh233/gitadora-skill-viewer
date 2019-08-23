@@ -92,6 +92,7 @@ const typeDefs = gql`
     updateDate: String
     drumSkill: SkillTableInput
     guitarSkill: SkillTableInput
+    sharedSongs: SharedSongsInput
   }
 
   input SkillTableInput {
@@ -111,6 +112,11 @@ const typeDefs = gql`
     skill_value: String
     achive_value: String
     diff_value: String
+  }
+
+  input SharedSongsInput {
+    drum: [String]
+    guitar: [String]
   }
 `;
 
