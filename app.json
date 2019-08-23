@@ -3,7 +3,7 @@
   "scripts": {
   },
   "env": {
-    "DATABASE_URL": {
+    "MY_DATABASE_URL": {
       "required": true
     },
     "NODE_ENV": {
