@@ -11,5 +11,5 @@ https://cdn.jsdelivr.net/gh/matsumatsu233/MyStorage/latest.dump
 
 2. 
 ```
-heroku pg:backups:restore '<SIGNED URL>' DATABASE_URL --app gitadora-skill-viewer
+heroku pg:backups:restore '<SIGNED URL>' MY_DATABASE_URL --app gitadora-skill-viewer
 ```
