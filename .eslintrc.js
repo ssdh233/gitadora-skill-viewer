@@ -7,7 +7,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ["src/react/*.jsx"],
+      files: ["src/react/**/*.jsx"],
       parser: "babel-eslint",
       env: {
         browser: true

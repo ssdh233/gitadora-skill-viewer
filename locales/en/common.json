@@ -9,8 +9,10 @@
     "desc": "A web site which uses bookmarklet to fetch and store skill data from GITADORA official site, to share with other players.",
     "info": {
       "title": "Notice",
-      "content1": "Add skill song ranking pages, and add a new feature to allow a user to compare his own skill sheet with these skill song rankings. Please give it a try :) (You can find the links on skill page)",
-      "content2": "Add a new {uservoice} page, feel free to leave some messages！"
+      "content1": "Add a new {uservoice} page, feel free to leave some messages！",
+      "content2": "Now the skill link will be not changed when a user changes his e-AMUSEMENT PASS",
+      "content3": "Now when a user uploads new skill data, the old data will not be overwritten. It'll be kept in the skill history table.",
+      "content4": "I created a <a href='https://twitter.com/gsvfunsite'>twitter account</a> for gsv.fun. Please follow me😋😋😋"
     }
   },
   "how": {
@@ -21,7 +23,10 @@
         "desc": "1.Add the below script to bookmark",
         "remark": "※Some browsers（e.g. safari、chrome on mobile）don't provide the feature of creating a new bookmark. In that case you can add a bookmark for any site first, then edit it and replace the URL address with the below script.",
         "imgDesc1": "The bookmark name doesn't matter. Put whatever you like.",
-        "imgDesc2": "Paste the script on the URL input"
+        "imgDesc2": "Paste the script on the URL input",
+        "currentVersion": "For current version: EXCHAIN",
+        "currentVersionDesc": "(This script is always getting data from the latest version. No need to update the script when next version comes)",
+        "oldVersion": "For old version:"
       },
       "step2": {
         "desc": "2.<b>Log in to GITADORA official site</b>, and click the added bookmark",
@@ -36,9 +41,8 @@
   },
   "desc": {
     "title": "Readme",
-    "1st": "1.Uploading skill data will <b>overwrite</b> old data. Please use <b>Save skill data（take snapshot）</b> function if you want to save your old skill data",
-    "2nd": "2.It's not hard to upload faked skill data to gsv.fun if someone wants. So gsv.fun can not guarantee the authenticity of skill data here, and also it can not guarantee that your uploaded skill data won't be falsified by others, unless you saved your data.",
-    "3rd": "3.Different with the commonly used skill simulator, on this web site a user can not change his uploaded skill data."
+    "1st": "1.It's not hard to upload faked skill data to gsv.fun if someone wants. So gsv.fun can not guarantee the authenticity of skill data here, and also it can not guarantee that your uploaded skill data won't be falsified by others, unless you saved your data.",
+    "2nd": "2.Different with the commonly used skill simulator, on this web site a user can not change his uploaded skill data."
   },
   "other": {
     "title": "Other",
@@ -91,8 +95,7 @@
     "title": "{name}'s skill table",
     "aboutGsv": "About gsv.fun",
     "compareWithKasegi": "Compare with {scope} ranking",
-    "saveSkill": "Save this skill table",
-    "savedList": "Saved skills",
+    "savedList": "Skill history",
     "latestSkill": "Check {name}'s latest skill"
   },
   "listPage": {

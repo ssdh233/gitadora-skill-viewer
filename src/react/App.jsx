@@ -1,105 +1,36 @@
 import React from "react";
-import { connect } from "react-redux";
+import styled from "styled-components";
 import { Switch, Route, withRouter } from "react-router-dom";
-import Radium, { StyleRoot } from "radium";
+import { ThemeProvider } from "@material-ui/styles";
+import { createMuiTheme } from "@material-ui/core/styles";
 
 import Index from "./Index.jsx";
 import AppHeader from "./AppHeader.jsx";
 import UserVoicePage from "./UserVoicePage.jsx";
-import KasegiPageContainer, {
-  loadData as loadDataForKasegiPageContainer
-} from "./KasegiPageContainer.jsx";
-import ListPageContainer, {
-  loadData as loadDataForListPageContainer
-} from "./ListPageContainer.jsx";
-import SkillPageContainer, {
-  loadData as loadDataForSkillPageContainer
-} from "./SkillPageContainer.jsx";
-import SavedSkillPageContainer, {
-  loadData as loadDataForSavedSkillPageContainer
-} from "./SavedSkillPageContainer.jsx";
-import { setIsSSR } from "./actions";
+import KasegiPage from "./KasegiPage";
+import ListPage from "./ListPage";
+import SkillPageContainer, { SavedSkillPageContainer } from "./SkillPage";
 
-/* eslint-disable react/display-name */
-
-export const routes = [
-  {
-    path: "/:locale",
-    render: props => (
-      <>
-        <AppHeader {...props} />
-        <Index {...props} />
-      </>
-    )
-  },
-  {
-    path: "/:locale/uservoice",
-    render: props => (
-      <>
-        <AppHeader {...props} />
-        <UserVoicePage {...props} />
-      </>
-    )
-  },
-  {
-    path: "/:locale/:ver/kasegi/:type/:scope",
-    render: props => (
-      <>
-        <AppHeader {...props} />
-        <KasegiPageContainer {...props} />
-      </>
-    ),
-    loadData: loadDataForKasegiPageContainer
-  },
-  {
-    path: "/:locale/:ver/list",
-    render: props => (
-      <>
-        <AppHeader {...props} />
-        <ListPageContainer {...props} />
-      </>
-    ),
-    loadData: loadDataForListPageContainer
-  },
-  {
-    path: "/:locale/:ver/userlist",
-    render: props => (
-      <>
-        <AppHeader {...props} />
-        <ListPageContainer isAdmin={true} {...props} />
-      </>
-    ),
-    loadData: loadDataForListPageContainer
-  },
-  {
-    path: "/:locale/:ver/:id/p",
-    render: props => (
-      <>
-        <AppHeader {...props} />
-        <SavedSkillPageContainer {...props} />
-      </>
-    ),
-    loadData: loadDataForSavedSkillPageContainer
-  },
-  {
-    path: "/:locale/:ver/:id/:type",
-    render: props => (
-      <>
-        <AppHeader {...props} />
-        <SkillPageContainer {...props} />
-      </>
-    ),
-    loadData: loadDataForSkillPageContainer
-  }
-].map(route => ({
-  ...route,
-  exact: true
-}));
+function MyRoute({ path, component, ...rest }) {
+  return (
+    <Route
+      {...rest}
+      exact
+      path={path}
+      render={props => {
+        return (
+          <>
+            <AppHeader {...props} />
+            {React.createElement(component, props)}
+          </>
+        );
+      }}
+    />
+  );
+}
 
 class App extends React.Component {
   componentDidMount() {
-    this.props.dispatch(setIsSSR(false));
-
     const jssStyles = document.getElementById("jss-server-side");
     if (jssStyles && jssStyles.parentNode) {
       jssStyles.parentNode.removeChild(jssStyles);
@@ -108,30 +39,52 @@ class App extends React.Component {
 
   render() {
     return (
-      <StyleRoot>
-        <div style={styles.globalStyle}>
+      <ThemeProvider theme={createMuiTheme()}>
+        <AppDiv>
           <Switch>
-            {routes.map(route => (
-              <Route key={route.path} {...route} />
-            ))}
+            <MyRoute exact path="/:locale" component={Index} />
+            <MyRoute
+              exact
+              path="/:locale/uservoice"
+              component={UserVoicePage}
+            />
+            <MyRoute
+              exact
+              path="/:locale/:version/kasegi/:type/:scope"
+              component={KasegiPage}
+            />
+            <MyRoute exact path="/:locale/:version/list" component={ListPage} />
+            <MyRoute
+              exact
+              path="/:locale/:version/userlist"
+              component={props => <ListPage {...props} isAdmin />}
+            />
+            <MyRoute
+              exact
+              path="/:locale/:version/:skillId/p"
+              component={SavedSkillPageContainer}
+            />
+            <MyRoute
+              exact
+              path="/:locale/:version/:playerId/:type"
+              component={SkillPageContainer}
+            />
           </Switch>
-        </div>
-      </StyleRoot>
+        </AppDiv>
+      </ThemeProvider>
     );
   }
 }
 
-const styles = {
-  globalStyle: {
-    fontFamily: "verdana",
-    fontSize: 16,
-    maxWidth: 1200,
-    margin: "auto",
+const AppDiv = styled.div`
+  font-family: verdana;
+  font-size: 16px;
+  max-width: 1200px;
+  margin: auto;
 
-    "@media (max-width: 742px)": {
-      fontSize: 14
-    }
+  @media (max-width: 742px) {
+    font-size: 14px;
   }
-};
+`;
 
-export default Radium(withRouter(connect()(App)));
+export default withRouter(App);

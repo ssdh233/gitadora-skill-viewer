@@ -1,7 +1,7 @@
 import React from "react";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { FormattedMessage, injectIntl } from "react-intl";
-import Radium from "radium";
 import { Helmet } from "react-helmet";
 
 import Button from "@material-ui/core/Button";
@@ -17,7 +17,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListSubheader from "@material-ui/core/ListSubheader";
 
-const VERSION = "v1.16.0";
+const VERSION = "v1.17.0";
 
 class AppHeader extends React.Component {
   constructor(props) {
@@ -56,8 +56,8 @@ class AppHeader extends React.Component {
     } = this.props;
 
     return (
-      <div style={styles.appHeader}>
-        <Helmet>
+      <AppHeaderDiv>
+        <Helmet htmlAttributes={{ lang: locale }}>
           <meta charSet="utf-8" />
           <link
             rel="canonical"
@@ -73,13 +73,14 @@ class AppHeader extends React.Component {
           ))}
         </Helmet>
 
-        <div style={styles.firstLine}>
-          <h1 style={styles.title}>Gitadora Skill Viewer</h1>
+        <FirstLineDiv>
+          <Title>Gitadora Skill Viewer</Title>
 
           <Button
             onClick={this.handleMenuButtonClick("lang")}
             style={{ width: 109 }}
             id="lang-button"
+            aria-haspopup={true}
           >
             <Language />
             <span style={{ marginLeft: 5, whiteSpace: "nowrap" }}>
@@ -94,6 +95,7 @@ class AppHeader extends React.Component {
               vertical: "bottom"
             }}
             onClose={this.handleMenuClose("lang")}
+            onClick={this.handleMenuClose("lang")}
           >
             <MenuList>
               <a href={`/en${url.substring(3)}${search}`}>
@@ -107,14 +109,14 @@ class AppHeader extends React.Component {
               </a>
             </MenuList>
           </Popover>
-        </div>
+        </FirstLineDiv>
 
-        <div style={styles.secondLine}>
+        <SecondLineDiv>
           <Link
             to={`/${locale}`}
             style={{ textDecoration: "none", color: "black" }}
           >
-            <Button id="home-button">
+            <Button id="home-button" aria-haspopup={true}>
               <Home />
               <span style={{ marginLeft: 5 }}>
                 <FormattedMessage id="home" />
@@ -124,6 +126,7 @@ class AppHeader extends React.Component {
           <Button
             id="kasegi-button"
             onClick={this.handleMenuButtonClick("kasegi")}
+            aria-haspopup={true}
           >
             <AttachMoney />
             <span style={{ marginLeft: 5 }}>
@@ -138,6 +141,7 @@ class AppHeader extends React.Component {
               vertical: "bottom"
             }}
             onClose={this.handleMenuClose("kasegi")}
+            onClick={this.handleMenuClose("kasegi")}
             PaperProps={{
               style: {
                 display: "flex"
@@ -191,7 +195,11 @@ class AppHeader extends React.Component {
               })}
             </List>
           </Popover>
-          <Button id="list-button" onClick={this.handleMenuButtonClick("list")}>
+          <Button
+            id="list-button"
+            aria-haspopup={true}
+            onClick={this.handleMenuButtonClick("list")}
+          >
             <FormatListBulleted />
             <span style={{ marginLeft: 5 }}>
               <FormattedMessage id="list" />
@@ -206,6 +214,7 @@ class AppHeader extends React.Component {
               vertical: "bottom"
             }}
             onClose={this.handleMenuClose("list")}
+            onClick={this.handleMenuClose("list")}
           >
             <MenuList>
               <Link to={`/${locale}/exchain/list`}>
@@ -222,43 +231,44 @@ class AppHeader extends React.Component {
               </Link>
             </MenuList>
           </Popover>
-        </div>
-      </div>
+        </SecondLineDiv>
+      </AppHeaderDiv>
     );
   }
 }
 
-const styles = {
-  appHeader: {
-    fontFamily: "verdana",
-    width: "100%",
-    display: "flex",
-    flexWrap: "wrap",
-    marginBottom: 10,
-    borderBottom: "2px solid"
-  },
-  firstLine: {
-    display: "flex",
-    width: "100%"
-  },
-  title: {
-    flexGrow: 1,
-    fontSize: 32,
-    fontFamily: "Andada",
-    fontWeight: "bold",
-    margin: 0,
+const AppHeaderDiv = styled.div`
+  font-family: verdana;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  border-bottom: 2px solid;
+`;
 
-    "@media (max-width: 742px)": {
-      width: "100%",
-      fontSize: 24
-    }
-  },
-  secondLine: {
-    width: "100%",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "flex-end"
+const FirstLineDiv = styled.div`
+  display: flex;
+  width: 100%;
+`;
+
+const Title = styled.h1`
+  flex-grow: 1;
+  font-size: 32px;
+  font-family: Andada;
+  font-weight: bold;
+  margin: 0;
+
+  @media (max-width: 742px) {
+    width: "100%";
+    font-size: 24px;
   }
-};
+`;
 
-export default injectIntl(Radium(AppHeader));
+const SecondLineDiv = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+`;
+
+export default injectIntl(AppHeader);

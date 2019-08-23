@@ -1,5 +1,5 @@
-var TARGET_DOMAIN = "http://127.0.0.1:5000";
-var SCRIPT_DOMAIN = TARGET_DOMAIN;
+var TARGET_DOMAIN = "http://gsv.fun";
+var SCRIPT_DOMAIN = "//gitadora-skill-viewer.herokuapp.com";
 var VERSION = "exchain";
 
 var script = document.createElement("script");

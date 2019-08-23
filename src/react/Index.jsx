@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { FormattedMessage, FormattedHTMLMessage, injectIntl } from "react-intl";
-import Radium from "radium";
 import LazyLoad from "react-lazyload";
 import Snackbar from "@material-ui/core/Snackbar";
 import Button from "@material-ui/core/Button";
 
+import BookmarkletScript from "./BookmarkletScript.jsx";
 import SlideToggle from "./SlideToggle.jsx";
 
 class Index extends React.Component {
@@ -33,18 +33,6 @@ class Index extends React.Component {
       });
     }
   }
-
-  handleMenuButtonClick = id => event => {
-    this.setState({
-      [`${id}AnchorEl`]: event.currentTarget
-    });
-  };
-
-  handleMenuClose = id => () => {
-    this.setState({
-      [`${id}AnchorEl`]: null
-    });
-  };
 
   handleSnackbarClose = () => {
     this.setState({
@@ -111,15 +99,21 @@ class Index extends React.Component {
           <h3>{<FormattedMessage id="intro.info.title" />}</h3>
           <ul>
             <li>
-              <FormattedMessage id="intro.info.content1" />
-            </li>
-            <li>
               <FormattedMessage
-                id="intro.info.content2"
+                id="intro.info.content1"
                 values={{
                   uservoice: <Link to={`${locale}/uservoice`}>User Voice</Link>
                 }}
               />
+            </li>
+            <li>
+              <FormattedMessage id="intro.info.content2" />
+            </li>
+            <li>
+              <FormattedMessage id="intro.info.content3" />
+            </li>
+            <li>
+              <FormattedHTMLMessage id="intro.info.content4" />
             </li>
           </ul>
         </SlideToggle>
@@ -128,18 +122,13 @@ class Index extends React.Component {
           <p style={{ fontSize: 14 }}>
             {<FormattedMessage id="how.upload.step1.remark" />}
           </p>
-          <p> For GITADORA EXCHAIN </p>
-          <div style={styles.script}>
-            {
-              "javascript:void(!function(d){var s=d.createElement('script');s.type='text/javascript';s.src='//gitadora-skill-viewer.herokuapp.com/js/uploaddata_exchain.js';d.head.appendChild(s);}(document));"
-            }
+          <div>
+            <FormattedMessage id="how.upload.step1.currentVersion" />
+            <span style={{ fontSize: 14, marginLeft: 20 }}>
+              <FormattedMessage id="how.upload.step1.currentVersionDesc" />
+            </span>
           </div>
-          <p> For GITADORA Matixx </p>
-          <div style={styles.script}>
-            {
-              "javascript:void(!function(d){var s=d.createElement('script');s.type='text/javascript';s.src='//gitadora-skill-viewer.herokuapp.com/js/uploaddata_matixx.js';d.head.appendChild(s);}(document));"
-            }
-          </div>
+          <BookmarkletScript />
           <LazyLoad height={532}>
             <div
               style={{
@@ -202,9 +191,6 @@ class Index extends React.Component {
           <p>
             <FormattedHTMLMessage id="desc.2nd" />
           </p>
-          <p>
-            <FormattedHTMLMessage id="desc.3rd" />
-          </p>
         </SlideToggle>
         <SlideToggle title={<FormattedMessage id="other.title" />}>
           <p>
@@ -241,13 +227,6 @@ const styles = {
   indexPage: {
     width: "100%"
   },
-  script: {
-    background: "#f6f6f6",
-    padding: 20,
-    borderRadius: 6,
-    fontSize: "80%",
-    wordBreak: "break-all"
-  },
   imageContainer: {
     position: "relative",
     color: "red",
@@ -263,4 +242,4 @@ const styles = {
   }
 };
 
-export default injectIntl(Radium(Index));
+export default injectIntl(Index);

@@ -4,25 +4,21 @@ import { StaticRouter } from "react-router";
 import { IntlProvider } from "react-intl";
 import flatten from "flat";
 import { Helmet } from "react-helmet";
-import { matchPath } from "react-router-dom";
-import { Provider } from "react-redux";
-import { createStore } from "redux";
-import serialize from "serialize-javascript";
-import { SheetsRegistry } from "jss";
-import JssProvider from "react-jss/lib/JssProvider";
-import {
-  MuiThemeProvider,
-  createMuiTheme,
-  createGenerateClassName
-} from "@material-ui/core/styles";
+import { ServerStyleSheets as MuiServerStyleSheets } from "@material-ui/styles";
+import { ApolloProvider } from "@apollo/react-common";
+import { InMemoryCache } from "apollo-cache-inmemory";
+import { HttpLink } from "apollo-link-http";
+import { ApolloClient } from "apollo-client";
+import { getDataFromTree } from "@apollo/react-ssr";
+import fetch from "node-fetch";
+import { ServerStyleSheet } from "styled-components";
 
 import jaMessages from "../locales/ja/common.json";
 import zhMessages from "../locales/zh/common.json";
 import enMessages from "../locales/en/common.json";
 
-import queryParser from "./modules/query";
-import App, { routes } from "./react/App.jsx";
-import reducer from "./react/reducer";
+import htmlTemplate from "./views/htmlTemplate";
+import App from "./react/App.jsx";
 
 const bundleFileName = readBundleFileNameFromManifest();
 
@@ -55,65 +51,56 @@ const reactRoute = (req, res) => {
     const locale = req.params.locale;
     res.cookie("locale", locale);
 
-    const store = createStore(reducer);
-
-    const promises = [];
-    routes.some(route => {
-      const match = matchPath(req.path, route);
-      const query = queryParser(req.url);
-
-      if (match && route.loadData) {
-        promises.push(route.loadData(store.dispatch, match, query));
-      }
+    // for mui components
+    const client = new ApolloClient({
+      ssrMode: true,
+      cache: new InMemoryCache(),
+      link: new HttpLink({
+        uri: `${process.env.APP_URL}/graphql`,
+        fetch
+      })
     });
+    const sheet = new ServerStyleSheet();
+    const muiSheet = new MuiServerStyleSheets();
 
-    Promise.all(promises).then(() => {
-      // server side rendering
-
-      // for mui components
-      const sheetsRegistry = new SheetsRegistry();
-      const sheetsManager = new Map();
-      const generateClassName = createGenerateClassName();
-      const theme = createMuiTheme({});
-
-      // for passing redux preloaded store
-      const preloadedState = serialize(store.getState());
-
-      const renderedString = renderToString(
-        <Provider store={store}>
+    let Temp = sheet.collectStyles(
+      muiSheet.collect(
+        <ApolloProvider client={client}>
           <IntlProvider locale={locale} messages={messages[locale]}>
             <StaticRouter location={req.url} context={{}}>
-              <JssProvider
-                registry={sheetsRegistry}
-                generateClassName={generateClassName}
-              >
-                <MuiThemeProvider theme={theme} sheetsManager={sheetsManager}>
-                  <App
-                    radiumConfig={{ userAgent: req.headers["user-agent"] }}
-                  />
-                </MuiThemeProvider>
-              </JssProvider>
+              <App radiumConfig={{ userAgent: req.headers["user-agent"] }} />
             </StaticRouter>
           </IntlProvider>
-        </Provider>
-      );
+        </ApolloProvider>
+      )
+    );
+
+    getDataFromTree(Temp).then(() => {
+      const renderedString = renderToString(Temp);
+
+      // for styled component
+      const styleTags = sheet.getStyleTags(); // or sheet.getStyleElement();
+      const cssForMui = muiSheet.toString();
 
       // for i18n
-      const appString = JSON.stringify({ locale, messages: messages[locale] });
+      const appString = JSON.stringify({
+        locale,
+        messages: messages[locale]
+      });
       // for SEO
       const helmet = Helmet.renderStatic();
-      // for mui components
-      const cssForMui = sheetsRegistry.toString();
 
-      res.render("react", {
+      const html = htmlTemplate({
         googleSiteVerfication: process.env.GOOGLE_SITE_VERIFICATION,
         helmet,
         content: renderedString,
         appString,
-        preloadedState,
-        cssForMui,
-        bundleFileName
+        bundleFileName,
+        client,
+        styleTags,
+        cssForMui
       });
+      res.send(html);
     });
   }
 };
