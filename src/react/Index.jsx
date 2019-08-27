@@ -107,13 +107,15 @@ class Index extends React.Component {
               />
             </li>
             <li>
-              <FormattedMessage id="intro.info.content2" />
+              <FormattedMessage
+                id="intro.info.content2"
+                values={{
+                  a: msg => <Link to={`${locale}/shared/g`}>{msg}</Link>
+                }}
+              />
             </li>
             <li>
-              <FormattedMessage id="intro.info.content3" />
-            </li>
-            <li>
-              <FormattedHTMLMessage id="intro.info.content4" />
+              <FormattedHTMLMessage id="intro.info.content3" />
             </li>
           </ul>
         </SlideToggle>

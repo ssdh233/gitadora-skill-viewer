@@ -14,7 +14,16 @@ const resolvers = require("./src/resolvers");
 
 app.use(compression());
 
-app.use(express.static("src/public", { maxAge: 31536000000 }));
+app.use(
+  express.static("src/public", {
+    maxAge: 31536000000,
+    setHeaders: (res, path) => {
+      if (path.includes("uploaddata")) {
+        res.set("Cache-Control", "no-cache");
+      }
+    }
+  })
+);
 app.set("views", path.join(__dirname, "/src/views"));
 
 app.use(function(req, res, next) {
@@ -73,7 +82,7 @@ process.on("uncaughtException", function(err) {
   console.log("uncaughtException => ", err);
 });
 
-// for nodemon
-process.on("SIGUSR2", () => {
+process.on("SIGINT", () => {
+  console.log("Recieved signal SIGINT");
   process.exit(0);
 });

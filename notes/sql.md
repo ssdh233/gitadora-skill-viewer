@@ -1,3 +1,17 @@
+### add sharedSongs column
+```sql
+ALTER TABLE skill
+ADD COLUMN "sharedSongs" json
+
+CREATE TABLE shared_songs(
+  "songName" text,
+  "version" varchar(50),
+  "type" varchar(1),
+  "count" integer,
+  PRIMARY KEY ("songName")
+);
+```
+
 ### migration
 
 #### skill

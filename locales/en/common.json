@@ -10,9 +10,8 @@
     "info": {
       "title": "Notice",
       "content1": "Add a new {uservoice} page, feel free to leave some messages！",
-      "content2": "Now the skill link will be not changed when a user changes his e-AMUSEMENT PASS",
-      "content3": "Now when a user uploads new skill data, the old data will not be overwritten. It'll be kept in the skill history table.",
-      "content4": "I created a <a href='https://twitter.com/gsvfunsite'>twitter account</a> for gsv.fun. Please follow me😋😋😋"
+      "content2": "Add <a>a new page</a> which provides a platform to let players search unlocked songs which are shared through 'recommend songs to friends' by other players. ",
+      "content3": "I created a <a href='https://twitter.com/gsvfunsite'>twitter account</a> for gsv.fun. Please follow me😋"
     }
   },
   "how": {
@@ -100,5 +99,24 @@
   },
   "listPage": {
     "tips": "You can sort this table by clicking the header"
+  },
+  "sharedSongs": {
+    "title": "Song sharing",
+    "desc": "This page provides a platform to let players search unlocked songs which are shared through 'recommend songs to friends' by other players.",
+    "noResults": "No results. Maybe you could try to ask for the song on the below forum.",
+    "forum": "forum",
+    "forumDesc": "Leave a message for the song you didn't find :)",
+    "howToUse": {
+      "title": "How to use",
+      "step1": "<strong>Select guitar/drum first</strong>, then search song by name",
+      "step2": "On official site's <a>フレンド編集</a> page, <strong>select guitar or drum first</strong>, then use Gitadora ID search the player who has the song you want, and add him as a friend"
+    },
+    "howToShare": {
+      "title": "How to share your song",
+      "desc1": "Edit on official site's <a>『フレンドにオススメ』編集</a> page, and upload skill as usal, no extra steps!",
+      "desc2": "(About how to upload skill, please refer to 'How to use' section on <internallink>home page</internallink>.",
+      "ps1": "According to Konami official, you can only get the first 3 songs from another player unless you two are mutual friends. So <strong>this site only collects first 3 songs also</strong>.",
+      "ps2": "Notice that <strong>you can only share songs for GuitarFreaks and Drummania respectively</strong>."
+    }
   }
 }

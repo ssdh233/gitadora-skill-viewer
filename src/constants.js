@@ -1,3 +1,5 @@
+const CURRENT_VERSION = "exchain";
+
 const SKILL_TABLE = {
   tb: "skill_tb",
   tbre: "skill_tbre",
@@ -24,6 +26,7 @@ const OLD_NAME_MAP = {
 };
 
 module.exports = {
+  CURRENT_VERSION,
   SKILL_TABLE: SKILL_TABLE,
   SKILLP_TABLE: SKILLP_TABLE,
   VERSION_NAME: VERSION_NAME,

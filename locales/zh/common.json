@@ -10,9 +10,8 @@
     "info": {
       "title": "通知",
       "content1": "把{uservoice}页面移动到了站内，有什么意见欢迎留言！",
-      "content2": "解决了换卡之后会新建一个skill表的问题😋",
-      "content3": "现在每次更新的时候会自动保存以前的skill😋",
-      "content4": "最近建了一个gsv.fun用的<a href='https://twitter.com/gsvfunsite' target='_blank'>twitter 账号</a>，欢迎互fo😋😋😋"
+      "content2": "给官方的「向朋友推荐歌曲」功能提供了一个<a>搜索平台</a>。只要加有那首歌的人的好友就可以玩没解禁的歌了！",
+      "content3": "最近建了一个gsv.fun用的<a href='https://twitter.com/gsvfunsite' target='_blank'>twitter 账号</a>，欢迎互fo😋"
     }
   },
   "how": {
@@ -100,5 +99,24 @@
   },
   "listPage": {
     "tips": "点击表格的列名可以排序"
+  },
+  "sharedSongs": {
+    "title": "解禁曲共享",
+    "desc": "本页面为gitadora官方的「向朋友推荐歌曲」功能提供了一个搜索平台",
+    "noResults": "没有找到这首歌。试试在下面留言求歌吧～",
+    "forum": "留言板",
+    "forumDesc": "这里主要用来求歌之类的",
+    "howToUse": {
+      "title": "使用方法",
+      "step1": "<strong>先选择机种</strong>，然后用曲名搜索想要的歌曲",
+      "step2": "在官方网站的<a>フレンド編集</a>页面，<strong>选好机种</strong>，然后用gitadora id搜索有这首歌的玩家，添加为好友"
+    },
+    "howToShare": {
+      "title": "共享歌曲的方法",
+      "desc1": "在官方网站的<a>『フレンドにオススメ』編集</a>页面添加好歌曲，然后像以前一样上传skill就OK啦！",
+      "desc2": "（关于如何上传skill，请参考<internallink>本站首页</internallink>的使用方法一栏）",
+      "ps1": "根据官方的规定，没有相互加好友的话只能分享前三首歌，所以<strong>本站也只收集前三首歌</strong>。",
+      "ps2": "请注意<strong>吉他和鼓的分享歌曲是分开来算的</strong>。"
+    }
   }
 }
