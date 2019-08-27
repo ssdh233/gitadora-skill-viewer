@@ -102,7 +102,7 @@ module.exports = {
       ).toFixed(2);
       const guitarDataStr = JSON.stringify(data.guitarSkill);
       const drumDataStr = JSON.stringify(data.drumSkill);
-      const sharedSongsStr = JSON.stringify(data.sharedSongs);
+      const sharedSongsStr = JSON.stringify(data.sharedSongs) || "{}";
 
       updateSharedSongList(data.sharedSongs);
 
@@ -217,15 +217,18 @@ async function saveSkill({ version, data, playerId, type }) {
 }
 
 async function updateSharedSongList(sharedSongs) {
-  sharedSongs.d.forEach(async songName => {
-    await pg.query(`INSERT INTO shared_songs VALUES(
+  if (!sharedSongs) return;
+  sharedSongs.d &&
+    sharedSongs.d.forEach(async songName => {
+      await pg.query(`INSERT INTO shared_songs VALUES(
       $$${songName}$$, $$${CURRENT_VERSION}$$, 'd', 0
     ) ON CONFLICT DO NOTHING;`);
-  });
+    });
 
-  sharedSongs.g.forEach(async songName => {
-    await pg.query(`INSERT INTO shared_songs VALUES(
+  sharedSongs.g &&
+    sharedSongs.g.forEach(async songName => {
+      await pg.query(`INSERT INTO shared_songs VALUES(
       $$${songName}$$, $$${CURRENT_VERSION}$$, 'g', 0
     ) ON CONFLICT DO NOTHING;`);
-  });
+    });
 }
