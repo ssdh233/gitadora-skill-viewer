@@ -10,9 +10,8 @@
     "info": {
       "title": "Notice",
       "content1": "Add a new {uservoice} page, feel free to leave some messages！",
-      "content2": "Now the skill link will be not changed when a user changes his e-AMUSEMENT PASS",
-      "content3": "Now when a user uploads new skill data, the old data will not be overwritten. It'll be kept in the skill history table.",
-      "content4": "I created a <a href='https://twitter.com/gsvfunsite'>twitter account</a> for gsv.fun. Please follow me😋😋😋"
+      "content2": "Add <a>a new page</a> which provides a platform to let players search unlocked songs which are shared through 'recommend songs to friends' by other players. ",
+      "content3": "I created a <a href='https://twitter.com/gsvfunsite'>twitter account</a> for gsv.fun. Please follow me😋"
     }
   },
   "how": {
