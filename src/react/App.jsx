@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { Switch, Route, withRouter } from "react-router-dom";
-import { ThemeProvider } from "@material-ui/styles";
-import { createMuiTheme } from "@material-ui/core/styles";
 
 import Index from "./Index.jsx";
 import AppHeader from "./AppHeader.jsx";
@@ -10,6 +8,7 @@ import UserVoicePage from "./UserVoicePage.jsx";
 import KasegiPage from "./KasegiPage";
 import ListPage from "./ListPage";
 import SkillPageContainer, { SavedSkillPageContainer } from "./SkillPage";
+import SharedSongsPage from "./SharedSongsPage";
 
 function MyRoute({ path, component, ...rest }) {
   return (
@@ -39,39 +38,38 @@ class App extends React.Component {
 
   render() {
     return (
-      <ThemeProvider theme={createMuiTheme()}>
-        <AppDiv>
-          <Switch>
-            <MyRoute exact path="/:locale" component={Index} />
-            <MyRoute
-              exact
-              path="/:locale/uservoice"
-              component={UserVoicePage}
-            />
-            <MyRoute
-              exact
-              path="/:locale/:version/kasegi/:type/:scope"
-              component={KasegiPage}
-            />
-            <MyRoute exact path="/:locale/:version/list" component={ListPage} />
-            <MyRoute
-              exact
-              path="/:locale/:version/userlist"
-              component={props => <ListPage {...props} isAdmin />}
-            />
-            <MyRoute
-              exact
-              path="/:locale/:version/:skillId/p"
-              component={SavedSkillPageContainer}
-            />
-            <MyRoute
-              exact
-              path="/:locale/:version/:playerId/:type"
-              component={SkillPageContainer}
-            />
-          </Switch>
-        </AppDiv>
-      </ThemeProvider>
+      <AppDiv>
+        <Switch>
+          <MyRoute exact path="/:locale" component={Index} />
+          <MyRoute exact path="/:locale/uservoice" component={UserVoicePage} />
+          <MyRoute
+            exact
+            path="/:locale/:version/kasegi/:type/:scope"
+            component={KasegiPage}
+          />
+          <MyRoute exact path="/:locale/:version/list" component={ListPage} />
+          <MyRoute
+            exact
+            path="/:locale/:version/userlist"
+            component={props => <ListPage {...props} isAdmin />}
+          />
+          <MyRoute
+            exact
+            path="/:locale/:version/:skillId/p"
+            component={SavedSkillPageContainer}
+          />
+          <MyRoute
+            exact
+            path="/:locale/:version/:playerId/:type"
+            component={SkillPageContainer}
+          />
+          <MyRoute
+            exact
+            path="/:locale/shared/:type"
+            component={SharedSongsPage}
+          />
+        </Switch>
+      </AppDiv>
     );
   }
 }

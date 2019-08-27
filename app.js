@@ -82,7 +82,7 @@ process.on("uncaughtException", function(err) {
   console.log("uncaughtException => ", err);
 });
 
-// for nodemon
-process.on("SIGUSR2", () => {
+process.on("SIGINT", () => {
+  console.log("Recieved signal SIGINT");
   process.exit(0);
 });

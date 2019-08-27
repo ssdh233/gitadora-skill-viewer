@@ -4,7 +4,11 @@ import { StaticRouter } from "react-router";
 import { IntlProvider } from "react-intl";
 import flatten from "flat";
 import { Helmet } from "react-helmet";
-import { ServerStyleSheets as MuiServerStyleSheets } from "@material-ui/styles";
+import {
+  ThemeProvider,
+  ServerStyleSheets as MuiServerStyleSheets
+} from "@material-ui/styles";
+import { createMuiTheme } from "@material-ui/core/styles";
 import { ApolloProvider } from "@apollo/react-common";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { HttpLink } from "apollo-link-http";
@@ -12,6 +16,7 @@ import { ApolloClient } from "apollo-client";
 import { getDataFromTree } from "@apollo/react-ssr";
 import fetch from "node-fetch";
 import { ServerStyleSheet } from "styled-components";
+import { DOMParser } from "xmldom";
 
 import jaMessages from "../locales/ja/common.json";
 import zhMessages from "../locales/zh/common.json";
@@ -19,6 +24,9 @@ import enMessages from "../locales/en/common.json";
 
 import htmlTemplate from "./views/htmlTemplate";
 import App from "./react/App.jsx";
+
+// for polyfilling https://github.com/formatjs/react-intl/blob/master/docs/Getting-Started.md#domparser
+global.DOMParser = DOMParser;
 
 const bundleFileName = readBundleFileNameFromManifest();
 
@@ -68,7 +76,9 @@ const reactRoute = (req, res) => {
         <ApolloProvider client={client}>
           <IntlProvider locale={locale} messages={messages[locale]}>
             <StaticRouter location={req.url} context={{}}>
-              <App radiumConfig={{ userAgent: req.headers["user-agent"] }} />
+              <ThemeProvider theme={createMuiTheme()}>
+                <App />
+              </ThemeProvider>
             </StaticRouter>
           </IntlProvider>
         </ApolloProvider>
@@ -80,8 +90,8 @@ const reactRoute = (req, res) => {
 
       // for styled component
       const styleTags = sheet.getStyleTags(); // or sheet.getStyleElement();
+      // for mui
       const cssForMui = muiSheet.toString();
-
       // for i18n
       const appString = JSON.stringify({
         locale,

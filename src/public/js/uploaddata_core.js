@@ -8,31 +8,33 @@ function handleAjaxError(request, status) {
   alert(`${request.responseText}\n\nstatus: ${status}`);
 }
 
-function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
+// TODO change to use promise and await
+async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
   if (window.location.hostname != "p.eagate.573.jp") {
     alert(
       "コナミ様のサイト(http://p.eagate.573.jp/)で行ってください。\n\n请在Konami的官方网站(http://p.eagate.573.jp/)上点击书签。\n\nPlease make sure you are on Konami official site(http://p.eagate.573.jp/)."
     );
   } else {
-    var urls = [
+    var SKILL_URLS = [
       `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p/eam/playdata/skill.html?gtype=gf&stype=0`,
       `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p/eam/playdata/skill.html?gtype=gf&stype=1`,
       `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p/eam/playdata/skill.html?gtype=dm&stype=0`,
       `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p/eam/playdata/skill.html?gtype=dm&stype=1`
     ];
+    var SKILL_LABEL = ["guitar_other", "guitar_hot", "drum_other", "drum_hot"];
 
-    var label = ["guitar_other", "guitar_hot", "drum_other", "drum_hot"];
+    var PROFILE_URL = `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p/eam/playdata/profile.html`;
 
     var profile_data = {};
     var skill_data = {};
+    var song_data = {};
 
     // ajax count
     var count = 0;
 
     // get profile data
-    var url = `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p/eam/playdata/profile.html`;
     $.ajax({
-      url: url,
+      url: PROFILE_URL,
       async: false,
       error: handleAjaxError,
       success: function(html) {
@@ -70,9 +72,19 @@ function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
       }
     });
 
+    const [gfSharedSongs, dmSharedSongs] = await Promise.all([
+      getSharedSongData("gf"),
+      getSharedSongData("dm")
+    ]);
+
+    song_data = {
+      g: gfSharedSongs,
+      d: dmSharedSongs
+    };
+
     if (profile_data["card_number"]) {
       for (var i = 0; i < 4; i++) {
-        extract_data(urls[i], label[i]);
+        getSkillData(SKILL_URLS[i], SKILL_LABEL[i]);
       }
     } else {
       // TODO write link to user voice page into this message
@@ -82,8 +94,30 @@ function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
     }
   }
 
+  async function getSharedSongData(type) {
+    // get shared song data
+    const resHtml = await $.ajax({
+      url: `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p/eam/setting/recommend.html?gtype=${type}`
+    });
+
+    var doc = document.implementation.createHTMLDocument("html");
+    doc.documentElement.innerHTML = resHtml;
+
+    const songs = $(doc)
+      .find("#contents table.music_table_tb tr > td.music_cell")
+      .map((i, el) =>
+        $(el)
+          .text()
+          .trim()
+      )
+      .toArray()
+      .slice(0, 3);
+
+    return songs;
+  }
+
   // for passing parameters
-  function extract_data(url, label) {
+  function getSkillData(url, label) {
     $.ajax({
       url: url,
       error: handleAjaxError,
@@ -178,6 +212,7 @@ function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
                     hot: skill_data["drum_hot"],
                     other: skill_data["drum_other"]
                   },
+                  sharedSongs: song_data,
                   updateDate: getDate()
                 }
               }
