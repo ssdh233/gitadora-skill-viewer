@@ -110,7 +110,8 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
           .text()
           .trim()
       )
-      .toArray();
+      .toArray()
+      .slice(0, 3);
 
     return songs;
   }
@@ -211,10 +212,7 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
                     hot: skill_data["drum_hot"],
                     other: skill_data["drum_other"]
                   },
-                  sharedSongs: {
-                    guitar: song_data.g,
-                    drum: song_data.d
-                  },
+                  sharedSongs: song_data,
                   updateDate: getDate()
                 }
               }

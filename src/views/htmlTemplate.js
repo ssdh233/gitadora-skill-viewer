@@ -24,8 +24,8 @@ const htmlTemplate = ({
     <meta name="google-site-verification" content="${googleSiteVerfication}" />
     <script type='text/javascript' src="http://cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js" defer></script>
     <script type='text/javascript' src="/js/google_analytics.js" defer></script>
-    <style id="jss-server-side">${cssForMui}</style>
     ${styleTags}
+    <style id="jss-server-side">${cssForMui}</style>
   </head>
   <body>
     <div id="app">${content}</div>

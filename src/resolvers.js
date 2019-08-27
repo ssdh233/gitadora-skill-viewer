@@ -1,4 +1,5 @@
 const pg = require("./modules/pg");
+const { CURRENT_VERSION } = require("./constants");
 
 // Provide resolver functions for your schema fields
 module.exports = {
@@ -66,6 +67,27 @@ module.exports = {
       const sql = `select "skillId", "playerName", "skillPoint", "updateDate" from skillp where "playerId"=${playerId} and "version"='${version}' and type='${type}' order by "updateDate" asc;`;
       const result = await pg.query(sql);
       return result.rows;
+    },
+    sharedSongSuggestions: async (_, { type }) => {
+      const result = await pg.query(
+        `SELECT "songName" FROM shared_songs WHERE type='${type}' AND version='${CURRENT_VERSION}' ORDER BY count desc;`
+      );
+      const allSuggestions = result.rows;
+
+      return allSuggestions.map(suggestion => suggestion.songName);
+    },
+    sharedSongs: async (_, { input, type }) => {
+      if (!input) return null;
+
+      pg.query(
+        `UPDATE shared_songs SET count = count + 1 WHERE "songName"=$$${input}$$ AND version='${CURRENT_VERSION}';`
+      );
+
+      const result = await pg.query(
+        `select * from skill where version='${CURRENT_VERSION}' and "sharedSongs"->>'${type}' LIKE $$%${input}%$$ LIMIT 20;`
+      );
+
+      return result.rows;
     }
   },
   Mutation: {
@@ -81,6 +103,8 @@ module.exports = {
       const guitarDataStr = JSON.stringify(data.guitarSkill);
       const drumDataStr = JSON.stringify(data.drumSkill);
       const sharedSongsStr = JSON.stringify(data.sharedSongs);
+
+      updateSharedSongList(data.sharedSongs);
 
       let playerDataRow;
 
@@ -190,4 +214,18 @@ async function saveSkill({ version, data, playerId, type }) {
       $$${data.updateDate}$$
     );
   `);
+}
+
+async function updateSharedSongList(sharedSongs) {
+  sharedSongs.d.forEach(async songName => {
+    await pg.query(`INSERT INTO shared_songs VALUES(
+      $$${songName}$$, $$${CURRENT_VERSION}$$, 'd', 0
+    ) ON CONFLICT DO NOTHING;`);
+  });
+
+  sharedSongs.g.forEach(async songName => {
+    await pg.query(`INSERT INTO shared_songs VALUES(
+      $$${songName}$$, $$${CURRENT_VERSION}$$, 'g', 0
+    ) ON CONFLICT DO NOTHING;`);
+  });
 }

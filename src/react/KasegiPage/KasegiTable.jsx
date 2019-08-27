@@ -7,7 +7,7 @@ import styled from "styled-components";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 function KasegiTable(props) {
-  const isSP = useMediaQuery("(max-width:742px)");
+  const isPC = useMediaQuery("(min-width:742px)");
   const getTrProps = (state, rowInfo) => {
     const diff = (rowInfo && rowInfo.original && rowInfo.original.diff) || "";
     return {
@@ -48,7 +48,7 @@ function KasegiTable(props) {
     {
       Header: () => <FormattedMessage id="kasegi.songname" />,
       accessor: "name",
-      minWidth: isSP ? 150 : 180,
+      minWidth: isPC ? 180 : 150,
       style: {
         whiteSpace: "unset"
       }
@@ -56,7 +56,7 @@ function KasegiTable(props) {
     {
       Header: () => <FormattedMessage id="kasegi.level" />,
       accessor: "displayedDiff",
-      maxWidth: isSP ? 53 : 100,
+      maxWidth: isPC ? 100 : 53,
       style: {
         whiteSpace: "unset",
         textAlign: "center"
@@ -65,7 +65,7 @@ function KasegiTable(props) {
     {
       Header: () => <FormattedMessage id="kasegi.averageskill" />,
       accessor: "displayedAverageSkill",
-      maxWidth: isSP ? 70 : 140,
+      maxWidth: isPC ? 140 : 70,
       style: {
         whiteSpace: "unset",
         textAlign: "center"
@@ -84,12 +84,12 @@ function KasegiTable(props) {
       props.mediaQuery === "pc" && {
         Header: () => <FormattedMessage id="kasegi.count" />,
         accessor: "count",
-        maxWidth: isSP ? 34 : 40
+        maxWidth: isPC ? 40 : 34
       },
       {
         Header: () => <FormattedMessage id="kasegi.compare" />,
         accessor: "compare",
-        maxWidth: isSP ? 50 : 60,
+        maxWidth: isPC ? 60 : 50,
         textAlign: "center",
         sortMethod: (a, b, desc) => {
           if (!b) return !desc ? -1 : 1;
@@ -108,7 +108,7 @@ function KasegiTable(props) {
       {
         Header: () => <FormattedMessage id="kasegi.count" />,
         accessor: "count",
-        maxWidth: isSP ? 34 : 40
+        maxWidth: isPC ? 40 : 34
       }
     ].filter(x => x);
   }

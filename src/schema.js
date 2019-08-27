@@ -7,6 +7,8 @@ const typeDefs = gql`
     kasegi(scope: Int, type: GameType, version: Version): Kasegi
     savedSkill(skillId: Int, type: GameType, version: Version): SavedSkill
     savedSkills(playerId: Int, type: GameType, version: Version): [SavedSkill]
+    sharedSongSuggestions(type: GameType): [String]
+    sharedSongs(input: String, type: GameType): [User]
   }
 
   type Mutation {
@@ -29,6 +31,7 @@ const typeDefs = gql`
     version: String
     playerId: Int
     playerName: String
+    gitadoraId: String
     updateDate: String
     updateCount: Float
     drumSkillPoint: Float
@@ -36,6 +39,7 @@ const typeDefs = gql`
     drumSkill: SkillTable
     guitarSkill: SkillTable
     savedSkills: [SavedSkill]
+    sharedSongs: SharedSongs
   }
 
   type SavedSkill {
@@ -85,6 +89,11 @@ const typeDefs = gql`
     averagePlayerSKill: Float
   }
 
+  type SharedSongs {
+    g: [String]
+    d: [String]
+  }
+
   input UserInput {
     cardNumber: String
     gitadoraId: String
@@ -115,8 +124,8 @@ const typeDefs = gql`
   }
 
   input SharedSongsInput {
-    drum: [String]
-    guitar: [String]
+    d: [String]
+    g: [String]
   }
 `;
 
