@@ -96,6 +96,8 @@ const StyledPaper = styled(Paper)`
   position: absolute;
   width: 100%;
   top: 52px;
+  max-height: 240px;
+  overflow: scroll;
 `;
 
 export default SearchBox;
