@@ -109,13 +109,14 @@
     "howToUse": {
       "title": "How to use",
       "step1": "<strong>Select guitar/drum first</strong>, then search song by name",
-      "step2": "On official site's <a>フレンド編集</a> page, <strong>select guitar or drum first</strong>, then use Gitadora ID search the player who has the song you want, and add him as a friend"
+      "step2": "On official site's <a>フレンド編集</a> page, <strong>select guitar or drum first</strong>, then use Gitadora ID search the player who has the song you want, and add him as a friend",
+      "step3": "Then you can play these unlocked songs at game center! However, <strong>you can only get 3 songs randomly (every play) from another player unless you two are mutual friends</strong>, so we recommend you add multiple friends for one song if you really really want that song."
     },
     "howToShare": {
       "title": "How to share your song",
       "desc1": "Edit on official site's <a>『フレンドにオススメ』編集</a> page, and upload skill as usal, no extra steps!",
       "desc2": "(About how to upload skill, please refer to 'How to use' section on <internallink>home page</internallink>.",
-      "ps1": "According to Konami official, you can only get the first 3 songs from another player unless you two are mutual friends. So <strong>this site only collects first 3 songs also</strong>.",
+      "ps1": "According to Konami official, <strong>you can only get 3 songs randomly (every play) from another player unless you two are mutual friends</strong>.",
       "ps2": "Notice that <strong>you can only share songs for GuitarFreaks and Drummania respectively</strong>."
     }
   }
