@@ -146,6 +146,9 @@ function SharedSongsPage(props) {
               }}
             />
           </li>
+          <li>
+            <FormattedHTMLMessage id="sharedSongs.howToUse.step3" />
+          </li>
         </ol>
         <Image src="/image/addFriend.jpg" />
       </SlideToggle>

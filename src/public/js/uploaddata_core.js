@@ -110,8 +110,7 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
           .text()
           .trim()
       )
-      .toArray()
-      .slice(0, 3);
+      .toArray();
 
     return songs;
   }
