@@ -89,22 +89,36 @@ function SharedSongsPage(props) {
                       </Link>
                     </HalfLine>
                     <HalfLine>ギタドラID: {gitadoraId}</HalfLine>
-                    <OneLine>
-                      ギター：
-                      {sharedSongs.g.map(song => (
-                        <SongName key={song} searched={song === inputValue}>
-                          {song}
-                        </SongName>
-                      ))}
-                    </OneLine>
-                    <OneLine>
-                      ドラム：
-                      {sharedSongs.d.map(song => (
-                        <SongName key={song} searched={song === inputValue}>
-                          {song}
-                        </SongName>
-                      ))}
-                    </OneLine>
+                    {type === "g" && (
+                      <OneLine>
+                        ギター
+                        <ul>
+                          {sharedSongs.g.map(song => (
+                            <SongName
+                              key={song}
+                              searched={song.includes(inputValue)}
+                            >
+                              {song}
+                            </SongName>
+                          ))}
+                        </ul>
+                      </OneLine>
+                    )}
+                    {type === "d" && (
+                      <OneLine>
+                        ドラム
+                        <ul>
+                          {sharedSongs.d.map(song => (
+                            <SongName
+                              key={song}
+                              searched={song.includes(inputValue)}
+                            >
+                              {song}
+                            </SongName>
+                          ))}
+                        </ul>
+                      </OneLine>
+                    )}
                     <OneLine>Updated at：{updateDate}</OneLine>
                   </ResultRoot>
                   {index !== sharedSongs.length - 1 && (
@@ -145,6 +159,9 @@ function SharedSongsPage(props) {
                 strong: msg => <strong>{msg}</strong>
               }}
             />
+          </li>
+          <li>
+            <FormattedHTMLMessage id="sharedSongs.howToUse.step3" />
           </li>
         </ol>
         <Image src="/image/addFriend.jpg" />
@@ -226,12 +243,8 @@ const OneLine = styled.span`
   flex: 1 100%;
 `;
 
-const SongName = styled.span`
+const SongName = styled.li`
   font-weight: ${props => (props.searched ? "bold" : "normal")};
-
-  &:not(:last-child)::after {
-    content: ", ";
-  }
 `;
 
 const Paragraph = styled.p`
