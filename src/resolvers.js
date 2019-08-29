@@ -84,7 +84,7 @@ module.exports = {
       );
 
       const result = await pg.query(
-        `select * from skill where version='${CURRENT_VERSION}' and "sharedSongs"->>'${type}' LIKE $$%${input}%$$ LIMIT 20;`
+        `select * from skill where version='${CURRENT_VERSION}' and "sharedSongs"->>'${type}' LIKE $$%${input}%$$ ORDER BY "updateDate" DESC LIMIT 20;`
       );
 
       return result.rows;
