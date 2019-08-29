@@ -1,5 +1,4 @@
 const pg = require("../modules/pg");
-var { SKILL_TABLE } = require("../constants");
 
 function isValidSkillData(skillData) {
   return (
@@ -92,14 +91,13 @@ function extractKasegiResult(gatheredKasegiResult) {
 }
 
 async function kasegi({ version, type }) {
-  const skill_table_name = SKILL_TABLE[version];
-  const sql = `select * from ${skill_table_name} order by id asc;`;
+  const sql = `select * from skill where version=$$${version}$$ order by "playerId" asc;`;
 
   const result = await pg.query(sql);
   let gatheredKasegiResult = {};
   result.rows.forEach(userData => {
     try {
-      const skillData = JSON.parse(userData[`${type}_skill`]);
+      const skillData = userData[`${type}Skill`];
 
       if (isValidSkillData(skillData)) {
         gatheredKasegiResult = gatherKasegiResult({
@@ -140,10 +138,8 @@ module.exports = {
   job: () => {
     kasegi({ version: "exchain", type: "guitar" });
     kasegi({ version: "exchain", type: "drum" });
-    kasegi({ version: "matixx", type: "guitar" });
-    kasegi({ version: "matixx", type: "drum" });
   },
-  // every day 1:00 AM UTC = 10:00 AM in Japan
-  //cronSchedule: "0 0 1 * * *"
-  cronSchedule: "0 0 * * * *" // for testing
+  // every day 20:00 UTC = 5:00 JST
+  cronSchedule: "0 0 20 * * *"
+  // cronSchedule: "0 0 * * * *" // for testing
 };
