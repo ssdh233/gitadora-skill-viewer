@@ -23,8 +23,8 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
 
     // get profile data
     const [gfSharedSongs, dmSharedSongs, profileData] = await Promise.all([
-      getSharedSongData("gf"),
-      getSharedSongData("dm"),
+      VERSION === "exchain" && getSharedSongData("gf"),
+      VERSION === "exchain" && getSharedSongData("dm"),
       getProfileData()
     ]);
 
@@ -89,7 +89,7 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
     }/g?setLocalStorage=${uploadRes.data.upload}`;
   } catch (error) {
     console.error(error);
-    postError(error);
+    postError(error.message);
   }
 
   // for passing parameters
