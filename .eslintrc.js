@@ -3,7 +3,8 @@ module.exports = {
   plugins: ["prettier", "react"],
   rules: {
     "prettier/prettier": "error",
-    "no-undef": "off"
+    "no-undef": "off",
+    "no-console": "off"
   },
   overrides: [
     {

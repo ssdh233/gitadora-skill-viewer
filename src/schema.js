@@ -9,10 +9,17 @@ const typeDefs = gql`
     savedSkills(playerId: Int, type: GameType, version: Version): [SavedSkill]
     sharedSongSuggestions(type: GameType): [String]
     sharedSongs(input: String, type: GameType): [User]
+    errors: [Error]
   }
 
   type Mutation {
     upload(version: Version, data: UserInput): Int
+    postError(
+      version: Version
+      error: String
+      date: String
+      userAgent: String
+    ): Boolean
   }
 
   enum GameType {
@@ -92,6 +99,13 @@ const typeDefs = gql`
   type SharedSongs {
     g: [String]
     d: [String]
+  }
+
+  type Error {
+    version: Version
+    error: String
+    date: String
+    userAgent: String
   }
 
   input UserInput {
