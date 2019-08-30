@@ -3,11 +3,6 @@ script.src = "//code.jquery.com/jquery-1.12.4.min.js";
 script.type = "text/javascript";
 document.getElementsByTagName("head")[0].appendChild(script);
 
-function handleAjaxError(request, status) {
-  alert(`${request.responseText}\n\nstatus: ${status}`);
-  postError(`${request.responseText}\n\nstatus: ${status}`);
-}
-
 // eslint-disable-next-line
 async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
   var skill_data = {};
@@ -29,8 +24,8 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
     ]);
 
     song_data = {
-      g: gfSharedSongs,
-      d: dmSharedSongs
+      g: gfSharedSongs || "",
+      d: dmSharedSongs || ""
     };
 
     if (!profileData.cardNumber) {
@@ -57,6 +52,7 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
 
     let uploadRes = await $.ajax({
       url: `${SCRIPT_DOMAIN}/graphql`,
+      error: handleAjaxError,
       method: "POST",
       contentType: "application/json",
       data: JSON.stringify({
@@ -164,7 +160,71 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
     });
   }
 
+  async function getProfileData() {
+    var PROFILE_URL = `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p/eam/playdata/profile.html`;
+
+    let profileData = {};
+    let resHtml = await $.ajax({ url: PROFILE_URL, error: handleAjaxError });
+
+    var doc = document.implementation.createHTMLDocument("html");
+    doc.documentElement.innerHTML = resHtml;
+
+    var playerName = $(doc)
+      .find(".profile_name_frame")
+      .text();
+
+    var cardNumber = "";
+    var gitadoraId = "";
+
+    if (VERSION === "exchain") {
+      cardNumber = $(doc)
+        .find("#contents > .maincont > h2")
+        .text()
+        .match(/[a-zA-Z0-9]+/);
+      cardNumber = cardNumber && cardNumber[0];
+
+      gitadoraId = $(doc)
+        .find("div.common_frame_date")
+        .text()
+        .trim();
+    } else {
+      cardNumber = $(doc)
+        .find(".common_frame_date")
+        .text()
+        .substring(10, 26);
+    }
+
+    profileData.playerName = playerName;
+    profileData.cardNumber = cardNumber;
+    profileData.gitadoraId = gitadoraId;
+
+    return profileData;
+  }
+
+  async function getSharedSongData(type) {
+    // get shared song data
+    const resHtml = await $.ajax({
+      url: `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p/eam/setting/recommend.html?gtype=${type}`,
+      error: handleAjaxError
+    });
+
+    var doc = document.implementation.createHTMLDocument("html");
+    doc.documentElement.innerHTML = resHtml;
+
+    const songs = $(doc)
+      .find("#contents table.music_table_tb tr > td.music_cell")
+      .map((i, el) =>
+        $(el)
+          .text()
+          .trim()
+      )
+      .toArray();
+
+    return songs;
+  }
+
   async function postError(error) {
+    if (!error) return;
     await $.ajax({
       url: `${SCRIPT_DOMAIN}/graphql`,
       method: "POST",
@@ -184,68 +244,11 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
       })
     });
   }
-}
 
-async function getProfileData() {
-  var PROFILE_URL = `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p/eam/playdata/profile.html`;
-
-  let profileData = {};
-  let resHtml = await $.ajax({ url: PROFILE_URL });
-
-  var doc = document.implementation.createHTMLDocument("html");
-  doc.documentElement.innerHTML = resHtml;
-
-  var playerName = $(doc)
-    .find(".profile_name_frame")
-    .text();
-
-  var cardNumber = "";
-  var gitadoraId = "";
-
-  if (VERSION === "exchain") {
-    cardNumber = $(doc)
-      .find("#contents > .maincont > h2")
-      .text()
-      .match(/[a-zA-Z0-9]+/);
-    cardNumber = cardNumber && cardNumber[0];
-
-    gitadoraId = $(doc)
-      .find("div.common_frame_date")
-      .text()
-      .trim();
-  } else {
-    cardNumber = $(doc)
-      .find(".common_frame_date")
-      .text()
-      .substring(10, 26);
+  function handleAjaxError(request, status) {
+    alert(`${request.responseText}\n\nstatus: ${status}`);
+    postError(`${request.responseText}\n\nstatus: ${status}`);
   }
-
-  profileData.playerName = playerName;
-  profileData.cardNumber = cardNumber;
-  profileData.gitadoraId = gitadoraId;
-
-  return profileData;
-}
-
-async function getSharedSongData(type) {
-  // get shared song data
-  const resHtml = await $.ajax({
-    url: `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p/eam/setting/recommend.html?gtype=${type}`
-  });
-
-  var doc = document.implementation.createHTMLDocument("html");
-  doc.documentElement.innerHTML = resHtml;
-
-  const songs = $(doc)
-    .find("#contents table.music_table_tb tr > td.music_cell")
-    .map((i, el) =>
-      $(el)
-        .text()
-        .trim()
-    )
-    .toArray();
-
-  return songs;
 }
 
 function getDate() {
