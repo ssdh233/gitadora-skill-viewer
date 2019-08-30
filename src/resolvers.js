@@ -88,6 +88,12 @@ module.exports = {
       );
 
       return result.rows;
+    },
+    errors: async () => {
+      const result = await pg.query(
+        `SELECT * FROM errorReports ORDER BY "date" DESC;`
+      );
+      return result.rows;
     }
   },
   Mutation: {
@@ -183,6 +189,12 @@ module.exports = {
         await pg.query("COMMIT");
         return playerId;
       }
+    },
+    postError: async (_, { version, error, date, userAgent }) => {
+      await pg.query(`INSERT INTO errorReports VALUES (
+        $$${version}$$ , $$${error}$$, $$${date}$$, $$${userAgent}$$
+      );`);
+      return;
     }
   }
 };
