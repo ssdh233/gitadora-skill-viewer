@@ -1,3 +1,13 @@
+### add errorReports table
+```sql
+CREATE TABLE errorReports(
+    "version" varchar(50),
+    "error" text,
+    "date" varchar(20),
+    "userAgent" text
+);
+```
+
 ### add sharedSongs column
 ```sql
 ALTER TABLE skill

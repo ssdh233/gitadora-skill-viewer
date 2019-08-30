@@ -3,18 +3,39 @@ script.src = "//code.jquery.com/jquery-1.12.4.min.js";
 script.type = "text/javascript";
 document.getElementsByTagName("head")[0].appendChild(script);
 
-function handleAjaxError(request, status) {
-  // TODO write link to user voice page into this message
-  alert(`${request.responseText}\n\nstatus: ${status}`);
-}
-
-// TODO change to use promise and await
+// eslint-disable-next-line
 async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
-  if (window.location.hostname != "p.eagate.573.jp") {
-    alert(
-      "コナミ様のサイト(http://p.eagate.573.jp/)で行ってください。\n\n请在Konami的官方网站(http://p.eagate.573.jp/)上点击书签。\n\nPlease make sure you are on Konami official site(http://p.eagate.573.jp/)."
-    );
-  } else {
+  var skill_data = {};
+  var song_data = {};
+
+  try {
+    if (window.location.hostname != "p.eagate.573.jp") {
+      alert(
+        "コナミ様のサイト(http://p.eagate.573.jp/)で行ってください。\n\n请在Konami的官方网站(http://p.eagate.573.jp/)上点击书签。\n\nPlease make sure you are on Konami official site(http://p.eagate.573.jp/)."
+      );
+      return;
+    }
+
+    // get profile data
+    const [gfSharedSongs, dmSharedSongs, profileData] = await Promise.all([
+      VERSION === "exchain" && getSharedSongData("gf"),
+      VERSION === "exchain" && getSharedSongData("dm"),
+      getProfileData()
+    ]);
+
+    song_data = {
+      g: gfSharedSongs || "",
+      d: dmSharedSongs || ""
+    };
+
+    if (!profileData.cardNumber) {
+      alert(
+        "プレイヤーデータ取得できません。ログインした状態でもう一度試してみてください。\n\n无法取得玩家数据，请检查您是否已经登录。\n\nFailed to fetch player data. Please log in."
+      );
+
+      return;
+    }
+
     var SKILL_URLS = [
       `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p/eam/playdata/skill.html?gtype=gf&stype=0`,
       `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p/eam/playdata/skill.html?gtype=gf&stype=1`,
@@ -23,101 +44,53 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
     ];
     var SKILL_LABEL = ["guitar_other", "guitar_hot", "drum_other", "drum_hot"];
 
-    var PROFILE_URL = `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p/eam/playdata/profile.html`;
-
-    var profile_data = {};
-    var skill_data = {};
-    var song_data = {};
-
-    // ajax count
-    var count = 0;
-
-    // get profile data
-    $.ajax({
-      url: PROFILE_URL,
-      async: false,
-      error: handleAjaxError,
-      success: function(html) {
-        var doc = document.implementation.createHTMLDocument("html");
-        doc.documentElement.innerHTML = html;
-
-        var player_name = $(doc)
-          .find(".profile_name_frame")
-          .text();
-
-        var card_number = "";
-        var gitadora_id = "";
-
-        if (VERSION === "exchain") {
-          card_number = $(doc)
-            .find("#contents > .maincont > h2")
-            .text()
-            .match(/[a-zA-Z0-9]+/);
-          card_number = card_number && card_number[0];
-
-          gitadora_id = $(doc)
-            .find("div.common_frame_date")
-            .text()
-            .trim();
-        } else {
-          card_number = $(doc)
-            .find(".common_frame_date")
-            .text()
-            .substring(10, 26);
-        }
-
-        profile_data["player_name"] = player_name;
-        profile_data["card_number"] = card_number;
-        profile_data["gitadora_id"] = gitadora_id;
-      }
-    });
-
-    const [gfSharedSongs, dmSharedSongs] = await Promise.all([
-      getSharedSongData("gf"),
-      getSharedSongData("dm")
-    ]);
-
-    song_data = {
-      g: gfSharedSongs,
-      d: dmSharedSongs
-    };
-
-    if (profile_data["card_number"]) {
-      for (var i = 0; i < 4; i++) {
-        getSkillData(SKILL_URLS[i], SKILL_LABEL[i]);
-      }
-    } else {
-      // TODO write link to user voice page into this message
-      alert(
-        "プレイヤーデータ取得できません。ログインした状態でもう一度試してみてください。\n\n无法取得玩家数据，请检查您是否已经登录。\n\nFailed to fetch player data. Please log in."
-      );
-    }
-  }
-
-  async function getSharedSongData(type) {
-    // get shared song data
-    const resHtml = await $.ajax({
-      url: `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p/eam/setting/recommend.html?gtype=${type}`
-    });
-
-    var doc = document.implementation.createHTMLDocument("html");
-    doc.documentElement.innerHTML = resHtml;
-
-    const songs = $(doc)
-      .find("#contents table.music_table_tb tr > td.music_cell")
-      .map((i, el) =>
-        $(el)
-          .text()
-          .trim()
+    await Promise.all(
+      [0, 1, 2, 3].map(index =>
+        getSkillData(SKILL_URLS[index], SKILL_LABEL[index])
       )
-      .toArray();
+    );
 
-    return songs;
+    let uploadRes = await $.ajax({
+      url: `${SCRIPT_DOMAIN}/graphql`,
+      error: handleAjaxError,
+      method: "POST",
+      contentType: "application/json",
+      data: JSON.stringify({
+        query: `
+        mutation Upload($version: Version, $data: UserInput) {
+          upload(version: $version, data: $data)
+        }
+      `,
+        variables: {
+          version: VERSION,
+          data: {
+            ...profileData,
+            guitarSkill: {
+              hot: skill_data["guitar_hot"],
+              other: skill_data["guitar_other"]
+            },
+            drumSkill: {
+              hot: skill_data["drum_hot"],
+              other: skill_data["drum_other"]
+            },
+            sharedSongs: song_data,
+            updateDate: getDate()
+          }
+        }
+      })
+    });
+
+    window.location = `${TARGET_DOMAIN}/${VERSION}/${
+      uploadRes.data.upload
+    }/g?setLocalStorage=${uploadRes.data.upload}`;
+  } catch (error) {
+    console.error(error);
+    postError(error.message);
   }
 
   // for passing parameters
-  function getSkillData(url, label) {
-    $.ajax({
+  async function getSkillData(url, label) {
+    await $.ajax({
       url: url,
       error: handleAjaxError,
       success: function(html) {
@@ -179,56 +152,102 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
             break;
           }
         }
-        count++;
         skill_data[label] = {
           point: skill_point.toFixed(2),
           data: skill_data_per_page
         };
-      },
-      complete: function() {
-        if (count === 4) {
-          $.ajax({
-            url: `${SCRIPT_DOMAIN}/graphql`,
-            method: "POST",
-            contentType: "application/json",
-            data: JSON.stringify({
-              query: `
-                mutation Upload($version: Version, $data: UserInput) {
-                  upload(version: $version, data: $data)
-                }
-              `,
-              variables: {
-                version: VERSION,
-                data: {
-                  cardNumber: profile_data["card_number"],
-                  gitadoraId: profile_data["gitadora_id"],
-                  playerName: profile_data["player_name"],
-                  guitarSkill: {
-                    hot: skill_data["guitar_hot"],
-                    other: skill_data["guitar_other"]
-                  },
-                  drumSkill: {
-                    hot: skill_data["drum_hot"],
-                    other: skill_data["drum_other"]
-                  },
-                  sharedSongs: song_data,
-                  updateDate: getDate()
-                }
-              }
-            }),
-            success: function(res) {
-              if (res.errors) {
-                console.error(res.errors);
-              } else {
-                location = `${TARGET_DOMAIN}/${VERSION}/${
-                  res.data.upload
-                }/g?setLocalStorage=${res.data.upload}`;
-              }
-            }
-          });
-        }
       }
     });
+  }
+
+  async function getProfileData() {
+    var PROFILE_URL = `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p/eam/playdata/profile.html`;
+
+    let profileData = {};
+    let resHtml = await $.ajax({ url: PROFILE_URL, error: handleAjaxError });
+
+    var doc = document.implementation.createHTMLDocument("html");
+    doc.documentElement.innerHTML = resHtml;
+
+    var playerName = $(doc)
+      .find(".profile_name_frame")
+      .text();
+
+    var cardNumber = "";
+    var gitadoraId = "";
+
+    if (VERSION === "exchain") {
+      cardNumber = $(doc)
+        .find("#contents > .maincont > h2")
+        .text()
+        .match(/[a-zA-Z0-9]+/);
+      cardNumber = cardNumber && cardNumber[0];
+
+      gitadoraId = $(doc)
+        .find("div.common_frame_date")
+        .text()
+        .trim();
+    } else {
+      cardNumber = $(doc)
+        .find(".common_frame_date")
+        .text()
+        .substring(10, 26);
+    }
+
+    profileData.playerName = playerName;
+    profileData.cardNumber = cardNumber;
+    profileData.gitadoraId = gitadoraId;
+
+    return profileData;
+  }
+
+  async function getSharedSongData(type) {
+    // get shared song data
+    const resHtml = await $.ajax({
+      url: `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p/eam/setting/recommend.html?gtype=${type}`,
+      error: handleAjaxError
+    });
+
+    var doc = document.implementation.createHTMLDocument("html");
+    doc.documentElement.innerHTML = resHtml;
+
+    const songs = $(doc)
+      .find("#contents table.music_table_tb tr > td.music_cell")
+      .map((i, el) =>
+        $(el)
+          .text()
+          .trim()
+      )
+      .toArray();
+
+    return songs;
+  }
+
+  async function postError(error) {
+    if (!error) return;
+    await $.ajax({
+      url: `${SCRIPT_DOMAIN}/graphql`,
+      method: "POST",
+      contentType: "application/json",
+      data: JSON.stringify({
+        query: `
+        mutation PostError($version: Version, $error: String, $date: String, $userAgent: String) {
+          postError(version: $version, error: $error, date: $date, userAgent: $userAgent)
+        }
+      `,
+        variables: {
+          version: VERSION,
+          error: error.toString(),
+          date: getDate(),
+          userAgent: window.navigator.userAgent
+        }
+      })
+    });
+  }
+
+  function handleAjaxError(request, status) {
+    alert(`${request.responseText}\n\nstatus: ${status}`);
+    postError(`${request.responseText}\n\nstatus: ${status}`);
   }
 }
 

@@ -9,12 +9,13 @@ import KasegiPage from "./KasegiPage";
 import ListPage from "./ListPage";
 import SkillPageContainer, { SavedSkillPageContainer } from "./SkillPage";
 import SharedSongsPage from "./SharedSongsPage";
+import ErrorListPage from "./ErrorListPage";
 
 function MyRoute({ path, component, ...rest }) {
   return (
     <Route
       {...rest}
-      exact
+      exact={true}
       path={path}
       render={props => {
         return (
@@ -42,6 +43,7 @@ class App extends React.Component {
         <Switch>
           <MyRoute exact path="/:locale" component={Index} />
           <MyRoute exact path="/:locale/uservoice" component={UserVoicePage} />
+          <MyRoute exact path="/:locale/errorlist" component={ErrorListPage} />
           <MyRoute
             exact
             path="/:locale/:version/kasegi/:type/:scope"
