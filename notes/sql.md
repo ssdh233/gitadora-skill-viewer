@@ -1,4 +1,11 @@
+### sharedSongs table bugfix
+```sql
+alter table shared_songs drop constraint shared_songs_pkey;
+alter table shared_songs add constraint shared_songs_pkey PRIMARY KEY ("songName", "type");
+```
+
 ### add errorReports table
+
 ```sql
 CREATE TABLE errorReports(
     "version" varchar(50),
@@ -7,6 +14,7 @@ CREATE TABLE errorReports(
     "userAgent" text
 );
 ```
+
 
 ### add sharedSongs column
 ```sql
