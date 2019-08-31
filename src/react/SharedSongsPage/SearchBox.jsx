@@ -11,6 +11,8 @@ import Downshift from "downshift";
 function stateReducer(state, changes) {
   // this prevents the input from being clear on blur
   switch (changes.type) {
+    case Downshift.stateChangeTypes.blurInput:
+    case Downshift.stateChangeTypes.touchEnd:
     case Downshift.stateChangeTypes.mouseUp:
       return { ...state, isOpen: false };
     default:
