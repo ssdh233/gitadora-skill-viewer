@@ -33,7 +33,7 @@ const htmlTemplate = ({
       window.App=\`${appString}\`;
       window.__APOLLO_STATE__ = ${JSON.stringify(client.extract())};
     </script>
-    <script src="/bundle/${bundleFileName}" type="text/javascript"></script>
+    <script src="/js/${bundleFileName}" type="text/javascript"></script>
   </body>
 </html>
 `;

@@ -35,7 +35,7 @@ function readBundleFileNameFromManifest() {
   try {
     let stats = JSON.parse(
       require("fs")
-        .readFileSync("./src/public/bundle/manifest.json")
+        .readFileSync("./src/public/js/manifest.json")
         .toString()
     );
     bundleFileName = stats["bundle.js"];
