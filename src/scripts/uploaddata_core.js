@@ -239,12 +239,22 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
           date: getDate(),
           userAgent: window.navigator.userAgent
         }
-      })
+      }),
+      error: () => {
+        alert(
+          `[failed to report error]\nエラーが発生しました。\n出了点问题。\nYou got an error.\n\n[error message]\n${error.toString()}`
+        );
+      },
+      success: () => {
+        alert(
+          `[error reported]\nエラーが発生しました。\n出了点问题。\nYou got an error.\n\n[error message]\n${error.toString()}`
+        );
+      }
     });
   }
 
   function handleAjaxError(request, status) {
-    alert(`${request.responseText}\n\nstatus: ${status}`);
+    console.error(`${request.responseText}\n\nstatus: ${status}`);
     postError(`${request.responseText}\n\nstatus: ${status}`);
   }
 }
