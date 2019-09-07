@@ -80,7 +80,7 @@ module.exports = {
       if (!input) return null;
 
       pg.query(
-        `UPDATE shared_songs SET count = count + 1 WHERE "songName"=$$${input}$$ AND version='${CURRENT_VERSION}';`
+        `UPDATE shared_songs SET count = count + 1 WHERE "songName"=$$${input}$$ AND version='${CURRENT_VERSION}' AND type='${type}';`
       );
 
       const result = await pg.query(

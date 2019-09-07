@@ -1,7 +1,5 @@
-var script = document.createElement("script");
-script.src = "//code.jquery.com/jquery-1.12.4.min.js";
-script.type = "text/javascript";
-document.getElementsByTagName("head")[0].appendChild(script);
+import $ from "jquery";
+import "regenerator-runtime/runtime";
 
 // eslint-disable-next-line
 async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
@@ -80,12 +78,16 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
       })
     });
 
-    window.location = `${TARGET_DOMAIN}/${VERSION}/${
-      uploadRes.data.upload
-    }/g?setLocalStorage=${uploadRes.data.upload}`;
+    if (uploadRes.errors) {
+      postError(uploadRes.errors);
+    } else {
+      window.location = `${TARGET_DOMAIN}/${VERSION}/${
+        uploadRes.data.upload
+      }/g?setLocalStorage=${uploadRes.data.upload}`;
+    }
   } catch (error) {
-    console.error(error);
-    postError(error.message);
+    // unhandled eror
+    postError(error);
   }
 
   // for passing parameters
@@ -225,6 +227,8 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
 
   async function postError(error) {
     if (!error) return;
+
+    let errorStr = JSON.stringify(error);
     await $.ajax({
       url: `${SCRIPT_DOMAIN}/graphql`,
       method: "POST",
@@ -237,16 +241,26 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
       `,
         variables: {
           version: VERSION,
-          error: error.toString(),
+          error: errorStr,
           date: getDate(),
           userAgent: window.navigator.userAgent
         }
-      })
+      }),
+      error: () => {
+        alert(
+          `[failed to report error]\nエラーが発生しました。\n出了点问题。\nYou got an error.\n\n[error message]\n${errorStr}`
+        );
+      },
+      success: () => {
+        alert(
+          `[error reported]\nエラーが発生しました。\n出了点问题。\nYou got an error.\n\n[error message]\n${errorStr}`
+        );
+      }
     });
   }
 
   function handleAjaxError(request, status) {
-    alert(`${request.responseText}\n\nstatus: ${status}`);
+    console.error(`${request.responseText}\n\nstatus: ${status}`);
     postError(`${request.responseText}\n\nstatus: ${status}`);
   }
 }
@@ -277,3 +291,5 @@ function getDate() {
 
   return `${YYYY}/${MM}/${DD} ${hh}:${mm}`;
 }
+
+export default main;
