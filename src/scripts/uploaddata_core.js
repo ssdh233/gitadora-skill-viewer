@@ -1,7 +1,5 @@
-var script = document.createElement("script");
-script.src = "//code.jquery.com/jquery-1.12.4.min.js";
-script.type = "text/javascript";
-document.getElementsByTagName("head")[0].appendChild(script);
+import $ from "jquery";
+import "regenerator-runtime/runtime";
 
 // eslint-disable-next-line
 async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
@@ -277,3 +275,5 @@ function getDate() {
 
   return `${YYYY}/${MM}/${DD} ${hh}:${mm}`;
 }
+
+export default main;

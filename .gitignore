@@ -1,3 +1,4 @@
 /node_modules/*
 /.env
-/src/public/bundle/*
+/src/public/js/uploaddata_*
+/src/public/js/bundle*
