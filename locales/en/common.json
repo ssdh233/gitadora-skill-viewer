@@ -23,7 +23,7 @@
         "remark": "※Some browsers（e.g. safari、chrome on mobile）don't provide the feature of creating a new bookmark. In that case you can add a bookmark for any site first, then edit it and replace the URL address with the below script.",
         "imgDesc1": "The bookmark name doesn't matter. Put whatever you like.",
         "imgDesc2": "Paste the script on the URL input",
-        "currentVersion": "For current version: EXCHAIN",
+        "currentVersion": "For current version: NEX+AGE",
         "currentVersionDesc": "(This script is always getting data from the latest version. No need to update the script when next version comes)",
         "oldVersion": "For old version:"
       },

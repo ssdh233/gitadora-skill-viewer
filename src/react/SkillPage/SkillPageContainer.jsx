@@ -3,7 +3,7 @@ import gql from "graphql-tag";
 import { useQuery } from "@apollo/react-hooks";
 import LinearProgress from "@material-ui/core/LinearProgress";
 
-import { OLD_NAME_MAP } from "../../constants";
+import { OLD_NAME_MAP, CURRENT_VERSION } from "../../constants";
 import queryParser from "../../modules/query";
 import SkillPage from "./SkillPage.jsx";
 
@@ -77,6 +77,7 @@ const GET_SKILL = gql`
 
 export default function SkillPageContainer(props) {
   const { playerId, version, type } = props.match.params;
+  console.log({ playerId, version, type });
   const query = queryParser(props.location.search);
 
   const { data, loading, error } = useQuery(GET_SKILL, {
@@ -91,7 +92,7 @@ export default function SkillPageContainer(props) {
   useEffect(() => {
     const gsvId = query.setLocalStorage;
 
-    if (gsvId && version === "exchain") {
+    if (gsvId && version === CURRENT_VERSION) {
       localStorage.setItem("gsvId", gsvId);
       localStorage.setItem("gsvName", data.user.playerName);
       window.history.pushState("", "", window.location.href.split("?")[0]);
@@ -100,6 +101,8 @@ export default function SkillPageContainer(props) {
 
   if (loading) return <LinearProgress />;
   if (error) return <p>ERROR: {error.toString()}</p>;
+
+  console.log({ data });
 
   return (
     <SkillPage

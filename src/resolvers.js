@@ -21,7 +21,7 @@ module.exports = {
       return result.rows;
     },
     user: async (_, { playerId, version }) => {
-      if (!playerId) return null;
+      if (playerId == null) return null;
       const sql = `select * from skill where version='${version}' and "playerId"=${playerId};`;
       const result = await pg.query(sql);
       return result.rows[0];
