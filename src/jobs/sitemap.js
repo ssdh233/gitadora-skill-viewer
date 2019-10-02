@@ -1,6 +1,8 @@
 const convert = require("xml-js");
 const fs = require("fs");
 
+const { CURRENT_VERSION, ALL_VERSIONS } = require("../constants");
+
 const sitemapSource = [
   {
     path: ""
@@ -10,7 +12,7 @@ const sitemapSource = [
   }
 ]
   .concat(
-    ["exchain", "matixx", "tbre", "tb"].map(version => ({
+    ALL_VERSIONS.map(version => ({
       path: `/${version}/list`
     }))
   )
@@ -20,11 +22,11 @@ const sitemapSource = [
       .map((x, i) => i * 500 + 3000)
       .map(scope => [
         {
-          path: `/exchain/kasegi/g/${scope}`,
+          path: `/${CURRENT_VERSION}/kasegi/g/${scope}`,
           changefreq: "monthly"
         },
         {
-          path: `/exchain/kasegi/d/${scope}`,
+          path: `/${CURRENT_VERSION}/kasegi/d/${scope}`,
           changefreq: "monthly"
         }
       ])

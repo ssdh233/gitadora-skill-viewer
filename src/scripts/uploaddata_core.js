@@ -1,6 +1,8 @@
 import $ from "jquery";
 import "regenerator-runtime/runtime";
 
+import { CURRENT_VERSION } from "../constants";
+
 // eslint-disable-next-line
 async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
   var skill_data = {};
@@ -16,8 +18,8 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
 
     // get profile data
     const [gfSharedSongs, dmSharedSongs, profileData] = await Promise.all([
-      VERSION === "exchain" && getSharedSongData("gf"),
-      VERSION === "exchain" && getSharedSongData("dm"),
+      VERSION === CURRENT_VERSION && getSharedSongData("gf"),
+      VERSION === CURRENT_VERSION && getSharedSongData("dm"),
       getProfileData()
     ]);
 
@@ -178,7 +180,12 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
     var cardNumber = "";
     var gitadoraId = "";
 
-    if (VERSION === "exchain") {
+    if (VERSION === "matixx") {
+      cardNumber = $(doc)
+        .find(".common_frame_date")
+        .text()
+        .substring(10, 26);
+    } else {
       cardNumber = $(doc)
         .find("#contents > .maincont > h2")
         .text()
@@ -189,11 +196,6 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
         .find("div.common_frame_date")
         .text()
         .trim();
-    } else {
-      cardNumber = $(doc)
-        .find(".common_frame_date")
-        .text()
-        .substring(10, 26);
     }
 
     profileData.playerName = playerName;
