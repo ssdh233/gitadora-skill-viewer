@@ -28,6 +28,7 @@ const typeDefs = gql`
   }
 
   enum Version {
+    nextage
     exchain
     matixx
     tbre

@@ -20,8 +20,9 @@ import ListSubheader from "@material-ui/core/ListSubheader";
 import HomeIcon from "@material-ui/icons/Home";
 
 import useLocalStorage from "./useLocalStorage";
+import { CURRENT_VERSION } from "../constants";
 
-const VERSION = "v1.20.0";
+const VERSION = "v1.21.0";
 
 function AppHeader(props) {
   const [listAnchorEl, setListAnchorEl] = useState();
@@ -152,7 +153,7 @@ function AppHeader(props) {
             <ListSubheader component="div" style={{ backgroundColor: "#fff" }}>
               Drummania
             </ListSubheader>
-            <Link to={`/${locale}/exchain/kasegi/d/9000`}>
+            <Link to={`/${locale}/${CURRENT_VERSION}/kasegi/d/9000`}>
               <ListItem button>
                 <ListItemText primary="9000 ~" />
               </ListItem>
@@ -160,7 +161,10 @@ function AppHeader(props) {
             {[...Array(12).keys()].reverse().map(key => {
               const skill = 3000 + key * 500;
               return (
-                <Link key={key} to={`/${locale}/exchain/kasegi/d/${skill}`}>
+                <Link
+                  key={key}
+                  to={`/${locale}/${CURRENT_VERSION}/kasegi/d/${skill}`}
+                >
                   <ListItem button>
                     <ListItemText primary={`${skill} ~`} />
                   </ListItem>
@@ -172,7 +176,7 @@ function AppHeader(props) {
             <ListSubheader component="div" style={{ backgroundColor: "#fff" }}>
               Guitarfreaks
             </ListSubheader>
-            <Link to={`/${locale}/exchain/kasegi/g/9000`}>
+            <Link to={`/${locale}/${CURRENT_VERSION}/kasegi/g/9000`}>
               <ListItem button>
                 <ListItemText primary="9000 ~" />
               </ListItem>
@@ -180,7 +184,10 @@ function AppHeader(props) {
             {[...Array(12).keys()].reverse().map(key => {
               const skill = 3000 + key * 500;
               return (
-                <Link key={key} to={`/${locale}/exchain/kasegi/g/${skill}`}>
+                <Link
+                  key={key}
+                  to={`/${locale}/${CURRENT_VERSION}/kasegi/g/${skill}`}
+                >
                   <ListItem button>
                     <ListItemText primary={`${skill} ~`} />
                   </ListItem>
@@ -211,6 +218,9 @@ function AppHeader(props) {
           onClick={() => setListAnchorEl(null)}
         >
           <MenuList>
+            <Link to={`/${locale}/nextage/list`}>
+              <MenuItem>NEX+AGE</MenuItem>
+            </Link>
             <Link to={`/${locale}/exchain/list`}>
               <MenuItem>EXCHAIN</MenuItem>
             </Link>

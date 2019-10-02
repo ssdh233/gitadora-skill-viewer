@@ -8,6 +8,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 
 import SlideToggle from "../SlideToggle.jsx";
 import SearchBox from "./SearchBox.jsx";
+import { CURRENT_VERSION } from "../../constants";
 
 function SharedSongsPage(props) {
   const [inputValue, setInputValue] = useState("");
@@ -84,7 +85,9 @@ function SharedSongsPage(props) {
                 <React.Fragment key={index}>
                   <ResultRoot>
                     <HalfLine>
-                      <Link to={`/${locale}/exchain/${playerId}/${type}`}>
+                      <Link
+                        to={`/${locale}/${CURRENT_VERSION}/${playerId}/${type}`}
+                      >
                         {playerName}
                       </Link>
                     </HalfLine>
@@ -145,7 +148,7 @@ function SharedSongsPage(props) {
                 a: msg => {
                   return (
                     <a
-                      href={`https://p.eagate.573.jp/game/gfdm/gitadora_exchain/p/eam/setting/friend_edit.html?gtype=${
+                      href={`https://p.eagate.573.jp/game/gfdm/gitadora_${CURRENT_VERSION}/p/eam/setting/friend_edit.html?gtype=${
                         type === "g" ? "gf" : "dm"
                       }`}
                       target="_blank"
@@ -176,7 +179,7 @@ function SharedSongsPage(props) {
               /* eslint-disable-next-line react/display-name */
               a: msg => (
                 <a
-                  href="https://p.eagate.573.jp/game/gfdm/gitadora_exchain/p/eam/setting/recommend.html"
+                  href={`https://p.eagate.573.jp/game/gfdm/gitadora_${CURRENT_VERSION}/p/eam/setting/recommend.html`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

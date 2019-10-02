@@ -8,6 +8,7 @@ import Button from "@material-ui/core/Button";
 
 import BookmarkletScript from "./BookmarkletScript.jsx";
 import SlideToggle from "./SlideToggle.jsx";
+import { CURRENT_VERSION } from "../constants";
 
 class Index extends React.Component {
   constructor(props) {
@@ -65,7 +66,7 @@ class Index extends React.Component {
           open={this.state.snackbarOpen}
           action={
             <div>
-              <Link to={`/${locale}/exchain/${this.state.gsvId}/g`}>
+              <Link to={`/${locale}/${CURRENT_VERSION}/${this.state.gsvId}/g`}>
                 <Button color="secondary" size="small">
                   <FormattedMessage id="snackbar.yes" />
                 </Button>
