@@ -2,3 +2,4 @@
 /.env
 /src/public/js/uploaddata_*
 /src/public/js/bundle*
+/src/public/js/manifest.json
