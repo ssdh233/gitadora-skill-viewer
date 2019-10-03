@@ -22,7 +22,7 @@ import HomeIcon from "@material-ui/icons/Home";
 import useLocalStorage from "./useLocalStorage";
 import { CURRENT_VERSION } from "../constants";
 
-const VERSION = "v1.21.1";
+const VERSION = "v1.21.2";
 
 function AppHeader(props) {
   const [listAnchorEl, setListAnchorEl] = useState();
@@ -39,10 +39,9 @@ function AppHeader(props) {
 
   const {
     match: {
-      url,
       params: { locale }
     },
-    location: { search }
+    location: { search, pathname }
   } = props;
 
   return (
@@ -51,14 +50,14 @@ function AppHeader(props) {
         <meta charSet="utf-8" />
         <link
           rel="canonical"
-          href={`http://gsv.fun/${locale}${url.substring(3)}`}
+          href={`http://gsv.fun/${locale}${pathname.substring(3)}`}
         />
         {["ja", "en", "zh"].map(hrefLocale => (
           <link
             key={hrefLocale}
             rel="alternate"
             hrefLang={hrefLocale}
-            href={`http://gsv.fun/${hrefLocale}${url.substring(3)}`}
+            href={`http://gsv.fun/${hrefLocale}${pathname.substring(3)}`}
           />
         ))}
       </Helmet>
@@ -89,13 +88,13 @@ function AppHeader(props) {
           onClick={() => setLangAnchorEl(null)}
         >
           <MenuList>
-            <a href={`/en${url.substring(3)}${search}`}>
+            <a href={`/en${pathname.substring(3)}${search}`}>
               <MenuItem>English</MenuItem>
             </a>
-            <a href={`/ja${url.substring(3)}${search}`}>
+            <a href={`/ja${pathname.substring(3)}${search}`}>
               <MenuItem>日本語</MenuItem>
             </a>
-            <a href={`/zh${url.substring(3)}${search}`}>
+            <a href={`/zh${pathname.substring(3)}${search}`}>
               <MenuItem>简体中文</MenuItem>
             </a>
           </MenuList>
