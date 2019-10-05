@@ -35,6 +35,7 @@ class SkillTable extends React.Component {
         <caption>{this.props.caption}</caption>
         <thead>
           <tr>
+            <SkillTableTh />
             <SkillTableTh>曲名</SkillTableTh>
             <SkillTableTh>レベル</SkillTableTh>
             <SkillTableTh>達成率</SkillTableTh>
@@ -43,8 +44,9 @@ class SkillTable extends React.Component {
           </tr>
         </thead>
         <tbody>
-          {data.map(item => (
+          {data.map((item, index) => (
             <SkillTableTr key={item.name} diff={item.diff}>
+              <SkillTableNoTd>{index + 1}</SkillTableNoTd>
               <SkillTableNameTd>{item.name}</SkillTableNameTd>
               <SkillTableTd>{this.getDiff(item, type)}</SkillTableTd>
               <SkillTableTd>{`${item.achive_value} (${this.getRank(
@@ -103,15 +105,23 @@ const SkillTableTd = styled.td`
   }
 `;
 
+const SkillTableNoTd = styled(SkillTableTd)`
+  padding: 0 5px;
+
+  @media (max-width: 742px) {
+    padding: 0 3px;
+  }
+`;
+
 const SkillTableNameTd = styled(SkillTableTd)`
   width: 100%;
   max-width: 400px;
   text-align: left;
   white-space: normal;
-  padding: 0 2px;
+  padding: 0 5px;
 
   @media (max-width: 742px) {
-    max-width: 300px;
+    padding: 0 3px;
   }
 `;
 
