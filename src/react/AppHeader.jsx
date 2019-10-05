@@ -22,7 +22,7 @@ import HomeIcon from "@material-ui/icons/Home";
 import useLocalStorage from "./useLocalStorage";
 import { CURRENT_VERSION } from "../constants";
 
-const VERSION = "v1.21.2";
+const VERSION = "v1.22.0";
 
 function AppHeader(props) {
   const [listAnchorEl, setListAnchorEl] = useState();
