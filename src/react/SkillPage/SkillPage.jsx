@@ -218,7 +218,7 @@ class SkillPage extends React.Component {
                           <Link
                             to={`/${locale}/${version}/${savedItem.skillId}/p`}
                           >
-                            {savedItem.skillPoint}
+                            {savedItem.skillPoint.toFixed(2)}
                           </Link>
                         </SavedListTableTd>
                         <SavedListTableTd
