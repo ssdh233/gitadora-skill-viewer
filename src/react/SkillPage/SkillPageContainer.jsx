@@ -77,7 +77,6 @@ const GET_SKILL = gql`
 
 export default function SkillPageContainer(props) {
   const { playerId, version, type } = props.match.params;
-  console.log({ playerId, version, type });
   const query = queryParser(props.location.search);
 
   const { data, loading, error } = useQuery(GET_SKILL, {
@@ -101,8 +100,6 @@ export default function SkillPageContainer(props) {
 
   if (loading) return <LinearProgress />;
   if (error) return <p>ERROR: {error.toString()}</p>;
-
-  console.log({ data });
 
   return (
     <SkillPage
