@@ -12,9 +12,9 @@ const htmlTemplate = ({
 <!doctype html>
 <html ${helmet.htmlAttributes.toString()}>
   <head>
-    <link rel="preload" href="https://unpkg.com/react-table@latest/react-table.css" as="style">
+    <link rel="preload" href="https://unpkg.com/react-table@6.8.6/react-table.css" as="style">
     <link rel="preload" href="/bundle/${bundleFileName}" as="script" />
-    <link rel="stylesheet" href="https://unpkg.com/react-table@latest/react-table.css" />
+    <link rel="stylesheet" href="https://unpkg.com/react-table@6.8.6/react-table.css" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Andada" />
     ${helmet.title.toString()}
     ${helmet.meta.toString()}
