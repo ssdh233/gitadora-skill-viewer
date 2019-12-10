@@ -45,7 +45,7 @@
     "react-lazyload": "^2.6.2",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
-    "react-table": "^6.8.6",
+    "react-table": "6.8.6",
     "styled-components": "^4.3.2",
     "url-search-params": "^1.1.0",
     "xml-js": "^1.6.8",
