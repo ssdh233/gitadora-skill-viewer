@@ -114,15 +114,21 @@ module.exports = {
 
       let playerDataRow;
 
-      const searchByGitadoraIdResult = await pg.query(
-        `select * from skill where "gitadoraId" = $$${
-          data.gitadoraId
-        }$$ and version='${version}';`
-      );
+      // try to get player data by gitadora id
+      if (data.gitadoraId) {
+        const searchByGitadoraIdResult = await pg.query(
+          `select * from skill where "gitadoraId" = $$${
+            data.gitadoraId
+          }$$ and version='${version}';`
+        );
 
-      if (searchByGitadoraIdResult.rows[0]) {
-        playerDataRow = searchByGitadoraIdResult.rows[0];
-      } else {
+        if (searchByGitadoraIdResult.rows[0]) {
+          playerDataRow = searchByGitadoraIdResult.rows[0];
+        }
+      }
+
+      // try to get player data by card number
+      if (!playerDataRow) {
         const searchByCardNumberResult = await pg.query(
           `select * from skill where "cardNumber" = $$${
             data.cardNumber
