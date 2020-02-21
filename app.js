@@ -46,13 +46,13 @@ const server = new ApolloServer({
 server.applyMiddleware({ app });
 
 // for react pages
-app.get("/:locale(en|ja|zh)", reactRoute);
-app.get("/:locale(en|ja|zh)/*", reactRoute);
+app.get("/:locale(en|ja|zh|ko)", reactRoute);
+app.get("/:locale(en|ja|zh|ko)/*", reactRoute);
 
 // redirect if the first param is not language
 app.get("*", (req, res) => {
   const lang =
-    req.cookies.locale || req.acceptsLanguages("ja", "zh", "en") || "ja";
+    req.cookies.locale || req.acceptsLanguages("ja", "zh", "en", "ko") || "ja";
 
   res.setHeader("Cache-Control", "public, max-age=0");
   if (req.url === "/") {

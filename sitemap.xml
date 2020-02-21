@@ -5,48 +5,56 @@
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en"/>
     <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko"/>
   </url>
   <url>
     <loc>http://gsv.fun/ja/uservoice</loc>
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/uservoice"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/uservoice"/>
     <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/uservoice"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/uservoice"/>
   </url>
   <url>
     <loc>http://gsv.fun/ja/nextage/list</loc>
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/nextage/list"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/nextage/list"/>
     <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/nextage/list"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/nextage/list"/>
   </url>
   <url>
     <loc>http://gsv.fun/ja/exchain/list</loc>
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/exchain/list"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/exchain/list"/>
     <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/exchain/list"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/exchain/list"/>
   </url>
   <url>
     <loc>http://gsv.fun/ja/matixx/list</loc>
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/matixx/list"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/matixx/list"/>
     <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/matixx/list"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/matixx/list"/>
   </url>
   <url>
     <loc>http://gsv.fun/ja/tbre/list</loc>
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/tbre/list"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/tbre/list"/>
     <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/tbre/list"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/tbre/list"/>
   </url>
   <url>
     <loc>http://gsv.fun/ja/tb/list</loc>
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/tb/list"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/tb/list"/>
     <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/tb/list"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/tb/list"/>
   </url>
   <url>
     <loc>http://gsv.fun/ja/nextage/kasegi/g/3000</loc>
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/nextage/kasegi/g/3000"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/nextage/kasegi/g/3000"/>
     <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/nextage/kasegi/g/3000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/nextage/kasegi/g/3000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -54,6 +62,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/nextage/kasegi/d/3000"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/nextage/kasegi/d/3000"/>
     <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/nextage/kasegi/d/3000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/nextage/kasegi/d/3000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -61,6 +70,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/nextage/kasegi/g/3500"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/nextage/kasegi/g/3500"/>
     <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/nextage/kasegi/g/3500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/nextage/kasegi/g/3500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -68,6 +78,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/nextage/kasegi/d/3500"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/nextage/kasegi/d/3500"/>
     <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/nextage/kasegi/d/3500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/nextage/kasegi/d/3500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -75,6 +86,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/nextage/kasegi/g/4000"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/nextage/kasegi/g/4000"/>
     <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/nextage/kasegi/g/4000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/nextage/kasegi/g/4000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -82,6 +94,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/nextage/kasegi/d/4000"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/nextage/kasegi/d/4000"/>
     <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/nextage/kasegi/d/4000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/nextage/kasegi/d/4000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -89,6 +102,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/nextage/kasegi/g/4500"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/nextage/kasegi/g/4500"/>
     <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/nextage/kasegi/g/4500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/nextage/kasegi/g/4500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -96,6 +110,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/nextage/kasegi/d/4500"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/nextage/kasegi/d/4500"/>
     <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/nextage/kasegi/d/4500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/nextage/kasegi/d/4500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -103,6 +118,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/nextage/kasegi/g/5000"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/nextage/kasegi/g/5000"/>
     <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/nextage/kasegi/g/5000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/nextage/kasegi/g/5000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -110,6 +126,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/nextage/kasegi/d/5000"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/nextage/kasegi/d/5000"/>
     <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/nextage/kasegi/d/5000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/nextage/kasegi/d/5000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -117,6 +134,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/nextage/kasegi/g/5500"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/nextage/kasegi/g/5500"/>
     <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/nextage/kasegi/g/5500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/nextage/kasegi/g/5500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -124,6 +142,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/nextage/kasegi/d/5500"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/nextage/kasegi/d/5500"/>
     <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/nextage/kasegi/d/5500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/nextage/kasegi/d/5500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -131,6 +150,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/nextage/kasegi/g/6000"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/nextage/kasegi/g/6000"/>
     <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/nextage/kasegi/g/6000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/nextage/kasegi/g/6000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -138,6 +158,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/nextage/kasegi/d/6000"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/nextage/kasegi/d/6000"/>
     <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/nextage/kasegi/d/6000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/nextage/kasegi/d/6000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -145,6 +166,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/nextage/kasegi/g/6500"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/nextage/kasegi/g/6500"/>
     <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/nextage/kasegi/g/6500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/nextage/kasegi/g/6500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -152,6 +174,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/nextage/kasegi/d/6500"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/nextage/kasegi/d/6500"/>
     <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/nextage/kasegi/d/6500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/nextage/kasegi/d/6500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -159,6 +182,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/nextage/kasegi/g/7000"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/nextage/kasegi/g/7000"/>
     <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/nextage/kasegi/g/7000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/nextage/kasegi/g/7000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -166,6 +190,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/nextage/kasegi/d/7000"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/nextage/kasegi/d/7000"/>
     <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/nextage/kasegi/d/7000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/nextage/kasegi/d/7000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -173,6 +198,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/nextage/kasegi/g/7500"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/nextage/kasegi/g/7500"/>
     <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/nextage/kasegi/g/7500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/nextage/kasegi/g/7500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -180,6 +206,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/nextage/kasegi/d/7500"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/nextage/kasegi/d/7500"/>
     <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/nextage/kasegi/d/7500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/nextage/kasegi/d/7500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -187,6 +214,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/nextage/kasegi/g/8000"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/nextage/kasegi/g/8000"/>
     <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/nextage/kasegi/g/8000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/nextage/kasegi/g/8000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -194,6 +222,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/nextage/kasegi/d/8000"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/nextage/kasegi/d/8000"/>
     <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/nextage/kasegi/d/8000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/nextage/kasegi/d/8000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -201,6 +230,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/nextage/kasegi/g/8500"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/nextage/kasegi/g/8500"/>
     <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/nextage/kasegi/g/8500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/nextage/kasegi/g/8500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -208,6 +238,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/nextage/kasegi/d/8500"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/nextage/kasegi/d/8500"/>
     <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/nextage/kasegi/d/8500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/nextage/kasegi/d/8500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -215,6 +246,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/nextage/kasegi/g/9000"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/nextage/kasegi/g/9000"/>
     <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/nextage/kasegi/g/9000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/nextage/kasegi/g/9000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -222,6 +254,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/nextage/kasegi/d/9000"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/nextage/kasegi/d/9000"/>
     <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/nextage/kasegi/d/9000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/nextage/kasegi/d/9000"/>
     <changefreq>monthly</changefreq>
   </url>
 </urlset>

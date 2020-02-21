@@ -52,7 +52,7 @@ function AppHeader(props) {
           rel="canonical"
           href={`http://gsv.fun/${locale}${pathname.substring(3)}`}
         />
-        {["ja", "en", "zh"].map(hrefLocale => (
+        {["ja", "en", "zh", "ko"].map(hrefLocale => (
           <link
             key={hrefLocale}
             rel="alternate"
@@ -93,6 +93,9 @@ function AppHeader(props) {
             </a>
             <a href={`/ja${pathname.substring(3)}${search}`}>
               <MenuItem>日本語</MenuItem>
+            </a>
+            <a href={`/ko${pathname.substring(3)}${search}`}>
+              <MenuItem>한국어</MenuItem>
             </a>
             <a href={`/zh${pathname.substring(3)}${search}`}>
               <MenuItem>简体中文</MenuItem>

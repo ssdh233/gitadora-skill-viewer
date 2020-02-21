@@ -48,7 +48,7 @@ const siteMapJs = {
     url: sitemapSource.map(source => {
       let result = {
         loc: `http://gsv.fun/ja${source.path}`,
-        "xhtml:link": ["ja", "en", "zh"].map(lang => ({
+        "xhtml:link": ["ja", "en", "zh", "ko"].map(lang => ({
           _attributes: {
             rel: "alternate",
             hreflang: lang,
