@@ -21,6 +21,7 @@ import { DOMParser } from "xmldom";
 import jaMessages from "../locales/ja/common.json";
 import zhMessages from "../locales/zh/common.json";
 import enMessages from "../locales/en/common.json";
+import koMessages from "../locales/ko/common.json";
 
 import htmlTemplate from "./views/htmlTemplate";
 import App from "./react/App.jsx";
@@ -48,7 +49,8 @@ function readBundleFileNameFromManifest() {
 const messages = {
   ja: flatten(jaMessages),
   zh: flatten(zhMessages),
-  en: flatten(enMessages)
+  en: flatten(enMessages),
+  ko: flatten(koMessages)
 };
 
 const reactRoute = (req, res) => {
