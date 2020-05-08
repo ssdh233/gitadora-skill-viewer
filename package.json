@@ -34,7 +34,7 @@
     "graphql": "^14.4.2",
     "graphql-tag": "^2.10.1",
     "isomorphic-fetch": "^2.2.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "node-fetch": "^2.6.0",
     "pg": "^7.11.0",
     "pug": "^2.0.0-beta5",
