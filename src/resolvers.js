@@ -40,11 +40,13 @@ module.exports = {
       if (kasegiResult) {
         const kasegiListHot = JSON.parse(kasegiResult.list_hot);
         const kasegiListOther = JSON.parse(kasegiResult.list_other);
+        const count = kasegiResult.count;
 
         return {
           version,
           type,
           scope,
+          count,
           hot: kasegiListHot,
           other: kasegiListOther
         };

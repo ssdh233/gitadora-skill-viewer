@@ -69,7 +69,7 @@
     "desc": "ギタドラ{type}{scope}の稼ぎ情報を載せております。",
     "songname": "曲名",
     "level": "レベル",
-    "count": "回数",
+    "percent": "登録率",
     "averageskill": "平均",
     "averageplayerskill": "プレイヤー",
     "compare": "比較",

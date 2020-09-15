@@ -73,6 +73,7 @@ class KasegiPage extends React.Component {
               <div style={styles.caption}>{`${typeTitleShort} HOT`}</div>
               <KasegiTable
                 data={kasegiData.hot}
+                count={kasegiData.count}
                 hasComparedSkill={Boolean(comparedSkillData)}
               />
             </div>
@@ -82,6 +83,7 @@ class KasegiPage extends React.Component {
               <div style={styles.caption}>{`${typeTitleShort} OTHER`}</div>
               <KasegiTable
                 data={kasegiData.other}
+                count={kasegiData.count}
                 hasComparedSkill={Boolean(comparedSkillData)}
               />
             </div>
