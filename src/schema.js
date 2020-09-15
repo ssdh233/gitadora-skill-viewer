@@ -83,6 +83,7 @@ const typeDefs = gql`
     version: Version
     type: GameType
     scope: Int
+    count: Int
     hot: [KasegiRecord]
     other: [KasegiRecord]
   }

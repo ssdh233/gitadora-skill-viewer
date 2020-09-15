@@ -1,3 +1,8 @@
+### add count column for kasegi table
+```sql
+ALTER TABLE kasegi ADD COLUMN count int;
+```
+
 ### sharedSongs table bugfix
 ```sql
 alter table shared_songs drop constraint shared_songs_pkey;

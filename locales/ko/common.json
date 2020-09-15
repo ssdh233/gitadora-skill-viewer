@@ -68,7 +68,7 @@
     "title": " 스킬 인 랭킹",
     "songname": "이름",
     "level": "레벨",
-    "count": "명수",
+    "percent": "%",
     "averageskill": "평균",
     "averageplayerskill": "플레이어 평균",
     "compare": "차이",
