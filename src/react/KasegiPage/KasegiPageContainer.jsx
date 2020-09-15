@@ -45,6 +45,7 @@ const GET_KASEGI = gql`
       version
       type
       scope
+      count
       hot {
         ...KasegiRecord
       }

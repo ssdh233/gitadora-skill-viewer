@@ -78,14 +78,25 @@ function KasegiTable(props) {
     }
   ];
 
+  if (!props.hasComparedSkill || props.mediaQuery === 'pc') {
+    columns = [
+      ...columns,
+      {
+        Header: () => <FormattedMessage id="kasegi.percent" />,
+        accessor: "count",
+        maxWidth: isPC ? 70 : 60,
+        style: {
+          textAlign: "center"
+        },
+        Cell: data => <>{((data.value / props.count) * 100).toFixed(2)}%</> 
+      },
+    ].filter(x => x);
+  }
+  
+
   if (props.hasComparedSkill) {
     columns = [
       ...columns,
-      props.mediaQuery === "pc" && {
-        Header: () => <FormattedMessage id="kasegi.count" />,
-        accessor: "count",
-        maxWidth: isPC ? 40 : 34
-      },
       {
         Header: () => <FormattedMessage id="kasegi.compare" />,
         accessor: "compare",
@@ -102,16 +113,7 @@ function KasegiTable(props) {
         }
       }
     ].filter(x => x);
-  } else {
-    columns = [
-      ...columns,
-      {
-        Header: () => <FormattedMessage id="kasegi.count" />,
-        accessor: "count",
-        maxWidth: isPC ? 40 : 34
-      }
-    ].filter(x => x);
-  }
+  } 
 
   return (
     <>

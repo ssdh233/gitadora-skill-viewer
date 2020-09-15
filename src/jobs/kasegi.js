@@ -21,8 +21,11 @@ function gatherKasegiResult({ skillData, kasegiResult }) {
   if (!newKasegiResult[skillLevel]) {
     newKasegiResult[skillLevel] = {
       hot: {},
-      other: {}
+      other: {},
+      count: 1
     };
+  } else {
+    newKasegiResult[skillLevel].count += 1;
   }
 
   const addToKasegiResult = hotType => item => {
@@ -60,7 +63,8 @@ function extractKasegiResult(gatheredKasegiResult) {
   Object.keys(gatheredKasegiResult).forEach(skillLevel => {
     kasegiResult[skillLevel] = {
       hot: [],
-      other: []
+      other: [],
+      count: gatheredKasegiResult[skillLevel].count
     };
 
     const extractKasegiResultByType = hotType => {
@@ -116,12 +120,13 @@ async function kasegi({ version, type }) {
 
     const listHotString = JSON.stringify(result.hot);
     const listOtherString = JSON.stringify(result.other);
+    const count = result.count;
     const sql = `
             do $sql$
               begin
-                update kasegi set list_hot=$$${listHotString}$$, list_other=$$${listOtherString}$$ where version=$$${version}$$ and type=$$${type}$$ and scope=${skillLevel};
+                update kasegi set list_hot=$$${listHotString}$$, list_other=$$${listOtherString}$$, count=$$${count}$$ where version=$$${version}$$ and type=$$${type}$$ and scope=${skillLevel};
                 IF NOT FOUND THEN
-                  insert into kasegi values ($$${version}$$,$$${type}$$,${skillLevel},$$${listHotString}$$,$$${listOtherString}$$);
+                  insert into kasegi values ($$${version}$$,$$${type}$$,${skillLevel},$$${listHotString}$$,$$${listOtherString}$$,${count});
                 END IF;
               end
             $sql$

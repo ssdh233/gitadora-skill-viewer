@@ -68,7 +68,7 @@
     "title": " song ranking",
     "songname": "Name",
     "level": "Level",
-    "count": "Count",
+    "percent": "%",
     "averageskill": "Average",
     "averageplayerskill": "Player Average",
     "compare": "Compare",

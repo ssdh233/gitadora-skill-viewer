@@ -68,7 +68,7 @@
     "title": "赚分曲排行",
     "songname": "曲名",
     "level": "level",
-    "count": "回数",
+    "percent": "%",
     "averageskill": "平均",
     "averageplayerskill": "玩家平均",
     "compare": "比较",
