@@ -15,7 +15,7 @@ module.exports = {
   },
   Query: {
     users: async (_, { version }) => {
-      const sql = `select * from skill where version='${version}' order by "playerId" asc;`;
+      const sql = `select "playerId", "version", "cardNumber", "gitadoraId", "playerName", "guitarSkillPoint", "drumSkillPoint", "updateDate", "updateCount" from skill where version='${version}' order by "playerId" asc;`;
       const result = await pg.query(sql);
 
       return result.rows;
