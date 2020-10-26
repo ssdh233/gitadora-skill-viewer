@@ -9,9 +9,8 @@
     "desc": "A web site which uses bookmarklet to fetch and store skill data from GITADORA official site, to share with other players.",
     "info": {
       "title": "Notice",
-      "content1": "Add a new {uservoice} page, feel free to leave some messages！",
-      "content2": "Add <a>a new page</a> which provides a platform to let players search unlocked songs which are shared through 'recommend songs to friends' by other players. ",
-      "content3": "I created a <a href='https://twitter.com/gsvfunsite'>twitter account</a> for gsv.fun. Please follow me😋"
+      "content1": "New feature: skill sheets comparison!",
+      "content2": "I created a <a href='https://twitter.com/gsvfunsite'>twitter account</a> for gsv.fun. Please follow me😋"
     }
   },
   "how": {
@@ -95,7 +94,16 @@
     "aboutGsv": "About gsv.fun",
     "compareWithKasegi": "Compare with {scope} ranking",
     "savedList": "Skill history",
-    "latestSkill": "Check {name}'s latest skill"
+    "latestSkill": "Check {name}'s latest skill",
+    "comparingWith": "Comparing with {something}... ",
+    "rivalSkill": "{name}'s skill'({point})",
+    "cancel": "Cancel",
+    "compareWithPlayer": "Compare with my skill({name})",
+    "compareWith1": "Compare with",
+    "compareWith2": " ",
+    "skillId": "skill id",
+    "skillIdDesc": "skill id is the number on the URL of your skill sheet. For example, the skill id of http://gsv.fun/ja/exchain/<b>1234</b>/d is 1234.",
+    "skillIdOk": "OK"
   },
   "listPage": {
     "tips": "You can sort this table by clicking the header"
