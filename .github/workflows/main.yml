@@ -1,0 +1,27 @@
+name: E2E test
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  E2E:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js 12.18.1
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.18.1
+    - run: npm install
+    - run: npm install -g cypress
+    - uses: ssdh233/wait-for-deployment-action@v3.0.1
+      id: deployment
+      with:
+        github-token: ${{ github.token }}
+        environment: gitadora-skill-viewer-dev
+        timeout: 600
+        interval: 60
+    - run: cypress run
+    

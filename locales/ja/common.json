@@ -9,9 +9,8 @@
     "desc": "コナミ様の公式サイトからギタドラのスキルデータを取得し、スキルの進捗を記録したり、スキル表を他のプレイヤーをシェアしたりするためのウェブサイトです。",
     "info": {
       "title": "お知らせ",
-      "content1": "{uservoice}ページをサイト内に移動しました。ご意見などがありましたらコメントしていただければ嬉しいです。",
-      "content2": "未解禁の曲の救済手段としての「フレンドにオススメ」機能をサポートする<a>ページ</a>を作りました！曲の持ち主をフレンドに追加すると、解禁できなかったこの曲やあの曲が遊べるようになりますよ！",
-      "content3": "今更ですがgsv.funの<a href='https://twitter.com/gsvfunsite'>ツイッターアカウント</a>を作りました。フォローしていただけると嬉しいです😋"
+      "content1": "スキル帳を比較する機能を追加しました。",
+      "content2": "gsv.funの<a href='https://twitter.com/gsvfunsite'>ツイッターアカウント</a>を作りました。フォローしていただけると嬉しいです😋"
     }
   },
   "how": {
@@ -96,7 +95,16 @@
     "aboutGsv": "gsv.funについて",
     "compareWithKasegi": "{scope}の稼ぎ曲と比較",
     "savedList": "スキル履歴",
-    "latestSkill": "{name}さんの最新のスキル表"
+    "latestSkill": "{name}さんの最新のスキル表",
+    "comparingWith": "{something}と比較中...",
+    "rivalSkill": "{name}のスキル({point})",
+    "cancel": "取り消し",
+    "compareWithPlayer": "自分（{name}）のスキルと比較",
+    "compareWith1": " ",
+    "compareWith2": "のスキルと比較",
+    "skillId": "スキルID",
+    "skillIdDesc": "スキルIDは、スキル帳のURL（例えばhttp://gsv.fun/ja/exchain/<b>1234</b>/d）上の数字の1234のことです。",
+    "skillIdOk": "わかった"
   },
   "listPage": {
     "tips": "ヘッダーをクリックするとソートできますよ！"
