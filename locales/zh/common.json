@@ -9,9 +9,8 @@
     "desc": "一个从konami的官方网站上获取skill数据，用来保存、分享的网站。",
     "info": {
       "title": "通知",
-      "content1": "把{uservoice}页面移动到了站内，有什么意见欢迎留言！",
-      "content2": "给官方的「向朋友推荐歌曲」功能提供了一个<a>搜索平台</a>。只要加有那首歌的人的好友就可以玩没解禁的歌了！",
-      "content3": "最近建了一个gsv.fun用的<a href='https://twitter.com/gsvfunsite' target='_blank'>twitter 账号</a>，欢迎互fo😋"
+      "content1": "添加了skill表互相比较的功能。",
+      "content2": "最近建了一个gsv.fun用的<a href='https://twitter.com/gsvfunsite' target='_blank'>twitter 账号</a>，欢迎互fo😋"
     }
   },
   "how": {
@@ -95,7 +94,16 @@
     "aboutGsv": "关于gsv.fun",
     "compareWithKasegi": "和{scope}的赚分曲比较",
     "savedList": "过去的记录",
-    "latestSkill": "去看{name}最新的skill表"
+    "latestSkill": "去看{name}最新的skill表",
+    "compareWithPlayer": "和自己({name})比较",
+    "comparingWith": "正在与{something}进行比较...",
+    "rivalSkill": "{name}的skill表({point})",
+    "cancel": "取消",
+    "compareWith1": "和",
+    "compareWith2": "比较",
+    "skillId": "skill id",
+    "skillIdDesc": "skill id是skill表的URL上的数字. 比如http://gsv.fun/ja/exchain/<b>1234</b>/d的skill id是1234.",
+    "skillIdOk": "OK"
   },
   "listPage": {
     "tips": "点击表格的列名可以排序"

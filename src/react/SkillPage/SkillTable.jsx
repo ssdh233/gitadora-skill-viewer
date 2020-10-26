@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 class SkillTable extends React.Component {
-  getRank = value => {
+  getRank = (value) => {
     if (value.substr(0, 3) == "100") {
       return "SS";
     } else {
@@ -28,7 +28,39 @@ class SkillTable extends React.Component {
   };
 
   render() {
-    const { data, caption, type, hasComparedSkill, ...rest } = this.props;
+    const {
+      data,
+      rivalData,
+      caption,
+      type,
+      hasComparedSkill,
+      ...rest
+    } = this.props;
+
+    let combinedData = data.map((item, index) => ({
+      index: index + 1,
+      ...item,
+    }));
+
+    if (rivalData) {
+      rivalData.forEach((rivalItem) => {
+        let sameItem = combinedData.find((item) => {
+          return (
+            item.name === rivalItem.name &&
+            item.diff === rivalItem.diff &&
+            item.diff_value === rivalItem.diff_value &&
+            item.part === rivalItem.part
+          );
+        });
+
+        if (sameItem) {
+          sameItem.rivalAchieveValue = rivalItem.achive_value;
+          sameItem.rivalSkillValue = rivalItem.skill_value;
+        } else {
+          combinedData.push({ index: "", ...rivalItem });
+        }
+      });
+    }
 
     return (
       <SkillTableRoot {...rest}>
@@ -44,20 +76,46 @@ class SkillTable extends React.Component {
           </tr>
         </thead>
         <tbody>
-          {data.map((item, index) => (
-            <SkillTableTr key={item.name} diff={item.diff}>
-              <SkillTableNoTd>{index + 1}</SkillTableNoTd>
-              <SkillTableNameTd>{item.name}</SkillTableNameTd>
-              <SkillTableTd>{this.getDiff(item, type)}</SkillTableTd>
-              <SkillTableTd>{`${item.achive_value} (${this.getRank(
-                item.achive_value
-              )})`}</SkillTableTd>
-              <SkillTableTd>{item.skill_value.toFixed(2)}</SkillTableTd>
-              {hasComparedSkill && (
-                <SkillTableCompareTd>{item.compare}</SkillTableCompareTd>
-              )}
-            </SkillTableTr>
-          ))}
+          {combinedData
+            .sort((a, b) => b.skill_value - a.skill_value)
+            .map((item) => (
+              <SkillTableTr
+                key={item.name + " " + item.diff}
+                diff={item.diff}
+                isRivalData={!item.index}
+              >
+                <SkillTableNoTd>{item.index}</SkillTableNoTd>
+                <SkillTableNameTd>{item.name}</SkillTableNameTd>
+                <SkillTableTd>{this.getDiff(item, type)}</SkillTableTd>
+                <SkillTableTd>
+                  {`${item.achive_value} (${this.getRank(item.achive_value)})`}
+                  {item.rivalAchieveValue && (
+                    <>
+                      <br />
+                      <RivalData win={item.skill_value >= item.rivalSkillValue}>
+                        {`${item.rivalAchieveValue} (${this.getRank(
+                          item.rivalAchieveValue
+                        )})`}
+                      </RivalData>
+                    </>
+                  )}
+                </SkillTableTd>
+                <SkillTableTd>
+                  {item.skill_value.toFixed(2)}
+                  {item.rivalSkillValue && (
+                    <>
+                      <br />
+                      <RivalData win={item.skill_value >= item.rivalSkillValue}>
+                        {item.rivalSkillValue.toFixed(2)}
+                      </RivalData>
+                    </>
+                  )}
+                </SkillTableTd>
+                {hasComparedSkill && (
+                  <SkillTableCompareTd>{item.compare}</SkillTableCompareTd>
+                )}
+              </SkillTableTr>
+            ))}
         </tbody>
       </SkillTableRoot>
     );
@@ -82,13 +140,14 @@ const SkillTableTh = styled.th`
 
 const SkillTableTr = styled.tr`
   height: 24px;
-  background-color: ${({ diff }) =>
+  background-color: ${({ diff, isRivalData }) =>
     ({
       BAS: "#C7E7FF",
       ADV: "#FFFFC7",
       EXT: "#FFC7C7",
-      MAS: "#D8BFF8"
-    }[diff])};
+      MAS: "#D8BFF8",
+      rival: "darkgrey",
+    }[isRivalData ? "rival" : diff])};
 
   @media (max-width: 742px) {
     height: 18px;
@@ -133,6 +192,10 @@ const SkillTableCompareTd = styled.td`
   @media (max-width: 742px) {
     font-size: 10px;
   }
+`;
+
+const RivalData = styled.span`
+  color: ${({ win }) => (win ? "green" : "red")};
 `;
 
 export default SkillTable;

@@ -24,11 +24,21 @@ const GET_SKILL = gql`
     }
   }
 
+  fragment SkillTable on SkillTable {
+    hot {
+      ...HalfSkillTable
+    }
+    other {
+      ...HalfSkillTable
+    }
+  }
+
   query User(
     $playerId: Int
     $version: Version
     $type: GameType
     $savedSkillId: Int
+    $rivalPlayerId: Int
   ) {
     user(playerId: $playerId, version: $version) {
       version
@@ -37,20 +47,10 @@ const GET_SKILL = gql`
       updateDate
       updateCount
       drumSkill {
-        hot {
-          ...HalfSkillTable
-        }
-        other {
-          ...HalfSkillTable
-        }
+       ...SkillTable
       }
       guitarSkill {
-        hot {
-          ...HalfSkillTable
-        }
-        other {
-          ...HalfSkillTable
-        }
+        ...SkillTable
       }
     }
 
@@ -64,12 +64,19 @@ const GET_SKILL = gql`
     savedSkill(skillId: $savedSkillId, type: $type, version: $version) {
       skillId
       skill {
-        hot {
-          ...HalfSkillTable
-        }
-        other {
-          ...HalfSkillTable
-        }
+        ...SkillTable
+      }
+    }
+
+    rival: user(playerId: $rivalPlayerId, version: $version) {
+      playerId
+      playerName
+      updateDate
+      drumSkill {
+        ...SkillTable
+      }
+      guitarSkill {
+        ...SkillTable
       }
     }
   }
@@ -84,7 +91,9 @@ export default function SkillPageContainer(props) {
       playerId: parseInt(playerId),
       version,
       type,
-      savedSkillId: parseInt(query.c)
+      // ignore comparing with savedSkill while comparing with rival
+      savedSkillId: query.r ? null : parseInt(query.c), 
+      rivalPlayerId: parseInt(query.r)
     }
   });
 
@@ -105,6 +114,7 @@ export default function SkillPageContainer(props) {
     <SkillPage
       {...props}
       skillData={getSkillData(data.user, data.savedSkill, type)}
+      rivalSkillData={getSkillData(data.rival, null, type)}
       hasComparedSkill={Boolean(data.savedSkill)}
       skillSavedList={data.savedSkills}
     />
@@ -112,7 +122,8 @@ export default function SkillPageContainer(props) {
 }
 
 function getSkillData(skill, skillComparedSkill, type) {
-  if (!skillComparedSkill || !skill) {
+  if (!skill) return null;
+  if (!skillComparedSkill) {
     const result = type === "d" ? skill.drumSkill : skill.guitarSkill;
     return {
       ...skill,
