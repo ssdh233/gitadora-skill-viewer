@@ -62,12 +62,19 @@ var scriptsConfig = {
     uploaddata_latest: `${SRC_DIR}/scripts/uploaddata_latest.js`,
     uploaddata_latest_dev: `${SRC_DIR}/scripts/uploaddata_latest_dev.js`,
     uploaddata_latest_local: `${SRC_DIR}/scripts/uploaddata_latest_local.js`,
+    uploaddata_nextage: `${SRC_DIR}/scripts/uploaddata_nextage.js`,
+    uploaddata_nextage_dev: `${SRC_DIR}/scripts/uploaddata_nextage_dev.js`,
+    uploaddata_nextage_local: `${SRC_DIR}/scripts/uploaddata_nextage_local.js`,
     uploaddata_exchain: `${SRC_DIR}/scripts/uploaddata_exchain.js`,
     uploaddata_exchain_dev: `${SRC_DIR}/scripts/uploaddata_exchain_dev.js`,
     uploaddata_exchain_local: `${SRC_DIR}/scripts/uploaddata_exchain_local.js`,
     uploaddata_matixx: `${SRC_DIR}/scripts/uploaddata_matixx.js`,
     uploaddata_matixx_dev: `${SRC_DIR}/scripts/uploaddata_matixx_dev.js`,
-    uploaddata_matixx_local: `${SRC_DIR}/scripts/uploaddata_matixx_local.js`
+    uploaddata_matixx_local: `${SRC_DIR}/scripts/uploaddata_matixx_local.js`,
+    uploaddata_tbre: `${SRC_DIR}/scripts/uploaddata_tbre.js`,
+    uploaddata_tbre_dev: `${SRC_DIR}/scripts/uploaddata_tbre_dev.js`,
+    uploaddata_tbre_local: `${SRC_DIR}/scripts/uploaddata_tbre_local.js`
+    
   },
   output: {
     path: DIST_DIR,

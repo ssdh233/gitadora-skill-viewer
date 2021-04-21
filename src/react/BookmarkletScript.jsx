@@ -5,7 +5,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import { FormattedMessage } from "react-intl";
 
 function BookmarkletScript() {
-  const [select, setSelect] = useState("exchain");
+  const [select, setSelect] = useState("nextage");
   return (
     <>
       <ScriptDiv>
