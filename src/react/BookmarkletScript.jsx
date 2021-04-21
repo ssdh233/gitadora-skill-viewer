@@ -24,6 +24,7 @@ function BookmarkletScript() {
             setSelect(event.target.value);
           }}
         >
+          <MenuItem value="nextage">NEX+AGE</MenuItem>
           <MenuItem value="exchain">EXCHAIN</MenuItem>
           <MenuItem value="matixx">Matixx</MenuItem>
         </Select>

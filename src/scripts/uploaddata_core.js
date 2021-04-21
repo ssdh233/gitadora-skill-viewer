@@ -37,10 +37,10 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
     }
 
     var SKILL_URLS = [
-      `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p/eam/playdata/skill.html?gtype=gf&stype=0`,
-      `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p/eam/playdata/skill.html?gtype=gf&stype=1`,
-      `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p/eam/playdata/skill.html?gtype=dm&stype=0`,
-      `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p/eam/playdata/skill.html?gtype=dm&stype=1`
+      `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p${VERSION==="highvoltage" ? "" : "/eam"}/playdata/skill.html?gtype=gf&stype=0`,
+      `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p${VERSION==="highvoltage" ? "" : "/eam"}/playdata/skill.html?gtype=gf&stype=1`,
+      `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p${VERSION==="highvoltage" ? "" : "/eam"}/playdata/skill.html?gtype=dm&stype=0`,
+      `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p${VERSION==="highvoltage" ? "" : "/eam"}/playdata/skill.html?gtype=dm&stype=1`
     ];
     var SKILL_LABEL = ["guitar_other", "guitar_hot", "drum_other", "drum_hot"];
 
@@ -165,7 +165,7 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
   }
 
   async function getProfileData() {
-    var PROFILE_URL = `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p/eam/playdata/profile.html`;
+    var PROFILE_URL = `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p${VERSION==="highvoltage" ? "" : "/eam"}/playdata/profile.html`;
 
     let profileData = {};
     let resHtml = await $.ajax({ url: PROFILE_URL, error: handleAjaxError });
