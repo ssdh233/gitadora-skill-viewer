@@ -17,7 +17,7 @@ const FETCH_ERRORS = gql`
 
 function ErrorListPageContainer() {
   const { data } = useQuery(FETCH_ERRORS);
-  return <ErrorListPage errors={data.errors} />;
+  return <ErrorListPage errors={data && data.errors} />;
 }
 
 export default ErrorListPageContainer;

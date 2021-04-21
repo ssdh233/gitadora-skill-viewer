@@ -52,7 +52,7 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
 
     let uploadRes = await $.ajax({
       url: `${SCRIPT_DOMAIN}/graphql`,
-      error: handleAjaxError,
+      error: handleAjaxError(`${SCRIPT_DOMAIN}/graphql`),
       method: "POST",
       contentType: "application/json",
       data: JSON.stringify({
@@ -96,7 +96,7 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
   async function getSkillData(url, label) {
     await $.ajax({
       url: url,
-      error: handleAjaxError,
+      error: handleAjaxError(url),
       success: function(html) {
         var doc = document.implementation.createHTMLDocument("html");
         doc.documentElement.innerHTML = html;
@@ -168,7 +168,7 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
     var PROFILE_URL = `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p${VERSION==="highvoltage" ? "" : "/eam"}/playdata/profile.html`;
 
     let profileData = {};
-    let resHtml = await $.ajax({ url: PROFILE_URL, error: handleAjaxError });
+    let resHtml = await $.ajax({ url: PROFILE_URL, error: handleAjaxError(PROFILE_URL) });
 
     var doc = document.implementation.createHTMLDocument("html");
     doc.documentElement.innerHTML = resHtml;
@@ -207,9 +207,10 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
 
   async function getSharedSongData(type) {
     // get shared song data
+    const url = `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p${VERSION==="highvoltage"?"":"/eam"}/setting/recommend.html?gtype=${type}`;
     const resHtml = await $.ajax({
-      url: `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p/eam/setting/recommend.html?gtype=${type}`,
-      error: handleAjaxError
+      url: url,
+      error: handleAjaxError(url)
     });
 
     var doc = document.implementation.createHTMLDocument("html");
@@ -261,9 +262,11 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
     });
   }
 
-  function handleAjaxError(request, status) {
-    console.error(`${request.responseText}\n\nstatus: ${status}`);
-    postError(`${request.responseText}\n\nstatus: ${status}`);
+  function handleAjaxError(url) {
+    return function(request, status) {
+      console.error(`${request.responseText}\n\nstatus: ${status}`);
+      postError(`${url}\n\n${request.responseText}\n\nstatus: ${status}`);
+    }
   }
 }
 

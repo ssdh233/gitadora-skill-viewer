@@ -93,7 +93,7 @@ module.exports = {
     },
     errors: async () => {
       const result = await pg.query(
-        `SELECT * FROM errorReports ORDER BY "date" DESC;`
+        `SELECT * FROM errorReports ORDER BY "date" DESC LIMIT 100;`
       );
       return result.rows;
     }
