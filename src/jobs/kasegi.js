@@ -141,8 +141,8 @@ async function kasegi({ version, type }) {
 
 module.exports = {
   job: () => {
-    kasegi({ version: "nextage", type: "guitar" });
-    kasegi({ version: "nextage", type: "drum" });
+    kasegi({ version: "highvoltage", type: "guitar" });
+    kasegi({ version: "highvoltage", type: "drum" });
   },
   // every day 20:00 UTC = 5:00 JST
   cronSchedule: "0 0 20 * * *"
