@@ -28,6 +28,8 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
       d: dmSharedSongs || ""
     };
 
+    console.log("profileData", profileData);
+
     if (!profileData.cardNumber) {
       alert(
         "プレイヤーデータ取得できません。ログインした状態でもう一度試してみてください。\n\n无法取得玩家数据，请检查您是否已经登录。\n\nFailed to fetch player data. Please log in."
@@ -180,7 +182,7 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
     var cardNumber = "";
     var gitadoraId = "";
 
-    if (VERSION === "matixx") {
+    if (VERSION === "matixx" || VERSION === "tbre") {
       cardNumber = $(doc)
         .find(".common_frame_date")
         .text()
