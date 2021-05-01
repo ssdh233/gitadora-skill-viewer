@@ -27,6 +27,7 @@ function BookmarkletScript() {
           <MenuItem value="nextage">NEX+AGE</MenuItem>
           <MenuItem value="exchain">EXCHAIN</MenuItem>
           <MenuItem value="matixx">Matixx</MenuItem>
+          <MenuItem value="tbre">Tri-Boost Re:EVOLVE</MenuItem>
         </Select>
       </div>
 
