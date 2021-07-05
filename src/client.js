@@ -8,8 +8,20 @@ import { InMemoryCache } from "apollo-cache-inmemory";
 import { HttpLink } from "apollo-link-http";
 import { ThemeProvider } from "@material-ui/styles";
 import { createMuiTheme } from "@material-ui/core/styles";
+import * as Sentry from "@sentry/react";
+import { Integrations } from "@sentry/tracing";
 
 import App from "./react/App.jsx";
+
+Sentry.init({
+  dsn: "https://6d26c7e100a84ae2ae01f54719c5ca19@o912155.ingest.sentry.io/5848955",
+  integrations: [new Integrations.BrowserTracing()],
+
+  // Set tracesSampleRate to 1.0 to capture 100%
+  // of transactions for performance monitoring.
+  // We recommend adjusting this value in production
+  tracesSampleRate: 1.0,
+});
 
 const { locale, messages } = JSON.parse(window.App);
 
