@@ -6,7 +6,7 @@ import flatten from "flat";
 import { Helmet } from "react-helmet";
 import {
   ThemeProvider,
-  ServerStyleSheets as MuiServerStyleSheets
+  ServerStyleSheets as MuiServerStyleSheets,
 } from "@material-ui/styles";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ApolloProvider } from "@apollo/react-common";
@@ -50,11 +50,14 @@ const messages = {
   ja: flatten(jaMessages),
   zh: flatten(zhMessages),
   en: flatten(enMessages),
-  ko: flatten(koMessages)
+  ko: flatten(koMessages),
 };
 
 const reactRoute = (req, res) => {
-  if (req.get("Host") === "gitadora-skill-viewer.herokuapp.com") {
+  if (
+    req.get("Host") === "gitadora-skill-viewer.herokuapp.com" &&
+    process.env.DOMAIN_REDIRECT === "true"
+  ) {
     res.redirect(301, `http://gsv.fun${req.url}`);
   } else {
     // set current language to cookie
@@ -67,8 +70,8 @@ const reactRoute = (req, res) => {
       cache: new InMemoryCache(),
       link: new HttpLink({
         uri: `${process.env.APP_URL}/graphql`,
-        fetch
-      })
+        fetch,
+      }),
     });
     const sheet = new ServerStyleSheet();
     const muiSheet = new MuiServerStyleSheets();
@@ -97,7 +100,7 @@ const reactRoute = (req, res) => {
       // for i18n
       const appString = JSON.stringify({
         locale,
-        messages: messages[locale]
+        messages: messages[locale],
       });
       // for SEO
       const helmet = Helmet.renderStatic();
@@ -110,7 +113,7 @@ const reactRoute = (req, res) => {
         bundleFileName,
         client,
         styleTags,
-        cssForMui
+        cssForMui,
       });
       res.send(html);
     });
