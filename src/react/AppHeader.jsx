@@ -22,7 +22,7 @@ import HomeIcon from "@material-ui/icons/Home";
 import useLocalStorage from "./useLocalStorage";
 import { CURRENT_VERSION } from "../constants";
 
-const VERSION = "v1.27.2";
+const VERSION = "v1.28.0";
 
 function AppHeader(props) {
   const [listAnchorEl, setListAnchorEl] = useState();
@@ -118,14 +118,6 @@ function AppHeader(props) {
             </Button>
           </Link>
         )}
-        <ButtonLink to={`/${locale}/shared/${sharedSongsPageType}`}>
-          <Button id="shared-button" aria-haspopup={true}>
-            <MusicNoteIcon />
-            <span style={{ marginLeft: 5 }}>
-              <FormattedMessage id="sharedSongs.title" />
-            </span>
-          </Button>
-        </ButtonLink>
         <Button
           id="kasegi-button"
           onClick={event => setKasegiAnchorEl(event.target)}
