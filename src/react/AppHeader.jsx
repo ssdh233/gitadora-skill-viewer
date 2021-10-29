@@ -118,14 +118,6 @@ function AppHeader(props) {
             </Button>
           </Link>
         )}
-        <ButtonLink to={`/${locale}/shared/${sharedSongsPageType}`}>
-          <Button id="shared-button" aria-haspopup={true}>
-            <MusicNoteIcon />
-            <span style={{ marginLeft: 5 }}>
-              <FormattedMessage id="sharedSongs.title" />
-            </span>
-          </Button>
-        </ButtonLink>
         <Button
           id="kasegi-button"
           onClick={event => setKasegiAnchorEl(event.target)}
