@@ -6,7 +6,6 @@ import { CURRENT_VERSION } from "../constants";
 // eslint-disable-next-line
 async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
   var skill_data = {};
-  var song_data = {};
 
   try {
     if (window.location.hostname != "p.eagate.573.jp") {
@@ -17,16 +16,9 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
     }
 
     // get profile data
-    const [gfSharedSongs, dmSharedSongs, profileData] = await Promise.all([
-      VERSION === CURRENT_VERSION && getSharedSongData("gf"),
-      VERSION === CURRENT_VERSION && getSharedSongData("dm"),
+    const [profileData] = await Promise.all([
       getProfileData()
     ]);
-
-    song_data = {
-      g: gfSharedSongs || "",
-      d: dmSharedSongs || ""
-    };
 
     console.log("profileData", profileData);
 
@@ -75,7 +67,6 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
               hot: skill_data["drum_hot"],
               other: skill_data["drum_other"]
             },
-            sharedSongs: song_data,
             updateDate: getDate()
           }
         }
