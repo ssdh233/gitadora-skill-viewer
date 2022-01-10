@@ -100,9 +100,11 @@ export default function SkillPageContainer(props) {
   useEffect(() => {
     const gsvId = query.setLocalStorage;
 
-    if (gsvId && version === CURRENT_VERSION) {
-      localStorage.setItem("gsvId", gsvId);
-      localStorage.setItem("gsvName", data.user.playerName);
+    if (gsvId) {
+      if (version === CURRENT_VERSION) {
+        localStorage.setItem("gsvId", gsvId);
+        localStorage.setItem("gsvName", data.user.playerName);
+      }
       window.history.pushState("", "", window.location.href.split("?")[0]);
     }
   }, []);
