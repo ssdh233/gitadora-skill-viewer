@@ -1,16 +1,16 @@
 {
   "title": "Gitadora Skill Viewer - 기타도라 스킬 표 공유 사이트",
   "home": "홈",
-  "kasegiSong": "곡 랭킹",
+  "kasegiSong": "스킬 곡 랭킹",
   "list": "유저 일람",
   "lang": "언어",
   "intro": {
     "title": "어떤 사이트인가요?",
-    "desc": "기타도라 공식 사이트에서 스킬 데이터를 받아오거나, 데이터 갱신마다 스킬의 변화를 기록하거나, 자신의 스킬 표를 다른 사람에게 공유하는 사이트입니다.",
+    "desc": "기타도라 공식 사이트에서 스킬 데이터를 받아오거나, 스킬의 변화를 기록하거나, 자신의 스킬 표를 다른 사람에게 공유하는 사이트입니다.",
     "info": {
-      "title": "공지",
-      "content1": "Updated for HIGH-VOLTAGE.",
-      "content2": "gsv.fun 사이트의 <a href='https://twitter.com/gsvfunsite'>트위터 계정</a>을 개설했습니다. 꼭 팔로해 주세요😋"
+      "title": "공지사항",
+      "content1": "HIGH-VOLTAGE를 이제 지원합니다.",
+      "content2": "gsv.fun 사이트의 <a href='https://twitter.com/gsvfunsite'>트위터 계정</a>을 개설했습니다. 꼭 팔로우해주세요😋"
     }
   },
   "how": {
@@ -27,19 +27,19 @@
         "oldVersion": "구 버전용 스크립트:"
       },
       "step2": {
-        "desc": "2. <b>기타도라 공식 사이트에 로그인 하신 뒤</b>, 1번에서 추가한 북마크를 클릭해 주세요.",
+        "desc": "2. <strong>기타도라 공식 사이트에 로그인 하신 뒤</strong>, 1번에서 추가한 북마크를 클릭해 주세요.",
         "imgDesc1": "코나미 공식 사이트인지 꼭 확인하세요",
         "imgDesc2": "로그인 하신 뒤, 추가한 북마크를 클릭하세요"
       },
       "step3": {
-        "desc": "3. 5~10초 정도 기다리시면, 업로드가 끝난 후 자동으로 스킬 페이지로 이동합니다. <b>이 URL을 통해 다른 사람과 스킬 표를 공유하세요.</b>",
+        "desc": "3. 5~10초 정도 기다리시면, 업로드가 끝난 후 자동으로 스킬 페이지로 이동합니다. <strong>이 URL을 통해 다른 사람과 스킬 표를 공유하세요.</strong>",
         "imgDesc1": "다른 사람에게 이 링크를 공유하세요!"
       }
     }
   },
   "desc": {
     "title": "주의사항",
-    "1st": "1. 어느 정도의 컴퓨터 지식만 있으면 <strong>gsv.fun에 가짜 스킬 데이터를 올릴 수 있습니다</strong>. 그렇기에 gsv.fun의 모든 스킬 데이터가 조작되지 않았거나, 반대로 조작되었다는 것을 보장할 수 없음을 명심해 주세요.",
+    "1st": "1. 어느 정도의 컴퓨터 지식만 있으면 <strong>gsv.fun에 가짜 스킬 데이터를 올릴 수 있습니다</strong>. 그렇기에 gsv.fun에 올라온 스킬 데이터의 무결성을 보장할 수 없음을 명심해 주세요.",
     "2nd": "2. 많은 사람들이 이용하는 타 사이트와 달리, 직접 데이터를 수동으로 입력하는 기능을 제공하지 않습니다."
   },
   "other": {
@@ -64,27 +64,27 @@
     "message": "버그를 찾으셨거나 새로운 기능에 대한 의견이 있으시다면, 코멘트를 남겨주시면 감사하겠습니다."
   },
   "kasegi": {
-    "title": " 스킬 인 랭킹",
-    "songname": "이름",
+    "title": " 스킬 곡 랭킹 |",
+    "songname": "곡명",
     "level": "레벨",
-    "percent": "%",
-    "averageskill": "평균",
+    "percent": "스킬 인 비율",
+    "averageskill": "평균 스킬",
     "averageplayerskill": "플레이어 평균",
-    "compare": "차이",
+    "compare": "비교",
     "compareSkill": "{name}님의 스킬",
-    "compareTitle": "{compareSkill}와 비교",
+    "compareTitle": "{compareSkill}과 비교",
     "scope": {
       "3000": "초록",
-      "3500": "초그라",
+      "3500": "초록 그라데이션",
       "4000": "파랑",
-      "4500": "파그라",
+      "4500": "파랑 그라데이션",
       "5000": "보라",
-      "5500": "보그라",
+      "5500": "보라 그라데이션",
       "6000": "빨강",
-      "6500": "빨그라",
-      "7000": "동",
-      "7500": "은",
-      "8000": "금",
+      "6500": "빨강 그라데이션",
+      "7000": "동색",
+      "7500": "은색",
+      "8000": "금색",
       "8500": "무지개",
       "9000": "무지개"
     }
@@ -92,18 +92,22 @@
   "skill": {
     "title": "{name}님의 {type} 스킬 표",
     "aboutGsv": "gsv.fun에 대해서",
-    "compareWithKasegi": "{scope}에서 주로 스킬 인하는 곡과 비교",
+    "compareWithKasegi": "{scope}대에서 주로 스킬 인 하는 곡과 비교",
     "savedList": "스킬 이력",
     "latestSkill": "{name}님의 최근 스킬 표",
-    "comparingWith": "Comparing with {something} ...",
-    "rivalSkill": "{name}'s skill'({point})",
-    "cancel": "Cancel",
-    "compareWithPlayer": "Compare with my skill({name})",
-    "compareWith1": "Compare with",
-    "compareWith2": " ",
-    "skillId": "skill id",
-    "skillIdDesc": "skill id is the number on the URL of your skill sheet. For example, the skill id of http://gsv.fun/ja/exchain/<b>1234</b>/d is 1234.",
-    "skillIdOk": "OK"
+    "comparingWith": "{something}와 비교 중...",
+    "rivalSkill": "{name}님의 스킬 표({point})",
+    "cancel": "돌아가기",
+    "compareWithPlayer": "자신({name})의 스킬 표와 비교",
+    "compareWith1": " ",
+    "compareWith2": "의 스킬 표와 비교",
+    "skillId": "스킬 ID",
+    "skillIdDesc": "스킬 ID는 스킬 표 URL 상의 숫자(예를 들어 http://gsv.fun/ko/highvoltage/<b>1234</b>/d 의 1234)를 말하는 것입니다.",
+    "skillIdOk": "확인",
+    "songName": "곡",
+    "level": "레벨",
+    "achieve": "달성률",
+    "skillPoint": "스킬"
   },
   "listPage": {
     "tips": "표의 헤더(맨 윗 행)를 눌러서 정렬할 수 있습니다."

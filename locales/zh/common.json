@@ -103,7 +103,11 @@
     "compareWith2": "比较",
     "skillId": "skill id",
     "skillIdDesc": "skill id是skill表的URL上的数字. 比如http://gsv.fun/ja/exchain/<b>1234</b>/d的skill id是1234.",
-    "skillIdOk": "OK"
+    "skillIdOk": "OK",
+    "songName": "曲名",
+    "level": "level",
+    "achieve": "达成率",
+    "skillPoint": "skill"
   },
   "listPage": {
     "tips": "点击表格的列名可以排序"

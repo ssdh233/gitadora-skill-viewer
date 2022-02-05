@@ -103,7 +103,11 @@
     "compareWith2": " ",
     "skillId": "skill id",
     "skillIdDesc": "skill id is the number on the URL of your skill sheet. For example, the skill id of http://gsv.fun/ja/exchain/<b>1234</b>/d is 1234.",
-    "skillIdOk": "OK"
+    "skillIdOk": "OK",
+    "songName": "SONG",
+    "level": "LEVEL",
+    "achieve": "ACHIEVE",
+    "skillPoint": "SKILL"
   },
   "listPage": {
     "tips": "You can sort this table by clicking the header"

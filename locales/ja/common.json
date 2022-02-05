@@ -104,7 +104,11 @@
     "compareWith2": "のスキルと比較",
     "skillId": "スキルID",
     "skillIdDesc": "スキルIDは、スキル帳のURL（例えばhttp://gsv.fun/ja/exchain/<b>1234</b>/d）上の数字の1234のことです。",
-    "skillIdOk": "わかった"
+    "skillIdOk": "わかった",
+    "songName": "曲名",
+    "level": "レベル",
+    "achieve": "達成率",
+    "skillPoint": "スキル"
   },
   "listPage": {
     "tips": "ヘッダーをクリックするとソートできますよ！"

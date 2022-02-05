@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+import { FormattedMessage } from "react-intl";
 
 class SkillTable extends React.Component {
-  getRank = (value) => {
+  getRank = value => {
     if (value.substr(0, 3) == "100") {
       return "SS";
     } else {
@@ -39,12 +40,12 @@ class SkillTable extends React.Component {
 
     let combinedData = data.map((item, index) => ({
       index: index + 1,
-      ...item,
+      ...item
     }));
 
     if (rivalData) {
-      rivalData.forEach((rivalItem) => {
-        let sameItem = combinedData.find((item) => {
+      rivalData.forEach(rivalItem => {
+        let sameItem = combinedData.find(item => {
           return (
             item.name === rivalItem.name &&
             item.diff === rivalItem.diff &&
@@ -68,17 +69,25 @@ class SkillTable extends React.Component {
         <thead>
           <tr>
             <SkillTableTh />
-            <SkillTableTh>曲名</SkillTableTh>
-            <SkillTableTh>レベル</SkillTableTh>
-            <SkillTableTh>達成率</SkillTableTh>
-            <SkillTableTh>スキル</SkillTableTh>
+            <SkillTableTh>
+              <FormattedMessage id="skill.songName" />
+            </SkillTableTh>
+            <SkillTableTh>
+              <FormattedMessage id="skill.level" />
+            </SkillTableTh>
+            <SkillTableTh>
+              <FormattedMessage id="skill.achieve" />
+            </SkillTableTh>
+            <SkillTableTh>
+              <FormattedMessage id="skill.skillPoint" />
+            </SkillTableTh>
             {hasComparedSkill && <th />}
           </tr>
         </thead>
         <tbody>
           {combinedData
             .sort((a, b) => b.skill_value - a.skill_value)
-            .map((item) => (
+            .map(item => (
               <SkillTableTr
                 key={item.name + " " + item.diff}
                 diff={item.diff}
@@ -136,6 +145,7 @@ const SkillTableRoot = styled.table`
 
 const SkillTableTh = styled.th`
   background-color: #5882fa;
+  height: 22px;
 `;
 
 const SkillTableTr = styled.tr`
@@ -146,7 +156,7 @@ const SkillTableTr = styled.tr`
       ADV: "#FFFFC7",
       EXT: "#FFC7C7",
       MAS: "#D8BFF8",
-      rival: "darkgrey",
+      rival: "darkgrey"
     }[isRivalData ? "rival" : diff])};
 
   @media (max-width: 742px) {
