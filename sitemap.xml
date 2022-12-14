@@ -15,6 +15,13 @@
     <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/uservoice"/>
   </url>
   <url>
+    <loc>http://gsv.fun/ja/fuzzup/list</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/list"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/list"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/list"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/list"/>
+  </url>
+  <url>
     <loc>http://gsv.fun/ja/highvoltage/list</loc>
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/highvoltage/list"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/highvoltage/list"/>
@@ -57,211 +64,211 @@
     <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/tb/list"/>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/highvoltage/kasegi/g/3000</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/highvoltage/kasegi/g/3000"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/highvoltage/kasegi/g/3000"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/highvoltage/kasegi/g/3000"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/highvoltage/kasegi/g/3000"/>
+    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/3000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/3000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/3000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/3000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/3000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/highvoltage/kasegi/d/3000</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/highvoltage/kasegi/d/3000"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/highvoltage/kasegi/d/3000"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/highvoltage/kasegi/d/3000"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/highvoltage/kasegi/d/3000"/>
+    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/3000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/3000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/3000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/3000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/3000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/highvoltage/kasegi/g/3500</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/highvoltage/kasegi/g/3500"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/highvoltage/kasegi/g/3500"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/highvoltage/kasegi/g/3500"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/highvoltage/kasegi/g/3500"/>
+    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/3500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/3500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/3500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/3500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/3500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/highvoltage/kasegi/d/3500</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/highvoltage/kasegi/d/3500"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/highvoltage/kasegi/d/3500"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/highvoltage/kasegi/d/3500"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/highvoltage/kasegi/d/3500"/>
+    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/3500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/3500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/3500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/3500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/3500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/highvoltage/kasegi/g/4000</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/highvoltage/kasegi/g/4000"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/highvoltage/kasegi/g/4000"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/highvoltage/kasegi/g/4000"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/highvoltage/kasegi/g/4000"/>
+    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/4000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/4000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/4000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/4000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/4000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/highvoltage/kasegi/d/4000</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/highvoltage/kasegi/d/4000"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/highvoltage/kasegi/d/4000"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/highvoltage/kasegi/d/4000"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/highvoltage/kasegi/d/4000"/>
+    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/4000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/4000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/4000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/4000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/4000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/highvoltage/kasegi/g/4500</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/highvoltage/kasegi/g/4500"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/highvoltage/kasegi/g/4500"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/highvoltage/kasegi/g/4500"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/highvoltage/kasegi/g/4500"/>
+    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/4500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/4500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/4500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/4500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/4500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/highvoltage/kasegi/d/4500</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/highvoltage/kasegi/d/4500"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/highvoltage/kasegi/d/4500"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/highvoltage/kasegi/d/4500"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/highvoltage/kasegi/d/4500"/>
+    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/4500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/4500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/4500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/4500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/4500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/highvoltage/kasegi/g/5000</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/highvoltage/kasegi/g/5000"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/highvoltage/kasegi/g/5000"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/highvoltage/kasegi/g/5000"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/highvoltage/kasegi/g/5000"/>
+    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/5000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/5000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/5000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/5000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/5000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/highvoltage/kasegi/d/5000</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/highvoltage/kasegi/d/5000"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/highvoltage/kasegi/d/5000"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/highvoltage/kasegi/d/5000"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/highvoltage/kasegi/d/5000"/>
+    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/5000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/5000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/5000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/5000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/5000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/highvoltage/kasegi/g/5500</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/highvoltage/kasegi/g/5500"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/highvoltage/kasegi/g/5500"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/highvoltage/kasegi/g/5500"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/highvoltage/kasegi/g/5500"/>
+    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/5500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/5500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/5500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/5500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/5500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/highvoltage/kasegi/d/5500</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/highvoltage/kasegi/d/5500"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/highvoltage/kasegi/d/5500"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/highvoltage/kasegi/d/5500"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/highvoltage/kasegi/d/5500"/>
+    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/5500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/5500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/5500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/5500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/5500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/highvoltage/kasegi/g/6000</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/highvoltage/kasegi/g/6000"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/highvoltage/kasegi/g/6000"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/highvoltage/kasegi/g/6000"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/highvoltage/kasegi/g/6000"/>
+    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/6000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/6000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/6000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/6000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/6000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/highvoltage/kasegi/d/6000</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/highvoltage/kasegi/d/6000"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/highvoltage/kasegi/d/6000"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/highvoltage/kasegi/d/6000"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/highvoltage/kasegi/d/6000"/>
+    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/6000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/6000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/6000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/6000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/6000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/highvoltage/kasegi/g/6500</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/highvoltage/kasegi/g/6500"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/highvoltage/kasegi/g/6500"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/highvoltage/kasegi/g/6500"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/highvoltage/kasegi/g/6500"/>
+    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/6500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/6500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/6500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/6500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/6500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/highvoltage/kasegi/d/6500</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/highvoltage/kasegi/d/6500"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/highvoltage/kasegi/d/6500"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/highvoltage/kasegi/d/6500"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/highvoltage/kasegi/d/6500"/>
+    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/6500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/6500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/6500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/6500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/6500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/highvoltage/kasegi/g/7000</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/highvoltage/kasegi/g/7000"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/highvoltage/kasegi/g/7000"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/highvoltage/kasegi/g/7000"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/highvoltage/kasegi/g/7000"/>
+    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/7000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/7000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/7000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/7000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/7000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/highvoltage/kasegi/d/7000</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/highvoltage/kasegi/d/7000"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/highvoltage/kasegi/d/7000"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/highvoltage/kasegi/d/7000"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/highvoltage/kasegi/d/7000"/>
+    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/7000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/7000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/7000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/7000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/7000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/highvoltage/kasegi/g/7500</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/highvoltage/kasegi/g/7500"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/highvoltage/kasegi/g/7500"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/highvoltage/kasegi/g/7500"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/highvoltage/kasegi/g/7500"/>
+    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/7500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/7500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/7500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/7500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/7500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/highvoltage/kasegi/d/7500</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/highvoltage/kasegi/d/7500"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/highvoltage/kasegi/d/7500"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/highvoltage/kasegi/d/7500"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/highvoltage/kasegi/d/7500"/>
+    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/7500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/7500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/7500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/7500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/7500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/highvoltage/kasegi/g/8000</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/highvoltage/kasegi/g/8000"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/highvoltage/kasegi/g/8000"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/highvoltage/kasegi/g/8000"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/highvoltage/kasegi/g/8000"/>
+    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/8000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/8000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/8000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/8000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/8000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/highvoltage/kasegi/d/8000</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/highvoltage/kasegi/d/8000"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/highvoltage/kasegi/d/8000"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/highvoltage/kasegi/d/8000"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/highvoltage/kasegi/d/8000"/>
+    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/8000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/8000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/8000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/8000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/8000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/highvoltage/kasegi/g/8500</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/highvoltage/kasegi/g/8500"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/highvoltage/kasegi/g/8500"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/highvoltage/kasegi/g/8500"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/highvoltage/kasegi/g/8500"/>
+    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/8500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/8500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/8500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/8500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/8500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/highvoltage/kasegi/d/8500</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/highvoltage/kasegi/d/8500"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/highvoltage/kasegi/d/8500"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/highvoltage/kasegi/d/8500"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/highvoltage/kasegi/d/8500"/>
+    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/8500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/8500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/8500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/8500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/8500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/highvoltage/kasegi/g/9000</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/highvoltage/kasegi/g/9000"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/highvoltage/kasegi/g/9000"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/highvoltage/kasegi/g/9000"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/highvoltage/kasegi/g/9000"/>
+    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/9000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/9000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/9000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/9000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/9000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/highvoltage/kasegi/d/9000</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/highvoltage/kasegi/d/9000"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/highvoltage/kasegi/d/9000"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/highvoltage/kasegi/d/9000"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/highvoltage/kasegi/d/9000"/>
+    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/9000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/9000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/9000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/9000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/9000"/>
     <changefreq>monthly</changefreq>
   </url>
 </urlset>

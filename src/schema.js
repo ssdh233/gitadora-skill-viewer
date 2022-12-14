@@ -28,6 +28,7 @@ const typeDefs = gql`
   }
 
   enum Version {
+    fuzzup
     highvoltage
     nextage
     exchain

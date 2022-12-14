@@ -22,7 +22,7 @@ import HomeIcon from "@material-ui/icons/Home";
 import useLocalStorage from "./useLocalStorage";
 import { CURRENT_VERSION } from "../constants";
 
-const VERSION = "v1.28.4";
+const VERSION = "v1.29.0";
 
 function AppHeader(props) {
   const [listAnchorEl, setListAnchorEl] = useState();
@@ -212,7 +212,10 @@ function AppHeader(props) {
           onClick={() => setListAnchorEl(null)}
         >
           <MenuList>
-          <Link to={`/${locale}/highvoltage/list`}>
+            <Link to={`/${locale}/fuzzup/list`}>
+              <MenuItem>FUZZ-UP</MenuItem>
+            </Link>
+            <Link to={`/${locale}/highvoltage/list`}>
               <MenuItem>HIGH-VOLTAGE</MenuItem>
             </Link>
             <Link to={`/${locale}/nextage/list`}>
