@@ -2,7 +2,7 @@
   "name": "gitadora-skill-viewer",
   "description": "",
   "engines": {
-    "node": "8.12.0"
+    "node": "16.15.0"
   },
   "main": "app.js",
   "scripts": {
@@ -38,7 +38,7 @@
     "isomorphic-fetch": "^2.2.1",
     "jquery": "^3.5.0",
     "node-fetch": "^2.6.7",
-    "pg": "^7.11.0",
+    "pg": "^8.8.0",
     "pug": "^3.0.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
