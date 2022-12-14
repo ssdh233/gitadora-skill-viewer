@@ -13,3 +13,9 @@ https://cdn.jsdelivr.net/gh/matsumatsu233/MyStorage/latest.dump
 ```
 heroku pg:backups:restore '<SIGNED URL>' MY_DATABASE_URL --app gitadora-skill-viewer
 ```
+
+### backup schedule
+
+```
+heroku pg:backups:schedule ONYX --at "04:00 Asia/Tokyo" --app gitadora-skill-viewer
+```

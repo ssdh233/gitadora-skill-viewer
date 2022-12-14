@@ -62,6 +62,9 @@ var scriptsConfig = {
     uploaddata_latest: `${SRC_DIR}/scripts/uploaddata_latest.js`,
     uploaddata_latest_dev: `${SRC_DIR}/scripts/uploaddata_latest_dev.js`,
     uploaddata_latest_local: `${SRC_DIR}/scripts/uploaddata_latest_local.js`,
+    uploaddata_highvoltage: `${SRC_DIR}/scripts/uploaddata_highvoltage.js`,
+    uploaddata_highvoltage_dev: `${SRC_DIR}/scripts/uploaddata_highvoltage_dev.js`,
+    uploaddata_highvoltage_local: `${SRC_DIR}/scripts/uploaddata_highvoltage_local.js`,
     uploaddata_nextage: `${SRC_DIR}/scripts/uploaddata_nextage.js`,
     uploaddata_nextage_dev: `${SRC_DIR}/scripts/uploaddata_nextage_dev.js`,
     uploaddata_nextage_local: `${SRC_DIR}/scripts/uploaddata_nextage_local.js`,
@@ -74,7 +77,6 @@ var scriptsConfig = {
     uploaddata_tbre: `${SRC_DIR}/scripts/uploaddata_tbre.js`,
     uploaddata_tbre_dev: `${SRC_DIR}/scripts/uploaddata_tbre_dev.js`,
     uploaddata_tbre_local: `${SRC_DIR}/scripts/uploaddata_tbre_local.js`
-    
   },
   output: {
     path: DIST_DIR,

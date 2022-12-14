@@ -5,7 +5,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import { FormattedMessage } from "react-intl";
 
 function BookmarkletScript() {
-  const [select, setSelect] = useState("nextage");
+  const [select, setSelect] = useState("highvoltage");
   return (
     <>
       <ScriptDiv>
@@ -24,6 +24,7 @@ function BookmarkletScript() {
             setSelect(event.target.value);
           }}
         >
+          <MenuItem value="highvoltage">HIGH-VOLTAGE</MenuItem>
           <MenuItem value="nextage">NEX+AGE</MenuItem>
           <MenuItem value="exchain">EXCHAIN</MenuItem>
           <MenuItem value="matixx">Matixx</MenuItem>
