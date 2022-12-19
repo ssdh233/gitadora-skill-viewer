@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import gql from "graphql-tag";
-import { useQuery } from "@apollo/react-hooks";
+import { useMutation, useQuery } from "@apollo/react-hooks";
 import LinearProgress from "@material-ui/core/LinearProgress";
 
 import { OLD_NAME_MAP, CURRENT_VERSION } from "../../constants";
 import queryParser from "../../modules/query";
 import SkillPage from "./SkillPage.jsx";
+import { useHistory } from "react-router";
+import { injectIntl } from "react-intl";
 
 const GET_SKILL = gql`
   fragment SkillRecord on SkillRecord {
@@ -82,9 +84,21 @@ const GET_SKILL = gql`
   }
 `;
 
-export default function SkillPageContainer(props) {
-  const { playerId, version, type } = props.match.params;
+const SAVE_SKILL = gql`
+  mutation SaveSkill($version: Version, $data: SimpleUserInput, $playerId: Int, $type: GameType) {
+    saveSkill(version: $version, data: $data, playerId: $playerId, type: $type)
+  }
+`
+
+const omitTypename = (key, value) => (key === '__typename' ? undefined : value)
+
+function SkillPageContainer(props) {
+  const { locale, playerId, version, type } = props.match.params;
   const query = queryParser(props.location.search);
+  const {
+    intl: { formatMessage },
+  } = props;
+
 
   const { data, loading, error } = useQuery(GET_SKILL, {
     variables: {
@@ -95,6 +109,16 @@ export default function SkillPageContainer(props) {
       savedSkillId: query.r ? null : parseInt(query.c), 
       rivalPlayerId: parseInt(query.r)
     }
+  });
+
+  const [saveSkill] = useMutation(SAVE_SKILL, {
+    onCompleted: (data) => { 
+      if (data.saveSkill >=0) {
+        location.href = `/${locale}/${version}/${data.saveSkill}/p`;
+      } else {
+        alert(formatMessage({ id: "skill.alreadySaved" }));
+      }
+     }
   });
 
   useEffect(() => {
@@ -109,6 +133,20 @@ export default function SkillPageContainer(props) {
     }
   }, []);
 
+  const handleSaveSkill = () => {
+    return saveSkill({variables: {
+      playerId: parseInt(playerId),
+      version,
+      type,
+      data: {
+        playerName: data.user.playerName,
+        updateDate: data.user.updateDate,
+        drumSkill: JSON.parse(JSON.stringify(data.user.drumSkill), omitTypename),
+        guitarSkill: JSON.parse(JSON.stringify(data.user.guitarSkill), omitTypename),
+      }
+    }})
+  }
+
   if (loading) return <LinearProgress />;
   if (error) return <p>ERROR: {error.toString()}</p>;
 
@@ -119,6 +157,7 @@ export default function SkillPageContainer(props) {
       rivalSkillData={getSkillData(data.rival, null, type)}
       hasComparedSkill={Boolean(data.savedSkill)}
       skillSavedList={data.savedSkills}
+      onSaveSkill={handleSaveSkill}
     />
   );
 }
@@ -186,3 +225,5 @@ function compareSkillHalf(current, old) {
 
   return result;
 }
+
+export default injectIntl(SkillPageContainer);
