@@ -20,6 +20,7 @@ const typeDefs = gql`
       date: String
       userAgent: String
     ): Boolean
+    saveSkill(version: Version, data: SimpleUserInput, playerId: Int, type: GameType): Int
   }
 
   enum GameType {
@@ -112,6 +113,13 @@ const typeDefs = gql`
     userAgent: String
   }
 
+  input SimpleUserInput {
+    playerName: String
+    updateDate: String
+    drumSkill: SkillTableInputNew
+    guitarSkill: SkillTableInputNew
+  }
+
   input UserInput {
     cardNumber: String
     gitadoraId: String
@@ -127,9 +135,19 @@ const typeDefs = gql`
     other: HalfSkillTableInput
   }
 
+  input SkillTableInputNew {
+    hot: HalfSkillTableInputNew
+    other: HalfSkillTableInputNew
+  }
+
   input HalfSkillTableInput {
     point: String
     data: [SkillRecordInput]
+  }
+
+  input HalfSkillTableInputNew {
+    point: Float
+    data: [SkillRecordInputNew]
   }
 
   input SkillRecordInput {
@@ -139,6 +157,15 @@ const typeDefs = gql`
     skill_value: String
     achive_value: String
     diff_value: String
+  }
+
+  input SkillRecordInputNew {
+    name: String
+    part: String
+    diff: String
+    skill_value: Float
+    achive_value: String
+    diff_value: Float
   }
 
   input SharedSongsInput {

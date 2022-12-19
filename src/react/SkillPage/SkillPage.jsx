@@ -29,6 +29,7 @@ function SkillPage(props) {
   const history = useHistory();
   const [rivalInput, setRivalInput] = useState("");
   const [skillIdDescDialogOpen, setSkillIdDescDialogOpen] = useState(false);
+  const [saveSkillDisabled, setSaveSkillDisabled]  = useState(false);
   const gsvId = useLocalStorage("gsvId", null);
   const gsvName = useLocalStorage("gsvName", "");
 
@@ -75,6 +76,14 @@ function SkillPage(props) {
       type: type === "g" ? "Guitarfreaks" : "Drummania",
     }
   );
+
+  const handleSaveSkill = async () => {
+    setSaveSkillDisabled(true);
+    if (props.onSaveSkill) {
+      await props.onSaveSkill();
+    }
+    setSaveSkillDisabled(false);
+  }
 
   return (
     <SkillPageDiv>
@@ -271,6 +280,7 @@ function SkillPage(props) {
           </div>
           <div style={{ marginTop: 20 }}>
             {props.skillSavedList && (
+              <>
               <SavedListTable>
                 <caption style={{ color: "black" }}>
                   <FormattedMessage id="skill.savedList" />
@@ -324,6 +334,8 @@ function SkillPage(props) {
                   ))}
                 </tbody>
               </SavedListTable>
+              <button onClick={handleSaveSkill} disabled={saveSkillDisabled}><FormattedMessage id="skill.saveSkill" /></button>
+              </>
             )}
           </div>
         </>
