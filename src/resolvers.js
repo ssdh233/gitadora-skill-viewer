@@ -212,7 +212,7 @@ module.exports = {
 
 async function saveSkill({ version, data, playerId, type }) {
   const result = await pg.query(`SELECT "skillPoint" FROM skillp WHERE version='${version}' AND type='${type}' AND "playerId"='${playerId}'`);
-  const maxSkillPoint = Math.max(result.rows.map(x => Number(x.skillPoint)));
+  const maxSkillPoint = Math.max(...result.rows.map(x => Number(x.skillPoint)));
 
   const guitarSkillPoint = (
     parseFloat(data.guitarSkill.hot.point) +
@@ -223,11 +223,15 @@ async function saveSkill({ version, data, playerId, type }) {
     parseFloat(data.drumSkill.other.point)
   ).toFixed(2);
 
-  if (type === "g" && maxSkillPoint >= Number(guitarSkillPoint)) {
+  console.log("maxSkillPoint", maxSkillPoint)
+  console.log("Number(guitarSkillPoint)", Number(guitarSkillPoint))
+  console.log("Number(drumSkillPoint)", Number(drumSkillPoint))
+
+  if (type === "g" && maxSkillPoint && maxSkillPoint >= Number(guitarSkillPoint)) {
     return -1;
   }
   
-  if (type === "d" && maxSkillPoint >= Number(drumSkillPoint)) {
+  if (type === "d" &&  maxSkillPoint && maxSkillPoint >= Number(drumSkillPoint)) {
     return -1;
   }
 
