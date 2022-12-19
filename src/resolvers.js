@@ -203,11 +203,17 @@ module.exports = {
         $$${version}$$ , $$${error}$$, $$${date}$$, $$${userAgent}$$
       );`);
       return;
+    },
+    saveSkill: async (_, { version, data, playerId, type }) => {
+      return await saveSkill({ version, data, playerId, type });
     }
   }
 };
 
 async function saveSkill({ version, data, playerId, type }) {
+  const result = await pg.query(`SELECT "skillPoint" FROM skillp WHERE version='${version}' AND type='${type}' AND "playerId"='${playerId}'`);
+  const maxSkillPoint = Math.max(result.rows.map(x => Number(x.skillPoint)));
+
   const guitarSkillPoint = (
     parseFloat(data.guitarSkill.hot.point) +
     parseFloat(data.guitarSkill.other.point)
@@ -216,6 +222,15 @@ async function saveSkill({ version, data, playerId, type }) {
     parseFloat(data.drumSkill.hot.point) +
     parseFloat(data.drumSkill.other.point)
   ).toFixed(2);
+
+  if (type === "g" && maxSkillPoint >= Number(guitarSkillPoint)) {
+    return -1;
+  }
+  
+  if (type === "d" && maxSkillPoint >= Number(drumSkillPoint)) {
+    return -1;
+  }
+
   const guitarDataStr = JSON.stringify(data.guitarSkill);
   const drumDataStr = JSON.stringify(data.drumSkill);
 
@@ -234,6 +249,7 @@ async function saveSkill({ version, data, playerId, type }) {
       $$${data.updateDate}$$
     );
   `);
+  return skillId;
 }
 
 async function updateSharedSongList(sharedSongs) {

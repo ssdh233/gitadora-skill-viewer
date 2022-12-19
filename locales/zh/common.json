@@ -93,6 +93,8 @@
     "title": "{name}的{type} skill表",
     "aboutGsv": "关于gsv.fun",
     "compareWithKasegi": "和{scope}的赚分曲比较",
+    "saveSkill": "保存当前skill表",
+    "alreadySaved": "这个skill表已经被保存过了。",
     "savedList": "过去的记录",
     "latestSkill": "去看{name}最新的skill表",
     "compareWithPlayer": "和自己({name})比较",

@@ -93,6 +93,8 @@
     "title": "{name}님의 {type} 스킬 표",
     "aboutGsv": "gsv.fun에 대해서",
     "compareWithKasegi": "{scope}대에서 주로 스킬 인 하는 곡과 비교",
+    "saveSkill": "save current skill table",
+    "alreadySaved": "This skill table has already been saved.",
     "savedList": "스킬 이력",
     "latestSkill": "{name}님의 최근 스킬 표",
     "comparingWith": "{something}와 비교 중...",

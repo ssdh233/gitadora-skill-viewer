@@ -93,6 +93,8 @@
     "title": "{name}'s skill table",
     "aboutGsv": "About gsv.fun",
     "compareWithKasegi": "Compare with {scope} ranking",
+    "saveSkill": "save current skill table",
+    "alreadySaved": "This skill table has already been saved.",
     "savedList": "Skill history",
     "latestSkill": "Check {name}'s latest skill",
     "comparingWith": "Comparing with {something}... ",
