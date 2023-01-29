@@ -20,7 +20,7 @@ import ListSubheader from "@material-ui/core/ListSubheader";
 import HomeIcon from "@material-ui/icons/Home";
 
 import useLocalStorage from "./useLocalStorage";
-import { CURRENT_VERSION } from "../constants";
+import { ALL_VERSIONS, CURRENT_VERSION, VERSION_NAME } from "../constants";
 
 const VERSION = "v1.30.1";
 
@@ -212,27 +212,11 @@ function AppHeader(props) {
           onClick={() => setListAnchorEl(null)}
         >
           <MenuList>
-            <Link to={`/${locale}/fuzzup/list`}>
-              <MenuItem>FUZZ-UP</MenuItem>
-            </Link>
-            <Link to={`/${locale}/highvoltage/list`}>
-              <MenuItem>HIGH-VOLTAGE</MenuItem>
-            </Link>
-            <Link to={`/${locale}/nextage/list`}>
-              <MenuItem>NEX+AGE</MenuItem>
-            </Link>
-            <Link to={`/${locale}/exchain/list`}>
-              <MenuItem>EXCHAIN</MenuItem>
-            </Link>
-            <Link to={`/${locale}/matixx/list`}>
-              <MenuItem>Matixx</MenuItem>
-            </Link>
-            <Link to={`/${locale}/tbre/list`}>
-              <MenuItem>Tri-Boost Re</MenuItem>
-            </Link>
-            <Link to={`/${locale}/tb/list`}>
-              <MenuItem>Tri-Boost</MenuItem>
-            </Link>
+            {
+              ALL_VERSIONS.map(version => (<Link to={`/${locale}/${version}/list`}>
+                <MenuItem>{VERSION_NAME[version].replace(":EVOLVE", "")}</MenuItem>
+              </Link>))
+            }
           </MenuList>
         </Popover>
       </SecondLineDiv>

@@ -40,7 +40,7 @@ class ListPage extends React.Component {
   render() {
     const { locale, version } = this.props.match.params;
 
-    const fullVersionName = VERSION_NAME[version];
+    const fullVersionName = "GITADORA " + VERSION_NAME[version];
 
     let columns = [
       {
