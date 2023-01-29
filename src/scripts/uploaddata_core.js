@@ -5,6 +5,7 @@ import { NO_EAM_PATH_VERSIONS } from "../constants";
 
 // eslint-disable-next-line
 async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
+  console.log({TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION})
   var skill_data = {};
 
   try {

@@ -7,7 +7,7 @@
   "main": "app.js",
   "scripts": {
     "heroku-postbuild": "./node_modules/.bin/webpack -p",
-    "build": "webpack --mode=development --watch",
+    "build": "webpack --mode=production --watch",
     "eslint": "./node_modules/.bin/eslint ."
   },
   "author": "",

@@ -1,6 +1,8 @@
 const path = require("path");
 const CompressionPlugin = require("compression-webpack-plugin");
 const ManifestPlugin = require("webpack-manifest-plugin");
+const webpack = require("webpack");
+const { ON_SERVICE_VERSIONS, CURRENT_VERSION } = require("./src/constants");
 
 const DIST_DIR = path.resolve(__dirname, "src/public/js");
 const SRC_DIR = path.resolve(__dirname, "src");
@@ -56,31 +58,14 @@ var appConfig = {
   ]
 };
 
-var scriptsConfig = {
+var createScriptsConfig = (version, flag) => ({
   mode: "production",
   entry: {
-    uploaddata_latest: `${SRC_DIR}/scripts/uploaddata_latest.js`,
-    uploaddata_latest_dev: `${SRC_DIR}/scripts/uploaddata_latest_dev.js`,
-    uploaddata_latest_local: `${SRC_DIR}/scripts/uploaddata_latest_local.js`,
-    uploaddata_highvoltage: `${SRC_DIR}/scripts/uploaddata_highvoltage.js`,
-    uploaddata_highvoltage_dev: `${SRC_DIR}/scripts/uploaddata_highvoltage_dev.js`,
-    uploaddata_highvoltage_local: `${SRC_DIR}/scripts/uploaddata_highvoltage_local.js`,
-    uploaddata_nextage: `${SRC_DIR}/scripts/uploaddata_nextage.js`,
-    uploaddata_nextage_dev: `${SRC_DIR}/scripts/uploaddata_nextage_dev.js`,
-    uploaddata_nextage_local: `${SRC_DIR}/scripts/uploaddata_nextage_local.js`,
-    uploaddata_exchain: `${SRC_DIR}/scripts/uploaddata_exchain.js`,
-    uploaddata_exchain_dev: `${SRC_DIR}/scripts/uploaddata_exchain_dev.js`,
-    uploaddata_exchain_local: `${SRC_DIR}/scripts/uploaddata_exchain_local.js`,
-    uploaddata_matixx: `${SRC_DIR}/scripts/uploaddata_matixx.js`,
-    uploaddata_matixx_dev: `${SRC_DIR}/scripts/uploaddata_matixx_dev.js`,
-    uploaddata_matixx_local: `${SRC_DIR}/scripts/uploaddata_matixx_local.js`,
-    uploaddata_tbre: `${SRC_DIR}/scripts/uploaddata_tbre.js`,
-    uploaddata_tbre_dev: `${SRC_DIR}/scripts/uploaddata_tbre_dev.js`,
-    uploaddata_tbre_local: `${SRC_DIR}/scripts/uploaddata_tbre_local.js`
+    uploaddata_latest: `${SRC_DIR}/scripts/uploaddata_template.js`,
   },
   output: {
     path: DIST_DIR,
-    filename: "[name].js"
+    filename: flag ? `uploaddata_${version}_${flag}.js` : `uploaddata_${version}.js`
   },
   module: {
     rules: [
@@ -94,7 +79,24 @@ var scriptsConfig = {
         include: SRC_DIR
       }
     ]
-  }
-};
+  },
+  plugins: [new webpack.DefinePlugin({
+    "process.env.TARGET_DOMAIN": flag === "local" ? "\"http://127.0.0.1:5000\"" : flag === "dev" ? "\"//gitadora-skill-viewer-dev.herokuapp.com\"" : "\"http://gsv.fun\"",
+    "process.env.SCRIPT_DOMAIN": flag === "local" ? "\"http://127.0.0.1:5000\"" : "\"//gitadora-skill-viewer.herokuapp.com\"",
+    "process.env.VERSION": version === "latest" ? `\"${CURRENT_VERSION}\"` : `\"${version}\"`,
+  })]
+});
 
-module.exports = [appConfig, scriptsConfig];
+let moduleExports = [appConfig];
+
+moduleExports.push(createScriptsConfig("latest"));
+moduleExports.push(createScriptsConfig("latest", "dev"));
+moduleExports.push(createScriptsConfig("latest", "local"));
+
+ON_SERVICE_VERSIONS.slice(1).forEach(version => {
+  moduleExports.push(createScriptsConfig(version));
+  moduleExports.push(createScriptsConfig(version, "dev"));
+  moduleExports.push(createScriptsConfig(version, "local"));
+})
+
+module.exports = moduleExports;
