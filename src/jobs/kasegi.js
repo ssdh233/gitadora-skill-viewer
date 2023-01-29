@@ -1,3 +1,4 @@
+const { CURRENT_VERSION } = require("../constants");
 const pg = require("../modules/pg");
 
 function isValidSkillData(skillData) {
@@ -141,8 +142,8 @@ async function kasegi({ version, type }) {
 
 module.exports = {
   job: () => {
-    kasegi({ version: "fuzzup", type: "guitar" });
-    kasegi({ version: "fuzzup", type: "drum" });
+    kasegi({ version: CURRENT_VERSION, type: "guitar" });
+    kasegi({ version: CURRENT_VERSION, type: "drum" });
   },
   // every day 20:00 UTC = 5:00 JST
   cronSchedule: "0 0 20 * * *"

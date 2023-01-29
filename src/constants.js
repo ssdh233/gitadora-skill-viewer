@@ -1,18 +1,21 @@
-const CURRENT_VERSION = "fuzzup";
 
 const ALL_VERSIONS = ["fuzzup", "highvoltage", "nextage", "exchain", "matixx", "tbre", "tb"];
 
+const CURRENT_VERSION = ALL_VERSIONS[0];
+
+const ON_SERVICE_VERSIONS = ["fuzzup", "highvoltage"];
+
 // which has a different path with newer versions (no /eam)
-const OLD_VERSIONS = ["nextage", "exchain", "matixx", "tbre", "tb"];
+const NO_EAM_PATH_VERSIONS = ["nextage", "exchain", "matixx", "tbre", "tb"];
 
 const VERSION_NAME = {
-  tb: "GITADORA Tri-Boost",
-  tbre: "GITADORA Tri-Boost Re:EVOLVE",
-  matixx: "GITADORA Matixx",
-  exchain: "GITADORA EXCHAIN",
-  nextage: "GITADORA NEX+AGE",
-  highvoltage: "GITADORA HIGH-VOLTAGE",
-  fuzzup: "GITADORA FUZZ-UP"
+  tb: "Tri-Boost",
+  tbre: "Tri-Boost Re:EVOLVE",
+  matixx: "Matixx",
+  exchain: "EXCHAIN",
+  nextage: "NEX+AGE",
+  highvoltage: "HIGH-VOLTAGE",
+  fuzzup: "FUZZ-UP"
 };
 
 const OLD_NAME_MAP = {
@@ -21,7 +24,8 @@ const OLD_NAME_MAP = {
 
 module.exports = {
   CURRENT_VERSION,
-  OLD_VERSIONS,
+  ON_SERVICE_VERSIONS,
+  NO_EAM_PATH_VERSIONS,
   ALL_VERSIONS,
   VERSION_NAME,
   OLD_NAME_MAP
