@@ -1,10 +1,11 @@
 import $ from "jquery";
 import "regenerator-runtime/runtime";
 
-import { OLD_VERSIONS } from "../constants";
+import { NO_EAM_PATH_VERSIONS } from "../constants";
 
 // eslint-disable-next-line
 async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
+  console.log({TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION})
   var skill_data = {};
 
   try {
@@ -31,10 +32,10 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
     }
 
     var SKILL_URLS = [
-      `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p${OLD_VERSIONS.includes(VERSION) ? "/eam" : ""}/playdata/skill.html?gtype=gf&stype=0`,
-      `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p${OLD_VERSIONS.includes(VERSION) ? "/eam" : ""}/playdata/skill.html?gtype=gf&stype=1`,
-      `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p${OLD_VERSIONS.includes(VERSION) ? "/eam" : ""}/playdata/skill.html?gtype=dm&stype=0`,
-      `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p${OLD_VERSIONS.includes(VERSION) ? "/eam" : ""}/playdata/skill.html?gtype=dm&stype=1`
+      `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p${NO_EAM_PATH_VERSIONS.includes(VERSION) ? "/eam" : ""}/playdata/skill.html?gtype=gf&stype=0`,
+      `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p${NO_EAM_PATH_VERSIONS.includes(VERSION) ? "/eam" : ""}/playdata/skill.html?gtype=gf&stype=1`,
+      `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p${NO_EAM_PATH_VERSIONS.includes(VERSION) ? "/eam" : ""}/playdata/skill.html?gtype=dm&stype=0`,
+      `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p${NO_EAM_PATH_VERSIONS.includes(VERSION) ? "/eam" : ""}/playdata/skill.html?gtype=dm&stype=1`
     ];
     var SKILL_LABEL = ["guitar_other", "guitar_hot", "drum_other", "drum_hot"];
 
@@ -158,7 +159,7 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
   }
 
   async function getProfileData() {
-    var PROFILE_URL = `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p${OLD_VERSIONS.includes(VERSION) ? "/eam" : ""}/playdata/profile.html`;
+    var PROFILE_URL = `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p${NO_EAM_PATH_VERSIONS.includes(VERSION) ? "/eam" : ""}/playdata/profile.html`;
 
     let profileData = {};
     let resHtml = await $.ajax({ url: PROFILE_URL, error: handleAjaxError(PROFILE_URL) });
@@ -200,7 +201,7 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
 
   async function getSharedSongData(type) {
     // get shared song data
-    const url = `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p${OLD_VERSIONS.includes(VERSION) ? "/eam" : ""}}/setting/recommend.html?gtype=${type}`;
+    const url = `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p${NO_EAM_PATH_VERSIONS.includes(VERSION) ? "/eam" : ""}}/setting/recommend.html?gtype=${type}`;
     const resHtml = await $.ajax({
       url: url,
       error: handleAjaxError(url)

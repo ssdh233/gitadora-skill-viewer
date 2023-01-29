@@ -61,7 +61,7 @@ function SkillPage(props) {
 
   const level = parseInt(skillPoint / 500);
 
-  const fullVersionName = VERSION_NAME[version];
+  const fullVersionName = "GITADORA " + VERSION_NAME[version];
 
   const {
     intl: { formatMessage },

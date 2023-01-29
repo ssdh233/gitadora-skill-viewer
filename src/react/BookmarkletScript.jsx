@@ -3,9 +3,10 @@ import styled from "styled-components";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import { FormattedMessage } from "react-intl";
+import { ON_SERVICE_VERSIONS, VERSION_NAME } from "../constants";
 
 function BookmarkletScript() {
-  const [select, setSelect] = useState("highvoltage");
+  const [select, setSelect] = useState(ON_SERVICE_VERSIONS[1]);
   return (
     <>
       <ScriptDiv>
@@ -24,11 +25,7 @@ function BookmarkletScript() {
             setSelect(event.target.value);
           }}
         >
-          <MenuItem value="highvoltage">HIGH-VOLTAGE</MenuItem>
-          <MenuItem value="nextage">NEX+AGE</MenuItem>
-          <MenuItem value="exchain">EXCHAIN</MenuItem>
-          <MenuItem value="matixx">Matixx</MenuItem>
-          <MenuItem value="tbre">Tri-Boost Re:EVOLVE</MenuItem>
+          {ON_SERVICE_VERSIONS.slice(1).map(version => <MenuItem value={version}>{VERSION_NAME[version]}</MenuItem>)}
         </Select>
       </div>
 
