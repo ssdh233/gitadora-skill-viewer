@@ -26,6 +26,7 @@ const htmlTemplate = ({
     <script type='text/javascript' src="/js/google_analytics.js" defer></script>
     ${styleTags}
     <style id="jss-server-side">${cssForMui}</style>
+    <style> body { margin: 0 } </style>
   </head>
   <body>
     <div id="app">${content}</div>
