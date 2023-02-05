@@ -12,6 +12,8 @@ import SkillPageContainer, { SavedSkillPageContainer } from "./SkillPage";
 import SharedSongsPage from "./SharedSongsPage";
 import ErrorListPage from "./ErrorListPage";
 import theme from "../theme.js";
+import { ThemeProvider as MuiThemeProvider } from "@material-ui/styles";
+import { createMuiTheme } from '@material-ui/core/styles';
 
 class App extends React.Component {
   componentDidMount() {
@@ -23,46 +25,52 @@ class App extends React.Component {
 
   render() {
     return (
-      <ThemeProvider theme={theme.dark}>
-        <Background>
-          <Main>
-            <Route path="/:locale" component={AppHeader} />
-            <Switch>
-              <Route exact path="/:locale" component={Index} />
-              <Route exact path="/:locale/uservoice" component={UserVoicePage} />
-              <Route exact path="/:locale/errorlist" component={ErrorListPage} />
-              <Route
-                exact
-                path="/:locale/:version/kasegi/:type/:scope"
-                component={KasegiPage}
-              />
-              <Route exact path="/:locale/:version/list" component={ListPage} />
-              <Route
-                exact
-                path="/:locale/:version/userlist"
-                component={props => <ListPage {...props} isAdmin />}
-              />
-              <Route
-                exact
-                path="/:locale/:version/:skillId/p"
-                component={SavedSkillPageContainer}
-              />
-              <Route
-                exact
-                path="/:locale/:version/:playerId/:type"
-                component={SkillPageContainer}
-              />
-              <Route exact path="/:locale/shared/:type" component={SharedSongsPage} />
-            </Switch>
-          </Main>
-        </Background>
-      </ThemeProvider>
+      <MuiThemeProvider theme={createMuiTheme({
+        palette: {
+          type: 'dark',
+        },
+      })}>
+        <ThemeProvider theme={theme.dark}>
+          <Background>
+            <Main>
+              <Route path="/:locale" component={AppHeader} />
+              <Switch>
+                <Route exact path="/:locale" component={Index} />
+                <Route exact path="/:locale/uservoice" component={UserVoicePage} />
+                <Route exact path="/:locale/errorlist" component={ErrorListPage} />
+                <Route
+                  exact
+                  path="/:locale/:version/kasegi/:type/:scope"
+                  component={KasegiPage}
+                />
+                <Route exact path="/:locale/:version/list" component={ListPage} />
+                <Route
+                  exact
+                  path="/:locale/:version/userlist"
+                  component={props => <ListPage {...props} isAdmin />}
+                />
+                <Route
+                  exact
+                  path="/:locale/:version/:skillId/p"
+                  component={SavedSkillPageContainer}
+                />
+                <Route
+                  exact
+                  path="/:locale/:version/:playerId/:type"
+                  component={SkillPageContainer}
+                />
+                <Route exact path="/:locale/shared/:type" component={SharedSongsPage} />
+              </Switch>
+            </Main>
+          </Background>
+        </ThemeProvider>
+      </MuiThemeProvider>
     );
   }
 }
 
 const Background = styled.div`
-  background-color: ${props => { console.log({props}); return props.theme.background;}};
+  background-color: ${props => props.theme.background};
   min-height: 100vh;
   padding: 16px;
 `;

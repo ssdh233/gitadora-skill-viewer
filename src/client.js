@@ -6,8 +6,6 @@ import { ApolloProvider } from "@apollo/react-hooks";
 import { ApolloClient } from "apollo-client";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { HttpLink } from "apollo-link-http";
-import { ThemeProvider } from "@material-ui/styles";
-import { createMuiTheme } from "@material-ui/core/styles";
 import * as Sentry from "@sentry/react";
 import { Integrations } from "@sentry/tracing";
 
@@ -39,9 +37,7 @@ hydrate(
   <ApolloProvider client={client}>
     <IntlProvider locale={locale} messages={messages}>
       <BrowserRouter>
-        <ThemeProvider theme={createMuiTheme()}>
-          <App />
-        </ThemeProvider>
+        <App />
       </BrowserRouter>
     </IntlProvider>
   </ApolloProvider>,

@@ -9,7 +9,6 @@ import Button from "@material-ui/core/Button";
 import MenuList from "@material-ui/core/MenuList";
 import MenuItem from "@material-ui/core/MenuItem";
 import Popover from "@material-ui/core/Popover";
-import MusicNoteIcon from "@material-ui/icons/MusicNote";
 import AttachMoney from "@material-ui/icons/AttachMoney";
 import FormatListBulleted from "@material-ui/icons/FormatListBulleted";
 import Language from "@material-ui/icons/Language";
@@ -19,7 +18,6 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import HomeIcon from "@material-ui/icons/Home";
 
-import useLocalStorage from "./useLocalStorage";
 import { ALL_VERSIONS, CURRENT_VERSION, VERSION_NAME } from "../constants";
 
 const VERSION = "v1.31.0";
@@ -29,7 +27,6 @@ function AppHeader(props) {
   const [langAnchorEl, setLangAnchorEl] = useState();
   const [kasegiAnchorEl, setKasegiAnchorEl] = useState();
 
-  const sharedSongsPageType = useLocalStorage("sharedSongsPage", "g");
   const isPC = useMediaQuery("(min-width:742px)");
 
   useEffect(() => {
@@ -106,17 +103,14 @@ function AppHeader(props) {
 
       <SecondLineDiv>
         {isPC && (
-          <Link
-            to={`/${locale}`}
-            style={{ textDecoration: "none", color: "black" }}
-          >
+          <ButtonLink to={`/${locale}`}>
             <Button id="home-button" aria-haspopup={true}>
               <HomeIcon />
               <span style={{ marginLeft: 5 }}>
                 <FormattedMessage id="home" />
               </span>
             </Button>
-          </Link>
+          </ButtonLink>
         )}
         <Button
           id="kasegi-button"
@@ -231,6 +225,7 @@ const AppHeaderDiv = styled.div`
   flex-wrap: wrap;
   margin-bottom: 10px;
   border-bottom: 2px solid;
+  // border-color: ${props => props.theme.primary};
 `;
 
 const FirstLineDiv = styled.div`
@@ -252,10 +247,10 @@ const Title = styled.h1`
 
   & > a {
     text-decoration: none;
-    color: rgba(0, 0, 0, 0.87);
+    color: ${props => props.theme.primary};
 
     &:visited {
-      color: rgba(0, 0, 0, 0.87);
+      color: ${props => props.theme.primary};
     }
   }
 `;
