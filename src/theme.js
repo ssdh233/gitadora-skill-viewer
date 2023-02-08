@@ -7,7 +7,7 @@ const theme = {
   dark: {
     background: "#121212",
     primary: "#fff",
-    scriptBackground: "#161b22"
+    scriptBackground: "rgba(255, 255, 255, 0.1)"
   }
 }
 

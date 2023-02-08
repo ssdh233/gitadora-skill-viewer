@@ -42,7 +42,8 @@ const ScriptDiv = styled.div`
   border-radius: 6px;
   font-size: 80%;
   word-break: break-all;
-  margin-bottom: 20px;
+  margin-top: 8px;
+  margin-bottom: 16px;
 `;
 
 export default BookmarkletScript;
