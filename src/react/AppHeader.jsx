@@ -7,7 +7,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 import Button from "@material-ui/core/Button";
 import MenuList from "@material-ui/core/MenuList";
-import MenuItem from "@material-ui/core/MenuItem";
+import MuiMenuItem from "@material-ui/core/MenuItem";
 import Popover from "@material-ui/core/Popover";
 import AttachMoney from "@material-ui/icons/AttachMoney";
 import FormatListBulleted from "@material-ui/icons/FormatListBulleted";
@@ -17,6 +17,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import HomeIcon from "@material-ui/icons/Home";
+import ScopedCssBaseline from '@material-ui/core/ScopedCssBaseline';
 
 import { ALL_VERSIONS, CURRENT_VERSION, VERSION_NAME } from "../constants";
 
@@ -85,18 +86,10 @@ function AppHeader(props) {
           onClick={() => setLangAnchorEl(null)}
         >
           <MenuList>
-            <a href={`/en${pathname.substring(3)}${search}`}>
-              <MenuItem>English</MenuItem>
-            </a>
-            <a href={`/ja${pathname.substring(3)}${search}`}>
-              <MenuItem>日本語</MenuItem>
-            </a>
-            <a href={`/ko${pathname.substring(3)}${search}`}>
-              <MenuItem>한국어</MenuItem>
-            </a>
-            <a href={`/zh${pathname.substring(3)}${search}`}>
-              <MenuItem>简体中文</MenuItem>
-            </a>
+            <MenuItem component="a" href={`/en${pathname.substring(3)}${search}`}>English</MenuItem>
+            <MenuItem component="a" href={`/ja${pathname.substring(3)}${search}`}>日本語</MenuItem>
+            <MenuItem component="a" href={`/ko${pathname.substring(3)}${search}`}>한국어</MenuItem>
+            <MenuItem component="a" href={`/zh${pathname.substring(3)}${search}`}>简体中文</MenuItem>
           </MenuList>
         </Popover>
       </FirstLineDiv>
@@ -138,48 +131,34 @@ function AppHeader(props) {
           }}
         >
           <List dense>
-            <ListSubheader component="div" style={{ backgroundColor: "#fff" }}>
+            <ListSubheader component="div">
               Drummania
             </ListSubheader>
-            <Link to={`/${locale}/${CURRENT_VERSION}/kasegi/d/9000`}>
-              <ListItem button>
-                <ListItemText primary="9000 ~" />
-              </ListItem>
-            </Link>
+            <ListItem button component={Link} to={`/${locale}/${CURRENT_VERSION}/kasegi/d/9000`} >
+              <ListItemText primary="9000 ~" />
+            </ListItem>
             {[...Array(12).keys()].reverse().map(key => {
               const skill = 3000 + key * 500;
               return (
-                <Link
-                  key={key}
-                  to={`/${locale}/${CURRENT_VERSION}/kasegi/d/${skill}`}
-                >
-                  <ListItem button>
-                    <ListItemText primary={`${skill} ~`} />
-                  </ListItem>
-                </Link>
+                <ListItem button component={Link} to={`/${locale}/${CURRENT_VERSION}/kasegi/d/${skill}`}>
+                  <ListItemText primary={`${skill} ~`} />
+                </ListItem>
               );
             })}
           </List>
           <List dense>
-            <ListSubheader component="div" style={{ backgroundColor: "#fff" }}>
+            <ListSubheader component="div">
               Guitarfreaks
             </ListSubheader>
-            <Link to={`/${locale}/${CURRENT_VERSION}/kasegi/g/9000`}>
-              <ListItem button>
-                <ListItemText primary="9000 ~" />
-              </ListItem>
-            </Link>
+            <ListItem button component={Link} to={`/${locale}/${CURRENT_VERSION}/kasegi/g/9000`} >
+              <ListItemText primary="9000 ~" />
+            </ListItem>
             {[...Array(12).keys()].reverse().map(key => {
               const skill = 3000 + key * 500;
               return (
-                <Link
-                  key={key}
-                  to={`/${locale}/${CURRENT_VERSION}/kasegi/g/${skill}`}
-                >
-                  <ListItem button>
-                    <ListItemText primary={`${skill} ~`} />
-                  </ListItem>
-                </Link>
+                <ListItem button component={Link} to={`/${locale}/${CURRENT_VERSION}/kasegi/g/${skill}`}>
+                  <ListItemText primary={`${skill} ~`} />
+                </ListItem>
               );
             })}
           </List>
@@ -207,9 +186,9 @@ function AppHeader(props) {
         >
           <MenuList>
             {
-              ALL_VERSIONS.map(version => (<Link to={`/${locale}/${version}/list`}>
-                <MenuItem>{VERSION_NAME[version].replace(":EVOLVE", "")}</MenuItem>
-              </Link>))
+              ALL_VERSIONS.map(version => (
+                <MenuItem component={Link} to={`/${locale}/${version}/list`}>{VERSION_NAME[version].replace(":EVOLVE", "")}</MenuItem>
+              ))
             }
           </MenuList>
         </Popover>
@@ -225,7 +204,7 @@ const AppHeaderDiv = styled.div`
   flex-wrap: wrap;
   margin-bottom: 10px;
   border-bottom: 2px solid;
-  // border-color: ${props => props.theme.primary};
+  border-color: ${props => props.theme.primary};
 `;
 
 const FirstLineDiv = styled.div`
@@ -264,6 +243,10 @@ const SecondLineDiv = styled.div`
 
 const ButtonLink = styled(Link)`
   text-decoration: none;
+`;
+
+const MenuItem = styled(MuiMenuItem)`
+
 `;
 
 export default injectIntl(AppHeader);

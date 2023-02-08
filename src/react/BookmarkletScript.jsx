@@ -37,7 +37,7 @@ function BookmarkletScript() {
 }
 
 const ScriptDiv = styled.div`
-  background: #f6f6f6;
+  background: ${({ theme }) => theme.scriptBackground};
   padding: 20px;
   border-radius: 6px;
   font-size: 80%;

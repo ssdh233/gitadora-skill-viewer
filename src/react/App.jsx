@@ -14,6 +14,7 @@ import ErrorListPage from "./ErrorListPage";
 import theme from "../theme.js";
 import { ThemeProvider as MuiThemeProvider } from "@material-ui/styles";
 import { createMuiTheme } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 class App extends React.Component {
   componentDidMount() {
@@ -30,6 +31,7 @@ class App extends React.Component {
           type: 'dark',
         },
       })}>
+        <CssBaseline />
         <ThemeProvider theme={theme.dark}>
           <Background>
             <Main>
