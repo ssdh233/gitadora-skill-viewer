@@ -6,7 +6,7 @@ const theme = {
   },
   dark: {
     background: "#121212",
-    primary: "#fff",
+    primary: "#c4c7c5", // TODO
     scriptBackground: "rgba(255, 255, 255, 0.1)"
   }
 }
