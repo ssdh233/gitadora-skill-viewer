@@ -213,5 +213,5 @@ create table kasegi(version varchar(50) NOT NULL, type varchar(50) NOT NULL,scop
 ### kasegi (250)
 
 ```sql
-create table kasegi(version varchar(50) NOT NULL, type varchar(50) NOT NULL,scope integer NOT NULL, list_hot text, list_other text, count integer);
+create table kasegi_new(version varchar(50) NOT NULL, type varchar(50) NOT NULL,scope integer NOT NULL, list_hot text, list_other text, count integer);
 ```
