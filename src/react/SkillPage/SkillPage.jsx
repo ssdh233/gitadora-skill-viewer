@@ -29,7 +29,7 @@ function SkillPage(props) {
   const history = useHistory();
   const [rivalInput, setRivalInput] = useState("");
   const [skillIdDescDialogOpen, setSkillIdDescDialogOpen] = useState(false);
-  const [saveSkillDisabled, setSaveSkillDisabled]  = useState(false);
+  const [saveSkillDisabled, setSaveSkillDisabled] = useState(false);
   const gsvId = useLocalStorage("gsvId", null);
   const gsvName = useLocalStorage("gsvName", "");
 
@@ -59,7 +59,7 @@ function SkillPage(props) {
   const skillPoint = getSkillPoint(skill);
   const rivalSkillPoint = getSkillPoint(rivalSkill);
 
-  const level = parseInt(skillPoint / 500);
+  const level = parseInt(skillPoint / 250);
 
   const fullVersionName = "GITADORA " + VERSION_NAME[version];
 
@@ -93,9 +93,8 @@ function SkillPage(props) {
         <meta property="og:url" content="gsv.fun" />
         <meta
           property="og:title"
-          content={`${title} ${skillPoint} ${
-            skillPointDiff ? `(${skillPointDiff}↑)` : ""
-          }`}
+          content={`${title} ${skillPoint} ${skillPointDiff ? `(${skillPointDiff}↑)` : ""
+            }`}
         />
         <style>{stringStyles}</style>
       </Helmet>
@@ -129,16 +128,16 @@ function SkillPage(props) {
         </thead>
         <tbody>
           <tr>
-            <ProfileTableTd className={`lv${level}`}>
+            <ProfileTableTd className={`lv${Math.floor(level / 2)}`}>
               {playerName}
             </ProfileTableTd>
-            <ProfileTableTd className={`lv${level}`}>
+            <ProfileTableTd className={`lv${Math.floor(level / 2)}`}>
               {skillPoint}
             </ProfileTableTd>
-            <ProfileTableTd className={`lv${level}`}>
+            <ProfileTableTd className={`lv${Math.floor(level / 2)}`}>
               {skill.hot.point.toFixed(2)}
             </ProfileTableTd>
-            <ProfileTableTd className={`lv${level}`}>
+            <ProfileTableTd className={`lv${Math.floor(level / 2)}`}>
               {skill.other.point.toFixed(2)}
             </ProfileTableTd>
           </tr>
@@ -207,7 +206,7 @@ function SkillPage(props) {
       ) : (
         <>
           <div>
-            {[level * 500 - 500, level * 500, level * 500 + 500]
+            {[level * 250 - 250, level * 250, level * 250 + 250]
               .filter((scope) => scope >= 3000)
               .map((scope) => (
                 <div key={scope}>
@@ -216,7 +215,7 @@ function SkillPage(props) {
                   >
                     <FormattedMessage
                       id="skill.compareWithKasegi"
-                      values={{ scope: `${scope}~${scope + 500}` }}
+                      values={{ scope: `${scope}~${scope + 250}` }}
                     />
                   </Link>
                 </div>
@@ -281,60 +280,60 @@ function SkillPage(props) {
           <div style={{ marginTop: 20 }}>
             {props.skillSavedList && (
               <>
-              <SavedListTable>
-                <caption style={{ color: "black" }}>
-                  <FormattedMessage id="skill.savedList" />
-                </caption>
-                <thead>
-                  <tr>
-                    <SavedListTableTh>No.</SavedListTableTh>
-                    <SavedListTableTh>SKILL</SavedListTableTh>
-                    <SavedListTableTh>DATE</SavedListTableTh>
-                    <SavedListTableTh />
-                  </tr>
-                </thead>
-                <tbody>
-                  {props.skillSavedList.map((savedItem, index) => (
-                    <tr key={savedItem.updateDate}>
-                      <SavedListTableTd
-                        className={`lv${parseInt(savedItem.skillPoint / 500)}`}
-                      >
-                        <Link
-                          to={`/${locale}/${version}/${savedItem.skillId}/p`}
-                        >
-                          {index + 1}
-                        </Link>
-                      </SavedListTableTd>
-                      <SavedListTableTd
-                        className={`lv${parseInt(savedItem.skillPoint / 500)}`}
-                      >
-                        <Link
-                          to={`/${locale}/${version}/${savedItem.skillId}/p`}
-                        >
-                          {savedItem.skillPoint.toFixed(2)}
-                        </Link>
-                      </SavedListTableTd>
-                      <SavedListTableTd
-                        className={`lv${parseInt(savedItem.skillPoint / 500)}`}
-                      >
-                        <Link
-                          to={`/${locale}/${version}/${savedItem.skillId}/p`}
-                        >
-                          {savedItem.updateDate}
-                        </Link>
-                      </SavedListTableTd>
-                      <SavedListTableTd>
-                        <Link to={`?c=${savedItem.skillId}`}>
-                          <CompareArrows
-                            style={{ fontSize: 16, color: "white" }}
-                          />
-                        </Link>
-                      </SavedListTableTd>
+                <SavedListTable>
+                  <caption style={{ color: "black" }}>
+                    <FormattedMessage id="skill.savedList" />
+                  </caption>
+                  <thead>
+                    <tr>
+                      <SavedListTableTh>No.</SavedListTableTh>
+                      <SavedListTableTh>SKILL</SavedListTableTh>
+                      <SavedListTableTh>DATE</SavedListTableTh>
+                      <SavedListTableTh />
                     </tr>
-                  ))}
-                </tbody>
-              </SavedListTable>
-              <button onClick={handleSaveSkill} disabled={saveSkillDisabled}><FormattedMessage id="skill.saveSkill" /></button>
+                  </thead>
+                  <tbody>
+                    {props.skillSavedList.map((savedItem, index) => (
+                      <tr key={savedItem.updateDate}>
+                        <SavedListTableTd
+                          className={`lv${parseInt(savedItem.skillPoint / 500)}`}
+                        >
+                          <Link
+                            to={`/${locale}/${version}/${savedItem.skillId}/p`}
+                          >
+                            {index + 1}
+                          </Link>
+                        </SavedListTableTd>
+                        <SavedListTableTd
+                          className={`lv${parseInt(savedItem.skillPoint / 500)}`}
+                        >
+                          <Link
+                            to={`/${locale}/${version}/${savedItem.skillId}/p`}
+                          >
+                            {savedItem.skillPoint.toFixed(2)}
+                          </Link>
+                        </SavedListTableTd>
+                        <SavedListTableTd
+                          className={`lv${parseInt(savedItem.skillPoint / 500)}`}
+                        >
+                          <Link
+                            to={`/${locale}/${version}/${savedItem.skillId}/p`}
+                          >
+                            {savedItem.updateDate}
+                          </Link>
+                        </SavedListTableTd>
+                        <SavedListTableTd>
+                          <Link to={`?c=${savedItem.skillId}`}>
+                            <CompareArrows
+                              style={{ fontSize: 16, color: "white" }}
+                            />
+                          </Link>
+                        </SavedListTableTd>
+                      </tr>
+                    ))}
+                  </tbody>
+                </SavedListTable>
+                <button onClick={handleSaveSkill} disabled={saveSkillDisabled}><FormattedMessage id="skill.saveSkill" /></button>
               </>
             )}
           </div>

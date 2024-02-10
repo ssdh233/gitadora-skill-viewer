@@ -100,7 +100,9 @@ class Index extends React.Component {
           <h3>{<FormattedMessage id="intro.info.title" />}</h3>
           <ul>
             <li>
-              <FormattedMessage id="intro.info.content1" />
+              <FormattedMessage id="intro.info.content1" values={{
+                a: (str) => <Link to={`/${locale}/${CURRENT_VERSION}/kasegi_old`}>{str}</Link>
+              }} />
             </li>
             <li>
               <FormattedHTMLMessage id="intro.info.content2" />

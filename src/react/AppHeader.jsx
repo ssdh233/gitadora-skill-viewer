@@ -9,7 +9,6 @@ import Button from "@material-ui/core/Button";
 import MenuList from "@material-ui/core/MenuList";
 import MenuItem from "@material-ui/core/MenuItem";
 import Popover from "@material-ui/core/Popover";
-import MusicNoteIcon from "@material-ui/icons/MusicNote";
 import AttachMoney from "@material-ui/icons/AttachMoney";
 import FormatListBulleted from "@material-ui/icons/FormatListBulleted";
 import Language from "@material-ui/icons/Language";
@@ -19,17 +18,16 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import HomeIcon from "@material-ui/icons/Home";
 
-import useLocalStorage from "./useLocalStorage";
 import { ALL_VERSIONS, CURRENT_VERSION, VERSION_NAME } from "../constants";
 
 const VERSION = "v1.32.0";
 
 function AppHeader(props) {
+
   const [listAnchorEl, setListAnchorEl] = useState();
   const [langAnchorEl, setLangAnchorEl] = useState();
   const [kasegiAnchorEl, setKasegiAnchorEl] = useState();
 
-  const sharedSongsPageType = useLocalStorage("sharedSongsPage", "g");
   const isPC = useMediaQuery("(min-width:742px)");
 
   useEffect(() => {
@@ -137,57 +135,52 @@ function AppHeader(props) {
           }}
           onClose={() => setKasegiAnchorEl(null)}
           onClick={() => setKasegiAnchorEl(null)}
-          PaperProps={{
-            style: {
-              display: "flex"
-            }
-          }}
         >
-          <List dense>
-            <ListSubheader component="div" style={{ backgroundColor: "#fff" }}>
-              Drummania
-            </ListSubheader>
-            <Link to={`/${locale}/${CURRENT_VERSION}/kasegi/d/9000`}>
-              <ListItem button>
-                <ListItemText primary="9000 ~" />
-              </ListItem>
-            </Link>
-            {[...Array(12).keys()].reverse().map(key => {
-              const skill = 3000 + key * 500;
-              return (
-                <Link
-                  key={key}
-                  to={`/${locale}/${CURRENT_VERSION}/kasegi/d/${skill}`}
-                >
-                  <ListItem button>
-                    <ListItemText primary={`${skill} ~`} />
-                  </ListItem>
-                </Link>
-              );
-            })}
-          </List>
-          <List dense>
-            <ListSubheader component="div" style={{ backgroundColor: "#fff" }}>
-              Guitarfreaks
-            </ListSubheader>
-            <Link to={`/${locale}/${CURRENT_VERSION}/kasegi/g/9000`}>
-              <ListItem button>
-                <ListItemText primary="9000 ~" />
-              </ListItem>
-            </Link>
-            {[...Array(12).keys()].reverse().map(key => {
-              const skill = 3000 + key * 500;
-              return (
-                <Link
-                  key={key}
-                  to={`/${locale}/${CURRENT_VERSION}/kasegi/g/${skill}`}
-                >
-                  <ListItem button>
-                    <ListItemText primary={`${skill} ~`} />
-                  </ListItem>
-                </Link>
-              );
-            })}
+          <List dense style={{ paddingTop: 0 }} >
+            <div style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              position: "sticky",
+              top: 0,
+              zIndex: 1
+            }}>
+              <ListSubheader component="div" style={{ backgroundColor: "#fff" }}>
+                Drum
+              </ListSubheader>
+              <ListSubheader component="div" style={{ backgroundColor: "#fff" }}>
+                Guitar
+              </ListSubheader>
+            </div>
+            <div style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              maxHeight: "50vh",
+              paddingBottom: 20
+            }}>
+              {[...Array(27).keys()].reverse().map(key => {
+                const skill = 3000 + key * 250;
+                return (
+                  <>
+                    <Link
+                      key={key}
+                      to={`/${locale}/${CURRENT_VERSION}/kasegi/d/${skill}`}
+                    >
+                      <ListItem button>
+                        <ListItemText primary={`${skill} ~`} />
+                      </ListItem>
+                    </Link>
+                    <Link
+                      key={key}
+                      to={`/${locale}/${CURRENT_VERSION}/kasegi/g/${skill}`}
+                    >
+                      <ListItem button>
+                        <ListItemText primary={`${skill} ~`} />
+                      </ListItem>
+                    </Link>
+                  </>
+                );
+              })}
+            </div>
           </List>
         </Popover>
         <Button
@@ -265,10 +258,6 @@ const SecondLineDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-`;
-
-const ButtonLink = styled(Link)`
-  text-decoration: none;
 `;
 
 export default injectIntl(AppHeader);

@@ -6,6 +6,8 @@ import Index from "./Index.jsx";
 import AppHeader from "./AppHeader.jsx";
 import UserVoicePage from "./UserVoicePage.jsx";
 import KasegiPage from "./KasegiPage";
+import KasegiIndexPage from "./KasegiPage/KasegiIndexPage.jsx";
+import KasegiNewPage from "./KasegiNewPage";
 import ListPage from "./ListPage";
 import SkillPageContainer, { SavedSkillPageContainer } from "./SkillPage";
 import SharedSongsPage from "./SharedSongsPage";
@@ -30,6 +32,16 @@ class App extends React.Component {
           <Route
             exact
             path="/:locale/:version/kasegi/:type/:scope"
+            component={KasegiNewPage}
+          />
+          <Route
+            exact
+            path="/:locale/:version/kasegi_old"
+            component={KasegiIndexPage}
+          />
+          <Route
+            exact
+            path="/:locale/:version/kasegi_old/:type/:scope"
             component={KasegiPage}
           />
           <Route exact path="/:locale/:version/list" component={ListPage} />
