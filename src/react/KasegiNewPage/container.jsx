@@ -92,7 +92,6 @@ export default function KasegiPageContainer(props) {
   if (loading) return <LinearProgress />;
   if (error) return <p>ERROR: {error.toString()}</p>;
 
-  console.log("container", {data})
   return (
     <KasegiPage
       kasegiData={getKasegiData(data.kasegiNew, data.user, type)}
