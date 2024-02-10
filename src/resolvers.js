@@ -58,6 +58,38 @@ module.exports = {
         };
       }
     },
+    kasegiNew: async (_, { version, type, scope }) => {
+      const typeFull = {
+        d: "drum",
+        g: "guitar"
+      }[type];
+
+      const sql = `select * from kasegi_new where version=$$${version}$$ and type=$$${typeFull}$$ and scope=${scope};`;
+
+      const result = await pg.query(sql);
+      const kasegiResult = result.rows[0];
+
+      if (kasegiResult) {
+        const kasegiListHot = JSON.parse(kasegiResult.list_hot);
+        const kasegiListOther = JSON.parse(kasegiResult.list_other);
+        const count = kasegiResult.count;
+
+        return {
+          version,
+          type,
+          scope,
+          count,
+          hot: kasegiListHot,
+          other: kasegiListOther
+        };
+      } else {
+        return {
+          version,
+          type,
+          scope
+        };
+      }
+    },
     savedSkill: async (_, { skillId, version }) => {
       if (!skillId) return null;
       const result = await pg.query(
