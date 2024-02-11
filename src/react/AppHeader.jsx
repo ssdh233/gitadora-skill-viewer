@@ -20,7 +20,7 @@ import HomeIcon from "@material-ui/icons/Home";
 
 import { ALL_VERSIONS, CURRENT_VERSION, VERSION_NAME } from "../constants";
 
-const VERSION = "v1.33.1";
+const VERSION = "v1.33.2";
 
 function AppHeader(props) {
 
