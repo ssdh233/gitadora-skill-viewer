@@ -70,7 +70,11 @@ fs.readdirSync("./src/jobs").forEach(file => {
     if (job.job && job.cronSchedule) {
       const cronJob = new CronJob(job.cronSchedule, job.job);
       cronJob.start();
+      console.log("Starting cron job", file)
     }
+
+    console.log("Run cron job once on deployment:", file);
+    job.job();
   }
 });
 
