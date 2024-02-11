@@ -9,8 +9,8 @@
     "desc": "기타도라 공식 사이트에서 스킬 데이터를 받아오거나, 스킬의 변화를 기록하거나, 자신의 스킬 표를 다른 사람에게 공유하는 사이트입니다.",
     "info": {
       "title": "공지사항",
-      "content1": "FUZZ-UP를 이제 지원합니다.",
-      "content2": "gsv.fun 사이트의 <a href='https://twitter.com/gsvfunsite'>트위터 계정</a>을 개설했습니다. 꼭 팔로우해주세요😋"
+      "content1": "Song Ranking is 250 skill points each now. The old Song Ranking pages(500 each) can still be <a>accessed from here</a>",
+      "content2": "gsv.fun 사이트의 <a href='https://twitter.com/gsvfunsite'>트위터 계정</a>을 개설했습니다. 꼭 팔로우해주세요"
     }
   },
   "how": {
@@ -87,7 +87,8 @@
       "8000": "금색",
       "8500": "무지개",
       "9000": "무지개"
-    }
+    },
+    "old": "song ranking(divided by 500)"
   },
   "skill": {
     "title": "{name}님의 {type} 스킬 표",

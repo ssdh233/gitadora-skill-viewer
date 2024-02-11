@@ -6,7 +6,7 @@ import { injectIntl, FormattedMessage } from "react-intl";
 import KasegiTable from "./KasegiTable.jsx";
 import { CURRENT_VERSION, VERSION_NAME } from "../../constants.js";
 
-class KasegiPage extends React.Component {
+class KasegiNewPage extends React.Component {
   render() {
     const {
       kasegiData,
@@ -20,14 +20,11 @@ class KasegiPage extends React.Component {
 
     const typeTitle = type === "d" ? "Drummania" : "Guitarfreaks";
     const typeTitleShort = type === "d" ? "DRUM" : "GUITAR";
-    const scopeTitle = `${scope} ~ ${parseInt(scope) + 500}`;
-    const scopeNameColor = formatMessage({
-      id: `kasegi.scope.${scope}`
-    });
+    const scopeTitle = `${scope} ~ ${parseInt(scope) + 250}`;
 
     const title = `${typeTitle}${formatMessage({
       id: "kasegi.title"
-    })} ${scopeTitle} ${scopeNameColor}`;
+    })} ${scopeTitle}`;
     return (
       <div>
         <Helmet>
@@ -41,14 +38,16 @@ class KasegiPage extends React.Component {
               },
               {
                 type: typeTitle,
-                scope: scopeNameColor
+                scope: scopeTitle.replaceAll(" ", "")
               }
             )}
           />
           <title>{`${title} | Gitadora Skill Viewer`}</title>
-          <meta name="robots" content="noindex" />
+          {
+            version !== CURRENT_VERSION && <meta name="robots" content="noindex" />
+          }
         </Helmet>
-        <div style={styles.kasegiPage}>
+        <div style={styles.kasegiNewPage}>
           <h1 style={styles.title}>{title}</h1>
           {version !== CURRENT_VERSION && <blockquote style={{
             borderLeft: "5px solid #ffe564",
@@ -105,7 +104,7 @@ class KasegiPage extends React.Component {
 }
 
 const styles = {
-  kasegiPage: {
+  kasegiNewPage: {
     maxWidth: 800
   },
   title: {
@@ -124,4 +123,4 @@ const styles = {
   }
 };
 
-export default injectIntl(KasegiPage);
+export default injectIntl(KasegiNewPage);

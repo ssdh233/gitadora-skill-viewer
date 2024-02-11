@@ -26,7 +26,7 @@ app.use(
 );
 app.set("views", path.join(__dirname, "/src/views"));
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
@@ -70,15 +70,21 @@ fs.readdirSync("./src/jobs").forEach(file => {
     if (job.job && job.cronSchedule) {
       const cronJob = new CronJob(job.cronSchedule, job.job);
       cronJob.start();
+      console.log("Starting cron job", file);
+
+      if (process.env.RUN_CRON_ON_START_UP === "true") {
+        console.log("Run cron job once on deployment:", file);
+        job.job();
+      }
     }
   }
 });
 
-app.listen(process.env.PORT, function() {
+app.listen(process.env.PORT, function () {
   console.log(`This app listening on port ${process.env.PORT}!`);
 });
 
-process.on("uncaughtException", function(err) {
+process.on("uncaughtException", function (err) {
   console.log("uncaughtException => ", err);
 });
 

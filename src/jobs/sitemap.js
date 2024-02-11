@@ -17,9 +17,9 @@ const sitemapSource = [
     }))
   )
   .concat(
-    Array(13)
+    Array(27)
       .fill(1)
-      .map((x, i) => i * 500 + 3000)
+      .map((x, i) => i * 250 + 3000)
       .map(scope => [
         {
           path: `/${CURRENT_VERSION}/kasegi/g/${scope}`,

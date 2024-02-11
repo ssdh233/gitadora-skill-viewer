@@ -207,5 +207,11 @@ FROM
 ### kasegi
 
 ```sql
-create table kasegi(version varchar(50) NOT NULL, type varchar(50) NOT NULL,scope integer NOT NULL, list_hot text, list_other text);
+create table kasegi(version varchar(50) NOT NULL, type varchar(50) NOT NULL,scope integer NOT NULL, list_hot text, list_other text, count integer);
+```
+
+### kasegi (250)
+
+```sql
+create table kasegi_new(version varchar(50) NOT NULL, type varchar(50) NOT NULL,scope integer NOT NULL, list_hot text, list_other text, count integer);
 ```

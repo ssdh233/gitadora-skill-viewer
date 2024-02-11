@@ -5,6 +5,7 @@ const typeDefs = gql`
     users(version: Version): [User]
     user(playerId: Int, type: GameType, version: Version): User
     kasegi(scope: Int, type: GameType, version: Version): Kasegi
+    kasegiNew(scope: Int, type: GameType, version: Version): Kasegi
     savedSkill(skillId: Int, type: GameType, version: Version): SavedSkill
     savedSkills(playerId: Int, type: GameType, version: Version): [SavedSkill]
     sharedSongSuggestions(type: GameType): [String]
