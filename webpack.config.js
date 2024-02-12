@@ -7,8 +7,10 @@ const { ON_SERVICE_VERSIONS, CURRENT_VERSION } = require("./src/constants");
 const DIST_DIR = path.resolve(__dirname, "src/public/js");
 const SRC_DIR = path.resolve(__dirname, "src");
 
+const isDevelopment = process.env.NODE_ENV !== 'production';
+
 var appConfig = {
-  mode: "production",
+  mode: isDevelopment ? 'development' : 'production',
   entry: {
     bundle: ["@babel/polyfill", `${SRC_DIR}/client.js`]
   },
@@ -59,7 +61,7 @@ var appConfig = {
 };
 
 var createScriptsConfig = (version, flag) => ({
-  mode: "production",
+  mode: isDevelopment ? 'development' : 'production',
   entry: {
     uploaddata_latest: `${SRC_DIR}/scripts/uploaddata_template.js`,
   },
