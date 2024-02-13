@@ -6,9 +6,11 @@
   },
   "main": "app.js",
   "scripts": {
-    "heroku-postbuild": "./node_modules/.bin/webpack -p",
+    "heroku-postbuild": "npm run build:prod && npm run build:scripts:prod",
     "build": "webpack --watch --mode=development",
     "build:prod": "webpack -p",
+    "build:scripts": "webpack --config webpack.scripts.config.js --watch --mode=development",
+    "build:scripts:prod": "webpack --config webpack.scripts.config.js",
     "start": "webpack-dev-server --open",
     "eslint": "./node_modules/.bin/eslint ."
   },

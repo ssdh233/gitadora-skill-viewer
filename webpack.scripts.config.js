@@ -1,7 +1,12 @@
+const webpack = require("webpack");
+const path = require("path");
 const { ON_SERVICE_VERSIONS, CURRENT_VERSION } = require("./src/constants");
 
+const DIST_DIR = path.resolve(__dirname, "src/public/js");
+const SRC_DIR = path.resolve(__dirname, "src");
+
 var createScriptsConfig = (version, flag) => ({
-  mode: isDevelopment ? "development" : "production",
+  mode: "production",
   entry: {
     uploaddata_latest: `${SRC_DIR}/scripts/uploaddata_template.js`
   },
@@ -53,3 +58,5 @@ ON_SERVICE_VERSIONS.slice(1).forEach(version => {
   moduleExports.push(createScriptsConfig(version, "dev"));
   moduleExports.push(createScriptsConfig(version, "local"));
 });
+
+module.exports = moduleExports;
