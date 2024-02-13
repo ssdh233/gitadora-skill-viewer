@@ -60,7 +60,11 @@ class App extends React.Component {
             path="/:locale/:version/:playerId/:type"
             component={SkillPageContainer}
           />
-          <Route exact path="/:locale/shared/:type" component={SharedSongsPage} />
+          <Route
+            exact
+            path="/:locale/shared/:type"
+            component={SharedSongsPage}
+          />
         </Switch>
       </AppDiv>
     );

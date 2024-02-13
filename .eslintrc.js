@@ -18,7 +18,7 @@ module.exports = {
       }
     },
     {
-      files: ["src/**/*.js", "app.js", "webpack.config.js"],
+      files: ["src/**/*.js", "app.js", "webpack.*.js"],
       excludedFiles: ["src/public/**/*.js"],
       env: {
         node: true
