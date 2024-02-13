@@ -102,12 +102,17 @@ const reactRoute = (req, res) => {
       // for SEO
       const helmet = Helmet.renderStatic();
 
+      const isDevelopment = process.env.NODE_ENV === "development";
+      const bundlePath = isDevelopment
+        ? "http://localhost:8000/bundle.js"
+        : `/js/${bundleFileName}`;
+
       const html = htmlTemplate({
         googleSiteVerfication: process.env.GOOGLE_SITE_VERIFICATION,
         helmet,
         content: renderedString,
         appString,
-        bundleFileName,
+        bundlePath,
         client,
         styleTags,
         cssForMui

@@ -19,7 +19,7 @@ class Index extends React.Component {
       langAnchorEl: null,
       snackbarOpen: false,
       gsvId: null,
-      gsvName: "",
+      gsvName: ""
     };
   }
 
@@ -30,14 +30,14 @@ class Index extends React.Component {
       this.setState({
         snackbarOpen: true,
         gsvId,
-        gsvName,
+        gsvName
       });
     }
   }
 
   handleSnackbarClose = () => {
     this.setState({
-      snackbarOpen: false,
+      snackbarOpen: false
     });
   };
 
@@ -45,8 +45,8 @@ class Index extends React.Component {
     const {
       intl: { formatMessage },
       match: {
-        params: { locale },
-      },
+        params: { locale }
+      }
     } = this.props;
 
     return (
@@ -57,7 +57,7 @@ class Index extends React.Component {
           <meta
             name="description"
             content={`${formatMessage({ id: "intro.desc" })} ${formatMessage({
-              id: "desc.3rd",
+              id: "desc.3rd"
             }).substring(2)}`}
           />
         </Helmet>
@@ -81,7 +81,7 @@ class Index extends React.Component {
             </div>
           }
           ContentProps={{
-            "aria-describedby": "message-id",
+            "aria-describedby": "message-id"
           }}
           message={
             <span id="message-id">
@@ -100,9 +100,16 @@ class Index extends React.Component {
           <h3>{<FormattedMessage id="intro.info.title" />}</h3>
           <ul>
             <li>
-              <FormattedMessage id="intro.info.content1" values={{
-                a: (str) => <Link to={`/${locale}/${CURRENT_VERSION}/kasegi_old`}>{str}</Link>
-              }} />
+              <FormattedMessage
+                id="intro.info.content1"
+                values={{
+                  a: str => (
+                    <Link to={`/${locale}/${CURRENT_VERSION}/kasegi_old`}>
+                      {str}
+                    </Link>
+                  )
+                }}
+              />
             </li>
             <li>
               <FormattedHTMLMessage id="intro.info.content2" />
@@ -125,7 +132,7 @@ class Index extends React.Component {
             <div
               style={{
                 marginTop: 20,
-                ...styles.imageContainer,
+                ...styles.imageContainer
               }}
             >
               <img src="/image/1-1.jpg" />
@@ -137,7 +144,7 @@ class Index extends React.Component {
                   position: "absolute",
                   left: 65,
                   top: 131,
-                  backgroundColor: "#FFFFFF",
+                  backgroundColor: "#FFFFFF"
                 }}
               >
                 <FormattedHTMLMessage id="how.upload.step1.imgDesc2" />
@@ -154,7 +161,7 @@ class Index extends React.Component {
                 style={{
                   position: "absolute",
                   left: 298,
-                  top: 66,
+                  top: 66
                 }}
               >
                 <FormattedHTMLMessage id="how.upload.step2.imgDesc1" />
@@ -217,21 +224,21 @@ class Index extends React.Component {
 
 const styles = {
   indexPage: {
-    width: "100%",
+    width: "100%"
   },
   imageContainer: {
     position: "relative",
     color: "red",
-    whiteSpace: "nowrap",
+    whiteSpace: "nowrap"
   },
   kasegiLinkDiv: {
     display: "flex",
     whiteSpace: "nowrap",
-    flexWrap: "wrap",
+    flexWrap: "wrap"
   },
   kasegiLink: {
-    marginRight: 10,
-  },
+    marginRight: 10
+  }
 };
 
 export default injectIntl(Index);
