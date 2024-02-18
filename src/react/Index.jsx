@@ -9,6 +9,7 @@ import Button from "@material-ui/core/Button";
 import BookmarkletScript from "./BookmarkletScript.jsx";
 import SlideToggle from "./SlideToggle.jsx";
 import { CURRENT_VERSION } from "../constants";
+import theme from "./styles/theme.js";
 
 class Index extends React.Component {
   constructor(props) {
@@ -118,12 +119,18 @@ class Index extends React.Component {
         </SlideToggle>
         <SlideToggle title={<FormattedMessage id="how.title" />}>
           <p>{<FormattedMessage id="how.upload.step1.desc" />}</p>
-          <p style={{ fontSize: 14 }}>
+          <p style={{ fontSize: 14, color: theme.text.secondary }}>
             {<FormattedMessage id="how.upload.step1.remark" />}
           </p>
           <div>
             <FormattedMessage id="how.upload.step1.currentVersion" />
-            <span style={{ fontSize: 14, marginLeft: 20 }}>
+            <span
+              style={{
+                fontSize: 14,
+                marginLeft: 20,
+                color: theme.text.secondary
+              }}
+            >
               <FormattedMessage id="how.upload.step1.currentVersionDesc" />
             </span>
           </div>
@@ -224,7 +231,8 @@ class Index extends React.Component {
 
 const styles = {
   indexPage: {
-    width: "100%"
+    width: "100%",
+    color: theme.primary
   },
   imageContainer: {
     position: "relative",

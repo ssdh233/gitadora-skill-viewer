@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import theme from "./styles/theme";
 
 class SlideToggle extends React.PureComponent {
   constructor(props) {
@@ -47,7 +48,7 @@ const Title = styled.h3`
   font-weight: normal;
   margin: 0;
   color: #ffffff;
-  background-color: #333333;
+  background-color: ${theme.slideToggle.background};
 
   @media (max-width: 742px) : {
     height: 30px;
