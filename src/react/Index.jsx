@@ -119,14 +119,14 @@ class Index extends React.Component {
         </SlideToggle>
         <SlideToggle title={<FormattedMessage id="how.title" />}>
           <p>{<FormattedMessage id="how.upload.step1.desc" />}</p>
-          <p style={{ fontSize: 14, color: theme.text.secondary }}>
+          <p style={{ fontSize: 12, color: theme.text.secondary }}>
             {<FormattedMessage id="how.upload.step1.remark" />}
           </p>
           <div>
             <FormattedMessage id="how.upload.step1.currentVersion" />
             <span
               style={{
-                fontSize: 14,
+                fontSize: 12,
                 marginLeft: 20,
                 color: theme.text.secondary
               }}

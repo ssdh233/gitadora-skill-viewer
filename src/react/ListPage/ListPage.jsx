@@ -8,6 +8,7 @@ import ReactTable from "react-table";
 import { VERSION_NAME } from "../../constants.js";
 import skillColorStyles from "../styles/skillColor.js";
 import withMediaQuery from "../withMediaQuery";
+import theme from "../styles/theme.js";
 
 class ListPage extends React.Component {
   getLevel = (...skills) => {
@@ -17,7 +18,7 @@ class ListPage extends React.Component {
 
   getTrProps = () => ({
     style: {
-      backgroundColor: "#000000",
+      backgroundColor: theme.table.background,
       color: "#FFFFFF"
     }
   });
@@ -166,7 +167,7 @@ const styles = {
     textAlign: "center"
   },
   commonTrStyle: {
-    backgroundColor: "#000000",
+    backgroundColor: theme.table.background,
     color: "#FFFFFF"
   }
 };

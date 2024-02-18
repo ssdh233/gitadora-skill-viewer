@@ -13,7 +13,10 @@ const theme = {
     secondary: COLORS.gray
   },
   slideToggle: {
-    background: COLORS.darkGray
+    background: COLORS.black
+  },
+  table: {
+    background: COLORS.black
   }
 };
 

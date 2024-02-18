@@ -25,7 +25,9 @@ function BookmarkletScript() {
             setSelect(event.target.value);
           }}
         >
-          {ON_SERVICE_VERSIONS.slice(1).map(version => <MenuItem value={version}>{VERSION_NAME[version]}</MenuItem>)}
+          {ON_SERVICE_VERSIONS.slice(1).map(version => (
+            <MenuItem value={version}>{VERSION_NAME[version]}</MenuItem>
+          ))}
         </Select>
       </div>
 
@@ -40,9 +42,9 @@ const ScriptDiv = styled.div`
   background: #f6f6f6;
   padding: 20px;
   border-radius: 6px;
-  font-size: 80%;
+  font-size: 12px;
   word-break: break-all;
-  margin-bottom: 20px;
+  margin: 16px 0;
 `;
 
 export default BookmarkletScript;
