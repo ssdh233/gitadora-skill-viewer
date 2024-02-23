@@ -26,7 +26,7 @@ app.use(
 );
 app.set("views", path.join(__dirname, "/src/views"));
 
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
@@ -80,11 +80,11 @@ fs.readdirSync("./src/jobs").forEach(file => {
   }
 });
 
-app.listen(process.env.PORT, function () {
+app.listen(process.env.PORT, function() {
   console.log(`This app listening on port ${process.env.PORT}!`);
 });
 
-process.on("uncaughtException", function (err) {
+process.on("uncaughtException", function(err) {
   console.log("uncaughtException => ", err);
 });
 
