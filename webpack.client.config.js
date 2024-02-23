@@ -3,12 +3,12 @@ const path = require("path");
 const CompressionPlugin = require("compression-webpack-plugin");
 const ManifestPlugin = require("webpack-manifest-plugin");
 
-const DIST_DIR = path.resolve(__dirname, "src/public/js");
+const PUBLIC_JS_DIR = path.resolve(__dirname, "src/public/js");
 const SRC_DIR = path.resolve(__dirname, "src");
 
 const isDevelopment = process.env.NODE_ENV === "development";
 
-var appConfig = {
+const clientConfig = {
   mode: isDevelopment ? "development" : "production",
   devServer: {
     contentBase: "./src/public",
@@ -18,7 +18,7 @@ var appConfig = {
     bundle: ["@babel/polyfill", `${SRC_DIR}/client.js`]
   },
   output: {
-    path: DIST_DIR,
+    path: PUBLIC_JS_DIR,
     filename: isDevelopment ? "[name].js" : "[name].[contenthash].js"
   },
   module: {
@@ -64,4 +64,4 @@ var appConfig = {
   ].filter(Boolean)
 };
 
-module.exports = appConfig;
+module.exports = clientConfig;
