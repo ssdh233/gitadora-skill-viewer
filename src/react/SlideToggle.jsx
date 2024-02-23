@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import theme from "../theme";
 
 class SlideToggle extends React.PureComponent {
   constructor(props) {
@@ -16,6 +17,7 @@ class SlideToggle extends React.PureComponent {
 
   // TODO stop using $
   _toggleDiv = () => {
+    // eslint-disable-next-line react/no-string-refs
     $(this.refs["toggle-div"]).slideToggle(400, () => {
       this.setState({ open: !this.state.open });
     });
@@ -30,6 +32,7 @@ class SlideToggle extends React.PureComponent {
       <SlideToggleDiv>
         <Title onClick={this._toggleDiv}>{this.props.title}</Title>
         <div
+          // eslint-disable-next-line react/no-string-refs
           ref="toggle-div"
           style={{ display: this.state.open ? "normal" : "none" }}
         >
@@ -46,8 +49,8 @@ const Title = styled.h3`
   line-height: 35px;
   font-weight: normal;
   margin: 0;
-  color: #ffffff;
-  background-color: #333333;
+  color: ${theme.index.subHeader};
+  background-color: ${theme.index.subHeaderBg};
 
   @media (max-width: 742px) : {
     height: 30px;

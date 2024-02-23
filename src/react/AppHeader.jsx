@@ -19,11 +19,12 @@ import ListSubheader from "@material-ui/core/ListSubheader";
 import HomeIcon from "@material-ui/icons/Home";
 
 import { ALL_VERSIONS, CURRENT_VERSION, VERSION_NAME } from "../constants";
+import theme from "../theme";
+import { versionInfo } from "graphql";
 
 const VERSION = "v1.33.2";
 
 function AppHeader(props) {
-
   const [listAnchorEl, setListAnchorEl] = useState();
   const [langAnchorEl, setLangAnchorEl] = useState();
   const [kasegiAnchorEl, setKasegiAnchorEl] = useState();
@@ -136,27 +137,37 @@ function AppHeader(props) {
           onClose={() => setKasegiAnchorEl(null)}
           onClick={() => setKasegiAnchorEl(null)}
         >
-          <List dense style={{ paddingTop: 0 }} >
-            <div style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              position: "sticky",
-              top: 0,
-              zIndex: 1
-            }}>
-              <ListSubheader component="div" style={{ backgroundColor: "#fff" }}>
+          <List dense style={{ paddingTop: 0 }}>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                position: "sticky",
+                top: 0,
+                zIndex: 1
+              }}
+            >
+              <ListSubheader
+                component="div"
+                style={{ backgroundColor: "#fff" }}
+              >
                 Drum
               </ListSubheader>
-              <ListSubheader component="div" style={{ backgroundColor: "#fff" }}>
+              <ListSubheader
+                component="div"
+                style={{ backgroundColor: "#fff" }}
+              >
                 Guitar
               </ListSubheader>
             </div>
-            <div style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              maxHeight: "50vh",
-              paddingBottom: 20
-            }}>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                maxHeight: "50vh",
+                paddingBottom: 20
+              }}
+            >
               {[...Array(27).keys()].reverse().map(key => {
                 const skill = 3000 + key * 250;
                 return (
@@ -205,11 +216,13 @@ function AppHeader(props) {
           onClick={() => setListAnchorEl(null)}
         >
           <MenuList>
-            {
-              ALL_VERSIONS.map(version => (<Link to={`/${locale}/${version}/list`}>
-                <MenuItem>{VERSION_NAME[version].replace(":EVOLVE", "")}</MenuItem>
-              </Link>))
-            }
+            {ALL_VERSIONS.map(version => (
+              <Link to={`/${locale}/${version}/list`} key={versionInfo}>
+                <MenuItem>
+                  {VERSION_NAME[version].replace(":EVOLVE", "")}
+                </MenuItem>
+              </Link>
+            ))}
           </MenuList>
         </Popover>
       </SecondLineDiv>
@@ -223,7 +236,7 @@ const AppHeaderDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 10px;
-  border-bottom: 2px solid;
+  border-bottom: 2px solid ${theme.header.bottomLine};
 `;
 
 const FirstLineDiv = styled.div`
@@ -245,10 +258,10 @@ const Title = styled.h1`
 
   & > a {
     text-decoration: none;
-    color: rgba(0, 0, 0, 0.87);
+    color: ${theme.header.title};
 
     &:visited {
-      color: rgba(0, 0, 0, 0.87);
+      color: ${theme.header.title};
     }
   }
 `;
