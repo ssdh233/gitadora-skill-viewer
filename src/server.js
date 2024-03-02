@@ -4,11 +4,7 @@ import { StaticRouter } from "react-router";
 import { IntlProvider } from "react-intl";
 import flatten from "flat";
 import { Helmet } from "react-helmet";
-import {
-  ThemeProvider,
-  ServerStyleSheets as MuiServerStyleSheets
-} from "@material-ui/styles";
-import { createMuiTheme } from "@material-ui/core/styles";
+import { ServerStyleSheets as MuiServerStyleSheets } from "@material-ui/styles";
 import { ApolloProvider } from "@apollo/react-common";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { HttpLink } from "apollo-link-http";
@@ -73,14 +69,13 @@ const reactRoute = (req, res) => {
     const sheet = new ServerStyleSheet();
     const muiSheet = new MuiServerStyleSheets();
 
+    const initialThemeKey = req.cookies.gsv_theme;
     let Temp = sheet.collectStyles(
       muiSheet.collect(
         <ApolloProvider client={client}>
           <IntlProvider locale={locale} messages={messages[locale]}>
             <StaticRouter location={req.url} context={{}}>
-              <ThemeProvider theme={createMuiTheme()}>
-                <App />
-              </ThemeProvider>
+              <App initialThemeKey={initialThemeKey} />
             </StaticRouter>
           </IntlProvider>
         </ApolloProvider>
@@ -97,7 +92,8 @@ const reactRoute = (req, res) => {
       // for i18n
       const appString = JSON.stringify({
         locale,
-        messages: messages[locale]
+        messages: messages[locale],
+        initialThemeKey
       });
       // for SEO
       const helmet = Helmet.renderStatic();

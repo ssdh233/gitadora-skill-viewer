@@ -17,13 +17,17 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import HomeIcon from "@material-ui/icons/Home";
+import IconButton from "@material-ui/core/IconButton";
+import BrightnessHighIcon from "@material-ui/icons/BrightnessHigh";
+import Brightness4Icon from "@material-ui/icons/Brightness4";
 
 import { ALL_VERSIONS, CURRENT_VERSION, VERSION_NAME } from "../constants";
+import { versionInfo } from "graphql";
+import { withTheme } from "styled-components";
 
 const VERSION = "v1.33.2";
 
 function AppHeader(props) {
-
   const [listAnchorEl, setListAnchorEl] = useState();
   const [langAnchorEl, setLangAnchorEl] = useState();
   const [kasegiAnchorEl, setKasegiAnchorEl] = useState();
@@ -39,8 +43,12 @@ function AppHeader(props) {
     match: {
       params: { locale }
     },
-    location: { search, pathname }
+    location: { search, pathname },
+    setThemeKey,
+    theme
   } = props;
+
+  const isDark = theme.key === "dark";
 
   return (
     <AppHeaderDiv>
@@ -64,42 +72,59 @@ function AppHeader(props) {
         <Title>
           <Link to={`/${locale}`}>Gitadora Skill Viewer</Link>
         </Title>
-        <Button
-          onClick={event => setLangAnchorEl(event.target)}
-          style={{ width: 109 }}
-          id="lang-button"
-          aria-haspopup={true}
-        >
-          <Language />
-          <span style={{ marginLeft: 5, whiteSpace: "nowrap" }}>
-            <FormattedMessage id="lang" />
-          </span>
-        </Button>
-        <Popover
-          open={Boolean(langAnchorEl)}
-          anchorEl={langAnchorEl}
-          anchorOrigin={{
-            horizontal: "left",
-            vertical: "bottom"
-          }}
-          onClose={() => setLangAnchorEl(null)}
-          onClick={() => setLangAnchorEl(null)}
-        >
-          <MenuList>
-            <a href={`/en${pathname.substring(3)}${search}`}>
-              <MenuItem>English</MenuItem>
-            </a>
-            <a href={`/ja${pathname.substring(3)}${search}`}>
-              <MenuItem>日本語</MenuItem>
-            </a>
-            <a href={`/ko${pathname.substring(3)}${search}`}>
-              <MenuItem>한국어</MenuItem>
-            </a>
-            <a href={`/zh${pathname.substring(3)}${search}`}>
-              <MenuItem>简体中文</MenuItem>
-            </a>
-          </MenuList>
-        </Popover>
+        <RightTopButtons>
+          <MuiButton
+            onClick={event => setLangAnchorEl(event.target)}
+            id="lang-button"
+            aria-haspopup={true}
+          >
+            <Language />
+            <span style={{ marginLeft: 5, whiteSpace: "nowrap" }}>
+              <FormattedMessage id="lang" />
+            </span>
+          </MuiButton>
+          <Popover
+            open={Boolean(langAnchorEl)}
+            anchorEl={langAnchorEl}
+            anchorOrigin={{
+              horizontal: "left",
+              vertical: "bottom"
+            }}
+            onClose={() => setLangAnchorEl(null)}
+            onClick={() => setLangAnchorEl(null)}
+            PaperProps={{
+              style: {
+                background: theme.header.popoverBg
+              }
+            }}
+          >
+            <MuiMenuList>
+              <a href={`/en${pathname.substring(3)}${search}`}>
+                <MuiMenuItem>English</MuiMenuItem>
+              </a>
+              <a href={`/ja${pathname.substring(3)}${search}`}>
+                <MuiMenuItem>日本語</MuiMenuItem>
+              </a>
+              <a href={`/ko${pathname.substring(3)}${search}`}>
+                <MuiMenuItem>한국어</MuiMenuItem>
+              </a>
+              <a href={`/zh${pathname.substring(3)}${search}`}>
+                <MuiMenuItem>简体中文</MuiMenuItem>
+              </a>
+            </MuiMenuList>
+          </Popover>
+          <MuiIconButton
+            onClick={() =>
+              setThemeKey(key => {
+                const newThemeKey = key === "default" ? "dark" : "default";
+                document.cookie = `gsv_theme=${newThemeKey}; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+                return newThemeKey;
+              })
+            }
+          >
+            {isDark ? <BrightnessHighIcon /> : <Brightness4Icon />}
+          </MuiIconButton>
+        </RightTopButtons>
       </FirstLineDiv>
 
       <SecondLineDiv>
@@ -108,15 +133,15 @@ function AppHeader(props) {
             to={`/${locale}`}
             style={{ textDecoration: "none", color: "black" }}
           >
-            <Button id="home-button" aria-haspopup={true}>
+            <MuiButton id="home-button" aria-haspopup={true}>
               <HomeIcon />
               <span style={{ marginLeft: 5 }}>
                 <FormattedMessage id="home" />
               </span>
-            </Button>
+            </MuiButton>
           </Link>
         )}
-        <Button
+        <MuiButton
           id="kasegi-button"
           onClick={event => setKasegiAnchorEl(event.target)}
           aria-haspopup={true}
@@ -125,7 +150,7 @@ function AppHeader(props) {
           <span style={{ marginLeft: 5 }}>
             <FormattedMessage id="kasegiSong" />
           </span>
-        </Button>
+        </MuiButton>
         <Popover
           open={Boolean(kasegiAnchorEl)}
           anchorEl={kasegiAnchorEl}
@@ -135,28 +160,33 @@ function AppHeader(props) {
           }}
           onClose={() => setKasegiAnchorEl(null)}
           onClick={() => setKasegiAnchorEl(null)}
+          PaperProps={{
+            style: {
+              background: theme.header.popoverBg
+            }
+          }}
         >
-          <List dense style={{ paddingTop: 0 }} >
-            <div style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              position: "sticky",
-              top: 0,
-              zIndex: 1
-            }}>
-              <ListSubheader component="div" style={{ backgroundColor: "#fff" }}>
-                Drum
-              </ListSubheader>
-              <ListSubheader component="div" style={{ backgroundColor: "#fff" }}>
-                Guitar
-              </ListSubheader>
+          <List dense style={{ paddingTop: 0 }}>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                position: "sticky",
+                top: 0,
+                zIndex: 1
+              }}
+            >
+              <MuiListSubHeader component="div">Drum</MuiListSubHeader>
+              <MuiListSubHeader component="div">Guitar</MuiListSubHeader>
             </div>
-            <div style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              maxHeight: "50vh",
-              paddingBottom: 20
-            }}>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                maxHeight: "50vh",
+                paddingBottom: 20
+              }}
+            >
               {[...Array(27).keys()].reverse().map(key => {
                 const skill = 3000 + key * 250;
                 return (
@@ -183,7 +213,7 @@ function AppHeader(props) {
             </div>
           </List>
         </Popover>
-        <Button
+        <MuiButton
           id="list-button"
           aria-haspopup={true}
           onClick={event => setListAnchorEl(event.target)}
@@ -192,7 +222,7 @@ function AppHeader(props) {
           <span style={{ marginLeft: 5 }}>
             <FormattedMessage id="list" />
           </span>
-        </Button>
+        </MuiButton>
         <Popover
           id="list-popover"
           open={Boolean(listAnchorEl)}
@@ -203,14 +233,21 @@ function AppHeader(props) {
           }}
           onClose={() => setListAnchorEl(null)}
           onClick={() => setListAnchorEl(null)}
-        >
-          <MenuList>
-            {
-              ALL_VERSIONS.map(version => (<Link to={`/${locale}/${version}/list`}>
-                <MenuItem>{VERSION_NAME[version].replace(":EVOLVE", "")}</MenuItem>
-              </Link>))
+          PaperProps={{
+            style: {
+              background: theme.header.popoverBg
             }
-          </MenuList>
+          }}
+        >
+          <MuiMenuList>
+            {ALL_VERSIONS.map(version => (
+              <Link to={`/${locale}/${version}/list`} key={versionInfo}>
+                <MuiMenuItem>
+                  {VERSION_NAME[version].replace(":EVOLVE", "")}
+                </MuiMenuItem>
+              </Link>
+            ))}
+          </MuiMenuList>
         </Popover>
       </SecondLineDiv>
     </AppHeaderDiv>
@@ -223,12 +260,17 @@ const AppHeaderDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 10px;
-  border-bottom: 2px solid;
+  border-bottom: 2px solid ${({ theme }) => theme.header.bottomLine};
 `;
 
 const FirstLineDiv = styled.div`
   display: flex;
   width: 100%;
+  height: 36.5px;
+`;
+
+const RightTopButtons = styled.div`
+  transform: translate(8px, -8px);
 `;
 
 const Title = styled.h1`
@@ -245,10 +287,10 @@ const Title = styled.h1`
 
   & > a {
     text-decoration: none;
-    color: rgba(0, 0, 0, 0.87);
+    color: ${({ theme }) => theme.header.title};
 
     &:visited {
-      color: rgba(0, 0, 0, 0.87);
+      color: ${({ theme }) => theme.header.title};
     }
   }
 `;
@@ -260,4 +302,35 @@ const SecondLineDiv = styled.div`
   justify-content: flex-end;
 `;
 
-export default injectIntl(AppHeader);
+const MuiButton = styled(Button)`
+  &&& {
+    color: ${({ theme }) => theme.header.button};
+  }
+`;
+
+const MuiIconButton = styled(IconButton)`
+  &&& {
+    color: ${({ theme }) => theme.header.button};
+  }
+`;
+
+const MuiMenuList = styled(MenuList)`
+  & a {
+    color: ${({ theme }) => theme.header.popover};
+  }
+`;
+
+const MuiMenuItem = styled(MenuItem)`
+  &&&:hover {
+    background: ${({ theme }) => theme.header.popoverHoverBg};
+  }
+`;
+
+export const MuiListSubHeader = styled(ListSubheader)`
+  &&& {
+    color: ${({ theme }) => theme.header.popoverHeader};
+    background: ${({ theme }) => theme.header.popoverBg};
+  }
+`;
+
+export default withTheme(injectIntl(AppHeader));

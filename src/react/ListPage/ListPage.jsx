@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { withTheme } from "styled-components";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { injectIntl, FormattedMessage } from "react-intl";
@@ -9,19 +9,22 @@ import { VERSION_NAME } from "../../constants.js";
 import skillColorStyles from "../styles/skillColor.js";
 import withMediaQuery from "../withMediaQuery";
 
-class ListPage extends React.Component {
-  getLevel = (...skills) => {
-    let skill = Math.max(...skills);
-    return Math.floor(skill / 500);
-  };
+const getLevel = (...skills) => {
+  let skill = Math.max(...skills);
+  return Math.floor(skill / 500);
+};
 
-  getTrProps = () => ({
+function ListPage(props) {
+  const { theme } = props;
+
+  const getTrProps = () => ({
     style: {
-      backgroundColor: "#000000",
-      color: "#FFFFFF"
+      color: theme.list.tableContent,
+      backgroundColor: theme.list.tableContentBg
     }
   });
-  getTdProps = (state, rowInfo, column) => {
+
+  const getTdProps = (state, rowInfo, column) => {
     let style;
     if (rowInfo) {
       switch (column.id) {
@@ -37,148 +40,130 @@ class ListPage extends React.Component {
     return { style };
   };
 
-  render() {
-    const { locale, version } = this.props.match.params;
+  const { locale, version } = props.match.params;
 
-    const fullVersionName = "GITADORA " + VERSION_NAME[version];
+  const fullVersionName = "GITADORA " + VERSION_NAME[version];
 
-    let columns = [
-      {
-        Header: "",
-        accessor: "index",
-        maxWidth: this.props.mediaQuery === "sp" ? 40 : 48,
-        Cell: ({ viewIndex, page, pageSize }) => {
-          return page * pageSize + viewIndex + 1;
-        }
-      },
-      { Header: "Name", accessor: "playerName", minWidth: 144 },
-      {
-        Header: "Guitar",
-        accessor: "guitarSkillPoint",
-        maxWidth: this.props.mediaQuery === "sp" ? 70 : 90,
-        sortMethod: (a, b) => Number(a) - Number(b),
-        Cell: ({ row }) => (
-          <Link
-            to={`/${locale}/${version}/${row._original.playerId}/g`}
-            className={`lv${this.getLevel(row.guitarSkillPoint)}`}
-          >
-            {(row.guitarSkillPoint && row.guitarSkillPoint.toFixed(2)) ||
-              "0.00"}
-          </Link>
-        )
-      },
-      {
-        Header: "Drum",
-        accessor: "drumSkillPoint",
-        maxWidth: this.props.mediaQuery === "sp" ? 70 : 90,
-        sortMethod: (a, b) => Number(a) - Number(b),
-        Cell: ({ row }) => (
-          <Link
-            to={`/${locale}/${version}/${row._original.playerId}/d`}
-            className={`lv${this.getLevel(row.drumSkillPoint)}`}
-          >
-            {(row.drumSkillPoint && row.drumSkillPoint.toFixed(2)) || "0.00"}
-          </Link>
-        )
-      },
-      {
-        Header: "Total",
-        accessor: "totalSkillPoint",
-        maxWidth: this.props.mediaQuery === "sp" ? 70 : 90,
-        sortMethod: (a, b) => Number(a) - Number(b),
-        Cell: ({ row }) => (
-          <Link
-            to={`/${locale}/${version}/${row._original.playerId}/g`}
-            className={`lv${this.getLevel(
-              row.drumSkillPoint,
-              row.guitarSkillPoint
-            )}`}
-          >
-            {(row.totalSkillPoint && row.totalSkillPoint.toFixed(2)) || "0.00"}
-          </Link>
-        )
-      },
-      {
-        Header: "Last Update",
-        accessor: "updateDate",
-        width: 145
+  let columns = [
+    {
+      Header: "",
+      accessor: "index",
+      maxWidth: props.mediaQuery === "sp" ? 40 : 48,
+      Cell: ({ viewIndex, page, pageSize }) => {
+        return page * pageSize + viewIndex + 1;
       }
-    ];
-
-    if (this.props.isAdmin) {
-      columns = [
-        ...columns,
-        { Header: "Count", accessor: "updateCount", minWidth: 30 }
-      ];
+    },
+    { Header: "Name", accessor: "playerName", minWidth: 144 },
+    {
+      Header: "Guitar",
+      accessor: "guitarSkillPoint",
+      maxWidth: props.mediaQuery === "sp" ? 70 : 90,
+      sortMethod: (a, b) => Number(a) - Number(b),
+      Cell: ({ row }) => (
+        <Link
+          to={`/${locale}/${version}/${row._original.playerId}/g`}
+          className={`lv${getLevel(row.guitarSkillPoint)}`}
+        >
+          {(row.guitarSkillPoint && row.guitarSkillPoint.toFixed(2)) || "0.00"}
+        </Link>
+      )
+    },
+    {
+      Header: "Drum",
+      accessor: "drumSkillPoint",
+      maxWidth: props.mediaQuery === "sp" ? 70 : 90,
+      sortMethod: (a, b) => Number(a) - Number(b),
+      Cell: ({ row }) => (
+        <Link
+          to={`/${locale}/${version}/${row._original.playerId}/d`}
+          className={`lv${getLevel(row.drumSkillPoint)}`}
+        >
+          {(row.drumSkillPoint && row.drumSkillPoint.toFixed(2)) || "0.00"}
+        </Link>
+      )
+    },
+    {
+      Header: "Total",
+      accessor: "totalSkillPoint",
+      maxWidth: props.mediaQuery === "sp" ? 70 : 90,
+      sortMethod: (a, b) => Number(a) - Number(b),
+      Cell: ({ row }) => (
+        <Link
+          to={`/${locale}/${version}/${row._original.playerId}/g`}
+          className={`lv${getLevel(row.drumSkillPoint, row.guitarSkillPoint)}`}
+        >
+          {(row.totalSkillPoint && row.totalSkillPoint.toFixed(2)) || "0.00"}
+        </Link>
+      )
+    },
+    {
+      Header: "Last Update",
+      accessor: "updateDate",
+      width: 145
     }
+  ];
 
-    const {
-      data,
-      intl: { formatMessage }
-    } = this.props;
-
-    return (
-      <>
-        <Helmet>
-          <title>{`${formatMessage({
-            id: "list"
-          })} | ${fullVersionName} | Gitadora Skill Viewer`}</title>
-          <style>{stringStyles}</style>
-        </Helmet>
-        {data && (
-          <div
-            style={{
-              ...styles.listPage,
-              ...(this.props.isAdmin ? styles.userlistPage : {})
-            }}
-            id="list-table"
-          >
-            <h1 style={styles.title}>{fullVersionName}</h1>
-            <p>
-              Tips: <FormattedMessage id="listPage.tips" />
-            </p>
-            <TableDiv>
-              <ReactTable
-                data={data}
-                columns={columns}
-                defaultPageSize={100}
-                pageSizeOptions={[5, 100, 200, 500, 1000]}
-                getTrProps={this.getTrProps}
-                getTdProps={this.getTdProps}
-              />
-            </TableDiv>
-          </div>
-        )}
-      </>
-    );
+  if (props.isAdmin) {
+    columns = [
+      ...columns,
+      { Header: "Count", accessor: "updateCount", minWidth: 30 }
+    ];
   }
+
+  const {
+    data,
+    intl: { formatMessage }
+  } = props;
+
+  return (
+    <>
+      <Helmet>
+        <title>{`${formatMessage({
+          id: "list"
+        })} | ${fullVersionName} | Gitadora Skill Viewer`}</title>
+        <style>{stringStyles}</style>
+      </Helmet>
+      {data && (
+        <ListTableContainer isAdmin id="list-table">
+          <Title>{fullVersionName}</Title>
+          <p>
+            Tips: <FormattedMessage id="listPage.tips" />
+          </p>
+          <TableDiv>
+            <ReactTable
+              data={data}
+              columns={columns}
+              defaultPageSize={100}
+              pageSizeOptions={[5, 100, 200, 500, 1000]}
+              getTrProps={getTrProps}
+              getTdProps={getTdProps}
+            />
+          </TableDiv>
+        </ListTableContainer>
+      )}
+    </>
+  );
 }
-
-const styles = {
-  listPage: {
-    maxWidth: 700
-  },
-  userlistPage: {
-    maxWidth: 800
-  },
-  title: {
-    fontSize: 19,
-    textAlign: "center"
-  },
-  commonTrStyle: {
-    backgroundColor: "#000000",
-    color: "#FFFFFF"
-  }
-};
 
 const TableDiv = styled.div`
   font-size: 14px;
+  color: ${({ theme }) => theme.list.table};
+  background-color: ${({ theme }) => theme.list.tableBg};
 
   @media (max-width: 742px) {
     font-size: 12px;
   }
 `;
 
+const ListTableContainer = styled.div`
+  max-width: ${({ isAdmin }) => (isAdmin ? 800 : 700)}px;
+`;
+
+const Title = styled.h1`
+  font-size: 19px;
+  text-align: center;
+`;
+
 const stringStyles = skillColorStyles;
 
-export default withMediaQuery(injectIntl(ListPage));
+export default withTheme(withMediaQuery(injectIntl(ListPage)));
