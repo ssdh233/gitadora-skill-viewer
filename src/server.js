@@ -76,14 +76,13 @@ const reactRoute = (req, res) => {
     const sheet = new ServerStyleSheet();
     const muiSheet = new MuiServerStyleSheets();
 
+    const initialThemeKey = req.cookies.gsv_theme;
     let Temp = sheet.collectStyles(
       muiSheet.collect(
         <ApolloProvider client={client}>
           <IntlProvider locale={locale} messages={messages[locale]}>
             <StaticRouter location={req.url} context={{}}>
-              <ThemeProvider theme={createMuiTheme()}>
-                <App />
-              </ThemeProvider>
+              <App initialThemeKey={initialThemeKey} />
             </StaticRouter>
           </IntlProvider>
         </ApolloProvider>
@@ -101,16 +100,22 @@ const reactRoute = (req, res) => {
       const appString = JSON.stringify({
         locale,
         messages: messages[locale],
+        initialThemeKey
       });
       // for SEO
       const helmet = Helmet.renderStatic();
+
+      const isDevelopment = process.env.NODE_ENV === "development";
+      const bundlePath = isDevelopment
+        ? "http://localhost:8000/bundle.js"
+        : `/js/${bundleFileName}`;
 
       const html = htmlTemplate({
         googleSiteVerfication: process.env.GOOGLE_SITE_VERIFICATION,
         helmet,
         content: renderedString,
         appString,
-        bundleFileName,
+        bundlePath,
         client,
         styleTags,
         cssForMui,

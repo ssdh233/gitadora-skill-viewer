@@ -2,7 +2,11 @@
 /.env
 /src/public/js/uploaddata_*
 /src/public/js/bundle*
+/src/public/js/client.js
+/src/public/js/server.js
 /src/public/js/manifest.json
 
 /cypress/videos
 /cypress/screenshots
+
+app.dist.js

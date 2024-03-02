@@ -78,7 +78,7 @@ function KasegiTable(props) {
     }
   ];
 
-  if (!props.hasComparedSkill || props.mediaQuery === 'pc') {
+  if (!props.hasComparedSkill || props.mediaQuery === "pc") {
     columns = [
       ...columns,
       {
@@ -88,11 +88,10 @@ function KasegiTable(props) {
         style: {
           textAlign: "center"
         },
-        Cell: data => <>{((data.value / props.count) * 100).toFixed(2)}%</> 
-      },
+        Cell: data => <>{((data.value / props.count) * 100).toFixed(2)}%</>
+      }
     ].filter(x => x);
   }
-  
 
   if (props.hasComparedSkill) {
     columns = [
@@ -113,7 +112,7 @@ function KasegiTable(props) {
         }
       }
     ].filter(x => x);
-  } 
+  }
 
   return (
     <>
@@ -136,6 +135,9 @@ function KasegiTable(props) {
 
 const KasegiTableRoot = styled.div`
   font-size: 14px;
+  color: ${({ theme }) => theme.kasegi.table};
+  background-color: ${({ theme }) => theme.kasegi.tableBg};
+
   @media (max-width: 742px) {
     font-size: 12px;
   }

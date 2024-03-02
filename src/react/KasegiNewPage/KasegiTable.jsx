@@ -2,7 +2,7 @@ import React from "react";
 import ReactTable from "react-table";
 import { FormattedMessage } from "react-intl";
 import { Helmet } from "react-helmet";
-import styled from "styled-components";
+import styled, { withTheme } from "styled-components";
 
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
@@ -12,12 +12,13 @@ function KasegiTable(props) {
     const diff = (rowInfo && rowInfo.original && rowInfo.original.diff) || "";
     return {
       style: {
-        backgroundColor: {
-          BAS: "#C7E7FF",
-          ADV: "#FFFFC7",
-          EXT: "#FFC7C7",
-          MAS: "#D8BFF8"
-        }[diff]
+        backgroundColor:
+          {
+            BAS: "#C7E7FF",
+            ADV: "#FFFFC7",
+            EXT: "#FFC7C7",
+            MAS: "#D8BFF8"
+          }[diff] + props.theme.kasegi.tableBgHexOpacity
       }
     };
   };
@@ -78,7 +79,7 @@ function KasegiTable(props) {
     }
   ];
 
-  if (!props.hasComparedSkill || props.mediaQuery === 'pc') {
+  if (!props.hasComparedSkill || props.mediaQuery === "pc") {
     columns = [
       ...columns,
       {
@@ -88,11 +89,10 @@ function KasegiTable(props) {
         style: {
           textAlign: "center"
         },
-        Cell: data => <>{((data.value / props.count) * 100).toFixed(2)}%</> 
-      },
+        Cell: data => <>{((data.value / props.count) * 100).toFixed(2)}%</>
+      }
     ].filter(x => x);
   }
-  
 
   if (props.hasComparedSkill) {
     columns = [
@@ -113,7 +113,7 @@ function KasegiTable(props) {
         }
       }
     ].filter(x => x);
-  } 
+  }
 
   return (
     <>
@@ -136,6 +136,9 @@ function KasegiTable(props) {
 
 const KasegiTableRoot = styled.div`
   font-size: 14px;
+  color: ${({ theme }) => theme.kasegi.table};
+  background-color: ${({ theme }) => theme.kasegi.tableBg};
+
   @media (max-width: 742px) {
     font-size: 12px;
   }
@@ -151,4 +154,4 @@ const stringStyles = `
 }
 `;
 
-export default KasegiTable;
+export default withTheme(KasegiTable);

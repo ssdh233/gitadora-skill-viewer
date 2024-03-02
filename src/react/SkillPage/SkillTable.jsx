@@ -65,7 +65,7 @@ class SkillTable extends React.Component {
 
     return (
       <SkillTableRoot {...rest}>
-        <caption>{this.props.caption}</caption>
+        <caption>{caption}</caption>
         <thead>
           <tr>
             <SkillTableTh />
@@ -132,10 +132,10 @@ class SkillTable extends React.Component {
 }
 
 const SkillTableRoot = styled.table`
-  background-color: #ffffff;
   font-size: 14px;
   margin-top: 10px;
   max-width: 700px;
+  opacity: ${({ theme }) => theme.skill.tableOpacity};
 
   @media (max-width: 742px) {
     max-width: 500px;
@@ -144,20 +144,26 @@ const SkillTableRoot = styled.table`
 `;
 
 const SkillTableTh = styled.th`
+  color: ${({ theme }) => theme.skill.table};
   background-color: #5882fa;
   height: 22px;
 `;
 
 const SkillTableTr = styled.tr`
+  color: ${({ theme }) => theme.skill.table};
   height: 24px;
-  background-color: ${({ diff, isRivalData }) =>
-    ({
-      BAS: "#C7E7FF",
-      ADV: "#FFFFC7",
-      EXT: "#FFC7C7",
-      MAS: "#D8BFF8",
-      rival: "darkgrey"
-    }[isRivalData ? "rival" : diff])};
+  background-color: ${({ diff, isRivalData, theme }) => {
+    if (isRivalData) return "darkgrey";
+
+    return (
+      {
+        BAS: "#C7E7FF",
+        ADV: "#FFFFC7",
+        EXT: "#FFC7C7",
+        MAS: "#D8BFF8"
+      }[diff] + theme.skill.tableBgHexOpacity
+    );
+  }};
 
   @media (max-width: 742px) {
     height: 18px;
@@ -196,7 +202,8 @@ const SkillTableNameTd = styled(SkillTableTd)`
 
 const SkillTableCompareTd = styled.td`
   text-align: left;
-  background-color: white;
+  color: ${({ theme }) => theme.main};
+  background-color: ${({ theme }) => theme.mainBg};
   font-size: 12px;
 
   @media (max-width: 742px) {

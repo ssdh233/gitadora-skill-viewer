@@ -5,6 +5,7 @@ import { FormattedMessage, FormattedHTMLMessage, injectIntl } from "react-intl";
 import LazyLoad from "react-lazyload";
 import Snackbar from "@material-ui/core/Snackbar";
 import Button from "@material-ui/core/Button";
+import styled from "styled-components";
 
 import BookmarkletScript from "./BookmarkletScript.jsx";
 import SlideToggle from "./SlideToggle.jsx";
@@ -19,7 +20,7 @@ class Index extends React.Component {
       langAnchorEl: null,
       snackbarOpen: false,
       gsvId: null,
-      gsvName: "",
+      gsvName: ""
     };
   }
 
@@ -30,14 +31,14 @@ class Index extends React.Component {
       this.setState({
         snackbarOpen: true,
         gsvId,
-        gsvName,
+        gsvName
       });
     }
   }
 
   handleSnackbarClose = () => {
     this.setState({
-      snackbarOpen: false,
+      snackbarOpen: false
     });
   };
 
@@ -45,19 +46,19 @@ class Index extends React.Component {
     const {
       intl: { formatMessage },
       match: {
-        params: { locale },
-      },
+        params: { locale }
+      }
     } = this.props;
 
     return (
-      <div style={styles.indexPage}>
+      <IndexPageContainer>
         <Helmet>
           <link rel="canonical" href={`http://gsv.fun/${locale}`} />
           <title>{formatMessage({ id: "title" })}</title>
           <meta
             name="description"
             content={`${formatMessage({ id: "intro.desc" })} ${formatMessage({
-              id: "desc.3rd",
+              id: "desc.3rd"
             }).substring(2)}`}
           />
         </Helmet>
@@ -81,7 +82,7 @@ class Index extends React.Component {
             </div>
           }
           ContentProps={{
-            "aria-describedby": "message-id",
+            "aria-describedby": "message-id"
           }}
           message={
             <span id="message-id">
@@ -100,9 +101,16 @@ class Index extends React.Component {
           <h3>{<FormattedMessage id="intro.info.title" />}</h3>
           <ul>
             <li>
-              <FormattedMessage id="intro.info.content1" values={{
-                a: (str) => <Link to={`/${locale}/${CURRENT_VERSION}/kasegi_old`}>{str}</Link>
-              }} />
+              <FormattedMessage
+                id="intro.info.content1"
+                values={{
+                  a: str => (
+                    <Link to={`/${locale}/${CURRENT_VERSION}/kasegi_old`}>
+                      {str}
+                    </Link>
+                  )
+                }}
+              />
             </li>
             <li>
               <FormattedHTMLMessage id="intro.info.content2" />
@@ -122,58 +130,55 @@ class Index extends React.Component {
           </div>
           <BookmarkletScript />
           <LazyLoad height={532}>
-            <div
-              style={{
-                marginTop: 20,
-                ...styles.imageContainer,
-              }}
-            >
-              <img src="/image/1-1.jpg" />
-              <b style={{ position: "absolute", left: 118, top: 61 }}>
-                <FormattedHTMLMessage id="how.upload.step1.imgDesc1" />
-              </b>
-              <b
+            <ImageContainer style={{ marginTop: 20 }}>
+              <Image src="/image/1-1.jpg" />
+              <ImageDesc
                 style={{
-                  position: "absolute",
+                  left: 118,
+                  top: 61
+                }}
+              >
+                <FormattedHTMLMessage id="how.upload.step1.imgDesc1" />
+              </ImageDesc>
+              <ImageDesc
+                style={{
                   left: 65,
-                  top: 131,
-                  backgroundColor: "#FFFFFF",
+                  top: 131
                 }}
               >
                 <FormattedHTMLMessage id="how.upload.step1.imgDesc2" />
-              </b>
-            </div>
+              </ImageDesc>
+            </ImageContainer>
           </LazyLoad>
           <p>
             <FormattedHTMLMessage id="how.upload.step2.desc" />
           </p>
           <LazyLoad height={451}>
-            <div style={styles.imageContainer}>
-              <img src="/image/1-2.jpg" />
-              <b
+            <ImageContainer>
+              <Image src="/image/1-2.jpg" />
+              <ImageDesc
                 style={{
-                  position: "absolute",
                   left: 298,
-                  top: 66,
+                  top: 66
                 }}
               >
                 <FormattedHTMLMessage id="how.upload.step2.imgDesc1" />
-              </b>
-              <b style={{ position: "absolute", left: 116, top: 106 }}>
+              </ImageDesc>
+              <ImageDesc style={{ left: 116, top: 106 }}>
                 <FormattedHTMLMessage id="how.upload.step2.imgDesc2" />
-              </b>
-            </div>
+              </ImageDesc>
+            </ImageContainer>
           </LazyLoad>
           <p>
             <FormattedHTMLMessage id="how.upload.step3.desc" />
           </p>
           <LazyLoad height={479}>
-            <div style={styles.imageContainer}>
-              <img src="/image/1-3.jpg" />
-              <b style={{ position: "absolute", left: 284, top: 70 }}>
+            <ImageContainer>
+              <Image src="/image/1-3.jpg" />
+              <ImageDesc style={{ left: 284, top: 70 }}>
                 <FormattedHTMLMessage id="how.upload.step3.imgDesc1" />
-              </b>
-            </div>
+              </ImageDesc>
+            </ImageContainer>
           </LazyLoad>
         </SlideToggle>
         <SlideToggle title={formatMessage({ id: "desc.title" })}>
@@ -210,28 +215,29 @@ class Index extends React.Component {
           </p>
           <p> Chrome, Safari </p>
         </SlideToggle>
-      </div>
+      </IndexPageContainer>
     );
   }
 }
 
-const styles = {
-  indexPage: {
-    width: "100%",
-  },
-  imageContainer: {
-    position: "relative",
-    color: "red",
-    whiteSpace: "nowrap",
-  },
-  kasegiLinkDiv: {
-    display: "flex",
-    whiteSpace: "nowrap",
-    flexWrap: "wrap",
-  },
-  kasegiLink: {
-    marginRight: 10,
-  },
-};
+const IndexPageContainer = styled.div`
+  width: 100%;
+`;
+
+const ImageContainer = styled.div`
+  position: relative;
+  color: ${({ theme }) => theme.index.imageDesc};
+  whitespace: nowrap;
+`;
+
+const Image = styled.img`
+  opacity: ${({ theme }) => theme.index.imageOpacity};
+`;
+
+const ImageDesc = styled.div`
+  position: absolute;
+  color: ${({ theme }) => theme.index.imageDesc};
+  background: ${({ theme }) => theme.index.imageDescBg};
+`;
 
 export default injectIntl(Index);

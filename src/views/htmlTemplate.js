@@ -2,7 +2,7 @@ const htmlTemplate = ({
   helmet,
   content,
   appString,
-  bundleFileName,
+  bundlePath,
   googleSiteVerfication,
   client,
   styleTags,
@@ -13,7 +13,7 @@ const htmlTemplate = ({
 <html ${helmet.htmlAttributes.toString()}>
   <head>
     <link rel="preload" href="https://unpkg.com/react-table@6.8.6/react-table.css" as="style">
-    <link rel="preload" href="/bundle/${bundleFileName}" as="script" />
+    <link rel="preload" href="${bundlePath}" as="script" />
     <link rel="stylesheet" href="https://unpkg.com/react-table@6.8.6/react-table.css" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Andada" />
     ${helmet.title.toString()}
@@ -33,7 +33,7 @@ const htmlTemplate = ({
       window.App=\`${appString}\`;
       window.__APOLLO_STATE__ = ${JSON.stringify(client.extract())};
     </script>
-    <script src="/js/${bundleFileName}" type="text/javascript"></script>
+    <script src="${bundlePath}" type="text/javascript"></script>
   </body>
 </html>
 `;

@@ -17,7 +17,7 @@ function BookmarkletScript() {
 
       <div>
         <FormattedMessage id="how.upload.step1.oldVersion" />
-        <Select
+        <MuiSelect
           inputProps={{ name: "version" }}
           style={{ marginLeft: 10 }}
           value={select}
@@ -25,8 +25,12 @@ function BookmarkletScript() {
             setSelect(event.target.value);
           }}
         >
-          {ON_SERVICE_VERSIONS.slice(1).map(version => <MenuItem value={version}>{VERSION_NAME[version]}</MenuItem>)}
-        </Select>
+          {ON_SERVICE_VERSIONS.slice(1).map(version => (
+            <MenuItem key={version} value={version}>
+              {VERSION_NAME[version]}
+            </MenuItem>
+          ))}
+        </MuiSelect>
       </div>
 
       <ScriptDiv>
@@ -37,12 +41,30 @@ function BookmarkletScript() {
 }
 
 const ScriptDiv = styled.div`
-  background: #f6f6f6;
-  padding: 20px;
+  background: ${({ theme }) => theme.index.scriptBg};
+  padding: 16px;
   border-radius: 6px;
   font-size: 80%;
   word-break: break-all;
-  margin-bottom: 20px;
+  margin: 16px;
+`;
+
+const MuiSelect = styled(Select)`
+  &&& {
+    color: ${({ theme }) => theme.main};
+
+    > svg {
+      color: ${({ theme }) => theme.main};
+    }
+
+    ::before {
+      border-bottom: 1px solid ${({ theme }) => theme.main};
+    }
+
+    ::after {
+      border-bottom: 2px solid ${({ theme }) => theme.main};
+    }
+  }
 `;
 
 export default BookmarkletScript;
