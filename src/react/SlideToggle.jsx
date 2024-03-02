@@ -47,10 +47,12 @@ const Title = styled.h3`
   font-size: 19px;
   height: 35px;
   line-height: 35px;
-  font-weight: normal;
+  font-weight: bold;
   margin: 0;
-  color: ${theme.index.subHeader};
-  background-color: ${theme.index.subHeaderBg};
+  color: ${({ theme }) => theme.index.subHeader};
+  background-color: ${({ theme }) => theme.index.subHeaderBg};
+  cursor: pointer;
+  padding: 0 4px;
 
   @media (max-width: 742px) : {
     height: 30px;

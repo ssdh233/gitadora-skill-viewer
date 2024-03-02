@@ -43,13 +43,13 @@ function SkillPage(props) {
     playerId,
     playerName,
     updateDate,
-    skillPointDiff,
+    skillPointDiff
   } = props.skillData;
 
   const {
     playerId: rivalPlayId,
     playerName: rivalPlayerName,
-    skill: rivalSkill,
+    skill: rivalSkill
   } = props.rivalSkillData || {};
 
   const type = props.saved ? props.skillData.type : props.match.params.type;
@@ -64,16 +64,16 @@ function SkillPage(props) {
   const fullVersionName = "GITADORA " + VERSION_NAME[version];
 
   const {
-    intl: { formatMessage },
+    intl: { formatMessage }
   } = props;
 
   const title = formatMessage(
     {
-      id: "skill.title",
+      id: "skill.title"
     },
     {
       name: playerName,
-      type: type === "g" ? "Guitarfreaks" : "Drummania",
+      type: type === "g" ? "Guitarfreaks" : "Drummania"
     }
   );
 
@@ -83,7 +83,7 @@ function SkillPage(props) {
       await props.onSaveSkill();
     }
     setSaveSkillDisabled(false);
-  }
+  };
 
   return (
     <SkillPageDiv>
@@ -93,8 +93,9 @@ function SkillPage(props) {
         <meta property="og:url" content="gsv.fun" />
         <meta
           property="og:title"
-          content={`${title} ${skillPoint} ${skillPointDiff ? `(${skillPointDiff}↑)` : ""
-            }`}
+          content={`${title} ${skillPoint} ${
+            skillPointDiff ? `(${skillPointDiff}↑)` : ""
+          }`}
         />
         <style>{stringStyles}</style>
       </Helmet>
@@ -156,11 +157,11 @@ function SkillPage(props) {
                     id="skill.rivalSkill"
                     values={{
                       name: rivalPlayerName,
-                      point: rivalSkillPoint,
+                      point: rivalSkillPoint
                     }}
                   ></FormattedMessage>
                 </Link>
-              ),
+              )
             }}
           ></FormattedMessage>
           <Link to={`/${locale}/${version}/${playerId}/${type}`}>
@@ -207,8 +208,8 @@ function SkillPage(props) {
         <>
           <div>
             {[level * 250 - 250, level * 250, level * 250 + 250]
-              .filter((scope) => scope >= 3000)
-              .map((scope) => (
+              .filter(scope => scope >= 3000)
+              .map(scope => (
                 <div key={scope}>
                   <Link
                     to={`/${locale}/${version}/kasegi/${type}/${scope}?c=${playerId}`}
@@ -235,7 +236,7 @@ function SkillPage(props) {
                 </>
               )}
             <CompareForm
-              onSubmit={(event) => {
+              onSubmit={event => {
                 event.preventDefault();
 
                 history.push(
@@ -246,20 +247,16 @@ function SkillPage(props) {
               {formatMessage({ id: "skill.compareWith1" }) !== " " && (
                 <LinkLikeButton
                   type="submit"
-                  disabled={!Boolean(rivalInput)}
+                  disabled={!rivalInput}
                   style={{ paddingLeft: 0 }}
                 >
                   <FormattedMessage id="skill.compareWith1" />
                 </LinkLikeButton>
               )}
-              <TextField
+              <RivalIdInput
                 name="rivalId"
-                style={{ width: 50 }}
-                inputProps={{
-                  style: { fontSize: 12 },
-                }}
                 value={rivalInput}
-                onChange={(event) => setRivalInput(event.target.value)}
+                onChange={event => setRivalInput(event.target.value)}
                 placeholder={formatMessage({ id: "skill.skillId" })}
               />
               <HelpOutlineIcon
@@ -269,7 +266,7 @@ function SkillPage(props) {
               {formatMessage({ id: "skill.compareWith2" }) !== " " && (
                 <LinkLikeButton
                   type="submit"
-                  disabled={!Boolean(rivalInput)}
+                  disabled={!rivalInput}
                   style={{ paddingLeft: 0 }}
                 >
                   <FormattedMessage id="skill.compareWith2" />
@@ -281,7 +278,7 @@ function SkillPage(props) {
             {props.skillSavedList && (
               <>
                 <SavedListTable>
-                  <caption style={{ color: "black" }}>
+                  <caption>
                     <FormattedMessage id="skill.savedList" />
                   </caption>
                   <thead>
@@ -296,7 +293,9 @@ function SkillPage(props) {
                     {props.skillSavedList.map((savedItem, index) => (
                       <tr key={savedItem.updateDate}>
                         <SavedListTableTd
-                          className={`lv${parseInt(savedItem.skillPoint / 500)}`}
+                          className={`lv${parseInt(
+                            savedItem.skillPoint / 500
+                          )}`}
                         >
                           <Link
                             to={`/${locale}/${version}/${savedItem.skillId}/p`}
@@ -305,7 +304,9 @@ function SkillPage(props) {
                           </Link>
                         </SavedListTableTd>
                         <SavedListTableTd
-                          className={`lv${parseInt(savedItem.skillPoint / 500)}`}
+                          className={`lv${parseInt(
+                            savedItem.skillPoint / 500
+                          )}`}
                         >
                           <Link
                             to={`/${locale}/${version}/${savedItem.skillId}/p`}
@@ -314,7 +315,9 @@ function SkillPage(props) {
                           </Link>
                         </SavedListTableTd>
                         <SavedListTableTd
-                          className={`lv${parseInt(savedItem.skillPoint / 500)}`}
+                          className={`lv${parseInt(
+                            savedItem.skillPoint / 500
+                          )}`}
                         >
                           <Link
                             to={`/${locale}/${version}/${savedItem.skillId}/p`}
@@ -333,14 +336,19 @@ function SkillPage(props) {
                     ))}
                   </tbody>
                 </SavedListTable>
-                <button onClick={handleSaveSkill} disabled={saveSkillDisabled}><FormattedMessage id="skill.saveSkill" /></button>
+                <SaveSkillButton
+                  onClick={handleSaveSkill}
+                  disabled={saveSkillDisabled}
+                >
+                  <FormattedMessage id="skill.saveSkill" />
+                </SaveSkillButton>
               </>
             )}
           </div>
         </>
       )}
 
-      <Dialog
+      <MuiDialog
         open={skillIdDescDialogOpen}
         onClose={() => setSkillIdDescDialogOpen(false)}
       >
@@ -361,7 +369,7 @@ function SkillPage(props) {
             <FormattedMessage id="skill.skillIdOk" />
           </Button>
         </DialogActions>
-      </Dialog>
+      </MuiDialog>
     </SkillPageDiv>
   );
 }
@@ -385,8 +393,8 @@ const VersionDiv = styled.div`
 `;
 
 const ProfileTable = styled.table`
-  background-color: #000000;
-  color: white;
+  background-color: ${({ theme }) => theme.skill.tableBg};
+  color: ${({ theme }) => theme.skill.profileTableHeader};
   margin: 10px 0;
 `;
 
@@ -402,8 +410,8 @@ const ProfileTableTd = styled.td`
 `;
 
 const SavedListTable = styled.table`
-  background-color: #000000;
-  color: white;
+  background-color: ${({ theme }) => theme.skill.tableBg};
+  color: ${({ theme }) => theme.skill.profileTableHeader};
   margin-bottom: 10px;
   font-size: 12px;
 `;
@@ -438,14 +446,53 @@ const CompareForm = styled.form`
 
 const LinkLikeButton = styled.button`
   border: 0;
-  background-color: white;
-  text-decoration: underline;
-  color: blue;
+  background: none;
+  text-decoration: none;
+  color: ${({ theme }) => theme.link};
   cursor: pointer;
   font-size: 14px;
 
   @media (max-width: 742px) {
     font-size: 12px;
+  }
+`;
+
+const SaveSkillButton = styled.button`
+  opacity: ${({ theme }) => theme.skill.saveButtonOpacity};
+`;
+
+const RivalIdInput = styled(TextField)`
+  width: 50px;
+
+  & input {
+    font-size: 12px;
+    caret-color: ${({ theme }) => theme.skill.rivalIdInputCaret};
+  }
+
+  & input::placeholder {
+    color: ${({ theme }) => theme.skill.rivalIdInputPlaceholder};
+  }
+
+  & .MuiInput-underline::before {
+    border-bottom-color: ${({ theme }) => theme.skill.rivalIdInputBorder};
+  }
+
+  &&& .MuiInput-underline:hover::before {
+    border-bottom-color: ${({ theme }) => theme.skill.rivalIdInputBorder};
+  }
+`;
+
+const MuiDialog = styled(Dialog)`
+  & .MuiPaper-root {
+    background-color: ${({ theme }) => theme.mainBg};
+  }
+
+  & .MuiTypography-root {
+    color: ${({ theme }) => theme.main};
+  }
+
+  & .MuiButtonBase-root {
+    color: ${({ theme }) => theme.link};
   }
 `;
 

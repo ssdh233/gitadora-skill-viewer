@@ -6,24 +6,23 @@ import { ApolloProvider } from "@apollo/react-hooks";
 import { ApolloClient } from "apollo-client";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { HttpLink } from "apollo-link-http";
-import { ThemeProvider } from "@material-ui/styles";
-import { createMuiTheme } from "@material-ui/core/styles";
 import * as Sentry from "@sentry/react";
 import { Integrations } from "@sentry/tracing";
 
 import App from "./react/App.jsx";
 
 Sentry.init({
-  dsn: "https://6d26c7e100a84ae2ae01f54719c5ca19@o912155.ingest.sentry.io/5848955",
+  dsn:
+    "https://6d26c7e100a84ae2ae01f54719c5ca19@o912155.ingest.sentry.io/5848955",
   integrations: [new Integrations.BrowserTracing()],
 
   // Set tracesSampleRate to 1.0 to capture 100%
   // of transactions for performance monitoring.
   // We recommend adjusting this value in production
-  tracesSampleRate: 0.5,
+  tracesSampleRate: 0.5
 });
 
-const { locale, messages } = JSON.parse(window.App);
+const { locale, messages, initialThemeKey } = JSON.parse(window.App);
 
 const link = new HttpLink({
   uri: "/graphql"
@@ -39,9 +38,7 @@ hydrate(
   <ApolloProvider client={client}>
     <IntlProvider locale={locale} messages={messages}>
       <BrowserRouter>
-        <ThemeProvider theme={createMuiTheme()}>
-          <App />
-        </ThemeProvider>
+        <App initialThemeKey={initialThemeKey} />
       </BrowserRouter>
     </IntlProvider>
   </ApolloProvider>,
