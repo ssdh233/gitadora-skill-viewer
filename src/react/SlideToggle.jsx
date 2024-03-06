@@ -7,7 +7,7 @@ function SlideToggle(props) {
 
   // TODO stop using $
   const handleToggleDiv = () => {
-    // eslint-disable-next-line react/no-string-refs
+    // eslint-disable-next-line no-undef
     $(toggleDivEl.current).slideToggle(400, () => {
       setOpen(!open);
     });
