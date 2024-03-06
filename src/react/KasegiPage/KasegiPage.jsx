@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import { injectIntl, FormattedMessage } from "react-intl";
 
 import KasegiTable from "./KasegiTable.jsx";
-import { CURRENT_VERSION, VERSION_NAME } from "../../constants.js";
+import { CURRENT_VERSION } from "../../constants.js";
 
 class KasegiPage extends React.Component {
   render() {

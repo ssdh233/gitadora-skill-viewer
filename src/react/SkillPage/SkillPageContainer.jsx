@@ -6,7 +6,6 @@ import LinearProgress from "@material-ui/core/LinearProgress";
 import { OLD_NAME_MAP, CURRENT_VERSION } from "../../constants";
 import queryParser from "../../modules/query";
 import SkillPage from "./SkillPage.jsx";
-import { useHistory } from "react-router";
 import { injectIntl } from "react-intl";
 
 const GET_SKILL = gql`

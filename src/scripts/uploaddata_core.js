@@ -199,29 +199,6 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
     return profileData;
   }
 
-  async function getSharedSongData(type) {
-    // get shared song data
-    const url = `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p${NO_EAM_PATH_VERSIONS.includes(VERSION) ? "/eam" : ""}}/setting/recommend.html?gtype=${type}`;
-    const resHtml = await $.ajax({
-      url: url,
-      error: handleAjaxError(url)
-    });
-
-    var doc = document.implementation.createHTMLDocument("html");
-    doc.documentElement.innerHTML = resHtml;
-
-    const songs = $(doc)
-      .find("#contents table.music_table_tb tr > td.music_cell")
-      .map((i, el) =>
-        $(el)
-          .text()
-          .trim()
-      )
-      .toArray();
-
-    return songs;
-  }
-
   async function postError(error) {
     if (!error) return;
     console.error(error);

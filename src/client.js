@@ -1,4 +1,5 @@
 import React from "react";
+// eslint-disable-next-line react/no-deprecated
 import { hydrate } from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import { IntlProvider } from "react-intl";

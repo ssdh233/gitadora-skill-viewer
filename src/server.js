@@ -5,10 +5,8 @@ import { IntlProvider } from "react-intl";
 import flatten from "flat";
 import { Helmet } from "react-helmet";
 import {
-  ThemeProvider,
   ServerStyleSheets as MuiServerStyleSheets,
 } from "@material-ui/styles";
-import { createMuiTheme } from "@material-ui/core/styles";
 import { ApolloProvider } from "@apollo/react-common";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { HttpLink } from "apollo-link-http";

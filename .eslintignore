@@ -1,3 +1,4 @@
 /node_modules/*
-/src/public/js/bundle.js
-/src/public/js/google_analytics.js
+/src/public/js/*.js
+app.dist.js
+/cypress
