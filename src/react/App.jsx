@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { Route, Switch, withRouter } from "react-router-dom";
 
-import Index from "./Index.jsx";
+import IndexPage from "./IndexPage";
 import AppHeader from "./AppHeader.jsx";
 import UserVoicePage from "./UserVoicePage.jsx";
 import KasegiPage from "./KasegiPage";
@@ -15,7 +15,7 @@ import ErrorListPage from "./ErrorListPage";
 import theme from "../theme.js";
 import { Helmet } from "react-helmet";
 import { ThemeProvider as MuiThemeProvider } from "@material-ui/styles";
-import { createMuiTheme } from "@material-ui/core";
+import { createTheme } from "@material-ui/core";
 
 function App({ initialThemeKey = "default" }) {
   const [themeKey, setThemeKey] = useState(initialThemeKey);
@@ -29,7 +29,13 @@ function App({ initialThemeKey = "default" }) {
 
   return (
     <ThemeProvider theme={theme[themeKey]}>
-      <MuiThemeProvider theme={createMuiTheme()}>
+      <MuiThemeProvider
+        theme={createTheme({
+          palette: {
+            type: themeKey === "dark" ? "dark" : "light"
+          }
+        })}
+      >
         <Background>
           <MainContainer>
             <Helmet>
@@ -52,7 +58,7 @@ function App({ initialThemeKey = "default" }) {
               )}
             />
             <Switch>
-              <Route exact path="/:locale" component={Index} />
+              <Route exact path="/:locale" component={IndexPage} />
               <Route
                 exact
                 path="/:locale/uservoice"

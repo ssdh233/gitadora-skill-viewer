@@ -29,7 +29,13 @@
       "step2": {
         "desc": "2.<b>Log in to GITADORA official site</b>, and click the added bookmark",
         "imgDesc1": "Make sure you are on Konami official site",
-        "imgDesc2": "After login, click the bookmark which you just added"
+        "imgDesc2": "After login, click the bookmark which you just added",
+        "androidWorkaround": "If nothing happens after clicking the bookmark, your device might not support executing javascripts from bookmark (it usually happens on Android devices). If so, you could try<steps>123</steps>",
+        "androidWorkaroundStep1": "Copy the script above",
+        "androidWorkaroundStep2": "Go to GITADORA official site, then paste the script into address bar",
+        "androidWorkaroundStep3": "After pasting, add <code>javascript:</code> to the beginning of address bar <question>?</question>",
+        "androidWorkaroundStep4": "Press enter to execute the script",
+        "androidWorkaroundDesc": "Most of the browsers would remove <code>javascript:</code> while pasting to address bar, so you will need to add it back again. Skip this step if <code>javascript:</code> still exsits."
       },
       "step3": {
         "desc": "3.Wait for 5 to 10 seconds. It will jump to your skill page after finishing uploading. <b>Use this URL to share your skill data with others.</b>",
@@ -53,6 +59,10 @@
     },
     "browser": {
       "title": "Recommended browser"
+    },
+    "oldLinks": {
+      "title": "Old Links",
+      "oldList": "Player list(old versions)"
     }
   },
   "snackbar": {

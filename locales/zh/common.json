@@ -19,7 +19,7 @@
       "title": "上传skill data",
       "step1": {
         "desc": "1.在浏览器的书签上登录下面的代码",
-        "remark": "※有些浏览器（比如safari、手机上的chrome）上没有办法新建书签，可以先随便添加一个任意网站的书签，然后选择编辑，把URL地址栏的内容换成下面的代码就好了。",
+        "remark": "※有些浏览器（比如Safari、手机上的Chrome）上没有办法新建书签，可以先随便添加一个任意网站的书签，然后选择编辑，把URL地址栏的内容换成下面的代码就好了。",
         "imgDesc1": "书签的名字可以随便填",
         "imgDesc2": "把代码粘贴到URL这里",
         "currentVersion": "当前版本 FUZZ-UP",
@@ -29,7 +29,13 @@
       "step2": {
         "desc": "2.<b>在konami的网站上保持登录状态的时候</b>，点击刚才登录的书签",
         "imgDesc1": "确认在Konami的网站上",
-        "imgDesc2": "登录后点击这个书签"
+        "imgDesc2": "登录后点击这个书签",
+        "androidWorkaround": "如果点击书签没有反应，有可能是设备不支持执行书签的代码（安卓设备这种情况比较多），这时可以尝试<steps>123</steps>",
+        "androidWorkaroundStep1": "复制上面的代码",
+        "androidWorkaroundStep2": "去Gitadora的官方主页，并且把上面的代码拷贝到地址栏",
+        "androidWorkaroundStep3": "拷贝后，在地址栏的开头添加<code>javascript:</code> <question>?</question>",
+        "androidWorkaroundStep4": "按下确定/Enter键执行代码",
+        "androidWorkaroundDesc": "大部分浏览器会在拷贝时删除掉前面的<code>javascript:</code>，所以需要在拷贝后手动重新添加。如果拷贝后前面的<code>javascript:</code>还在的话，请略过这一步。"
       },
       "step3": {
         "desc": "3.等待5～10秒钟之后，就会自动跳转到skill data的表示画面。<b>请记住跳转之后的地址（用来公开当前的skill）</b>",
@@ -53,6 +59,10 @@
     },
     "browser": {
       "title": "推荐浏览器"
+    },
+    "oldLinks": {
+      "title": "旧链接存放处",
+      "oldList": "旧版本的玩家列表"
     }
   },
   "snackbar": {
