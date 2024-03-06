@@ -53,7 +53,11 @@ function ListPage(props) {
         return page * pageSize + viewIndex + 1;
       }
     },
-    { Header: "Name", accessor: "playerName", minWidth: 144 },
+    {
+      Header: "Name",
+      accessor: "playerName",
+      minWidth: 144
+    },
     {
       Header: "Guitar",
       accessor: "guitarSkillPoint",
@@ -74,10 +78,7 @@ function ListPage(props) {
       maxWidth: props.mediaQuery === "sp" ? 70 : 90,
       sortMethod: (a, b) => Number(a) - Number(b),
       Cell: ({ row }) => (
-        <Link
-          to={`/${locale}/${version}/${row._original.playerId}/d`}
-          className={`lv${getLevel(row.drumSkillPoint)}`}
-        >
+        <Link to={`/${locale}/${version}/${row._original.playerId}/d`} className={`lv${getLevel(row.drumSkillPoint)}`}>
           {(row.drumSkillPoint && row.drumSkillPoint.toFixed(2)) || "0.00"}
         </Link>
       )
@@ -106,7 +107,11 @@ function ListPage(props) {
   if (props.isAdmin) {
     columns = [
       ...columns,
-      { Header: "Count", accessor: "updateCount", minWidth: 30 }
+      {
+        Header: "Count",
+        accessor: "updateCount",
+        minWidth: 30
+      }
     ];
   }
 

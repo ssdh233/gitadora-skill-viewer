@@ -34,13 +34,7 @@ const GET_SKILL = gql`
     }
   }
 
-  query User(
-    $playerId: Int
-    $version: Version
-    $type: GameType
-    $savedSkillId: Int
-    $rivalPlayerId: Int
-  ) {
+  query User($playerId: Int, $version: Version, $type: GameType, $savedSkillId: Int, $rivalPlayerId: Int) {
     user(playerId: $playerId, version: $version) {
       version
       playerId
@@ -84,12 +78,7 @@ const GET_SKILL = gql`
 `;
 
 const SAVE_SKILL = gql`
-  mutation SaveSkill(
-    $version: Version
-    $data: SimpleUserInput
-    $playerId: Int
-    $type: GameType
-  ) {
+  mutation SaveSkill($version: Version, $data: SimpleUserInput, $playerId: Int, $type: GameType) {
     saveSkill(version: $version, data: $data, playerId: $playerId, type: $type)
   }
 `;
@@ -145,14 +134,8 @@ function SkillPageContainer(props) {
         data: {
           playerName: data.user.playerName,
           updateDate: data.user.updateDate,
-          drumSkill: JSON.parse(
-            JSON.stringify(data.user.drumSkill),
-            omitTypename
-          ),
-          guitarSkill: JSON.parse(
-            JSON.stringify(data.user.guitarSkill),
-            omitTypename
-          )
+          drumSkill: JSON.parse(JSON.stringify(data.user.drumSkill), omitTypename),
+          guitarSkill: JSON.parse(JSON.stringify(data.user.guitarSkill), omitTypename)
         }
       }
     });
@@ -214,10 +197,7 @@ function compareSkillHalf(current, old) {
     result.data.forEach(item => {
       let newSkillFlag = true;
       for (let i = 0; i < old.data.length; i++) {
-        if (
-          old.data[i].name === item.name ||
-          OLD_NAME_MAP[old.data[i].name] === item.name
-        ) {
+        if (old.data[i].name === item.name || OLD_NAME_MAP[old.data[i].name] === item.name) {
           newSkillFlag = false;
           const newSkill = Number(item.skill_value);
           const oldSkill = Number(old.data[i].skill_value);

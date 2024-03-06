@@ -50,10 +50,7 @@ const messages = {
 };
 
 const reactRoute = (req, res) => {
-  if (
-    req.get("Host") === "gitadora-skill-viewer.herokuapp.com" &&
-    process.env.DOMAIN_REDIRECT === "true"
-  ) {
+  if (req.get("Host") === "gitadora-skill-viewer.herokuapp.com" && process.env.DOMAIN_REDIRECT === "true") {
     res.redirect(301, `http://gsv.fun${req.url}`);
   } else {
     // set current language to cookie
@@ -102,9 +99,7 @@ const reactRoute = (req, res) => {
       const helmet = Helmet.renderStatic();
 
       const isDevelopment = process.env.NODE_ENV === "development";
-      const bundlePath = isDevelopment
-        ? "http://localhost:8000/bundle.js"
-        : `/js/${bundleFileName}`;
+      const bundlePath = isDevelopment ? "http://localhost:8000/bundle.js" : `/js/${bundleFileName}`;
 
       const html = htmlTemplate({
         googleSiteVerfication: process.env.GOOGLE_SITE_VERIFICATION,

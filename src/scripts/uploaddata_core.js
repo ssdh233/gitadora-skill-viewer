@@ -45,11 +45,7 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
     ];
     var SKILL_LABEL = ["guitar_other", "guitar_hot", "drum_other", "drum_hot"];
 
-    await Promise.all(
-      [0, 1, 2, 3].map(index =>
-        getSkillData(SKILL_URLS[index], SKILL_LABEL[index])
-      )
-    );
+    await Promise.all([0, 1, 2, 3].map(index => getSkillData(SKILL_URLS[index], SKILL_LABEL[index])));
 
     let uploadRes = await $.ajax({
       url: `${SCRIPT_DOMAIN}/graphql`,
@@ -128,9 +124,7 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
               .substring(14, 17);
 
             var skill_value = current_line.find("td.skill_cell").text();
-            skill_value = skill_value
-              .substring(0, skill_value.length - 8)
-              .trim();
+            skill_value = skill_value.substring(0, skill_value.length - 8).trim();
             var achive_value = current_line
               .find("td.achive_cell")
               .text()

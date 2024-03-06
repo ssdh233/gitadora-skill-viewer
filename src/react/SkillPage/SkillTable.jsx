@@ -29,14 +29,7 @@ class SkillTable extends React.Component {
   };
 
   render() {
-    const {
-      data,
-      rivalData,
-      caption,
-      type,
-      hasComparedSkill,
-      ...rest
-    } = this.props;
+    const { data, rivalData, caption, type, hasComparedSkill, ...rest } = this.props;
 
     let combinedData = data.map((item, index) => ({
       index: index + 1,
@@ -88,11 +81,7 @@ class SkillTable extends React.Component {
           {combinedData
             .sort((a, b) => b.skill_value - a.skill_value)
             .map(item => (
-              <SkillTableTr
-                key={item.name + " " + item.diff}
-                diff={item.diff}
-                isRivalData={!item.index}
-              >
+              <SkillTableTr key={item.name + " " + item.diff} diff={item.diff} isRivalData={!item.index}>
                 <SkillTableNoTd>{item.index}</SkillTableNoTd>
                 <SkillTableNameTd>{item.name}</SkillTableNameTd>
                 <SkillTableTd>{this.getDiff(item, type)}</SkillTableTd>
@@ -102,9 +91,7 @@ class SkillTable extends React.Component {
                     <>
                       <br />
                       <RivalData win={item.skill_value >= item.rivalSkillValue}>
-                        {`${item.rivalAchieveValue} (${this.getRank(
-                          item.rivalAchieveValue
-                        )})`}
+                        {`${item.rivalAchieveValue} (${this.getRank(item.rivalAchieveValue)})`}
                       </RivalData>
                     </>
                   )}
@@ -120,9 +107,7 @@ class SkillTable extends React.Component {
                     </>
                   )}
                 </SkillTableTd>
-                {hasComparedSkill && (
-                  <SkillTableCompareTd>{item.compare}</SkillTableCompareTd>
-                )}
+                {hasComparedSkill && <SkillTableCompareTd>{item.compare}</SkillTableCompareTd>}
               </SkillTableTr>
             ))}
         </tbody>

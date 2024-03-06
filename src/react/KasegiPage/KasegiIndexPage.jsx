@@ -46,18 +46,12 @@ function KasegiIndexPage(props) {
             const skill = 3000 + key * 500;
             return (
               <>
-                <Link
-                  key={key}
-                  to={`/${locale}/${CURRENT_VERSION}/kasegi_old/d/${skill}`}
-                >
+                <Link key={key} to={`/${locale}/${CURRENT_VERSION}/kasegi_old/d/${skill}`}>
                   <ListItem button>
                     <ListItemText primary={`${skill} ~`} />
                   </ListItem>
                 </Link>
-                <Link
-                  key={key}
-                  to={`/${locale}/${CURRENT_VERSION}/kasegi_old/g/${skill}`}
-                >
+                <Link key={key} to={`/${locale}/${CURRENT_VERSION}/kasegi_old/g/${skill}`}>
                   <ListItem button>
                     <ListItemText primary={`${skill} ~`} />
                   </ListItem>

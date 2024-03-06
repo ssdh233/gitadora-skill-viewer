@@ -6,13 +6,7 @@ import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import BookmarkletScript from "./BookmarkletScript.jsx";
 import styled, { withTheme } from "styled-components";
 import { Alert } from "@material-ui/lab";
-import {
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText
-} from "@material-ui/core";
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText } from "@material-ui/core";
 
 function HowToUse(props) {
   const { theme } = props;
@@ -21,14 +15,7 @@ function HowToUse(props) {
 
   return (
     <>
-      <p>
-        {
-          <FormattedMessage
-            id="how.upload.step1.desc"
-            defaultMessage="1.ブックマークに下記のスクリプトを登録"
-          />
-        }
-      </p>
+      <p>{<FormattedMessage id="how.upload.step1.desc" defaultMessage="1.ブックマークに下記のスクリプトを登録" />}</p>
       <MuiAlert severity="warning">
         <FormattedMessage
           id="how.upload.step1.remark"
@@ -88,11 +75,7 @@ function HowToUse(props) {
           defaultMessage="ブックマークをクリックして反応がなかった場合、お持ちのデバイス（特にAndroid機種が多い）はブックマークでのスクリプト実行をサポートしていない可能性があります。その場合は<steps>123</steps>という方法もあります。（<a>画像による説明 thanks@beit_soldier</a>）"
           values={{
             a: content => (
-              <a
-                href="https://twitter.com/beit_soldier/status/1384890899033825281"
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a href="https://twitter.com/beit_soldier/status/1384890899033825281" target="_blank" rel="noreferrer">
                 {content}
               </a>
             ),
@@ -159,11 +142,7 @@ function HowToUse(props) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button
-            onClick={() => setShowDialog(false)}
-            color="primary"
-            autoFocus
-          >
+          <Button onClick={() => setShowDialog(false)} color="primary" autoFocus>
             <FormattedMessage id="skill.skillIdOk" />
           </Button>
         </DialogActions>

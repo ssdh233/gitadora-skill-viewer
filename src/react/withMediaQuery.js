@@ -25,21 +25,15 @@ export default function withMediaQuery(WrappedComponent) {
 
     handleResize = () => {
       this.setState({
-        mediaQuery: window.matchMedia("(max-width: 742px)").matches
-          ? "sp"
-          : "pc"
+        mediaQuery: window.matchMedia("(max-width: 742px)").matches ? "sp" : "pc"
       });
     };
 
     render() {
-      return (
-        <WrappedComponent mediaQuery={this.state.mediaQuery} {...this.props} />
-      );
+      return <WrappedComponent mediaQuery={this.state.mediaQuery} {...this.props} />;
     }
   }
-  WithMediaQuery.displayName = `WithSubscription(${getDisplayName(
-    WrappedComponent
-  )})`;
+  WithMediaQuery.displayName = `WithSubscription(${getDisplayName(WrappedComponent)})`;
 
   return WithMediaQuery;
 }

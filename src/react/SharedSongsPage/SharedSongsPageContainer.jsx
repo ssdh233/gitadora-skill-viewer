@@ -26,14 +26,9 @@ const FETCH_SUGGSTIONS = gql`
 `;
 
 function SharedSongsPageContainer(props) {
-  const [
-    fetchSharedSongs,
-    { data: sharedSongsData, loading: sharedSongsLoading }
-  ] = useLazyQuery(FETCH_SHARED_SONGS);
+  const [fetchSharedSongs, { data: sharedSongsData, loading: sharedSongsLoading }] = useLazyQuery(FETCH_SHARED_SONGS);
 
-  const [fetchSuggestions, { data: suggestionsData }] = useLazyQuery(
-    FETCH_SUGGSTIONS
-  );
+  const [fetchSuggestions, { data: suggestionsData }] = useLazyQuery(FETCH_SUGGSTIONS);
 
   const { type } = props.match.params;
 

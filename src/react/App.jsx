@@ -51,60 +51,19 @@ function App({ initialThemeKey = "default" }) {
               }
             `}</style>
             </Helmet>
-            <Route
-              path="/:locale"
-              component={props => (
-                <AppHeader {...props} setThemeKey={setThemeKey} />
-              )}
-            />
+            <Route path="/:locale" component={props => <AppHeader {...props} setThemeKey={setThemeKey} />} />
             <Switch>
               <Route exact path="/:locale" component={IndexPage} />
-              <Route
-                exact
-                path="/:locale/uservoice"
-                component={UserVoicePage}
-              />
-              <Route
-                exact
-                path="/:locale/errorlist"
-                component={ErrorListPage}
-              />
-              <Route
-                exact
-                path="/:locale/:version/kasegi/:type/:scope"
-                component={KasegiNewPage}
-              />
-              <Route
-                exact
-                path="/:locale/:version/kasegi_old"
-                component={KasegiIndexPage}
-              />
-              <Route
-                exact
-                path="/:locale/:version/kasegi_old/:type/:scope"
-                component={KasegiPage}
-              />
+              <Route exact path="/:locale/uservoice" component={UserVoicePage} />
+              <Route exact path="/:locale/errorlist" component={ErrorListPage} />
+              <Route exact path="/:locale/:version/kasegi/:type/:scope" component={KasegiNewPage} />
+              <Route exact path="/:locale/:version/kasegi_old" component={KasegiIndexPage} />
+              <Route exact path="/:locale/:version/kasegi_old/:type/:scope" component={KasegiPage} />
               <Route exact path="/:locale/:version/list" component={ListPage} />
-              <Route
-                exact
-                path="/:locale/:version/userlist"
-                component={props => <ListPage {...props} isAdmin />}
-              />
-              <Route
-                exact
-                path="/:locale/:version/:skillId/p"
-                component={SavedSkillPageContainer}
-              />
-              <Route
-                exact
-                path="/:locale/:version/:playerId/:type"
-                component={SkillPageContainer}
-              />
-              <Route
-                exact
-                path="/:locale/shared/:type"
-                component={SharedSongsPage}
-              />
+              <Route exact path="/:locale/:version/userlist" component={props => <ListPage {...props} isAdmin />} />
+              <Route exact path="/:locale/:version/:skillId/p" component={SavedSkillPageContainer} />
+              <Route exact path="/:locale/:version/:playerId/:type" component={SkillPageContainer} />
+              <Route exact path="/:locale/shared/:type" component={SharedSongsPage} />
             </Switch>
           </MainContainer>
         </Background>

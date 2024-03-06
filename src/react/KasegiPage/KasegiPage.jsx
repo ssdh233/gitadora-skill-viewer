@@ -60,9 +60,7 @@ class KasegiPage extends React.Component {
               }}
             >
               ⚠️古いバージョンの情報です。最新の稼ぎ曲の情報は
-              <a href={`/${locale}/${CURRENT_VERSION}/kasegi/${type}/${scope}`}>
-                こちら
-              </a>
+              <a href={`/${locale}/${CURRENT_VERSION}/kasegi/${type}/${scope}`}>こちら</a>
             </blockquote>
           )}
           {comparedSkillData && (
@@ -72,12 +70,12 @@ class KasegiPage extends React.Component {
                 id="kasegi.compareTitle"
                 values={{
                   compareSkill: (
-                    <Link
-                      to={`/${locale}/${version}/${comparedSkillId}/${type}`}
-                    >
+                    <Link to={`/${locale}/${version}/${comparedSkillId}/${type}`}>
                       <FormattedMessage
                         id="kasegi.compareSkill"
-                        values={{ name: comparedSkillData.playerName }}
+                        values={{
+                          name: comparedSkillData.playerName
+                        }}
                       />
                     </Link>
                   )

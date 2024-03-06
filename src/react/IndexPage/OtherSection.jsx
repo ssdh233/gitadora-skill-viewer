@@ -12,11 +12,7 @@ import { MuiButton, MuiMenuItem, MuiMenuList } from "../AppHeader.jsx";
 import styled, { withTheme } from "styled-components";
 import { ListSubheader } from "@material-ui/core";
 import { withRouter } from "react-router-dom/cjs/react-router-dom.min.js";
-import {
-  ALL_VERSIONS,
-  CURRENT_VERSION,
-  VERSION_NAME
-} from "../../constants.js";
+import { ALL_VERSIONS, CURRENT_VERSION, VERSION_NAME } from "../../constants.js";
 
 function OtherSection(props) {
   const {
@@ -33,14 +29,13 @@ function OtherSection(props) {
   return (
     <>
       <p
-        style={{ border: props.highlightOldLinks ? "5px solid" : "" }}
+        style={{
+          border: props.highlightOldLinks ? "5px solid" : ""
+        }}
         id="old-links-p"
       >
         {"★"}
-        <FormattedMessage
-          id="other.oldLinks.title"
-          defaultMessage="古いリンク"
-        />
+        <FormattedMessage id="other.oldLinks.title" defaultMessage="古いリンク" />
         <br />
         <MuiButton
           id="kasegi-old-button"
@@ -88,18 +83,12 @@ function OtherSection(props) {
                 const skill = 3000 + key * 500;
                 return (
                   <>
-                    <Link
-                      key={key}
-                      to={`/${locale}/${CURRENT_VERSION}/kasegi_old/d/${skill}`}
-                    >
+                    <Link key={key} to={`/${locale}/${CURRENT_VERSION}/kasegi_old/d/${skill}`}>
                       <ListItem button>
                         <ListItemText primary={`${skill} ~`} />
                       </ListItem>
                     </Link>
-                    <Link
-                      key={key}
-                      to={`/${locale}/${CURRENT_VERSION}/kasegi_old/g/${skill}`}
-                    >
+                    <Link key={key} to={`/${locale}/${CURRENT_VERSION}/kasegi_old/g/${skill}`}>
                       <ListItem button>
                         <ListItemText primary={`${skill} ~`} />
                       </ListItem>
@@ -119,10 +108,7 @@ function OtherSection(props) {
         >
           <FormatListBulleted />
           <span style={{ marginLeft: 5 }}>
-            <FormattedMessage
-              id="other.oldLinks.oldList"
-              defaultMessage="過去バージョンのユーザ一覧"
-            />
+            <FormattedMessage id="other.oldLinks.oldList" defaultMessage="過去バージョンのユーザ一覧" />
           </span>
         </MuiButton>
         <Popover
@@ -140,21 +126,19 @@ function OtherSection(props) {
           <MuiMenuList>
             {ALL_VERSIONS.slice(1).map(version => (
               <Link to={`/${locale}/${version}/list`} key={version}>
-                <MuiMenuItem>
-                  {VERSION_NAME[version].replace(":EVOLVE", "")}
-                </MuiMenuItem>
+                <MuiMenuItem>{VERSION_NAME[version].replace(":EVOLVE", "")}</MuiMenuItem>
               </Link>
             ))}
           </MuiMenuList>
         </Popover>
       </p>
       <p>
-        {"★" + formatMessage({ id: "other.code.title" }) + "："}
-        <a
-          href="https://github.com/matsumatsu233/gitadora-skill-viewer"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
+        {"★" +
+          formatMessage({
+            id: "other.code.title"
+          }) +
+          "："}
+        <a href="https://github.com/matsumatsu233/gitadora-skill-viewer" target="_blank" rel="noreferrer noopener">
           Github
         </a>
       </p>
