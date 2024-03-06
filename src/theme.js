@@ -35,7 +35,8 @@ const defaultTheme = {
     imageDesc: COLORS.red,
     imageDescBg: COLORS.white,
     imageOpacity: 1,
-    scriptBg: COLORS.lightGray_e3
+    scriptBg: COLORS.lightGray_e3,
+    alertOpacity: 1
   },
   skill: {
     profileTableHeader: COLORS.white,
@@ -81,7 +82,8 @@ const darkTheme = {
     imageDesc: COLORS.folly,
     imageDescBg: COLORS.black_1f,
     imageOpacity: 0.4,
-    scriptBg: COLORS.darkGray_31
+    scriptBg: COLORS.darkGray_31,
+    alertOpacity: 0.8
   },
   skill: {
     profileTableHeader: "",
