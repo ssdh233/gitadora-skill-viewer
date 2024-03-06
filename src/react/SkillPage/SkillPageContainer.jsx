@@ -6,7 +6,6 @@ import LinearProgress from "@material-ui/core/LinearProgress";
 import { OLD_NAME_MAP, CURRENT_VERSION } from "../../constants";
 import queryParser from "../../modules/query";
 import SkillPage from "./SkillPage.jsx";
-import { useHistory } from "react-router";
 import { injectIntl } from "react-intl";
 
 const GET_SKILL = gql`
@@ -35,13 +34,7 @@ const GET_SKILL = gql`
     }
   }
 
-  query User(
-    $playerId: Int
-    $version: Version
-    $type: GameType
-    $savedSkillId: Int
-    $rivalPlayerId: Int
-  ) {
+  query User($playerId: Int, $version: Version, $type: GameType, $savedSkillId: Int, $rivalPlayerId: Int) {
     user(playerId: $playerId, version: $version) {
       version
       playerId
@@ -49,7 +42,7 @@ const GET_SKILL = gql`
       updateDate
       updateCount
       drumSkill {
-       ...SkillTable
+        ...SkillTable
       }
       guitarSkill {
         ...SkillTable
@@ -88,17 +81,16 @@ const SAVE_SKILL = gql`
   mutation SaveSkill($version: Version, $data: SimpleUserInput, $playerId: Int, $type: GameType) {
     saveSkill(version: $version, data: $data, playerId: $playerId, type: $type)
   }
-`
+`;
 
-const omitTypename = (key, value) => (key === '__typename' ? undefined : value)
+const omitTypename = (key, value) => (key === "__typename" ? undefined : value);
 
 function SkillPageContainer(props) {
   const { locale, playerId, version, type } = props.match.params;
   const query = queryParser(props.location.search);
   const {
-    intl: { formatMessage },
+    intl: { formatMessage }
   } = props;
-
 
   const { data, loading, error } = useQuery(GET_SKILL, {
     variables: {
@@ -106,19 +98,19 @@ function SkillPageContainer(props) {
       version,
       type,
       // ignore comparing with savedSkill while comparing with rival
-      savedSkillId: query.r ? null : parseInt(query.c), 
+      savedSkillId: query.r ? null : parseInt(query.c),
       rivalPlayerId: parseInt(query.r)
     }
   });
 
   const [saveSkill] = useMutation(SAVE_SKILL, {
-    onCompleted: (data) => { 
-      if (data.saveSkill >=0) {
+    onCompleted: data => {
+      if (data.saveSkill >= 0) {
         location.href = `/${locale}/${version}/${data.saveSkill}/p`;
       } else {
         alert(formatMessage({ id: "skill.alreadySaved" }));
       }
-     }
+    }
   });
 
   useEffect(() => {
@@ -134,18 +126,20 @@ function SkillPageContainer(props) {
   }, []);
 
   const handleSaveSkill = () => {
-    return saveSkill({variables: {
-      playerId: parseInt(playerId),
-      version,
-      type,
-      data: {
-        playerName: data.user.playerName,
-        updateDate: data.user.updateDate,
-        drumSkill: JSON.parse(JSON.stringify(data.user.drumSkill), omitTypename),
-        guitarSkill: JSON.parse(JSON.stringify(data.user.guitarSkill), omitTypename),
+    return saveSkill({
+      variables: {
+        playerId: parseInt(playerId),
+        version,
+        type,
+        data: {
+          playerName: data.user.playerName,
+          updateDate: data.user.updateDate,
+          drumSkill: JSON.parse(JSON.stringify(data.user.drumSkill), omitTypename),
+          guitarSkill: JSON.parse(JSON.stringify(data.user.guitarSkill), omitTypename)
+        }
       }
-    }})
-  }
+    });
+  };
 
   if (loading) return <LinearProgress />;
   if (error) return <p>ERROR: {error.toString()}</p>;
@@ -203,10 +197,7 @@ function compareSkillHalf(current, old) {
     result.data.forEach(item => {
       let newSkillFlag = true;
       for (let i = 0; i < old.data.length; i++) {
-        if (
-          old.data[i].name === item.name ||
-          OLD_NAME_MAP[old.data[i].name] === item.name
-        ) {
+        if (old.data[i].name === item.name || OLD_NAME_MAP[old.data[i].name] === item.name) {
           newSkillFlag = false;
           const newSkill = Number(item.skill_value);
           const oldSkill = Number(old.data[i].skill_value);

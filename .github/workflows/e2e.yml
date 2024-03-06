@@ -24,4 +24,3 @@ jobs:
         timeout: 600
         interval: 60
     - run: cypress run
-    

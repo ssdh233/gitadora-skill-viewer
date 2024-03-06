@@ -41,13 +41,18 @@ function IndexPage(props) {
         <title>{formatMessage({ id: "title" })}</title>
         <meta
           name="description"
-          content={`${formatMessage({ id: "intro.desc" })} ${formatMessage({
+          content={`${formatMessage({
+            id: "intro.desc"
+          })} ${formatMessage({
             id: "desc.3rd"
           }).substring(2)}`}
         />
       </Helmet>
       <Snackbar
-        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "center"
+        }}
         open={snackbarOpen}
         action={
           <div>
@@ -56,11 +61,7 @@ function IndexPage(props) {
                 <FormattedMessage id="snackbar.yes" />
               </Button>
             </Link>
-            <Button
-              color="secondary"
-              size="small"
-              onClick={() => setSnackbarOpen(false)}
-            >
+            <Button color="secondary" size="small" onClick={() => setSnackbarOpen(false)}>
               <FormattedMessage id="snackbar.no" />
             </Button>
           </div>
@@ -70,17 +71,11 @@ function IndexPage(props) {
         }}
         message={
           <span id="message-id">
-            <FormattedMessage
-              id="snackbar.message"
-              values={{ name: gsvName }}
-            />
+            <FormattedMessage id="snackbar.message" values={{ name: gsvName }} />
           </span>
         }
       />
-      <SlideToggle
-        defaultOpen={true}
-        title={<FormattedMessage id="intro.title" defaultMessage="なにこれ?" />}
-      >
+      <SlideToggle defaultOpen={true} title={<FormattedMessage id="intro.title" defaultMessage="なにこれ?" />}>
         <p>
           {
             <FormattedMessage
@@ -89,9 +84,7 @@ function IndexPage(props) {
             />
           }
         </p>
-        <h3>
-          {<FormattedMessage id="intro.info.title" defaultMessage="お知らせ" />}
-        </h3>
+        <h3>{<FormattedMessage id="intro.info.title" defaultMessage="お知らせ" />}</h3>
         <ul>
           <li>
             <FormattedMessage
@@ -101,10 +94,7 @@ function IndexPage(props) {
                   <Link
                     onClick={() => {
                       let highlightDelay = 200;
-                      if (
-                        document.getElementById("old-links-p").parentNode.style
-                          .display === "none"
-                      ) {
+                      if (document.getElementById("old-links-p").parentNode.style.display === "none") {
                         document.getElementById("otherSlideToggle").click();
                         highlightDelay = 400;
                       }
@@ -129,12 +119,14 @@ function IndexPage(props) {
           </li>
         </ul>
       </SlideToggle>
-      <SlideToggle
-        title={<FormattedMessage id="how.title" defaultMessage="使い方" />}
-      >
+      <SlideToggle title={<FormattedMessage id="how.title" defaultMessage="使い方" />}>
         <HowToUseSection />
       </SlideToggle>
-      <SlideToggle title={formatMessage({ id: "desc.title" })}>
+      <SlideToggle
+        title={formatMessage({
+          id: "desc.title"
+        })}
+      >
         <p>
           <FormattedHTMLMessage id="desc.1st" />
         </p>
@@ -142,10 +134,7 @@ function IndexPage(props) {
           <FormattedHTMLMessage id="desc.2nd" />
         </p>
       </SlideToggle>
-      <SlideToggle
-        title={<FormattedMessage id="other.title" />}
-        titleId="otherSlideToggle"
-      >
+      <SlideToggle title={<FormattedMessage id="other.title" />} titleId="otherSlideToggle">
         <OtherSection highlightOldLinks={highlightOldLinks} />
       </SlideToggle>
     </IndexPageContainer>

@@ -20,9 +20,7 @@ import SkillTable from "./SkillTable.jsx";
 
 function getSkillPoint(skillData) {
   if (!skillData) return 0;
-  return (Number(skillData.hot.point) + Number(skillData.other.point)).toFixed(
-    2
-  );
+  return (Number(skillData.hot.point) + Number(skillData.other.point)).toFixed(2);
 }
 
 function SkillPage(props) {
@@ -38,19 +36,9 @@ function SkillPage(props) {
   }
 
   const { locale, version } = props.match.params;
-  const {
-    skill,
-    playerId,
-    playerName,
-    updateDate,
-    skillPointDiff
-  } = props.skillData;
+  const { skill, playerId, playerName, updateDate, skillPointDiff } = props.skillData;
 
-  const {
-    playerId: rivalPlayId,
-    playerName: rivalPlayerName,
-    skill: rivalSkill
-  } = props.rivalSkillData || {};
+  const { playerId: rivalPlayId, playerName: rivalPlayerName, skill: rivalSkill } = props.rivalSkillData || {};
 
   const type = props.saved ? props.skillData.type : props.match.params.type;
 
@@ -91,12 +79,7 @@ function SkillPage(props) {
         <title>{`${title} | ${fullVersionName}`}</title>
         <meta name="twitter:card" content="summary" />
         <meta property="og:url" content="gsv.fun" />
-        <meta
-          property="og:title"
-          content={`${title} ${skillPoint} ${
-            skillPointDiff ? `(${skillPointDiff}↑)` : ""
-          }`}
-        />
+        <meta property="og:title" content={`${title} ${skillPoint} ${skillPointDiff ? `(${skillPointDiff}↑)` : ""}`} />
         <style>{stringStyles}</style>
       </Helmet>
       <VersionDiv>{fullVersionName}</VersionDiv>
@@ -110,9 +93,7 @@ function SkillPage(props) {
           )}
           {type === "d" && (
             <>
-              <Link to={`/${locale}/${version}/${playerId}/g`}>
-                GuitarFreaks
-              </Link>
+              <Link to={`/${locale}/${version}/${playerId}/g`}>GuitarFreaks</Link>
               <span>/Drummania</span>
             </>
           )}
@@ -129,18 +110,10 @@ function SkillPage(props) {
         </thead>
         <tbody>
           <tr>
-            <ProfileTableTd className={`lv${Math.floor(level / 2)}`}>
-              {playerName}
-            </ProfileTableTd>
-            <ProfileTableTd className={`lv${Math.floor(level / 2)}`}>
-              {skillPoint}
-            </ProfileTableTd>
-            <ProfileTableTd className={`lv${Math.floor(level / 2)}`}>
-              {skill.hot.point.toFixed(2)}
-            </ProfileTableTd>
-            <ProfileTableTd className={`lv${Math.floor(level / 2)}`}>
-              {skill.other.point.toFixed(2)}
-            </ProfileTableTd>
+            <ProfileTableTd className={`lv${Math.floor(level / 2)}`}>{playerName}</ProfileTableTd>
+            <ProfileTableTd className={`lv${Math.floor(level / 2)}`}>{skillPoint}</ProfileTableTd>
+            <ProfileTableTd className={`lv${Math.floor(level / 2)}`}>{skill.hot.point.toFixed(2)}</ProfileTableTd>
+            <ProfileTableTd className={`lv${Math.floor(level / 2)}`}>{skill.other.point.toFixed(2)}</ProfileTableTd>
           </tr>
         </tbody>
       </ProfileTable>
@@ -150,9 +123,7 @@ function SkillPage(props) {
             id="skill.comparingWith"
             values={{
               something: (
-                <Link
-                  to={`/${locale}/${version}/${rivalPlayId}/${type}?r=${playerId}`}
-                >
+                <Link to={`/${locale}/${version}/${rivalPlayId}/${type}?r=${playerId}`}>
                   <FormattedMessage
                     id="skill.rivalSkill"
                     values={{
@@ -198,10 +169,7 @@ function SkillPage(props) {
       {props.saved ? (
         <div>
           <Link to={`/${locale}/${version}/${playerId}/${type}`}>
-            <FormattedMessage
-              id="skill.latestSkill"
-              values={{ name: playerName }}
-            />
+            <FormattedMessage id="skill.latestSkill" values={{ name: playerName }} />
           </Link>
         </div>
       ) : (
@@ -211,45 +179,34 @@ function SkillPage(props) {
               .filter(scope => scope >= 3000)
               .map(scope => (
                 <div key={scope}>
-                  <Link
-                    to={`/${locale}/${version}/kasegi/${type}/${scope}?c=${playerId}`}
-                  >
+                  <Link to={`/${locale}/${version}/kasegi/${type}/${scope}?c=${playerId}`}>
                     <FormattedMessage
                       id="skill.compareWithKasegi"
-                      values={{ scope: `${scope}~${scope + 250}` }}
+                      values={{
+                        scope: `${scope}~${scope + 250}`
+                      }}
                     />
                   </Link>
                 </div>
               ))}
-            {gsvId !== null &&
-              gsvId !== String(playerId) &&
-              version === CURRENT_VERSION && (
-                <>
-                  <Link
-                    to={`/${locale}/${version}/${gsvId}/${type}?r=${playerId}`}
-                  >
-                    <FormattedMessage
-                      id="skill.compareWithPlayer"
-                      values={{ name: gsvName }}
-                    />
-                  </Link>
-                </>
-              )}
+            {gsvId !== null && gsvId !== String(playerId) && version === CURRENT_VERSION && (
+              <>
+                <Link to={`/${locale}/${version}/${gsvId}/${type}?r=${playerId}`}>
+                  <FormattedMessage id="skill.compareWithPlayer" values={{ name: gsvName }} />
+                </Link>
+              </>
+            )}
             <CompareForm
               onSubmit={event => {
                 event.preventDefault();
 
-                history.push(
-                  `/${locale}/${version}/${playerId}/${type}?r=${rivalInput}`
-                );
+                history.push(`/${locale}/${version}/${playerId}/${type}?r=${rivalInput}`);
               }}
             >
-              {formatMessage({ id: "skill.compareWith1" }) !== " " && (
-                <LinkLikeButton
-                  type="submit"
-                  disabled={!rivalInput}
-                  style={{ paddingLeft: 0 }}
-                >
+              {formatMessage({
+                id: "skill.compareWith1"
+              }) !== " " && (
+                <LinkLikeButton type="submit" disabled={!rivalInput} style={{ paddingLeft: 0 }}>
                   <FormattedMessage id="skill.compareWith1" />
                 </LinkLikeButton>
               )}
@@ -257,18 +214,21 @@ function SkillPage(props) {
                 name="rivalId"
                 value={rivalInput}
                 onChange={event => setRivalInput(event.target.value)}
-                placeholder={formatMessage({ id: "skill.skillId" })}
+                placeholder={formatMessage({
+                  id: "skill.skillId"
+                })}
               />
               <HelpOutlineIcon
-                style={{ fontSize: 16, cursor: "pointer" }}
+                style={{
+                  fontSize: 16,
+                  cursor: "pointer"
+                }}
                 onClick={() => setSkillIdDescDialogOpen(true)}
               />
-              {formatMessage({ id: "skill.compareWith2" }) !== " " && (
-                <LinkLikeButton
-                  type="submit"
-                  disabled={!rivalInput}
-                  style={{ paddingLeft: 0 }}
-                >
+              {formatMessage({
+                id: "skill.compareWith2"
+              }) !== " " && (
+                <LinkLikeButton type="submit" disabled={!rivalInput} style={{ paddingLeft: 0 }}>
                   <FormattedMessage id="skill.compareWith2" />
                 </LinkLikeButton>
               )}
@@ -292,43 +252,24 @@ function SkillPage(props) {
                   <tbody>
                     {props.skillSavedList.map((savedItem, index) => (
                       <tr key={savedItem.updateDate}>
-                        <SavedListTableTd
-                          className={`lv${parseInt(
-                            savedItem.skillPoint / 500
-                          )}`}
-                        >
-                          <Link
-                            to={`/${locale}/${version}/${savedItem.skillId}/p`}
-                          >
-                            {index + 1}
-                          </Link>
+                        <SavedListTableTd className={`lv${parseInt(savedItem.skillPoint / 500)}`}>
+                          <Link to={`/${locale}/${version}/${savedItem.skillId}/p`}>{index + 1}</Link>
                         </SavedListTableTd>
-                        <SavedListTableTd
-                          className={`lv${parseInt(
-                            savedItem.skillPoint / 500
-                          )}`}
-                        >
-                          <Link
-                            to={`/${locale}/${version}/${savedItem.skillId}/p`}
-                          >
+                        <SavedListTableTd className={`lv${parseInt(savedItem.skillPoint / 500)}`}>
+                          <Link to={`/${locale}/${version}/${savedItem.skillId}/p`}>
                             {savedItem.skillPoint.toFixed(2)}
                           </Link>
                         </SavedListTableTd>
-                        <SavedListTableTd
-                          className={`lv${parseInt(
-                            savedItem.skillPoint / 500
-                          )}`}
-                        >
-                          <Link
-                            to={`/${locale}/${version}/${savedItem.skillId}/p`}
-                          >
-                            {savedItem.updateDate}
-                          </Link>
+                        <SavedListTableTd className={`lv${parseInt(savedItem.skillPoint / 500)}`}>
+                          <Link to={`/${locale}/${version}/${savedItem.skillId}/p`}>{savedItem.updateDate}</Link>
                         </SavedListTableTd>
                         <SavedListTableTd>
                           <Link to={`?c=${savedItem.skillId}`}>
                             <CompareArrows
-                              style={{ fontSize: 16, color: "white" }}
+                              style={{
+                                fontSize: 16,
+                                color: "white"
+                              }}
                             />
                           </Link>
                         </SavedListTableTd>
@@ -336,10 +277,7 @@ function SkillPage(props) {
                     ))}
                   </tbody>
                 </SavedListTable>
-                <SaveSkillButton
-                  onClick={handleSaveSkill}
-                  disabled={saveSkillDisabled}
-                >
+                <SaveSkillButton onClick={handleSaveSkill} disabled={saveSkillDisabled}>
                   <FormattedMessage id="skill.saveSkill" />
                 </SaveSkillButton>
               </>
@@ -348,10 +286,7 @@ function SkillPage(props) {
         </>
       )}
 
-      <MuiDialog
-        open={skillIdDescDialogOpen}
-        onClose={() => setSkillIdDescDialogOpen(false)}
-      >
+      <MuiDialog open={skillIdDescDialogOpen} onClose={() => setSkillIdDescDialogOpen(false)}>
         <DialogTitle>
           <FormattedMessage id="skill.skillId" />
         </DialogTitle>
@@ -361,11 +296,7 @@ function SkillPage(props) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button
-            onClick={() => setSkillIdDescDialogOpen(false)}
-            color="primary"
-            autoFocus
-          >
+          <Button onClick={() => setSkillIdDescDialogOpen(false)} color="primary" autoFocus>
             <FormattedMessage id="skill.skillIdOk" />
           </Button>
         </DialogActions>

@@ -15,12 +15,7 @@ const typeDefs = gql`
 
   type Mutation {
     upload(version: Version, data: UserInput): Int
-    postError(
-      version: Version
-      error: String
-      date: String
-      userAgent: String
-    ): Boolean
+    postError(version: Version, error: String, date: String, userAgent: String): Boolean
     saveSkill(version: Version, data: SimpleUserInput, playerId: Int, type: GameType): Int
   }
 

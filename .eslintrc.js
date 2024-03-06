@@ -1,8 +1,7 @@
 module.exports = {
-  extends: ["prettier", "eslint:recommended", "plugin:react/recommended"],
-  plugins: ["prettier", "react"],
+  extends: ["eslint:recommended", "plugin:react/recommended"],
+  plugins: ["react"],
   rules: {
-    "prettier/prettier": "error",
     "no-undef": "off",
     "no-console": "off"
   },
@@ -28,15 +27,5 @@ module.exports = {
         "prefer-template": "error"
       }
     },
-    {
-      files: ["src/public/**/*.js"],
-      env: {
-        browser: true
-      },
-      parser: "babel-eslint",
-      rules: {
-        "prefer-template": "error"
-      }
-    }
   ]
 };

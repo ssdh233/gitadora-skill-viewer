@@ -4,11 +4,7 @@ import { StaticRouter } from "react-router";
 import { IntlProvider } from "react-intl";
 import flatten from "flat";
 import { Helmet } from "react-helmet";
-import {
-  ThemeProvider,
-  ServerStyleSheets as MuiServerStyleSheets,
-} from "@material-ui/styles";
-import { createMuiTheme } from "@material-ui/core/styles";
+import { ServerStyleSheets as MuiServerStyleSheets } from "@material-ui/styles";
 import { ApolloProvider } from "@apollo/react-common";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { HttpLink } from "apollo-link-http";
@@ -50,14 +46,11 @@ const messages = {
   ja: flatten(jaMessages),
   zh: flatten(zhMessages),
   en: flatten(enMessages),
-  ko: flatten(koMessages),
+  ko: flatten(koMessages)
 };
 
 const reactRoute = (req, res) => {
-  if (
-    req.get("Host") === "gitadora-skill-viewer.herokuapp.com" &&
-    process.env.DOMAIN_REDIRECT === "true"
-  ) {
+  if (req.get("Host") === "gitadora-skill-viewer.herokuapp.com" && process.env.DOMAIN_REDIRECT === "true") {
     res.redirect(301, `http://gsv.fun${req.url}`);
   } else {
     // set current language to cookie
@@ -70,8 +63,8 @@ const reactRoute = (req, res) => {
       cache: new InMemoryCache(),
       link: new HttpLink({
         uri: `${process.env.APP_URL}/graphql`,
-        fetch,
-      }),
+        fetch
+      })
     });
     const sheet = new ServerStyleSheet();
     const muiSheet = new MuiServerStyleSheets();
@@ -106,9 +99,7 @@ const reactRoute = (req, res) => {
       const helmet = Helmet.renderStatic();
 
       const isDevelopment = process.env.NODE_ENV === "development";
-      const bundlePath = isDevelopment
-        ? "http://localhost:8000/bundle.js"
-        : `/js/${bundleFileName}`;
+      const bundlePath = isDevelopment ? "http://localhost:8000/bundle.js" : `/js/${bundleFileName}`;
 
       const html = htmlTemplate({
         googleSiteVerfication: process.env.GOOGLE_SITE_VERIFICATION,
@@ -118,7 +109,7 @@ const reactRoute = (req, res) => {
         bundlePath,
         client,
         styleTags,
-        cssForMui,
+        cssForMui
       });
       res.send(html);
     });

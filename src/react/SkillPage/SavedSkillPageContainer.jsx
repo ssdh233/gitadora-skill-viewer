@@ -45,7 +45,10 @@ const GET_SKILL = gql`
 export default function SavedSkillPageContainer(props) {
   const { skillId, version } = props.match.params;
   const { data, loading, error } = useQuery(GET_SKILL, {
-    variables: { skillId: parseInt(skillId), version }
+    variables: {
+      skillId: parseInt(skillId),
+      version
+    }
   });
 
   if (loading) return <LinearProgress />;

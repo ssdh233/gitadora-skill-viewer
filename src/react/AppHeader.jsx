@@ -53,10 +53,7 @@ function AppHeader(props) {
     <AppHeaderDiv>
       <Helmet htmlAttributes={{ lang: locale }}>
         <meta charSet="utf-8" />
-        <link
-          rel="canonical"
-          href={`http://gsv.fun/${locale}${pathname.substring(3)}`}
-        />
+        <link rel="canonical" href={`http://gsv.fun/${locale}${pathname.substring(3)}`} />
         {["ja", "en", "zh", "ko"].map(hrefLocale => (
           <link
             key={hrefLocale}
@@ -72,13 +69,14 @@ function AppHeader(props) {
           <Link to={`/${locale}`}>Gitadora Skill Viewer</Link>
         </Title>
         <RightTopButtons>
-          <MuiButton
-            onClick={event => setLangAnchorEl(event.target)}
-            id="lang-button"
-            aria-haspopup={true}
-          >
+          <MuiButton onClick={event => setLangAnchorEl(event.target)} id="lang-button" aria-haspopup={true}>
             <Language />
-            <span style={{ marginLeft: 5, whiteSpace: "nowrap" }}>
+            <span
+              style={{
+                marginLeft: 5,
+                whiteSpace: "nowrap"
+              }}
+            >
               <FormattedMessage id="lang" />
             </span>
           </MuiButton>
@@ -130,7 +128,10 @@ function AppHeader(props) {
         {isPC && (
           <Link
             to={`/${locale}`}
-            style={{ textDecoration: "none", color: "black" }}
+            style={{
+              textDecoration: "none",
+              color: "black"
+            }}
           >
             <MuiButton id="home-button" aria-haspopup={true}>
               <HomeIcon />
@@ -140,11 +141,7 @@ function AppHeader(props) {
             </MuiButton>
           </Link>
         )}
-        <MuiButton
-          id="kasegi-button"
-          onClick={event => setKasegiAnchorEl(event.target)}
-          aria-haspopup={true}
-        >
+        <MuiButton id="kasegi-button" onClick={event => setKasegiAnchorEl(event.target)} aria-haspopup={true}>
           <AttachMoney />
           <span style={{ marginLeft: 5 }}>
             <FormattedMessage id="kasegiSong" />
@@ -190,18 +187,12 @@ function AppHeader(props) {
                 const skill = 3000 + key * 250;
                 return (
                   <>
-                    <Link
-                      key={key}
-                      to={`/${locale}/${CURRENT_VERSION}/kasegi/d/${skill}`}
-                    >
+                    <Link key={key} to={`/${locale}/${CURRENT_VERSION}/kasegi/d/${skill}`}>
                       <ListItem button>
                         <ListItemText primary={`${skill} ~`} />
                       </ListItem>
                     </Link>
-                    <Link
-                      key={key}
-                      to={`/${locale}/${CURRENT_VERSION}/kasegi/g/${skill}`}
-                    >
+                    <Link key={key} to={`/${locale}/${CURRENT_VERSION}/kasegi/g/${skill}`}>
                       <ListItem button>
                         <ListItemText primary={`${skill} ~`} />
                       </ListItem>
@@ -213,11 +204,7 @@ function AppHeader(props) {
           </List>
         </Popover>
         <Link to={`/${locale}/${CURRENT_VERSION}/list`} key={versionInfo}>
-          <MuiButton
-            id="list-button"
-            aria-haspopup={true}
-            onClick={event => setListAnchorEl(event.target)}
-          >
+          <MuiButton id="list-button" aria-haspopup={true} onClick={event => setListAnchorEl(event.target)}>
             <FormatListBulleted />
             <span style={{ marginLeft: 5 }}>
               <FormattedMessage id="list" />

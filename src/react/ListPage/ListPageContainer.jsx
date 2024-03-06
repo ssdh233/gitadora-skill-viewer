@@ -20,7 +20,9 @@ const GET_LISTS = gql`
 
 export default function ListPageContainer(props) {
   const { data, loading, error } = useQuery(GET_LISTS, {
-    variables: { version: props.match.params.version }
+    variables: {
+      version: props.match.params.version
+    }
   });
 
   if (loading) return <LinearProgress />;

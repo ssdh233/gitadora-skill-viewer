@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import { injectIntl, FormattedMessage } from "react-intl";
 
 import KasegiTable from "./KasegiTable.jsx";
-import { CURRENT_VERSION, VERSION_NAME } from "../../constants.js";
+import { CURRENT_VERSION } from "../../constants.js";
 
 class KasegiPage extends React.Component {
   render() {
@@ -60,9 +60,7 @@ class KasegiPage extends React.Component {
               }}
             >
               ⚠️古いバージョンの情報です。最新の稼ぎ曲の情報は
-              <a href={`/${locale}/${CURRENT_VERSION}/kasegi/${type}/${scope}`}>
-                こちら
-              </a>
+              <a href={`/${locale}/${CURRENT_VERSION}/kasegi/${type}/${scope}`}>こちら</a>
             </blockquote>
           )}
           {comparedSkillData && (
@@ -72,12 +70,12 @@ class KasegiPage extends React.Component {
                 id="kasegi.compareTitle"
                 values={{
                   compareSkill: (
-                    <Link
-                      to={`/${locale}/${version}/${comparedSkillId}/${type}`}
-                    >
+                    <Link to={`/${locale}/${version}/${comparedSkillId}/${type}`}>
                       <FormattedMessage
                         id="kasegi.compareSkill"
-                        values={{ name: comparedSkillData.playerName }}
+                        values={{
+                          name: comparedSkillData.playerName
+                        }}
                       />
                     </Link>
                   )

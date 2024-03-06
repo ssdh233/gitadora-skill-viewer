@@ -92,9 +92,7 @@ module.exports = {
     },
     savedSkill: async (_, { skillId, version }) => {
       if (!skillId) return null;
-      const result = await pg.query(
-        `select * from skillp where version='${version}' and "skillId"=${skillId};`
-      );
+      const result = await pg.query(`select * from skillp where version='${version}' and "skillId"=${skillId};`);
       return result.rows[0];
     },
     savedSkills: async (_, { playerId, version, type }) => {
@@ -124,22 +122,16 @@ module.exports = {
       return result.rows;
     },
     errors: async () => {
-      const result = await pg.query(
-        `SELECT * FROM errorReports ORDER BY "date" DESC LIMIT 100;`
-      );
+      const result = await pg.query(`SELECT * FROM errorReports ORDER BY "date" DESC LIMIT 100;`);
       return result.rows;
     }
   },
   Mutation: {
     upload: async (_, { version, data }) => {
       const guitarSkillPoint = (
-        parseFloat(data.guitarSkill.hot.point) +
-        parseFloat(data.guitarSkill.other.point)
+        parseFloat(data.guitarSkill.hot.point) + parseFloat(data.guitarSkill.other.point)
       ).toFixed(2);
-      const drumSkillPoint = (
-        parseFloat(data.drumSkill.hot.point) +
-        parseFloat(data.drumSkill.other.point)
-      ).toFixed(2);
+      const drumSkillPoint = (parseFloat(data.drumSkill.hot.point) + parseFloat(data.drumSkill.other.point)).toFixed(2);
       const guitarDataStr = JSON.stringify(data.guitarSkill);
       const drumDataStr = JSON.stringify(data.drumSkill);
       const sharedSongsStr = JSON.stringify(data.sharedSongs) || "{}";
@@ -151,9 +143,7 @@ module.exports = {
       // try to get player data by gitadora id
       if (data.gitadoraId) {
         const searchByGitadoraIdResult = await pg.query(
-          `select * from skill where "gitadoraId" = $$${
-            data.gitadoraId
-          }$$ and version='${version}';`
+          `select * from skill where "gitadoraId" = $$${data.gitadoraId}$$ and version='${version}';`
         );
 
         if (searchByGitadoraIdResult.rows[0]) {
@@ -164,9 +154,7 @@ module.exports = {
       // try to get player data by card number
       if (!playerDataRow) {
         const searchByCardNumberResult = await pg.query(
-          `select * from skill where "cardNumber" = $$${
-            data.cardNumber
-          }$$ and version='${version}';`
+          `select * from skill where "cardNumber" = $$${data.cardNumber}$$ and version='${version}';`
         );
         if (searchByCardNumberResult.rows[0]) {
           playerDataRow = searchByCardNumberResult.rows[0];
@@ -176,17 +164,11 @@ module.exports = {
       if (playerDataRow) {
         await pg.query("BEGIN");
 
-        const {
-          playerId,
-          guitarSkillPoint: oldGuitarSkillPoint,
-          drumSkillPoint: oldDrumSkillPoint
-        } = playerDataRow;
+        const { playerId, guitarSkillPoint: oldGuitarSkillPoint, drumSkillPoint: oldDrumSkillPoint } = playerDataRow;
 
-        if (oldGuitarSkillPoint < guitarSkillPoint)
-          await saveSkill({ version, data, playerId, type: "g" });
+        if (oldGuitarSkillPoint < guitarSkillPoint) await saveSkill({ version, data, playerId, type: "g" });
 
-        if (oldDrumSkillPoint < drumSkillPoint)
-          await saveSkill({ version, data, playerId, type: "d" });
+        if (oldDrumSkillPoint < drumSkillPoint) await saveSkill({ version, data, playerId, type: "d" });
 
         await pg.query(`
             UPDATE skill SET 
@@ -243,27 +225,25 @@ module.exports = {
 };
 
 async function saveSkill({ version, data, playerId, type }) {
-  const result = await pg.query(`SELECT "skillPoint" FROM skillp WHERE version='${version}' AND type='${type}' AND "playerId"='${playerId}'`);
+  const result = await pg.query(
+    `SELECT "skillPoint" FROM skillp WHERE version='${version}' AND type='${type}' AND "playerId"='${playerId}'`
+  );
   const maxSkillPoint = Math.max(...result.rows.map(x => Number(x.skillPoint)));
 
-  const guitarSkillPoint = (
-    parseFloat(data.guitarSkill.hot.point) +
-    parseFloat(data.guitarSkill.other.point)
-  ).toFixed(2);
-  const drumSkillPoint = (
-    parseFloat(data.drumSkill.hot.point) +
-    parseFloat(data.drumSkill.other.point)
-  ).toFixed(2);
+  const guitarSkillPoint = (parseFloat(data.guitarSkill.hot.point) + parseFloat(data.guitarSkill.other.point)).toFixed(
+    2
+  );
+  const drumSkillPoint = (parseFloat(data.drumSkill.hot.point) + parseFloat(data.drumSkill.other.point)).toFixed(2);
 
-  console.log("maxSkillPoint", maxSkillPoint)
-  console.log("Number(guitarSkillPoint)", Number(guitarSkillPoint))
-  console.log("Number(drumSkillPoint)", Number(drumSkillPoint))
+  console.log("maxSkillPoint", maxSkillPoint);
+  console.log("Number(guitarSkillPoint)", Number(guitarSkillPoint));
+  console.log("Number(drumSkillPoint)", Number(drumSkillPoint));
 
   if (type === "g" && maxSkillPoint && maxSkillPoint >= Number(guitarSkillPoint)) {
     return -1;
   }
-  
-  if (type === "d" &&  maxSkillPoint && maxSkillPoint >= Number(drumSkillPoint)) {
+
+  if (type === "d" && maxSkillPoint && maxSkillPoint >= Number(drumSkillPoint)) {
     return -1;
   }
 
