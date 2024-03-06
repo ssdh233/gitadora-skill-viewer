@@ -4,9 +4,7 @@ import { StaticRouter } from "react-router";
 import { IntlProvider } from "react-intl";
 import flatten from "flat";
 import { Helmet } from "react-helmet";
-import {
-  ServerStyleSheets as MuiServerStyleSheets,
-} from "@material-ui/styles";
+import { ServerStyleSheets as MuiServerStyleSheets } from "@material-ui/styles";
 import { ApolloProvider } from "@apollo/react-common";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { HttpLink } from "apollo-link-http";
@@ -48,7 +46,7 @@ const messages = {
   ja: flatten(jaMessages),
   zh: flatten(zhMessages),
   en: flatten(enMessages),
-  ko: flatten(koMessages),
+  ko: flatten(koMessages)
 };
 
 const reactRoute = (req, res) => {
@@ -68,8 +66,8 @@ const reactRoute = (req, res) => {
       cache: new InMemoryCache(),
       link: new HttpLink({
         uri: `${process.env.APP_URL}/graphql`,
-        fetch,
-      }),
+        fetch
+      })
     });
     const sheet = new ServerStyleSheet();
     const muiSheet = new MuiServerStyleSheets();
@@ -116,7 +114,7 @@ const reactRoute = (req, res) => {
         bundlePath,
         client,
         styleTags,
-        cssForMui,
+        cssForMui
       });
       res.send(html);
     });

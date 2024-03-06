@@ -21,7 +21,12 @@ const typeDefs = gql`
       date: String
       userAgent: String
     ): Boolean
-    saveSkill(version: Version, data: SimpleUserInput, playerId: Int, type: GameType): Int
+    saveSkill(
+      version: Version
+      data: SimpleUserInput
+      playerId: Int
+      type: GameType
+    ): Int
   }
 
   enum GameType {

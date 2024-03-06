@@ -151,9 +151,7 @@ module.exports = {
       // try to get player data by gitadora id
       if (data.gitadoraId) {
         const searchByGitadoraIdResult = await pg.query(
-          `select * from skill where "gitadoraId" = $$${
-            data.gitadoraId
-          }$$ and version='${version}';`
+          `select * from skill where "gitadoraId" = $$${data.gitadoraId}$$ and version='${version}';`
         );
 
         if (searchByGitadoraIdResult.rows[0]) {
@@ -164,9 +162,7 @@ module.exports = {
       // try to get player data by card number
       if (!playerDataRow) {
         const searchByCardNumberResult = await pg.query(
-          `select * from skill where "cardNumber" = $$${
-            data.cardNumber
-          }$$ and version='${version}';`
+          `select * from skill where "cardNumber" = $$${data.cardNumber}$$ and version='${version}';`
         );
         if (searchByCardNumberResult.rows[0]) {
           playerDataRow = searchByCardNumberResult.rows[0];
@@ -243,7 +239,9 @@ module.exports = {
 };
 
 async function saveSkill({ version, data, playerId, type }) {
-  const result = await pg.query(`SELECT "skillPoint" FROM skillp WHERE version='${version}' AND type='${type}' AND "playerId"='${playerId}'`);
+  const result = await pg.query(
+    `SELECT "skillPoint" FROM skillp WHERE version='${version}' AND type='${type}' AND "playerId"='${playerId}'`
+  );
   const maxSkillPoint = Math.max(...result.rows.map(x => Number(x.skillPoint)));
 
   const guitarSkillPoint = (
@@ -255,15 +253,23 @@ async function saveSkill({ version, data, playerId, type }) {
     parseFloat(data.drumSkill.other.point)
   ).toFixed(2);
 
-  console.log("maxSkillPoint", maxSkillPoint)
-  console.log("Number(guitarSkillPoint)", Number(guitarSkillPoint))
-  console.log("Number(drumSkillPoint)", Number(drumSkillPoint))
+  console.log("maxSkillPoint", maxSkillPoint);
+  console.log("Number(guitarSkillPoint)", Number(guitarSkillPoint));
+  console.log("Number(drumSkillPoint)", Number(drumSkillPoint));
 
-  if (type === "g" && maxSkillPoint && maxSkillPoint >= Number(guitarSkillPoint)) {
+  if (
+    type === "g" &&
+    maxSkillPoint &&
+    maxSkillPoint >= Number(guitarSkillPoint)
+  ) {
     return -1;
   }
-  
-  if (type === "d" &&  maxSkillPoint && maxSkillPoint >= Number(drumSkillPoint)) {
+
+  if (
+    type === "d" &&
+    maxSkillPoint &&
+    maxSkillPoint >= Number(drumSkillPoint)
+  ) {
     return -1;
   }
 

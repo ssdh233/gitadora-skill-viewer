@@ -1,0 +1,4 @@
+/node_modules/*
+/src/public/js/*.js
+app.dist.js
+/cypress
