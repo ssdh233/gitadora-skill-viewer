@@ -2,29 +2,17 @@ module.exports = {
   extends: ["eslint:recommended", "plugin:react/recommended"],
   plugins: ["react"],
   rules: {
-    "no-undef": "off",
-    "no-console": "off"
+    "no-console": "off",
+    "react/prop-types": "off"
   },
   overrides: [
     {
-      files: ["src/react/**/*.jsx"],
+      files: ["src/react/**/*.jsx", "src/**/*.js", "app.js", "webpack.*.js"],
       parser: "babel-eslint",
       env: {
-        browser: true
-      },
-      rules: {
-        "react/prop-types": "off"
-      }
-    },
-    {
-      files: ["src/**/*.js", "app.js", "webpack.*.js"],
-      excludedFiles: ["src/public/**/*.js"],
-      env: {
-        node: true
-      },
-      parser: "babel-eslint",
-      rules: {
-        "prefer-template": "error"
+        browser: true,
+        node: true,
+        es6: true
       }
     },
   ]

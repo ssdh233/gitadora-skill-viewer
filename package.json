@@ -13,7 +13,7 @@
     "build:prod": "webpack -p --config webpack.server.config.js && webpack -p --config webpack.client.config.js",
     "build:scripts": "webpack --config webpack.scripts.config.js --watch --mode=development",
     "build:scripts:prod": "webpack --config webpack.scripts.config.js",
-    "lint": "npx eslint . --ext .js --ext .jsx",
+    "lint": "eslint . --ext .js --ext .jsx",
     "format": "prettier --write src//**/*.{js,jsx}",
     "format:check": "prettier --check src//**/*.{js,jsx}"
   },

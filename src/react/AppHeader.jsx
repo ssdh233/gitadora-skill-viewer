@@ -34,7 +34,6 @@ function AppHeader(props) {
   const isPC = useMediaQuery("(min-width:742px)");
 
   useEffect(() => {
-    // eslint-disable-next-line no-console
     console.log(`Version: ${VERSION}`);
   }, []);
 
@@ -204,7 +203,7 @@ function AppHeader(props) {
           </List>
         </Popover>
         <Link to={`/${locale}/${CURRENT_VERSION}/list`} key={versionInfo}>
-          <MuiButton id="list-button" aria-haspopup={true} onClick={event => setListAnchorEl(event.target)}>
+          <MuiButton id="list-button">
             <FormatListBulleted />
             <span style={{ marginLeft: 5 }}>
               <FormattedMessage id="list" />
