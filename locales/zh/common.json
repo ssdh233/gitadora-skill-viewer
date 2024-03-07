@@ -122,9 +122,6 @@
     "achieve": "达成率",
     "skillPoint": "skill"
   },
-  "listPage": {
-    "tips": "点击表格的列名可以排序"
-  },
   "sharedSongs": {
     "title": "解禁曲共享",
     "desc": "本页面为gitadora官方的「向朋友推荐歌曲」功能提供了一个搜索平台",

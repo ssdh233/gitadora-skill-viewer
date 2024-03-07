@@ -122,9 +122,6 @@
     "achieve": "ACHIEVE",
     "skillPoint": "SKILL"
   },
-  "listPage": {
-    "tips": "You can sort this table by clicking the header"
-  },
   "sharedSongs": {
     "title": "Song sharing",
     "desc": "This page provides a platform to let players search unlocked songs which are shared through 'recommend songs to friends' by other players.",
