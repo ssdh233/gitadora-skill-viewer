@@ -48,7 +48,7 @@ function IndexPage(props) {
           }).substring(2)}`}
         />
       </Helmet>
-      <Snackbar
+      <MuiSnackbar
         anchorOrigin={{
           vertical: "bottom",
           horizontal: "center"
@@ -143,6 +143,13 @@ function IndexPage(props) {
 
 const IndexPageContainer = styled.div`
   width: 100%;
+`;
+
+const MuiSnackbar = styled(Snackbar)`
+  & .MuiPaper-root {
+    background: ${({ theme }) => theme.index.snackBarBg};
+    min-width: unset;
+  }
 `;
 
 export default withTheme(injectIntl(IndexPage));
