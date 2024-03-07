@@ -25,7 +25,7 @@ import { CURRENT_VERSION } from "../constants";
 import { versionInfo } from "graphql";
 import { withTheme } from "styled-components";
 
-const VERSION = "v1.36.0";
+const VERSION = "v1.36.1";
 
 function AppHeader(props) {
   const [langAnchorEl, setLangAnchorEl] = useState();
