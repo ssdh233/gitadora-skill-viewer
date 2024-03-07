@@ -10,7 +10,7 @@
     "info": {
       "title": "通知",
       "content1": "赚分曲列表从500刻度改成了250刻度。以前500刻度的赚分曲表仍然可以<a>从这里访问</a>。",
-      "content2": "最近建了一个gsv.fun用的<a href='https://twitter.com/gsvfunsite' target='_blank'>twitter 账号</a>，欢迎互fo"
+      "content2": "最近建了一个gsv.fun用的<a href='https://twitter.com/gsvfunsite' target='_blank'>twitter 账号</a>，欢迎互fo！"
     }
   },
   "how": {
@@ -121,9 +121,6 @@
     "level": "level",
     "achieve": "达成率",
     "skillPoint": "skill"
-  },
-  "listPage": {
-    "tips": "点击表格的列名可以排序"
   },
   "sharedSongs": {
     "title": "解禁曲共享",

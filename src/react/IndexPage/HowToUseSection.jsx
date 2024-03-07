@@ -17,7 +17,7 @@ function HowToUse(props) {
     <>
       <p>{<FormattedMessage id="how.upload.step1.desc" defaultMessage="1.ブックマークに下記のスクリプトを登録" />}</p>
       <MuiAlert severity="warning">
-        <FormattedMessage
+        <FormattedHTMLMessage
           id="how.upload.step1.remark"
           defaultMessage="一部のブラウザ（safari、スマホのchromeとか）ではブックマークの新規作成ができませんが、とりあえず何かのウェブサイトをブックマークに登録して、登録したブックマークを編集して、スクリプトをURLアドレスのところに置き換えてもOKです。"
         />

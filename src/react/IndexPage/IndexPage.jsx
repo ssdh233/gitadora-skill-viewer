@@ -80,7 +80,7 @@ function IndexPage(props) {
           {
             <FormattedMessage
               id="intro.desc"
-              defaultMessage="コナミ様の公式サイトからギタドラのスキルデータを取得し、スキルの進捗を記録したり、スキル表を他のプレイヤーをシェアしたりするためのウェブサイトです。"
+              defaultMessage="ギタドラの公式サイトからスキルデータを取得し、スキルの進捗を記録したり、スキル表を他のプレイヤーをシェアしたりするためのウェブサイトです。"
             />
           }
         </p>

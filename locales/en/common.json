@@ -10,7 +10,7 @@
     "info": {
       "title": "Notice",
       "content1": "Song Ranking is 250 skill points each now. The old Song Ranking pages(500 each) can still be <a>accessed from here</a>",
-      "content2": "I created a <a href='https://twitter.com/gsvfunsite'>twitter account</a> for gsv.fun. Please follow me"
+      "content2": "I created a <a href='https://twitter.com/gsvfunsite'>twitter account</a> for gsv.fun. Please follow me :)"
     }
   },
   "how": {
@@ -121,9 +121,6 @@
     "level": "LEVEL",
     "achieve": "ACHIEVE",
     "skillPoint": "SKILL"
-  },
-  "listPage": {
-    "tips": "You can sort this table by clicking the header"
   },
   "sharedSongs": {
     "title": "Song sharing",

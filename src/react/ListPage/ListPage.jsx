@@ -2,7 +2,7 @@ import React from "react";
 import styled, { withTheme } from "styled-components";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import { injectIntl, FormattedMessage } from "react-intl";
+import { injectIntl } from "react-intl";
 import ReactTable from "react-table";
 
 import { VERSION_NAME } from "../../constants.js";
@@ -131,9 +131,6 @@ function ListPage(props) {
       {data && (
         <ListTableContainer isAdmin id="list-table">
           <Title>{fullVersionName}</Title>
-          <p>
-            Tips: <FormattedMessage id="listPage.tips" />
-          </p>
           <TableDiv>
             <ReactTable
               data={data}
@@ -142,6 +139,13 @@ function ListPage(props) {
               pageSizeOptions={[5, 100, 200, 500, 1000]}
               getTrProps={getTrProps}
               getTdProps={getTdProps}
+              defaultSortDesc
+              defaultSorted={[
+                {
+                  id: "totalSkillPoint",
+                  desc: true
+                }
+              ]}
             />
           </TableDiv>
         </ListTableContainer>

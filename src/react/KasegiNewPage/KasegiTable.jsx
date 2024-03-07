@@ -134,6 +134,13 @@ function KasegiTable(props) {
           getTheadProps={getTheadProps}
           getTrProps={getTrProps}
           getTdProps={getTdProps}
+          defaultSortDesc
+          defaultSorted={[
+            {
+              id: props.hasComparedSkill ? "index" : "count",
+              desc: props.hasComparedSkill ? false : true
+            }
+          ]}
         />
       </KasegiTableRoot>
     </>
