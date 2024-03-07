@@ -42,10 +42,16 @@ function KasegiTable(props) {
     return { className, style };
   };
 
-  const getTheadProps = () => ({ style: { height: 30 } });
+  const getTheadProps = () => ({
+    style: { height: 30 }
+  });
 
   let columns = [
-    { Header: "No.", accessor: "index", maxWidth: 40 },
+    {
+      Header: "No.",
+      accessor: "index",
+      maxWidth: 40
+    },
     {
       Header: () => <FormattedMessage id="kasegi.songname" />,
       accessor: "name",
@@ -128,6 +134,13 @@ function KasegiTable(props) {
           getTheadProps={getTheadProps}
           getTrProps={getTrProps}
           getTdProps={getTdProps}
+          defaultSortDesc
+          defaultSorted={[
+            {
+              id: props.hasComparedSkill ? "index" : "count",
+              desc: props.hasComparedSkill ? false : true
+            }
+          ]}
         />
       </KasegiTableRoot>
     </>

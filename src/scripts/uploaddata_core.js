@@ -5,7 +5,7 @@ import { NO_EAM_PATH_VERSIONS } from "../constants";
 
 // eslint-disable-next-line
 async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
-  console.log({TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION})
+  console.log({ TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION });
   var skill_data = {};
 
   try {
@@ -17,9 +17,7 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
     }
 
     // get profile data
-    const [profileData] = await Promise.all([
-      getProfileData()
-    ]);
+    const [profileData] = await Promise.all([getProfileData()]);
 
     console.log("profileData", profileData);
 
@@ -32,18 +30,22 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
     }
 
     var SKILL_URLS = [
-      `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p${NO_EAM_PATH_VERSIONS.includes(VERSION) ? "/eam" : ""}/playdata/skill.html?gtype=gf&stype=0`,
-      `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p${NO_EAM_PATH_VERSIONS.includes(VERSION) ? "/eam" : ""}/playdata/skill.html?gtype=gf&stype=1`,
-      `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p${NO_EAM_PATH_VERSIONS.includes(VERSION) ? "/eam" : ""}/playdata/skill.html?gtype=dm&stype=0`,
-      `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p${NO_EAM_PATH_VERSIONS.includes(VERSION) ? "/eam" : ""}/playdata/skill.html?gtype=dm&stype=1`
+      `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p${
+        NO_EAM_PATH_VERSIONS.includes(VERSION) ? "/eam" : ""
+      }/playdata/skill.html?gtype=gf&stype=0`,
+      `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p${
+        NO_EAM_PATH_VERSIONS.includes(VERSION) ? "/eam" : ""
+      }/playdata/skill.html?gtype=gf&stype=1`,
+      `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p${
+        NO_EAM_PATH_VERSIONS.includes(VERSION) ? "/eam" : ""
+      }/playdata/skill.html?gtype=dm&stype=0`,
+      `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p${
+        NO_EAM_PATH_VERSIONS.includes(VERSION) ? "/eam" : ""
+      }/playdata/skill.html?gtype=dm&stype=1`
     ];
     var SKILL_LABEL = ["guitar_other", "guitar_hot", "drum_other", "drum_hot"];
 
-    await Promise.all(
-      [0, 1, 2, 3].map(index =>
-        getSkillData(SKILL_URLS[index], SKILL_LABEL[index])
-      )
-    );
+    await Promise.all([0, 1, 2, 3].map(index => getSkillData(SKILL_URLS[index], SKILL_LABEL[index])));
 
     let uploadRes = await $.ajax({
       url: `${SCRIPT_DOMAIN}/graphql`,
@@ -77,9 +79,7 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
     if (uploadRes.errors) {
       postError(uploadRes.errors);
     } else {
-      window.location = `${TARGET_DOMAIN}/${VERSION}/${
-        uploadRes.data.upload
-      }/g?setLocalStorage=${uploadRes.data.upload}`;
+      window.location = `${TARGET_DOMAIN}/${VERSION}/${uploadRes.data.upload}/g?setLocalStorage=${uploadRes.data.upload}`;
     }
   } catch (error) {
     // unhandled eror
@@ -124,9 +124,7 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
               .substring(14, 17);
 
             var skill_value = current_line.find("td.skill_cell").text();
-            skill_value = skill_value
-              .substring(0, skill_value.length - 8)
-              .trim();
+            skill_value = skill_value.substring(0, skill_value.length - 8).trim();
             var achive_value = current_line
               .find("td.achive_cell")
               .text()
@@ -159,10 +157,15 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
   }
 
   async function getProfileData() {
-    var PROFILE_URL = `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p${NO_EAM_PATH_VERSIONS.includes(VERSION) ? "/eam" : ""}/playdata/profile.html`;
+    var PROFILE_URL = `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p${
+      NO_EAM_PATH_VERSIONS.includes(VERSION) ? "/eam" : ""
+    }/playdata/profile.html`;
 
     let profileData = {};
-    let resHtml = await $.ajax({ url: PROFILE_URL, error: handleAjaxError(PROFILE_URL) });
+    let resHtml = await $.ajax({
+      url: PROFILE_URL,
+      error: handleAjaxError(PROFILE_URL)
+    });
 
     var doc = document.implementation.createHTMLDocument("html");
     doc.documentElement.innerHTML = resHtml;
@@ -197,29 +200,6 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
     profileData.gitadoraId = gitadoraId;
 
     return profileData;
-  }
-
-  async function getSharedSongData(type) {
-    // get shared song data
-    const url = `//p.eagate.573.jp/game/gfdm/gitadora_${VERSION}/p${NO_EAM_PATH_VERSIONS.includes(VERSION) ? "/eam" : ""}}/setting/recommend.html?gtype=${type}`;
-    const resHtml = await $.ajax({
-      url: url,
-      error: handleAjaxError(url)
-    });
-
-    var doc = document.implementation.createHTMLDocument("html");
-    doc.documentElement.innerHTML = resHtml;
-
-    const songs = $(doc)
-      .find("#contents table.music_table_tb tr > td.music_cell")
-      .map((i, el) =>
-        $(el)
-          .text()
-          .trim()
-      )
-      .toArray();
-
-    return songs;
   }
 
   async function postError(error) {
@@ -261,7 +241,7 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
     return function(request, status) {
       console.error(`${request.responseText}\n\nstatus: ${status}`);
       postError(`${url}\n\n${request.responseText}\n\nstatus: ${status}`);
-    }
+    };
   }
 }
 

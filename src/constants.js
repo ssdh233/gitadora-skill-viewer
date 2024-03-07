@@ -1,4 +1,3 @@
-
 const ALL_VERSIONS = ["fuzzup", "highvoltage", "nextage", "exchain", "matixx", "tbre", "tb"];
 
 const CURRENT_VERSION = ALL_VERSIONS[0];

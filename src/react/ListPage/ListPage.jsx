@@ -2,7 +2,7 @@ import React from "react";
 import styled, { withTheme } from "styled-components";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import { injectIntl, FormattedMessage } from "react-intl";
+import { injectIntl } from "react-intl";
 import ReactTable from "react-table";
 
 import { VERSION_NAME } from "../../constants.js";
@@ -53,7 +53,11 @@ function ListPage(props) {
         return page * pageSize + viewIndex + 1;
       }
     },
-    { Header: "Name", accessor: "playerName", minWidth: 144 },
+    {
+      Header: "Name",
+      accessor: "playerName",
+      minWidth: 144
+    },
     {
       Header: "Guitar",
       accessor: "guitarSkillPoint",
@@ -74,10 +78,7 @@ function ListPage(props) {
       maxWidth: props.mediaQuery === "sp" ? 70 : 90,
       sortMethod: (a, b) => Number(a) - Number(b),
       Cell: ({ row }) => (
-        <Link
-          to={`/${locale}/${version}/${row._original.playerId}/d`}
-          className={`lv${getLevel(row.drumSkillPoint)}`}
-        >
+        <Link to={`/${locale}/${version}/${row._original.playerId}/d`} className={`lv${getLevel(row.drumSkillPoint)}`}>
           {(row.drumSkillPoint && row.drumSkillPoint.toFixed(2)) || "0.00"}
         </Link>
       )
@@ -106,7 +107,11 @@ function ListPage(props) {
   if (props.isAdmin) {
     columns = [
       ...columns,
-      { Header: "Count", accessor: "updateCount", minWidth: 30 }
+      {
+        Header: "Count",
+        accessor: "updateCount",
+        minWidth: 30
+      }
     ];
   }
 
@@ -126,9 +131,6 @@ function ListPage(props) {
       {data && (
         <ListTableContainer isAdmin id="list-table">
           <Title>{fullVersionName}</Title>
-          <p>
-            Tips: <FormattedMessage id="listPage.tips" />
-          </p>
           <TableDiv>
             <ReactTable
               data={data}
@@ -137,6 +139,13 @@ function ListPage(props) {
               pageSizeOptions={[5, 100, 200, 500, 1000]}
               getTrProps={getTrProps}
               getTdProps={getTdProps}
+              defaultSortDesc
+              defaultSorted={[
+                {
+                  id: "totalSkillPoint",
+                  desc: true
+                }
+              ]}
             />
           </TableDiv>
         </ListTableContainer>

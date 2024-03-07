@@ -14,9 +14,7 @@ function isValidSkillData(skillData) {
 
 function gatherKasegiResult({ skillData, kasegiResult }) {
   const newKasegiResult = Object.assign({}, kasegiResult);
-  const skillPoint = (
-    parseFloat(skillData.hot.point) + parseFloat(skillData.other.point)
-  ).toFixed(2);
+  const skillPoint = (parseFloat(skillData.hot.point) + parseFloat(skillData.other.point)).toFixed(2);
   const skillLevel = parseInt(skillPoint / 500) * 500;
 
   if (!newKasegiResult[skillLevel]) {
@@ -42,9 +40,7 @@ function gatherKasegiResult({ skillData, kasegiResult }) {
         playerSkills: [skillPoint]
       };
     } else {
-      const { skills, playerSkills, ...rest } = newKasegiResult[skillLevel][
-        hotType
-      ][key];
+      const { skills, playerSkills, ...rest } = newKasegiResult[skillLevel][hotType][key];
       newKasegiResult[skillLevel][hotType][key] = {
         ...rest,
         skills: skills.concat(item.skill_value),
@@ -75,14 +71,10 @@ function extractKasegiResult(gatheredKasegiResult) {
 
         kasegiResult[skillLevel][hotType].push({
           ...rest,
-          averageSkill: (
-            skills.map(parseFloat).reduce((cur, acc) => cur + acc) /
-            skills.length
-          ).toFixed(2),
+          averageSkill: (skills.map(parseFloat).reduce((cur, acc) => cur + acc) / skills.length).toFixed(2),
           count: skills.length,
           averagePlayerSKill: (
-            playerSkills.map(parseFloat).reduce((cur, acc) => cur + acc) /
-            playerSkills.length
+            playerSkills.map(parseFloat).reduce((cur, acc) => cur + acc) / playerSkills.length
           ).toFixed(2)
         });
       });
@@ -134,16 +126,20 @@ async function kasegi({ version, type }) {
           `;
 
     await pg.query(sql);
-    console.log(
-      `Update kasegi data successfully for ${version} ${type} ${skillLevel} `
-    );
+    console.log(`Update kasegi data successfully for ${version} ${type} ${skillLevel} `);
   });
 }
 
 module.exports = {
   job: () => {
-    kasegi({ version: CURRENT_VERSION, type: "guitar" });
-    kasegi({ version: CURRENT_VERSION, type: "drum" });
+    kasegi({
+      version: CURRENT_VERSION,
+      type: "guitar"
+    });
+    kasegi({
+      version: CURRENT_VERSION,
+      type: "drum"
+    });
   },
   // every day 20:00 UTC = 5:00 JST
   cronSchedule: "0 0 20 * * *"

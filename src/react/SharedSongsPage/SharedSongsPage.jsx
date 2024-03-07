@@ -27,18 +27,18 @@ function SharedSongsPage(props) {
   return (
     <>
       <Helmet>
-        <link
-          rel="canonical"
-          href={`http://gsv.fun/${locale}/shared/${type}`}
-        />
+        <link rel="canonical" href={`http://gsv.fun/${locale}/shared/${type}`} />
         <title>
-          {formatMessage({ id: "sharedSongs.title" })} |
-          {type === "d" ? " Drummania" : " GuitarFreaks"} | Gitadora Skill
-          Viewer
+          {formatMessage({
+            id: "sharedSongs.title"
+          })}{" "}
+          |{type === "d" ? " Drummania" : " GuitarFreaks"} | Gitadora Skill Viewer
         </title>
         <meta
           name="description"
-          content={formatMessage({ id: "sharedSongs.desc" })}
+          content={formatMessage({
+            id: "sharedSongs.desc"
+          })}
         />
       </Helmet>
       <div>
@@ -76,66 +76,46 @@ function SharedSongsPage(props) {
         )}
         {sharedSongs &&
           sharedSongs.length > 0 &&
-          sharedSongs.map(
-            (
-              { playerId, playerName, gitadoraId, sharedSongs, updateDate },
-              index
-            ) => {
-              return (
-                <React.Fragment key={index}>
-                  <ResultRoot>
-                    <HalfLine>
-                      <Link
-                        to={`/${locale}/${CURRENT_VERSION}/${playerId}/${type}`}
-                      >
-                        {playerName}
-                      </Link>
-                    </HalfLine>
-                    <HalfLine>ギタドラID: {gitadoraId}</HalfLine>
-                    {type === "g" && (
-                      <OneLine>
-                        ギター
-                        <ul>
-                          {sharedSongs.g.map(song => (
-                            <SongName
-                              key={song}
-                              searched={song.includes(inputValue)}
-                            >
-                              {song}
-                            </SongName>
-                          ))}
-                        </ul>
-                      </OneLine>
-                    )}
-                    {type === "d" && (
-                      <OneLine>
-                        ドラム
-                        <ul>
-                          {sharedSongs.d.map(song => (
-                            <SongName
-                              key={song}
-                              searched={song.includes(inputValue)}
-                            >
-                              {song}
-                            </SongName>
-                          ))}
-                        </ul>
-                      </OneLine>
-                    )}
-                    <OneLine>Updated at：{updateDate}</OneLine>
-                  </ResultRoot>
-                  {index !== sharedSongs.length - 1 && (
-                    <Divider style={{ margin: "10px 0" }} />
+          sharedSongs.map(({ playerId, playerName, gitadoraId, sharedSongs, updateDate }, index) => {
+            return (
+              <React.Fragment key={index}>
+                <ResultRoot>
+                  <HalfLine>
+                    <Link to={`/${locale}/${CURRENT_VERSION}/${playerId}/${type}`}>{playerName}</Link>
+                  </HalfLine>
+                  <HalfLine>ギタドラID: {gitadoraId}</HalfLine>
+                  {type === "g" && (
+                    <OneLine>
+                      ギター
+                      <ul>
+                        {sharedSongs.g.map(song => (
+                          <SongName key={song} searched={song.includes(inputValue)}>
+                            {song}
+                          </SongName>
+                        ))}
+                      </ul>
+                    </OneLine>
                   )}
-                </React.Fragment>
-              );
-            }
-          )}
+                  {type === "d" && (
+                    <OneLine>
+                      ドラム
+                      <ul>
+                        {sharedSongs.d.map(song => (
+                          <SongName key={song} searched={song.includes(inputValue)}>
+                            {song}
+                          </SongName>
+                        ))}
+                      </ul>
+                    </OneLine>
+                  )}
+                  <OneLine>Updated at：{updateDate}</OneLine>
+                </ResultRoot>
+                {index !== sharedSongs.length - 1 && <Divider style={{ margin: "10px 0" }} />}
+              </React.Fragment>
+            );
+          })}
       </SearchArea>
-      <SlideToggle
-        defaultOpen
-        title={<FormattedHTMLMessage id="sharedSongs.howToUse.title" />}
-      >
+      <SlideToggle defaultOpen title={<FormattedHTMLMessage id="sharedSongs.howToUse.title" />}>
         <ol>
           <li>
             <FormattedHTMLMessage id="sharedSongs.howToUse.step1" />
@@ -169,9 +149,7 @@ function SharedSongsPage(props) {
         </ol>
         <Image src="/image/addFriend.jpg" />
       </SlideToggle>
-      <SlideToggle
-        title={<FormattedHTMLMessage id="sharedSongs.howToShare.title" />}
-      >
+      <SlideToggle title={<FormattedHTMLMessage id="sharedSongs.howToShare.title" />}>
         <Paragraph>
           <FormattedMessage
             id="sharedSongs.howToShare.desc1"
@@ -206,10 +184,7 @@ function SharedSongsPage(props) {
         </Paragraph>
         <Image src="/image/sharedSongEdit.jpg" />
       </SlideToggle>
-      <SlideToggle
-        defaultOpen
-        title={<FormattedHTMLMessage id="sharedSongs.forum" />}
-      >
+      <SlideToggle defaultOpen title={<FormattedHTMLMessage id="sharedSongs.forum" />}>
         <FormattedHTMLMessage id="sharedSongs.forumDesc" />
       </SlideToggle>
       <div style={{ marginTop: 20 }} id="disqus_thread" />

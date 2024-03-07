@@ -26,9 +26,7 @@ function SearchBox(props) {
   let suggestions =
     suggestionsData &&
     suggestionsData.sharedSongSuggestions &&
-    suggestionsData.sharedSongSuggestions.filter(suggestion =>
-      suggestion.includes(props.inputValue)
-    );
+    suggestionsData.sharedSongSuggestions.filter(suggestion => suggestion.includes(props.inputValue));
 
   return (
     <Downshift
@@ -43,7 +41,11 @@ function SearchBox(props) {
     >
       {({ getRootProps, getInputProps, getItemProps, isOpen, openMenu }) => {
         return (
-          <Container {...getRootProps({ suppressRefError: true })}>
+          <Container
+            {...getRootProps({
+              suppressRefError: true
+            })}
+          >
             <TextField
               label="曲名で検索"
               margin="dense"
@@ -53,9 +55,7 @@ function SearchBox(props) {
                 style: { padding: 0 },
                 endAdornment: (
                   <InputAdornment position="end">
-                    <IconButton
-                      onClick={() => props.onFetchSharedSongs(props.inputValue)}
-                    >
+                    <IconButton onClick={() => props.onFetchSharedSongs(props.inputValue)}>
                       <SearchIcon />
                     </IconButton>
                   </InputAdornment>

@@ -35,12 +35,7 @@ const GET_KASEGI = gql`
     averagePlayerSKill
   }
 
-  query Kasegi(
-    $version: Version
-    $type: GameType
-    $scope: Int
-    $playerId: Int
-  ) {
+  query Kasegi($version: Version, $type: GameType, $scope: Int, $playerId: Int) {
     kasegi(version: $version, type: $type, scope: $scope) {
       version
       type
@@ -122,19 +117,13 @@ function getKasegiData(kasegiData, kasegiComparedSkill, type) {
       displayedDiff = `${displayedDiff}-${part}`;
     }
 
-    const averageAchieve =
-      ((averageSkill / (diffValue * 20)) * 100).toFixed(2) + "%";
-    const displayedAverageSkill = `${averageSkill.toFixed(
-      2
-    )} (${averageAchieve})`;
+    const averageAchieve = ((averageSkill / (diffValue * 20)) * 100).toFixed(2) + "%";
+    const displayedAverageSkill = `${averageSkill.toFixed(2)} (${averageAchieve})`;
 
     let compare = null;
     if (skillData) {
       let comparedData = skillData.find(
-        skillDataItem =>
-          skillDataItem.name === name &&
-          skillDataItem.diff === diff &&
-          skillDataItem.part === part
+        skillDataItem => skillDataItem.name === name && skillDataItem.diff === diff && skillDataItem.part === part
       );
       if (comparedData) {
         compare = comparedData.skill_value - averageSkill;
@@ -164,21 +153,11 @@ function getKasegiData(kasegiData, kasegiComparedSkill, type) {
 
   const { hot: kasegiHot, other: kasegiOther, ...rest } = kasegiData;
   const { hot: skillHot, other: skillOther } =
-    (kasegiComparedSkill &&
-      kasegiComparedSkill[type === "d" ? "drumSkill" : "guitarSkill"]) ||
-    {};
+    (kasegiComparedSkill && kasegiComparedSkill[type === "d" ? "drumSkill" : "guitarSkill"]) || {};
 
   return {
     ...rest,
-    hot:
-      kasegiHot &&
-      kasegiHot
-        .sort(sortByCountAndSkill)
-        .map(processData(skillHot && skillHot.data)),
-    other:
-      kasegiOther &&
-      kasegiOther
-        .sort(sortByCountAndSkill)
-        .map(processData(skillOther && skillOther.data))
+    hot: kasegiHot && kasegiHot.sort(sortByCountAndSkill).map(processData(skillHot && skillHot.data)),
+    other: kasegiOther && kasegiOther.sort(sortByCountAndSkill).map(processData(skillOther && skillOther.data))
   };
 }

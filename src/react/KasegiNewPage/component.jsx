@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import { injectIntl, FormattedMessage } from "react-intl";
 
 import KasegiTable from "./KasegiTable.jsx";
-import { CURRENT_VERSION, VERSION_NAME } from "../../constants.js";
+import { CURRENT_VERSION } from "../../constants.js";
 
 class KasegiNewPage extends React.Component {
   render() {
@@ -43,20 +43,23 @@ class KasegiNewPage extends React.Component {
             )}
           />
           <title>{`${title} | Gitadora Skill Viewer`}</title>
-          {
-            version !== CURRENT_VERSION && <meta name="robots" content="noindex" />
-          }
+          {version !== CURRENT_VERSION && <meta name="robots" content="noindex" />}
         </Helmet>
         <div style={styles.kasegiNewPage}>
           <h1 style={styles.title}>{title}</h1>
-          {version !== CURRENT_VERSION && <blockquote style={{
-            borderLeft: "5px solid #ffe564",
-            backgroundColor: "rgba(255,229,100,0.2)",
-            padding: "20px 24px",
-            margin: "24px 0"
-          }}>
-            ⚠️古いバージョンの情報です。最新の稼ぎ曲の情報は<a href={`/${locale}/${CURRENT_VERSION}/kasegi/${type}/${scope}`}>こちら</a>
-          </blockquote>}
+          {version !== CURRENT_VERSION && (
+            <blockquote
+              style={{
+                borderLeft: "5px solid #ffe564",
+                backgroundColor: "rgba(255,229,100,0.2)",
+                padding: "20px 24px",
+                margin: "24px 0"
+              }}
+            >
+              ⚠️古いバージョンの情報です。最新の稼ぎ曲の情報は
+              <a href={`/${locale}/${CURRENT_VERSION}/kasegi/${type}/${scope}`}>こちら</a>
+            </blockquote>
+          )}
           {comparedSkillData && (
             <h2 style={styles.subtitle}>
               {/* TODO add link after find a way to inject query to prop */}
@@ -64,12 +67,12 @@ class KasegiNewPage extends React.Component {
                 id="kasegi.compareTitle"
                 values={{
                   compareSkill: (
-                    <Link
-                      to={`/${locale}/${version}/${comparedSkillId}/${type}`}
-                    >
+                    <Link to={`/${locale}/${version}/${comparedSkillId}/${type}`}>
                       <FormattedMessage
                         id="kasegi.compareSkill"
-                        values={{ name: comparedSkillData.playerName }}
+                        values={{
+                          name: comparedSkillData.playerName
+                        }}
                       />
                     </Link>
                   )

@@ -69,6 +69,9 @@ const siteMapJs = {
   }
 };
 
-const sitemapXML = convert.js2xml(siteMapJs, { spaces: 2, compact: true });
+const sitemapXML = convert.js2xml(siteMapJs, {
+  spaces: 2,
+  compact: true
+});
 
 fs.writeFileSync("sitemap.xml", sitemapXML);

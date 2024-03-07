@@ -10,12 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js 12.18.1
+    - name: Use Node.js
       uses: actions/setup-node@v1
       with:
-        node-version: 12.18.1
+        node-version: 16.15.0
     - run: npm install
-    - run: npm install -g cypress
+    - run: npm install -g cypress@9
     - uses: ssdh233/wait-for-deployment-action@v3.0.1
       id: deployment
       with:
@@ -24,4 +24,3 @@ jobs:
         timeout: 600
         interval: 60
     - run: cypress run
-    

@@ -1,42 +1,19 @@
 module.exports = {
-  extends: ["prettier", "eslint:recommended", "plugin:react/recommended"],
-  plugins: ["prettier", "react"],
+  extends: ["eslint:recommended", "plugin:react/recommended"],
+  plugins: ["react"],
   rules: {
-    "prettier/prettier": "error",
-    "no-undef": "off",
-    "no-console": "off"
+    "no-console": "off",
+    "react/prop-types": "off"
   },
   overrides: [
     {
-      files: ["src/react/**/*.jsx"],
+      files: ["src/react/**/*.jsx", "src/**/*.js", "app.js", "webpack.*.js"],
       parser: "babel-eslint",
       env: {
-        browser: true
-      },
-      rules: {
-        "react/prop-types": "off"
+        browser: true,
+        node: true,
+        es6: true
       }
     },
-    {
-      files: ["src/**/*.js", "app.js", "webpack.*.js"],
-      excludedFiles: ["src/public/**/*.js"],
-      env: {
-        node: true
-      },
-      parser: "babel-eslint",
-      rules: {
-        "prefer-template": "error"
-      }
-    },
-    {
-      files: ["src/public/**/*.js"],
-      env: {
-        browser: true
-      },
-      parser: "babel-eslint",
-      rules: {
-        "prefer-template": "error"
-      }
-    }
   ]
 };

@@ -21,21 +21,19 @@ import IconButton from "@material-ui/core/IconButton";
 import BrightnessHighIcon from "@material-ui/icons/BrightnessHigh";
 import Brightness4Icon from "@material-ui/icons/Brightness4";
 
-import { ALL_VERSIONS, CURRENT_VERSION, VERSION_NAME } from "../constants";
+import { CURRENT_VERSION } from "../constants";
 import { versionInfo } from "graphql";
 import { withTheme } from "styled-components";
 
-const VERSION = "v1.34.1";
+const VERSION = "v1.36.0";
 
 function AppHeader(props) {
-  const [listAnchorEl, setListAnchorEl] = useState();
   const [langAnchorEl, setLangAnchorEl] = useState();
   const [kasegiAnchorEl, setKasegiAnchorEl] = useState();
 
   const isPC = useMediaQuery("(min-width:742px)");
 
   useEffect(() => {
-    // eslint-disable-next-line no-console
     console.log(`Version: ${VERSION}`);
   }, []);
 
@@ -54,10 +52,7 @@ function AppHeader(props) {
     <AppHeaderDiv>
       <Helmet htmlAttributes={{ lang: locale }}>
         <meta charSet="utf-8" />
-        <link
-          rel="canonical"
-          href={`http://gsv.fun/${locale}${pathname.substring(3)}`}
-        />
+        <link rel="canonical" href={`http://gsv.fun/${locale}${pathname.substring(3)}`} />
         {["ja", "en", "zh", "ko"].map(hrefLocale => (
           <link
             key={hrefLocale}
@@ -73,13 +68,14 @@ function AppHeader(props) {
           <Link to={`/${locale}`}>Gitadora Skill Viewer</Link>
         </Title>
         <RightTopButtons>
-          <MuiButton
-            onClick={event => setLangAnchorEl(event.target)}
-            id="lang-button"
-            aria-haspopup={true}
-          >
+          <MuiButton onClick={event => setLangAnchorEl(event.target)} id="lang-button" aria-haspopup={true}>
             <Language />
-            <span style={{ marginLeft: 5, whiteSpace: "nowrap" }}>
+            <span
+              style={{
+                marginLeft: 5,
+                whiteSpace: "nowrap"
+              }}
+            >
               <FormattedMessage id="lang" />
             </span>
           </MuiButton>
@@ -131,7 +127,10 @@ function AppHeader(props) {
         {isPC && (
           <Link
             to={`/${locale}`}
-            style={{ textDecoration: "none", color: "black" }}
+            style={{
+              textDecoration: "none",
+              color: "black"
+            }}
           >
             <MuiButton id="home-button" aria-haspopup={true}>
               <HomeIcon />
@@ -141,11 +140,7 @@ function AppHeader(props) {
             </MuiButton>
           </Link>
         )}
-        <MuiButton
-          id="kasegi-button"
-          onClick={event => setKasegiAnchorEl(event.target)}
-          aria-haspopup={true}
-        >
+        <MuiButton id="kasegi-button" onClick={event => setKasegiAnchorEl(event.target)} aria-haspopup={true}>
           <AttachMoney />
           <span style={{ marginLeft: 5 }}>
             <FormattedMessage id="kasegiSong" />
@@ -191,18 +186,12 @@ function AppHeader(props) {
                 const skill = 3000 + key * 250;
                 return (
                   <>
-                    <Link
-                      key={key}
-                      to={`/${locale}/${CURRENT_VERSION}/kasegi/d/${skill}`}
-                    >
+                    <Link key={key} to={`/${locale}/${CURRENT_VERSION}/kasegi/d/${skill}`}>
                       <ListItem button>
                         <ListItemText primary={`${skill} ~`} />
                       </ListItem>
                     </Link>
-                    <Link
-                      key={key}
-                      to={`/${locale}/${CURRENT_VERSION}/kasegi/g/${skill}`}
-                    >
+                    <Link key={key} to={`/${locale}/${CURRENT_VERSION}/kasegi/g/${skill}`}>
                       <ListItem button>
                         <ListItemText primary={`${skill} ~`} />
                       </ListItem>
@@ -213,42 +202,14 @@ function AppHeader(props) {
             </div>
           </List>
         </Popover>
-        <MuiButton
-          id="list-button"
-          aria-haspopup={true}
-          onClick={event => setListAnchorEl(event.target)}
-        >
-          <FormatListBulleted />
-          <span style={{ marginLeft: 5 }}>
-            <FormattedMessage id="list" />
-          </span>
-        </MuiButton>
-        <Popover
-          id="list-popover"
-          open={Boolean(listAnchorEl)}
-          anchorEl={listAnchorEl}
-          anchorOrigin={{
-            horizontal: "left",
-            vertical: "bottom"
-          }}
-          onClose={() => setListAnchorEl(null)}
-          onClick={() => setListAnchorEl(null)}
-          PaperProps={{
-            style: {
-              background: theme.header.popoverBg
-            }
-          }}
-        >
-          <MuiMenuList>
-            {ALL_VERSIONS.map(version => (
-              <Link to={`/${locale}/${version}/list`} key={versionInfo}>
-                <MuiMenuItem>
-                  {VERSION_NAME[version].replace(":EVOLVE", "")}
-                </MuiMenuItem>
-              </Link>
-            ))}
-          </MuiMenuList>
-        </Popover>
+        <Link to={`/${locale}/${CURRENT_VERSION}/list`} key={versionInfo}>
+          <MuiButton id="list-button">
+            <FormatListBulleted />
+            <span style={{ marginLeft: 5 }}>
+              <FormattedMessage id="list" />
+            </span>
+          </MuiButton>
+        </Link>
       </SecondLineDiv>
     </AppHeaderDiv>
   );
@@ -302,7 +263,7 @@ const SecondLineDiv = styled.div`
   justify-content: flex-end;
 `;
 
-const MuiButton = styled(Button)`
+export const MuiButton = styled(Button)`
   &&& {
     color: ${({ theme }) => theme.header.button};
   }
@@ -314,13 +275,13 @@ const MuiIconButton = styled(IconButton)`
   }
 `;
 
-const MuiMenuList = styled(MenuList)`
+export const MuiMenuList = styled(MenuList)`
   & a {
     color: ${({ theme }) => theme.header.popover};
   }
 `;
 
-const MuiMenuItem = styled(MenuItem)`
+export const MuiMenuItem = styled(MenuItem)`
   &&&:hover {
     background: ${({ theme }) => theme.header.popoverHoverBg};
   }
