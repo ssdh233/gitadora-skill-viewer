@@ -1,5 +1,6 @@
 const SITE_URL = "http://gitadora-skill-viewer-dev.herokuapp.com/ja";
 // const SITE_URL = "http://localhost:5000"; // for local testing
+const { CURRENT_VERSION } = require("../../src/constants");
 
 describe("Smoke test", function() {
   it("Visits home page", function() {
@@ -7,13 +8,13 @@ describe("Smoke test", function() {
   });
 
   it("Visits skill list page", function() {
-    cy.visit(`${SITE_URL}/exchain/list`);
+    cy.visit(`${SITE_URL}/${CURRENT_VERSION}/list`);
 
     cy.get("#list-table").find(".rt-tbody > .rt-tr-group").its("length").should("eq", 100);
   });
 
   it("Visits kasegi page", function() {
-    cy.visit(`${SITE_URL}/exchain/kasegi/d/6000`);
+    cy.visit(`${SITE_URL}/${CURRENT_VERSION}/kasegi/d/6000`);
     
     cy.get("#kasegi-hot-table").find(".rt-tbody > .rt-tr-group").its("length").should("eq", 25);
     cy.get("#kasegi-other-table").find(".rt-tbody > .rt-tr-group").its("length").should("eq", 25);
