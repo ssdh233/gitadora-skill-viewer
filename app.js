@@ -41,7 +41,8 @@ app.use(cookieParser());
 // for graphql
 const server = new ApolloServer({
   typeDefs,
-  resolvers
+  resolvers,
+  introspection: true
 });
 server.applyMiddleware({ app });
 
