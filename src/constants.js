@@ -1,4 +1,4 @@
-const APP_VERSION = "v1.37.0";
+const APP_VERSION = "v1.38.0";
 
 
 const ALL_VERSIONS = ["fuzzup", "highvoltage", "nextage", "exchain", "matixx", "tbre", "tb"];
