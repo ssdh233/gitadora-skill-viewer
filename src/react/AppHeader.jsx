@@ -25,7 +25,7 @@ import { CURRENT_VERSION } from "../constants";
 import { versionInfo } from "graphql";
 import { withTheme } from "styled-components";
 
-const VERSION = "v1.36.2";
+const VERSION = "v1.37.0";
 
 function AppHeader(props) {
   const [langAnchorEl, setLangAnchorEl] = useState();
@@ -190,6 +190,36 @@ function AppHeader(props) {
             <FormattedMessage id="lang" />
           </ButtonLabel>
         </MuiButton>
+        <Popover
+          open={Boolean(langAnchorEl)}
+          anchorEl={langAnchorEl}
+          anchorOrigin={{
+            horizontal: "left",
+            vertical: "bottom"
+          }}
+          onClose={() => setLangAnchorEl(null)}
+          onClick={() => setLangAnchorEl(null)}
+          PaperProps={{
+            style: {
+              background: theme.header.popoverBg
+            }
+          }}
+        >
+          <MuiMenuList>
+            <a href={`/en${pathname.substring(3)}${search}`}>
+              <MuiMenuItem>English</MuiMenuItem>
+            </a>
+            <a href={`/ja${pathname.substring(3)}${search}`}>
+              <MuiMenuItem>日本語</MuiMenuItem>
+            </a>
+            <a href={`/ko${pathname.substring(3)}${search}`}>
+              <MuiMenuItem>한국어</MuiMenuItem>
+            </a>
+            <a href={`/zh${pathname.substring(3)}${search}`}>
+              <MuiMenuItem>简体中文</MuiMenuItem>
+            </a>
+          </MuiMenuList>
+        </Popover>
       </SecondLineDiv>
     </AppHeaderDiv>
   );
