@@ -81,6 +81,7 @@ function SkillPage(props) {
         <meta property="og:url" content="gsv.fun" />
         <meta property="og:title" content={`${title} ${skillPoint} ${skillPointDiff ? `(${skillPointDiff}↑)` : ""}`} />
         <style>{stringStyles}</style>
+        <meta name="robots" content="noindex" />
       </Helmet>
       <VersionDiv>{fullVersionName}</VersionDiv>
       {!props.saved && (
