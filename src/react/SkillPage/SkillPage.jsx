@@ -84,7 +84,7 @@ function SkillPage(props) {
       </Helmet>
       <VersionDiv>{fullVersionName}</VersionDiv>
       {!props.saved && (
-        <div style={{ margin: "3px 0" }}>
+        <SwitchLink style={{ margin: "3px 0" }}>
           {type === "g" && (
             <>
               <span>GuitarFreaks/</span>
@@ -97,7 +97,7 @@ function SkillPage(props) {
               <span>/Drummania</span>
             </>
           )}
-        </div>
+        </SwitchLink>
       )}
       <ProfileTable>
         <thead>
@@ -278,7 +278,7 @@ function SkillPage(props) {
                   </tbody>
                 </SavedListTable>
                 <SaveSkillButton onClick={handleSaveSkill} disabled={saveSkillDisabled}>
-                  <FormattedMessage id="skill.saveSkill" />
+                  <FormattedMessage id="skill.saveSkill" defaultMessage="スキルをセーブする" />
                 </SaveSkillButton>
               </>
             )}
@@ -313,13 +313,17 @@ const SkillPageDiv = styled.div`
   }
 `;
 
-const VersionDiv = styled.div`
+const VersionDiv = styled.h3`
   font-family: Andada;
   font-weight: bold;
-  font-size: 17px;
+  margin: 0;
+`;
+
+const SwitchLink = styled.div`
+  font-size: 16px;
 
   @media (max-width: 742px) {
-    font-size: 15px;
+    font-size: 14px;
   }
 `;
 
@@ -390,6 +394,11 @@ const LinkLikeButton = styled.button`
 
 const SaveSkillButton = styled.button`
   opacity: ${({ theme }) => theme.skill.saveButtonOpacity};
+  font-size: 14px;
+
+  @media (max-width: 742px) {
+    font-size: 12px;
+  }
 `;
 
 const RivalIdInput = styled(TextField)`

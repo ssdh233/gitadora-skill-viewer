@@ -22,12 +22,6 @@ function HowToUse(props) {
           defaultMessage="一部のブラウザ（safari、スマホのchromeとか）ではブックマークの新規作成ができませんが、とりあえず何かのウェブサイトをブックマークに登録して、登録したブックマークを編集して、スクリプトをURLアドレスのところに置き換えてもOKです。"
         />
       </MuiAlert>
-      <div>
-        <FormattedMessage id="how.upload.step1.currentVersion" />
-        <span style={{ fontSize: 14, marginLeft: 20 }}>
-          <FormattedMessage id="how.upload.step1.currentVersionDesc" />
-        </span>
-      </div>
       <BookmarkletScript />
       <LazyLoad height={532}>
         <ImageContainer style={{ marginTop: 20 }}>
@@ -58,8 +52,8 @@ function HowToUse(props) {
           <Image src="/image/1-2.jpg" />
           <ImageDesc
             style={{
-              left: 298,
-              top: 66
+              left: 108,
+              top: 28
             }}
           >
             <FormattedHTMLMessage id="how.upload.step2.imgDesc1" />
@@ -152,9 +146,16 @@ function HowToUse(props) {
 }
 
 const MuiAlert = styled(Alert)`
-  font-size: 14px;
-  opacity: ${({ theme }) => theme.index.alertOpacity};
-  margin: 16px;
+  &&& {
+    font-size: 14px;
+    opacity: ${({ theme }) => theme.index.alertOpacity};
+    margin: 16px;
+
+    @media (max-width: 742px) {
+      font-size: 12px;
+      margin: 12px;
+    }
+  }
 `;
 
 const ImageContainer = styled.div`
