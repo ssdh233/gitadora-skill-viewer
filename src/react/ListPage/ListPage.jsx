@@ -168,8 +168,7 @@ const ListTableContainer = styled.div`
   max-width: ${({ isAdmin }) => (isAdmin ? 800 : 700)}px;
 `;
 
-const Title = styled.h1`
-  font-size: 19px;
+const Title = styled.h2`
   text-align: center;
 `;
 

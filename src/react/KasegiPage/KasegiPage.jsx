@@ -49,7 +49,7 @@ class KasegiPage extends React.Component {
           <meta name="robots" content="noindex" />
         </Helmet>
         <div style={styles.kasegiPage}>
-          <h1 style={styles.title}>{title}</h1>
+          <h2 style={styles.title}>{title}</h2>
           {version !== CURRENT_VERSION && (
             <blockquote
               style={{
