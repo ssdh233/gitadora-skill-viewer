@@ -157,7 +157,6 @@ async function main(TARGET_DOMAIN, SCRIPT_DOMAIN, VERSION) {
             });
             skill_point += parseFloat(skill_value);
           } catch (error) {
-            console.error(error);
             // when the form is not fully filled, ignore error
             break;
           }
