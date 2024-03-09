@@ -21,11 +21,10 @@ import IconButton from "@material-ui/core/IconButton";
 import BrightnessHighIcon from "@material-ui/icons/BrightnessHigh";
 import Brightness4Icon from "@material-ui/icons/Brightness4";
 
-import { CURRENT_VERSION } from "../constants";
+import { APP_VERSION, CURRENT_VERSION } from "../constants";
 import { versionInfo } from "graphql";
 import { withTheme } from "styled-components";
 
-const VERSION = "v1.37.0";
 
 function AppHeader(props) {
   const [langAnchorEl, setLangAnchorEl] = useState();
@@ -34,7 +33,7 @@ function AppHeader(props) {
   const isPC = useMediaQuery("(min-width:742px)");
 
   useEffect(() => {
-    console.log(`Version: ${VERSION}`);
+    console.log(`Version: ${APP_VERSION}`);
   }, []);
 
   const {
