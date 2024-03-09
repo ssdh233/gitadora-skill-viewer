@@ -27,6 +27,13 @@ function BookmarkletScript() {
 
   return (
     <>
+      <div>
+        <FormattedMessage id="how.upload.step1.currentVersion" />
+        <Desc>
+          <FormattedMessage id="how.upload.step1.currentVersionDesc" />
+        </Desc>
+      </div>
+
       <ScriptDiv>
         <span>{latestScript}</span>
         <MuiIconButton
@@ -109,6 +116,11 @@ const MuiIconButton = styled(IconButton)`
 const MuiSelect = styled(Select)`
   &&& {
     color: ${({ theme }) => theme.main};
+    font-size: 16px;
+
+    @media (max-width: 742px) {
+      font-size: 14px;
+    }
 
     > svg {
       color: ${({ theme }) => theme.main};
@@ -130,5 +142,13 @@ const MuiSnackbar = styled(Snackbar)`
     min-width: unset;
   }
 `;
+
+const Desc = styled.span`
+  font-size: 14px;
+
+  @media (max-width: 742px) {
+    font-size: 12px;
+  }
+`
 
 export default BookmarkletScript;

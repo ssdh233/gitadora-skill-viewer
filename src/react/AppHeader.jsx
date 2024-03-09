@@ -21,11 +21,10 @@ import IconButton from "@material-ui/core/IconButton";
 import BrightnessHighIcon from "@material-ui/icons/BrightnessHigh";
 import Brightness4Icon from "@material-ui/icons/Brightness4";
 
-import { CURRENT_VERSION } from "../constants";
+import { APP_VERSION, CURRENT_VERSION } from "../constants";
 import { versionInfo } from "graphql";
 import { withTheme } from "styled-components";
 
-const VERSION = "v1.36.2";
 
 function AppHeader(props) {
   const [langAnchorEl, setLangAnchorEl] = useState();
@@ -34,7 +33,7 @@ function AppHeader(props) {
   const isPC = useMediaQuery("(min-width:742px)");
 
   useEffect(() => {
-    console.log(`Version: ${VERSION}`);
+    console.log(`Version: ${APP_VERSION}`);
   }, []);
 
   const {
@@ -68,48 +67,8 @@ function AppHeader(props) {
           <Link to={`/${locale}`}>Gitadora Skill Viewer</Link>
         </Title>
         <RightTopButtons>
-          <MuiButton onClick={event => setLangAnchorEl(event.target)} id="lang-button" aria-haspopup={true}>
-            <Language />
-            <span
-              style={{
-                marginLeft: 5,
-                whiteSpace: "nowrap"
-              }}
-            >
-              <FormattedMessage id="lang" />
-            </span>
-          </MuiButton>
-          <Popover
-            open={Boolean(langAnchorEl)}
-            anchorEl={langAnchorEl}
-            anchorOrigin={{
-              horizontal: "left",
-              vertical: "bottom"
-            }}
-            onClose={() => setLangAnchorEl(null)}
-            onClick={() => setLangAnchorEl(null)}
-            PaperProps={{
-              style: {
-                background: theme.header.popoverBg
-              }
-            }}
-          >
-            <MuiMenuList>
-              <a href={`/en${pathname.substring(3)}${search}`}>
-                <MuiMenuItem>English</MuiMenuItem>
-              </a>
-              <a href={`/ja${pathname.substring(3)}${search}`}>
-                <MuiMenuItem>日本語</MuiMenuItem>
-              </a>
-              <a href={`/ko${pathname.substring(3)}${search}`}>
-                <MuiMenuItem>한국어</MuiMenuItem>
-              </a>
-              <a href={`/zh${pathname.substring(3)}${search}`}>
-                <MuiMenuItem>简体中文</MuiMenuItem>
-              </a>
-            </MuiMenuList>
-          </Popover>
           <MuiIconButton
+            size={isPC ? "" : "small"}
             onClick={() =>
               setThemeKey(key => {
                 const newThemeKey = key === "default" ? "dark" : "default";
@@ -118,7 +77,11 @@ function AppHeader(props) {
               })
             }
           >
-            {isDark ? <BrightnessHighIcon /> : <Brightness4Icon />}
+            {isDark ? (
+              <BrightnessHighIcon fontSize={isPC ? "" : "small"} />
+            ) : (
+              <Brightness4Icon fontSize={isPC ? "" : "small"} />
+            )}
           </MuiIconButton>
         </RightTopButtons>
       </FirstLineDiv>
@@ -132,19 +95,24 @@ function AppHeader(props) {
               color: "black"
             }}
           >
-            <MuiButton id="home-button" aria-haspopup={true}>
-              <HomeIcon />
-              <span style={{ marginLeft: 5 }}>
+            <MuiButton size={isPC ? "" : "small"} id="home-button" aria-haspopup={true}>
+              <HomeIcon fontSize={isPC ? "" : "small"} />
+              <ButtonLabel>
                 <FormattedMessage id="home" />
-              </span>
+              </ButtonLabel>
             </MuiButton>
           </Link>
         )}
-        <MuiButton id="kasegi-button" onClick={event => setKasegiAnchorEl(event.target)} aria-haspopup={true}>
-          <AttachMoney />
-          <span style={{ marginLeft: 5 }}>
+        <MuiButton
+          size={isPC ? "" : "small"}
+          id="kasegi-button"
+          onClick={event => setKasegiAnchorEl(event.target)}
+          aria-haspopup={true}
+        >
+          <AttachMoney fontSize={isPC ? "" : "small"} />
+          <ButtonLabel>
             <FormattedMessage id="kasegiSong" />
-          </span>
+          </ButtonLabel>
         </MuiButton>
         <Popover
           open={Boolean(kasegiAnchorEl)}
@@ -203,13 +171,54 @@ function AppHeader(props) {
           </List>
         </Popover>
         <Link to={`/${locale}/${CURRENT_VERSION}/list`} key={versionInfo}>
-          <MuiButton id="list-button">
-            <FormatListBulleted />
-            <span style={{ marginLeft: 5 }}>
+          <MuiButton size={isPC ? "" : "small"} id="list-button">
+            <FormatListBulleted fontSize={isPC ? "" : "small"} />
+            <ButtonLabel>
               <FormattedMessage id="list" />
-            </span>
+            </ButtonLabel>
           </MuiButton>
         </Link>
+        <MuiButton
+          size={isPC ? "" : "small"}
+          onClick={event => setLangAnchorEl(event.target)}
+          id="lang-button"
+          aria-haspopup={true}
+        >
+          <Language fontSize={isPC ? "" : "small"} />
+          <ButtonLabel>
+            <FormattedMessage id="lang" />
+          </ButtonLabel>
+        </MuiButton>
+        <Popover
+          open={Boolean(langAnchorEl)}
+          anchorEl={langAnchorEl}
+          anchorOrigin={{
+            horizontal: "left",
+            vertical: "bottom"
+          }}
+          onClose={() => setLangAnchorEl(null)}
+          onClick={() => setLangAnchorEl(null)}
+          PaperProps={{
+            style: {
+              background: theme.header.popoverBg
+            }
+          }}
+        >
+          <MuiMenuList>
+            <a href={`/en${pathname.substring(3)}${search}`}>
+              <MuiMenuItem>English</MuiMenuItem>
+            </a>
+            <a href={`/ja${pathname.substring(3)}${search}`}>
+              <MuiMenuItem>日本語</MuiMenuItem>
+            </a>
+            <a href={`/ko${pathname.substring(3)}${search}`}>
+              <MuiMenuItem>한국어</MuiMenuItem>
+            </a>
+            <a href={`/zh${pathname.substring(3)}${search}`}>
+              <MuiMenuItem>简体中文</MuiMenuItem>
+            </a>
+          </MuiMenuList>
+        </Popover>
       </SecondLineDiv>
     </AppHeaderDiv>
   );
@@ -232,18 +241,22 @@ const FirstLineDiv = styled.div`
 
 const RightTopButtons = styled.div`
   transform: translate(8px, -8px);
+
+  @media (max-width: 742px) {
+    transform: none;
+  }
 `;
 
 const Title = styled.h1`
   flex-grow: 1;
-  font-size: 32px;
+  font-size: 28px;
   font-family: Andada;
   font-weight: bold;
   margin: 0;
 
   @media (max-width: 742px) {
-    width: "100%";
-    font-size: 24px;
+    width: 100%;
+    font-size: 22px;
   }
 
   & > a {
@@ -292,6 +305,11 @@ export const MuiListSubHeader = styled(ListSubheader)`
     color: ${({ theme }) => theme.header.popoverHeader};
     background: ${({ theme }) => theme.header.popoverBg};
   }
+`;
+
+const ButtonLabel = styled.span`
+  margin-left: 5px;
+  white-space: nowrap;
 `;
 
 export default withTheme(injectIntl(AppHeader));

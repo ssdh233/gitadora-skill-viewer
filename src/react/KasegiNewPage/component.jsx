@@ -46,7 +46,7 @@ class KasegiNewPage extends React.Component {
           {version !== CURRENT_VERSION && <meta name="robots" content="noindex" />}
         </Helmet>
         <div style={styles.kasegiNewPage}>
-          <h1 style={styles.title}>{title}</h1>
+          <h2 style={styles.title}>{title}</h2>
           {version !== CURRENT_VERSION && (
             <blockquote
               style={{

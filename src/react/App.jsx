@@ -49,6 +49,20 @@ function App({ initialThemeKey = "default" }) {
                 color: ${theme[themeKey].main};
                 background: ${theme[themeKey].mainBg};
               }
+              h2 {
+                font-size: 20px;
+
+                @media (max-width: 742px) {
+                  font-size: 18px;
+                }
+              }
+              h3 {
+                font-size: 18px;
+
+                @media (max-width: 742px) {
+                  font-size: 16px;
+                }
+              }
             `}</style>
             </Helmet>
             <Route path="/:locale" component={props => <AppHeader {...props} setThemeKey={setThemeKey} />} />

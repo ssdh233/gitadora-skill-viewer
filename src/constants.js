@@ -1,3 +1,5 @@
+const APP_VERSION = "v1.38.1";
+
 const ALL_VERSIONS = ["fuzzup", "highvoltage", "nextage", "exchain", "matixx", "tbre", "tb"];
 
 const CURRENT_VERSION = ALL_VERSIONS[0];
@@ -22,6 +24,7 @@ const OLD_NAME_MAP = {
 };
 
 module.exports = {
+  APP_VERSION,
   CURRENT_VERSION,
   ON_SERVICE_VERSIONS,
   NO_EAM_PATH_VERSIONS,

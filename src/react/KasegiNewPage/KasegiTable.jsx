@@ -137,8 +137,7 @@ function KasegiTable(props) {
           defaultSortDesc
           defaultSorted={[
             {
-              id: props.hasComparedSkill ? "index" : "count",
-              desc: props.hasComparedSkill ? false : true
+              id: "index"
             }
           ]}
         />

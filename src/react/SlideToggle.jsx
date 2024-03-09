@@ -29,8 +29,7 @@ const SlideToggleDiv = styled.div`
   margin-bottom: 5px;
 `;
 
-const Title = styled.h3`
-  font-size: 19px;
+const Title = styled.h2`
   height: 35px;
   line-height: 35px;
   font-weight: bold;
@@ -40,10 +39,9 @@ const Title = styled.h3`
   cursor: pointer;
   padding: 0 4px;
 
-  @media (max-width: 742px) : {
+  @media (max-width: 742px) {
     height: 30px;
     line-height: 30px;
-    font-size: 16px;
   }
 `;
 

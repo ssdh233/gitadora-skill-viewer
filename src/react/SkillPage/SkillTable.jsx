@@ -126,6 +126,14 @@ const SkillTableRoot = styled.table`
     max-width: 500px;
     font-size: 10px;
   }
+
+  & > caption {
+    font-size: 14px;
+
+    @media (max-width: 742px) {
+      font-size: 12px;
+    }
+  }
 `;
 
 const SkillTableTh = styled.th`
