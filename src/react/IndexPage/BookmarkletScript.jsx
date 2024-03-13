@@ -6,7 +6,7 @@ import { FormattedMessage } from "react-intl";
 import FileCopyIcon from "@material-ui/icons/FileCopy";
 import IconButton from "@material-ui/core/IconButton";
 
-import { ON_SERVICE_VERSIONS, VERSION_NAME } from "../../constants";
+import { CURRENT_VERSION, ON_SERVICE_VERSIONS, VERSION_NAME } from "../../constants";
 import { Snackbar } from "@material-ui/core";
 
 function BookmarkletScript() {
@@ -29,6 +29,7 @@ function BookmarkletScript() {
     <>
       <div>
         <FormattedMessage id="how.upload.step1.currentVersion" />
+        {" " + VERSION_NAME[CURRENT_VERSION] + " "}
         <Desc>
           <FormattedMessage id="how.upload.step1.currentVersionDesc" />
         </Desc>
@@ -149,6 +150,6 @@ const Desc = styled.span`
   @media (max-width: 742px) {
     font-size: 12px;
   }
-`
+`;
 
 export default BookmarkletScript;
