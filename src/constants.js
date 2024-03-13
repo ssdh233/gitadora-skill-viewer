@@ -1,10 +1,10 @@
-const APP_VERSION = "v1.38.3";
+const APP_VERSION = "v1.39.0";
 
-const ALL_VERSIONS = ["fuzzup", "highvoltage", "nextage", "exchain", "matixx", "tbre", "tb"];
+const ALL_VERSIONS = ["galaxywave", "fuzzup", "highvoltage", "nextage", "exchain", "matixx", "tbre", "tb"];
 
 const CURRENT_VERSION = ALL_VERSIONS[0];
 
-const ON_SERVICE_VERSIONS = ["fuzzup", "highvoltage"];
+const ON_SERVICE_VERSIONS = ["galaxywave", "fuzzup", "highvoltage"];
 
 // which has a different path with newer versions (no /eam)
 const NO_EAM_PATH_VERSIONS = ["nextage", "exchain", "matixx", "tbre", "tb"];
@@ -16,7 +16,8 @@ const VERSION_NAME = {
   exchain: "EXCHAIN",
   nextage: "NEX+AGE",
   highvoltage: "HIGH-VOLTAGE",
-  fuzzup: "FUZZ-UP"
+  fuzzup: "FUZZ-UP",
+  galaxywave: "GALAXY WAVE"
 };
 
 const OLD_NAME_MAP = {

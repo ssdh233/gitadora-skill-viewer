@@ -15,6 +15,13 @@
     <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/uservoice"/>
   </url>
   <url>
+    <loc>http://gsv.fun/ja/galaxywave/list</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/list"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/list"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/list"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/list"/>
+  </url>
+  <url>
     <loc>http://gsv.fun/ja/fuzzup/list</loc>
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/list"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/list"/>
@@ -64,435 +71,435 @@
     <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/tb/list"/>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/3000</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/3000"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/3000"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/3000"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/3000"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/g/3000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/g/3000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/g/3000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/g/3000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/g/3000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/3000</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/3000"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/3000"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/3000"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/3000"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/d/3000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/d/3000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/d/3000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/d/3000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/d/3000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/3250</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/3250"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/3250"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/3250"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/3250"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/g/3250</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/g/3250"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/g/3250"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/g/3250"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/g/3250"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/3250</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/3250"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/3250"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/3250"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/3250"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/d/3250</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/d/3250"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/d/3250"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/d/3250"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/d/3250"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/3500</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/3500"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/3500"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/3500"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/3500"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/g/3500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/g/3500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/g/3500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/g/3500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/g/3500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/3500</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/3500"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/3500"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/3500"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/3500"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/d/3500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/d/3500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/d/3500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/d/3500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/d/3500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/3750</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/3750"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/3750"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/3750"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/3750"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/g/3750</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/g/3750"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/g/3750"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/g/3750"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/g/3750"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/3750</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/3750"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/3750"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/3750"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/3750"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/d/3750</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/d/3750"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/d/3750"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/d/3750"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/d/3750"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/4000</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/4000"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/4000"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/4000"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/4000"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/g/4000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/g/4000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/g/4000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/g/4000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/g/4000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/4000</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/4000"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/4000"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/4000"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/4000"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/d/4000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/d/4000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/d/4000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/d/4000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/d/4000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/4250</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/4250"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/4250"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/4250"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/4250"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/g/4250</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/g/4250"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/g/4250"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/g/4250"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/g/4250"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/4250</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/4250"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/4250"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/4250"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/4250"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/d/4250</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/d/4250"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/d/4250"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/d/4250"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/d/4250"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/4500</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/4500"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/4500"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/4500"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/4500"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/g/4500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/g/4500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/g/4500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/g/4500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/g/4500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/4500</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/4500"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/4500"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/4500"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/4500"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/d/4500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/d/4500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/d/4500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/d/4500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/d/4500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/4750</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/4750"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/4750"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/4750"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/4750"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/g/4750</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/g/4750"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/g/4750"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/g/4750"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/g/4750"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/4750</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/4750"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/4750"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/4750"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/4750"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/d/4750</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/d/4750"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/d/4750"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/d/4750"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/d/4750"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/5000</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/5000"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/5000"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/5000"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/5000"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/g/5000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/g/5000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/g/5000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/g/5000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/g/5000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/5000</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/5000"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/5000"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/5000"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/5000"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/d/5000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/d/5000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/d/5000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/d/5000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/d/5000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/5250</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/5250"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/5250"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/5250"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/5250"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/g/5250</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/g/5250"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/g/5250"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/g/5250"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/g/5250"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/5250</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/5250"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/5250"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/5250"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/5250"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/d/5250</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/d/5250"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/d/5250"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/d/5250"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/d/5250"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/5500</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/5500"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/5500"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/5500"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/5500"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/g/5500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/g/5500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/g/5500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/g/5500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/g/5500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/5500</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/5500"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/5500"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/5500"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/5500"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/d/5500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/d/5500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/d/5500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/d/5500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/d/5500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/5750</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/5750"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/5750"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/5750"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/5750"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/g/5750</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/g/5750"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/g/5750"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/g/5750"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/g/5750"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/5750</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/5750"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/5750"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/5750"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/5750"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/d/5750</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/d/5750"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/d/5750"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/d/5750"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/d/5750"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/6000</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/6000"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/6000"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/6000"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/6000"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/g/6000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/g/6000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/g/6000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/g/6000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/g/6000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/6000</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/6000"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/6000"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/6000"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/6000"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/d/6000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/d/6000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/d/6000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/d/6000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/d/6000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/6250</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/6250"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/6250"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/6250"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/6250"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/g/6250</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/g/6250"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/g/6250"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/g/6250"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/g/6250"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/6250</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/6250"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/6250"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/6250"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/6250"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/d/6250</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/d/6250"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/d/6250"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/d/6250"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/d/6250"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/6500</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/6500"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/6500"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/6500"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/6500"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/g/6500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/g/6500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/g/6500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/g/6500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/g/6500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/6500</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/6500"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/6500"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/6500"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/6500"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/d/6500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/d/6500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/d/6500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/d/6500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/d/6500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/6750</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/6750"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/6750"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/6750"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/6750"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/g/6750</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/g/6750"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/g/6750"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/g/6750"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/g/6750"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/6750</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/6750"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/6750"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/6750"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/6750"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/d/6750</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/d/6750"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/d/6750"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/d/6750"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/d/6750"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/7000</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/7000"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/7000"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/7000"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/7000"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/g/7000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/g/7000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/g/7000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/g/7000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/g/7000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/7000</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/7000"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/7000"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/7000"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/7000"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/d/7000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/d/7000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/d/7000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/d/7000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/d/7000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/7250</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/7250"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/7250"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/7250"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/7250"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/g/7250</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/g/7250"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/g/7250"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/g/7250"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/g/7250"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/7250</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/7250"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/7250"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/7250"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/7250"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/d/7250</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/d/7250"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/d/7250"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/d/7250"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/d/7250"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/7500</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/7500"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/7500"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/7500"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/7500"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/g/7500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/g/7500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/g/7500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/g/7500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/g/7500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/7500</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/7500"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/7500"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/7500"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/7500"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/d/7500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/d/7500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/d/7500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/d/7500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/d/7500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/7750</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/7750"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/7750"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/7750"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/7750"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/g/7750</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/g/7750"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/g/7750"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/g/7750"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/g/7750"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/7750</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/7750"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/7750"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/7750"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/7750"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/d/7750</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/d/7750"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/d/7750"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/d/7750"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/d/7750"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/8000</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/8000"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/8000"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/8000"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/8000"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/g/8000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/g/8000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/g/8000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/g/8000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/g/8000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/8000</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/8000"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/8000"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/8000"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/8000"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/d/8000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/d/8000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/d/8000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/d/8000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/d/8000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/8250</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/8250"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/8250"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/8250"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/8250"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/g/8250</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/g/8250"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/g/8250"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/g/8250"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/g/8250"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/8250</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/8250"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/8250"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/8250"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/8250"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/d/8250</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/d/8250"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/d/8250"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/d/8250"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/d/8250"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/8500</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/8500"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/8500"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/8500"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/8500"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/g/8500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/g/8500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/g/8500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/g/8500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/g/8500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/8500</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/8500"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/8500"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/8500"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/8500"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/d/8500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/d/8500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/d/8500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/d/8500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/d/8500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/8750</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/8750"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/8750"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/8750"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/8750"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/g/8750</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/g/8750"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/g/8750"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/g/8750"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/g/8750"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/8750</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/8750"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/8750"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/8750"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/8750"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/d/8750</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/d/8750"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/d/8750"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/d/8750"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/d/8750"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/9000</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/9000"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/9000"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/9000"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/9000"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/g/9000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/g/9000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/g/9000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/g/9000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/g/9000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/9000</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/9000"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/9000"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/9000"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/9000"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/d/9000</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/d/9000"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/d/9000"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/d/9000"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/d/9000"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/9250</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/9250"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/9250"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/9250"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/9250"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/g/9250</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/g/9250"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/g/9250"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/g/9250"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/g/9250"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/9250</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/9250"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/9250"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/9250"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/9250"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/d/9250</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/d/9250"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/d/9250"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/d/9250"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/d/9250"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/g/9500</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/g/9500"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/g/9500"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/g/9500"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/g/9500"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/g/9500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/g/9500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/g/9500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/g/9500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/g/9500"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>http://gsv.fun/ja/fuzzup/kasegi/d/9500</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/kasegi/d/9500"/>
-    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/kasegi/d/9500"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/fuzzup/kasegi/d/9500"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/fuzzup/kasegi/d/9500"/>
+    <loc>http://gsv.fun/ja/galaxywave/kasegi/d/9500</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave/kasegi/d/9500"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave/kasegi/d/9500"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave/kasegi/d/9500"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/kasegi/d/9500"/>
     <changefreq>monthly</changefreq>
   </url>
 </urlset>
