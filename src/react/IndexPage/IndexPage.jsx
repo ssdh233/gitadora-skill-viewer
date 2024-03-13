@@ -87,6 +87,9 @@ function IndexPage(props) {
         <h3>{<FormattedMessage id="intro.info.title" defaultMessage="お知らせ" />}</h3>
         <ul>
           <li>
+            <FormattedHTMLMessage id="intro.info.content0" defaultMessage="GALAXY WAVEに対応しました。" />
+          </li>
+          <li>
             <FormattedMessage
               id="intro.info.content1"
               values={{
