@@ -25,6 +25,7 @@ const typeDefs = gql`
   }
 
   enum Version {
+    galaxywave
     fuzzup
     highvoltage
     nextage
