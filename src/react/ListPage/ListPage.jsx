@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styled, { withTheme } from "styled-components";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import { injectIntl } from "react-intl";
+import { injectIntl, useIntl } from "react-intl";
 import ReactTable from "react-table";
+import TextField from "@material-ui/core/TextField";
 
 import { VERSION_NAME } from "../../constants.js";
 import skillColorStyles from "../styles/skillColor.js";
@@ -15,7 +16,10 @@ const getLevel = (...skills) => {
 };
 
 function ListPage(props) {
+  const intl = useIntl();
   const { theme } = props;
+
+  const [searchText, setSearchText] = useState("");
 
   const getTrProps = () => ({
     style: {
@@ -128,12 +132,24 @@ function ListPage(props) {
         })} | ${fullVersionName} | Gitadora Skill Viewer`}</title>
         <style>{stringStyles}</style>
       </Helmet>
+
       {data && (
         <ListTableContainer isAdmin id="list-table">
           <Title>{fullVersionName}</Title>
+          <SearchFieldContainer>
+            <SearchField
+              id="outlined-margin-dense"
+              value={searchText}
+              onChange={e => setSearchText(e.target.value)}
+              fullWidth
+              placeholder={intl.formatMessage({ id: "list.searchPlaceholder" })}
+              margin="dense"
+              variant="outlined"
+            />
+          </SearchFieldContainer>
           <TableDiv>
             <ReactTable
-              data={data}
+              data={data.filter(x => x.playerName.includes(searchText))}
               columns={columns}
               defaultPageSize={100}
               pageSizeOptions={[5, 100, 200, 500, 1000]}
@@ -173,5 +189,15 @@ const Title = styled.h2`
 `;
 
 const stringStyles = skillColorStyles;
+
+const SearchFieldContainer = styled.div`
+  width: 800px;
+`;
+
+const SearchField = styled(TextField)`
+  margin-left: 8px;
+  margin-right: 8px;
+  width: 100%;
+`;
 
 export default withTheme(withMediaQuery(injectIntl(ListPage)));

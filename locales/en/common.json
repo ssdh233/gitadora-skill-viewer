@@ -2,7 +2,6 @@
   "title": "Gitadora Skill Viewer - Share your GITADORA skill list",
   "home": "home",
   "kasegiSong": "Song ranking",
-  "list": "Player list",
   "lang": "Lang",
   "intro": {
     "title": "Introdution",
@@ -73,6 +72,10 @@
   },
   "uservoice": {
     "message": "If you find a bug or have some suggestions, please feel free to leave a message here :)"
+  },
+  "list": {
+    "title": "Player list",
+    "searchPlaceholder": "Search by player name"
   },
   "kasegi": {
     "title": "song ranking",

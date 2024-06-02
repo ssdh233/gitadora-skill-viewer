@@ -2,7 +2,6 @@
   "title": "Gitadora Skill Viewer - 分享你的Skill",
   "home": "主页",
   "kasegiSong": "赚分曲排行",
-  "list": "玩家列表",
   "lang": "语言",
   "intro": {
     "title": "这是什么?",
@@ -73,6 +72,10 @@
   },
   "uservoice": {
     "message": "有什么意见，或者bug反馈的话欢迎在这留言！"
+  },
+  "list": {
+    "title": "玩家列表",
+    "searchPlaceholder": "搜索玩家名"
   },
   "kasegi": {
     "title": "赚分曲排行",
