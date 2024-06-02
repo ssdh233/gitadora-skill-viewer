@@ -89,6 +89,7 @@ const reactRoute = (req, res) => {
       const styleTags = sheet.getStyleTags(); // or sheet.getStyleElement();
       // for mui
       const cssForMui = muiSheet.toString();
+      console.log({cssForMui})
       // for i18n
       const appString = JSON.stringify({
         locale,
