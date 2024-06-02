@@ -68,7 +68,7 @@ function AppHeader(props) {
         </Title>
         <RightTopButtons>
           <MuiIconButton
-            size={isPC ? "" : "small"}
+            size={isPC ? undefined : "small"}
             onClick={() =>
               setThemeKey(key => {
                 const newThemeKey = key === "default" ? "dark" : "default";
@@ -78,9 +78,9 @@ function AppHeader(props) {
             }
           >
             {isDark ? (
-              <BrightnessHighIcon fontSize={isPC ? "" : "small"} />
+              <BrightnessHighIcon fontSize={isPC ? undefined : "small"} />
             ) : (
-              <Brightness4Icon fontSize={isPC ? "" : "small"} />
+              <Brightness4Icon fontSize={isPC ? undefined : "small"} />
             )}
           </MuiIconButton>
         </RightTopButtons>
@@ -95,8 +95,8 @@ function AppHeader(props) {
               color: "black"
             }}
           >
-            <MuiButton size={isPC ? "" : "small"} id="home-button" aria-haspopup={true}>
-              <HomeIcon fontSize={isPC ? "" : "small"} />
+            <MuiButton size={isPC ? undefined : "small"} id="home-button" aria-haspopup={true}>
+              <HomeIcon fontSize={isPC ? undefined : "small"} />
               <ButtonLabel>
                 <FormattedMessage id="home" />
               </ButtonLabel>
@@ -104,12 +104,12 @@ function AppHeader(props) {
           </Link>
         )}
         <MuiButton
-          size={isPC ? "" : "small"}
+          size={isPC ? undefined : "small"}
           id="kasegi-button"
           onClick={event => setKasegiAnchorEl(event.target)}
           aria-haspopup={true}
         >
-          <AttachMoney fontSize={isPC ? "" : "small"} />
+          <AttachMoney fontSize={isPC ? undefined : "small"} />
           <ButtonLabel>
             <FormattedMessage id="kasegiSong" />
           </ButtonLabel>
@@ -171,20 +171,20 @@ function AppHeader(props) {
           </List>
         </Popover>
         <Link to={`/${locale}/${CURRENT_VERSION}/list`} key={versionInfo}>
-          <MuiButton size={isPC ? "" : "small"} id="list-button">
-            <FormatListBulleted fontSize={isPC ? "" : "small"} />
+          <MuiButton size={isPC ? undefined : "small"} id="list-button">
+            <FormatListBulleted fontSize={isPC ? undefined : "small"} />
             <ButtonLabel>
-              <FormattedMessage id="list" />
+              <FormattedMessage id="list.title" />
             </ButtonLabel>
           </MuiButton>
         </Link>
         <MuiButton
-          size={isPC ? "" : "small"}
+          size={isPC ? undefined : "small"}
           onClick={event => setLangAnchorEl(event.target)}
           id="lang-button"
           aria-haspopup={true}
         >
-          <Language fontSize={isPC ? "" : "small"} />
+          <Language fontSize={isPC ? undefined : "small"} />
           <ButtonLabel>
             <FormattedMessage id="lang" />
           </ButtonLabel>
