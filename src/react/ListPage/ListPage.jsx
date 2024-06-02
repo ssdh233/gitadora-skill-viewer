@@ -5,10 +5,12 @@ import { Helmet } from "react-helmet";
 import { injectIntl, useIntl } from "react-intl";
 import ReactTable from "react-table";
 import TextField from "@material-ui/core/TextField";
+import SearchIcon from "@material-ui/icons/Search";
 
 import { VERSION_NAME } from "../../constants.js";
 import skillColorStyles from "../styles/skillColor.js";
 import withMediaQuery from "../withMediaQuery";
+import { InputAdornment } from "@material-ui/core";
 
 const getLevel = (...skills) => {
   let skill = Math.max(...skills);
@@ -136,17 +138,20 @@ function ListPage(props) {
       {data && (
         <ListTableContainer isAdmin id="list-table">
           <Title>{fullVersionName}</Title>
-          <SearchFieldContainer>
-            <SearchField
-              id="outlined-margin-dense"
-              value={searchText}
-              onChange={e => setSearchText(e.target.value)}
-              fullWidth
-              placeholder={intl.formatMessage({ id: "list.searchPlaceholder" })}
-              margin="dense"
-              variant="outlined"
-            />
-          </SearchFieldContainer>
+          <SearchField
+            value={searchText}
+            onChange={e => setSearchText(e.target.value)}
+            fullWidth
+            placeholder={intl.formatMessage({ id: "list.searchPlaceholder" })}
+            margin="dense"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon />
+                </InputAdornment>
+              )
+            }}
+          />
           <TableDiv>
             <ReactTable
               data={data.filter(x => x.playerName.includes(searchText))}
@@ -190,11 +195,10 @@ const Title = styled.h2`
 
 const stringStyles = skillColorStyles;
 
-const SearchFieldContainer = styled.div`
-  width: 800px;
-`;
-
 const SearchField = styled(TextField)`
+  & > .MuiInputBase-root {
+    color: ${({ theme }) => theme.main};
+  }
   margin-left: 8px;
   margin-right: 8px;
   width: 100%;
