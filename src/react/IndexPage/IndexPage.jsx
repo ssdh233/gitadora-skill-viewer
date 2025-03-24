@@ -15,7 +15,6 @@ function IndexPage(props) {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [gsvId, setGsvId] = useState("");
   const [gsvName, setGsvName] = useState("");
-  const [highlightOldLinks, setHighlightOldLinks] = useState(false);
 
   useEffect(() => {
     const gsvId = localStorage.getItem("gsvId");
@@ -90,31 +89,6 @@ function IndexPage(props) {
             <FormattedHTMLMessage id="intro.info.content0" defaultMessage="GALAXY WAVEに対応しました。" />
           </li>
           <li>
-            <FormattedMessage
-              id="intro.info.content1"
-              values={{
-                a: str => (
-                  <Link
-                    onClick={() => {
-                      let highlightDelay = 200;
-                      if (document.getElementById("old-links-p").parentNode.style.display === "none") {
-                        document.getElementById("otherSlideToggle").click();
-                        highlightDelay = 400;
-                      }
-                      setTimeout(() => {
-                        document.getElementById("old-links-p").scrollIntoView();
-                        setHighlightOldLinks(true);
-                      }, highlightDelay);
-                    }}
-                  >
-                    {str}
-                  </Link>
-                )
-              }}
-              defaultMessage="稼ぎ曲リストを250単位区切りにしました。昔の500単位バージョンは<a>こちら</a>でアクセスできます。"
-            />
-          </li>
-          <li>
             <FormattedHTMLMessage
               id="intro.info.content2"
               defaultMessage="gsv.funの<a href='https://twitter.com/gsvfunsite'>ツイッターアカウント</a>を作りました。フォローしていただけると嬉しいです"
@@ -138,7 +112,7 @@ function IndexPage(props) {
         </p>
       </SlideToggle>
       <SlideToggle title={<FormattedMessage id="other.title" />} titleId="otherSlideToggle">
-        <OtherSection highlightOldLinks={highlightOldLinks} />
+        <OtherSection />
       </SlideToggle>
     </IndexPageContainer>
   );

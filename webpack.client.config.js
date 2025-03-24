@@ -6,8 +6,10 @@ const ManifestPlugin = require("webpack-manifest-plugin");
 const PUBLIC_JS_DIR = path.resolve(__dirname, "src/public/js");
 const SRC_DIR = path.resolve(__dirname, "src");
 
-const isDevelopment = process.env.NODE_ENV === "development";
+const isDevelopment = true;
+// const isDevelopment = process.env.NODE_ENV === "development";
 
+console.log({ isDevelopment });
 const clientConfig = {
   mode: isDevelopment ? "development" : "production",
   devServer: {
@@ -39,8 +41,7 @@ const clientConfig = {
             loader: "style-loader"
           },
           {
-            loader:
-              "css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]"
+            loader: "css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]"
           },
           {
             loader: "sass-loader"
