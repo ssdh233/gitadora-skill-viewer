@@ -7,8 +7,8 @@
   "main": "app.js",
   "scripts": {
     "heroku-postbuild": "npm run build:prod && npm run build:scripts:prod",
-    "build:client": "webpack --watch --mode=development --config webpack.server.config.js",
-    "build:server": "webpack-dev-server --config webpack.client.config.js",
+    "build:client": "webpack --watch --config webpack.client.config.js",
+    "build:server": "webpack-dev-server --config webpack.server.config.js",
     "build": "npm-run-all --parallel build:client build:server",
     "build:prod": "webpack -p --config webpack.server.config.js && webpack -p --config webpack.client.config.js",
     "build:scripts": "webpack --config webpack.scripts.config.js --watch --mode=development",

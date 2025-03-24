@@ -100,7 +100,7 @@ const reactRoute = (req, res) => {
       const helmet = Helmet.renderStatic();
 
       const isDevelopment = process.env.NODE_ENV === "development";
-      const bundlePath = isDevelopment ? "http://localhost:8000/bundle.js" : `/js/${bundleFileName}`;
+      const bundlePath = isDevelopment ? "http://localhost:8000/js/bundle.js" : `/js/${bundleFileName}`;
 
       const html = htmlTemplate({
         googleSiteVerfication: process.env.GOOGLE_SITE_VERIFICATION,

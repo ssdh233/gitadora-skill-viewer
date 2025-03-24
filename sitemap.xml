@@ -22,6 +22,13 @@
     <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave/list"/>
   </url>
   <url>
+    <loc>http://gsv.fun/ja/galaxywave_delta/list</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/galaxywave_delta/list"/>
+    <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/galaxywave_delta/list"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="http://gsv.fun/zh/galaxywave_delta/list"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="http://gsv.fun/ko/galaxywave_delta/list"/>
+  </url>
+  <url>
     <loc>http://gsv.fun/ja/fuzzup/list</loc>
     <xhtml:link rel="alternate" hreflang="ja" href="http://gsv.fun/ja/fuzzup/list"/>
     <xhtml:link rel="alternate" hreflang="en" href="http://gsv.fun/en/fuzzup/list"/>

@@ -6,15 +6,15 @@ import { FormattedMessage } from "react-intl";
 import FileCopyIcon from "@material-ui/icons/FileCopy";
 import IconButton from "@material-ui/core/IconButton";
 
-import { CURRENT_VERSION, ON_SERVICE_VERSIONS, VERSION_NAME } from "../../constants";
+import { CURRENT_VERSION, CURRENT_VERSION_2, ON_SERVICE_VERSIONS, VERSION_NAME } from "../../constants";
 import { Snackbar } from "@material-ui/core";
 
 function BookmarkletScript() {
-  const [select, setSelect] = useState(ON_SERVICE_VERSIONS[1]);
+  const [select, setSelect] = useState(ON_SERVICE_VERSIONS[2]);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
 
   const latestScript = `javascript:void(!function(d){var s=d.createElement('script');s.type='text/javascript';s.src='//gitadora-skill-viewer.herokuapp.com/js/uploaddata_latest.js';d.head.appendChild(s);}(document));`;
-
+  const latestScript2 = `javascript:void(!function(d){var s=d.createElement('script');s.type='text/javascript';s.src='//gitadora-skill-viewer.herokuapp.com/js/uploaddata_galaxywave_delta.js';d.head.appendChild(s);}(document));`;
   const versionScript = `javascript:void(!function(d){var s=d.createElement('script');s.type='text/javascript';s.src='//gitadora-skill-viewer.herokuapp.com/js/uploaddata_${select}.js';d.head.appendChild(s);}(document));`;
 
   useEffect(() => {
@@ -48,6 +48,22 @@ function BookmarkletScript() {
       </ScriptDiv>
 
       <div>
+        {" " + VERSION_NAME[CURRENT_VERSION_2] + " "}
+      </div>
+
+      <ScriptDiv>
+        <span>{latestScript2}</span>
+        <MuiIconButton
+          onClick={() => {
+            navigator.clipboard.writeText(latestScript2);
+            setSnackbarOpen(true);
+          }}
+        >
+          <FileCopyIcon fontSize="small" />
+        </MuiIconButton>
+      </ScriptDiv>
+
+      <div>
         <FormattedMessage id="how.upload.step1.oldVersion" />
         <MuiSelect
           inputProps={{ name: "version" }}
@@ -57,7 +73,7 @@ function BookmarkletScript() {
             setSelect(event.target.value);
           }}
         >
-          {ON_SERVICE_VERSIONS.slice(1).map(version => (
+          {ON_SERVICE_VERSIONS.slice(2).map(version => (
             <MenuItem key={version} value={version}>
               {VERSION_NAME[version]}
             </MenuItem>

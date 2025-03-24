@@ -28,12 +28,7 @@ function OtherSection(props) {
 
   return (
     <>
-      <p
-        style={{
-          border: props.highlightOldLinks ? "5px solid" : ""
-        }}
-        id="old-links-p"
-      >
+      <p id="old-links-p">
         {"★"}
         <FormattedMessage id="other.oldLinks.title" defaultMessage="古いリンク" />
         <br />
