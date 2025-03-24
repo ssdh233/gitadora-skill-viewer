@@ -8,8 +8,7 @@
     "desc": "A web site which uses bookmarklet to fetch and store skill data from GITADORA official site, to share with other players.",
     "info": {
       "title": "Notice",
-      "content0": "Added support for GALAXY WAVE.",
-      "content1": "Song Ranking is 250 skill points each now. The old Song Ranking pages(500 each) can still be <a>accessed from here</a>",
+      "content0": "Added support for GALAXY WAVE DELTA.",
       "content2": "I created a <a href='https://twitter.com/gsvfunsite'>twitter account</a> for gsv.fun. Please follow me :)"
     }
   },
