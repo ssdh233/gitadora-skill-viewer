@@ -6,10 +6,8 @@ const ManifestPlugin = require("webpack-manifest-plugin");
 const PUBLIC_JS_DIR = path.resolve(__dirname, "src/public/js");
 const SRC_DIR = path.resolve(__dirname, "src");
 
-const isDevelopment = true;
-// const isDevelopment = process.env.NODE_ENV === "development";
+const isDevelopment = process.env.NODE_ENV === "development";
 
-console.log({ isDevelopment });
 const clientConfig = {
   mode: isDevelopment ? "development" : "production",
   devServer: {
