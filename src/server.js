@@ -89,7 +89,6 @@ const reactRoute = (req, res) => {
       const styleTags = sheet.getStyleTags(); // or sheet.getStyleElement();
       // for mui
       const cssForMui = muiSheet.toString();
-      console.log({cssForMui})
       // for i18n
       const appString = JSON.stringify({
         locale,
@@ -100,6 +99,7 @@ const reactRoute = (req, res) => {
       const helmet = Helmet.renderStatic();
 
       const isDevelopment = process.env.NODE_ENV === "development";
+
       const bundlePath = isDevelopment ? "http://localhost:8000/js/bundle.js" : `/js/${bundleFileName}`;
 
       const html = htmlTemplate({
