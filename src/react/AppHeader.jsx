@@ -21,14 +21,13 @@ import IconButton from "@material-ui/core/IconButton";
 import BrightnessHighIcon from "@material-ui/icons/BrightnessHigh";
 import Brightness4Icon from "@material-ui/icons/Brightness4";
 
-import { APP_VERSION, CURRENT_VERSION } from "../constants";
-import { versionInfo } from "graphql";
+import { APP_VERSION, CURRENT_VERSION, CURRENT_VERSION_2, VERSION_NAME } from "../constants";
 import { withTheme } from "styled-components";
-
 
 function AppHeader(props) {
   const [langAnchorEl, setLangAnchorEl] = useState();
   const [kasegiAnchorEl, setKasegiAnchorEl] = useState();
+  const [userAnchorEl, setUserAnchorEl] = useState();
 
   const isPC = useMediaQuery("(min-width:742px)");
 
@@ -170,14 +169,35 @@ function AppHeader(props) {
             </div>
           </List>
         </Popover>
-        <Link to={`/${locale}/${CURRENT_VERSION}/list`} key={versionInfo}>
-          <MuiButton size={isPC ? undefined : "small"} id="list-button">
-            <FormatListBulleted fontSize={isPC ? undefined : "small"} />
-            <ButtonLabel>
-              <FormattedMessage id="list.title" />
-            </ButtonLabel>
-          </MuiButton>
-        </Link>
+        <MuiButton
+          size={isPC ? undefined : "small"}
+          id="list-button"
+          onClick={event => setUserAnchorEl(event.target)}
+        >
+          <FormatListBulleted fontSize={isPC ? undefined : "small"} />
+          <ButtonLabel>
+            <FormattedMessage id="list.title" />
+          </ButtonLabel>
+        </MuiButton>
+        <Popover
+          open={Boolean(userAnchorEl)}
+          anchorEl={userAnchorEl}
+          anchorOrigin={{
+            horizontal: "left",
+            vertical: "bottom"
+          }}
+          onClose={() => setUserAnchorEl(null)}
+          onClick={() => setUserAnchorEl(null)}
+        >
+          <MuiMenuList>
+            <Link to={`/${locale}/${CURRENT_VERSION}/list`}>
+              <MuiMenuItem>{VERSION_NAME[CURRENT_VERSION]}</MuiMenuItem>
+            </Link>
+            <Link to={`/${locale}/${CURRENT_VERSION_2}/list`}>
+              <MuiMenuItem>{VERSION_NAME[CURRENT_VERSION_2]}</MuiMenuItem>
+            </Link>
+          </MuiMenuList>
+        </Popover>
         <MuiButton
           size={isPC ? undefined : "small"}
           onClick={event => setLangAnchorEl(event.target)}
