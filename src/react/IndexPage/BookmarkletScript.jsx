@@ -14,7 +14,7 @@ function BookmarkletScript() {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
 
   const latestScript = `javascript:void(!function(d){var s=d.createElement('script');s.type='text/javascript';s.src='//gitadora-skill-viewer.herokuapp.com/js/uploaddata_latest.js';d.head.appendChild(s);}(document));`;
-  const latestScript2 = `javascript:void(!function(d){var s=d.createElement('script');s.type='text/javascript';s.src='//gitadora-skill-viewer.herokuapp.com/js/uploaddata_galaxywave_delta.js';d.head.appendChild(s);}(document));`;
+  const latestScript2 = `javascript:void(!function(d){var s=d.createElement('script');s.type='text/javascript';s.src='//gitadora-skill-viewer.herokuapp.com/js/uploaddata_galaxywave.js';d.head.appendChild(s);}(document));`;
   const versionScript = `javascript:void(!function(d){var s=d.createElement('script');s.type='text/javascript';s.src='//gitadora-skill-viewer.herokuapp.com/js/uploaddata_${select}.js';d.head.appendChild(s);}(document));`;
 
   useEffect(() => {
