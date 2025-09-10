@@ -1,6 +1,6 @@
 const APP_VERSION = "v1.41.3";
 
-const ALL_VERSIONS = ["galaxywave", "galaxywave_delta", "fuzzup", "highvoltage", "nextage", "exchain", "matixx", "tbre", "tb"];
+const ALL_VERSIONS = [ "galaxywave_delta", "galaxywave", "fuzzup", "highvoltage", "nextage", "exchain", "matixx", "tbre", "tb"];
 
 const CURRENT_VERSION = ALL_VERSIONS[0];
 const CURRENT_VERSION_2 = ALL_VERSIONS[1];
