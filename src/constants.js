@@ -1,11 +1,11 @@
-const APP_VERSION = "v1.42.1"
+const APP_VERSION = "v1.42.2"
 
 const ALL_VERSIONS = [ "galaxywave_delta", "galaxywave", "fuzzup", "highvoltage", "nextage", "exchain", "matixx", "tbre", "tb"];
 
 const CURRENT_VERSION = ALL_VERSIONS[0];
 const CURRENT_VERSION_2 = ALL_VERSIONS[1];
 
-const ON_SERVICE_VERSIONS = ["galaxywave", "galaxywave_delta",  "fuzzup", "highvoltage"];
+const ON_SERVICE_VERSIONS = ["galaxywave_delta", "galaxywave",  "fuzzup", "highvoltage"];
 
 // which has a different path with newer versions (no /eam)
 const NO_EAM_PATH_VERSIONS = ["nextage", "exchain", "matixx", "tbre", "tb"];
