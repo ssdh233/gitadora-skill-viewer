@@ -1,4 +1,4 @@
-const APP_VERSION = "v1.42.1"
+const APP_VERSION = "v1.42.2"
 
 const ALL_VERSIONS = [ "galaxywave_delta", "galaxywave", "fuzzup", "highvoltage", "nextage", "exchain", "matixx", "tbre", "tb"];
 
